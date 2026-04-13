@@ -11,6 +11,4 @@ RUN uv sync --frozen --no-dev --no-install-project
 
 COPY . ./
 
-EXPOSE 3000
-
 CMD ["python", "main.py"]
