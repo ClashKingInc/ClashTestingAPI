@@ -14,9 +14,15 @@ from app.routes.common import STANDARD_ERROR_RESPONSES, respond_from_fixture, re
 
 router = APIRouter()
 
+RANKINGS_LOCATION_PATH = Path(
+    ...,
+    example="32000249",
+    description="Location ID for the rankings query. Use `global` to fetch global rankings.",
+)
+
 
 @router.get("/locations/{locationId}/rankings/clans", tags=["locations"], response_model=ClanRankingListResponse, responses=STANDARD_ERROR_RESPONSES)
-async def get_clan_ranking(locationId: str = Path(..., example="32000249"), limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
+async def get_clan_ranking(locationId: str = RANKINGS_LOCATION_PATH, limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
     paging_error = validate_paging(after, before)
     if paging_error:
         return paging_error
@@ -24,7 +30,7 @@ async def get_clan_ranking(locationId: str = Path(..., example="32000249"), limi
 
 
 @router.get("/locations/{locationId}/rankings/players", tags=["locations"], response_model=PlayerRankingListResponse, responses=STANDARD_ERROR_RESPONSES)
-async def get_player_ranking(locationId: str = Path(..., example="32000249"), limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
+async def get_player_ranking(locationId: str = RANKINGS_LOCATION_PATH, limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
     paging_error = validate_paging(after, before)
     if paging_error:
         return paging_error
@@ -32,7 +38,7 @@ async def get_player_ranking(locationId: str = Path(..., example="32000249"), li
 
 
 @router.get("/locations/{locationId}/rankings/players-builder-base", tags=["locations"], response_model=PlayerBuilderBaseRankingListResponse, responses=STANDARD_ERROR_RESPONSES)
-async def get_player_builder_base_ranking(locationId: str = Path(..., example="32000249"), limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
+async def get_player_builder_base_ranking(locationId: str = RANKINGS_LOCATION_PATH, limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
     paging_error = validate_paging(after, before)
     if paging_error:
         return paging_error
@@ -40,7 +46,7 @@ async def get_player_builder_base_ranking(locationId: str = Path(..., example="3
 
 
 @router.get("/locations/{locationId}/rankings/clans-builder-base", tags=["locations"], response_model=ClanBuilderBaseRankingListResponse, responses=STANDARD_ERROR_RESPONSES)
-async def get_clan_builder_base_ranking(locationId: str = Path(..., example="32000249"), limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
+async def get_clan_builder_base_ranking(locationId: str = RANKINGS_LOCATION_PATH, limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
     paging_error = validate_paging(after, before)
     if paging_error:
         return paging_error
@@ -56,7 +62,7 @@ async def get_locations(limit: int | None = Query(default=None, ge=1), after: st
 
 
 @router.get("/locations/{locationId}/rankings/capitals", tags=["locations"], response_model=ClanCapitalRankingListResponse, responses=STANDARD_ERROR_RESPONSES)
-async def get_clan_capital_ranking(locationId: str = Path(..., example="32000249"), limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
+async def get_clan_capital_ranking(locationId: str = RANKINGS_LOCATION_PATH, limit: int | None = Query(default=None, ge=1), after: str | None = None, before: str | None = None):
     paging_error = validate_paging(after, before)
     if paging_error:
         return paging_error
