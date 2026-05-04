@@ -1,3 +1,5 @@
+from typing import Literal
+
 from pydantic import Field
 
 from .common import (
@@ -55,7 +57,7 @@ class Player(ApiModel):
 
 
 class BattleLogEntry(ApiModel):
-    battleType: str
+    battleType: Literal["ranked", "legend", "homeVillage"]
     attack: bool
     armyShareCode: str | None = None
     opponentPlayerTag: str
