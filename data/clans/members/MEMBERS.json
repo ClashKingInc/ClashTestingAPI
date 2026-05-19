@@ -6,6 +6,7 @@
         "name": "sagar1",
         "role": "member",
         "expLevel": 234,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -52,6 +53,7 @@
         "name": "StarScream",
         "role": "coLeader",
         "expLevel": 258,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -98,6 +100,7 @@
         "name": "Prestige〰️WW〰️",
         "role": "coLeader",
         "expLevel": 248,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -144,6 +147,7 @@
         "name": "Mr.",
         "role": "coLeader",
         "expLevel": 249,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -190,6 +194,7 @@
         "name": "Caliber",
         "role": "coLeader",
         "expLevel": 239,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -236,6 +241,7 @@
         "name": "lando the boss",
         "role": "coLeader",
         "expLevel": 232,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -282,6 +288,7 @@
         "name": "ollie812",
         "role": "coLeader",
         "expLevel": 310,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -328,6 +335,7 @@
         "name": "Los Angeles",
         "role": "coLeader",
         "expLevel": 264,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -374,6 +382,7 @@
         "name": "ASackOfNuts™️",
         "role": "coLeader",
         "expLevel": 233,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -420,6 +429,7 @@
         "name": "tuscani03",
         "role": "admin",
         "expLevel": 215,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -466,6 +476,7 @@
         "name": "The Prince",
         "role": "admin",
         "expLevel": 222,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -512,6 +523,7 @@
         "name": "CoLossus",
         "role": "coLeader",
         "expLevel": 245,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -558,6 +570,7 @@
         "name": "==Dirty Angel==",
         "role": "coLeader",
         "expLevel": 236,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -604,6 +617,7 @@
         "name": "alexander aaron",
         "role": "coLeader",
         "expLevel": 272,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -650,6 +664,7 @@
         "name": "AlexFlutt",
         "role": "coLeader",
         "expLevel": 247,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -696,6 +711,7 @@
         "name": "qacka",
         "role": "admin",
         "expLevel": 176,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -742,6 +758,7 @@
         "name": "Maverick Maven",
         "role": "admin",
         "expLevel": 243,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -787,6 +804,7 @@
         "name": "COOP!",
         "role": "coLeader",
         "expLevel": 252,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -832,6 +850,7 @@
         "name": "doc",
         "role": "coLeader",
         "expLevel": 235,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -877,6 +896,7 @@
         "name": "broncb2b",
         "role": "coLeader",
         "expLevel": 258,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -903,6 +923,7 @@
         "name": "bobby",
         "role": "coLeader",
         "expLevel": 241,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -949,6 +970,7 @@
         "name": "Prestige WW",
         "role": "leader",
         "expLevel": 266,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -994,6 +1016,7 @@
         "name": "Bliz93",
         "role": "member",
         "expLevel": 228,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -1040,6 +1063,7 @@
         "name": "clam hammer",
         "role": "coLeader",
         "expLevel": 232,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1065,6 +1089,7 @@
         "name": "Chico Jr.",
         "role": "admin",
         "expLevel": 213,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -1111,6 +1136,7 @@
         "name": "Darth Purr",
         "role": "admin",
         "expLevel": 220,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1156,6 +1182,7 @@
         "name": "WiDoWmAkEr",
         "role": "coLeader",
         "expLevel": 253,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1201,6 +1228,7 @@
         "name": "joey's pizza",
         "role": "coLeader",
         "expLevel": 243,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -1247,6 +1275,7 @@
         "name": "SP2097",
         "role": "member",
         "expLevel": 203,
+        "townHallLevel": 17,
         "league": {
           "id": 29000021,
           "name": "Titan League I",
@@ -1293,6 +1322,7 @@
         "name": "King Smoke",
         "role": "admin",
         "expLevel": 203,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -1339,6 +1369,7 @@
         "name": "dclined",
         "role": "admin",
         "expLevel": 197,
+        "townHallLevel": 17,
         "league": {
           "id": 29000021,
           "name": "Titan League I",
@@ -1385,6 +1416,7 @@
         "name": "taymonayyyy",
         "role": "admin",
         "expLevel": 229,
+        "townHallLevel": 17,
         "league": {
           "id": 29000021,
           "name": "Titan League I",
@@ -1431,6 +1463,7 @@
         "name": "Night Wing",
         "role": "coLeader",
         "expLevel": 225,
+        "townHallLevel": 17,
         "league": {
           "id": 29000021,
           "name": "Titan League I",
@@ -1477,6 +1510,7 @@
         "name": "tusc’s father",
         "role": "admin",
         "expLevel": 222,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1522,6 +1556,7 @@
         "name": "anthony",
         "role": "member",
         "expLevel": 184,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1567,6 +1602,7 @@
         "name": "Firehawk",
         "role": "admin",
         "expLevel": 239,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1592,6 +1628,7 @@
         "name": "peaCeMaKer",
         "role": "coLeader",
         "expLevel": 252,
+        "townHallLevel": 17,
         "league": {
           "id": 29000019,
           "name": "Titan League III",
@@ -1638,6 +1675,7 @@
         "name": "MR.XX",
         "role": "member",
         "expLevel": 230,
+        "townHallLevel": 17,
         "league": {
           "id": 29000019,
           "name": "Titan League III",
@@ -1684,6 +1722,7 @@
         "name": "donkeyhole",
         "role": "admin",
         "expLevel": 225,
+        "townHallLevel": 17,
         "league": {
           "id": 29000019,
           "name": "Titan League III",
@@ -1730,6 +1769,7 @@
         "name": "♨KO PHYOE♨",
         "role": "member",
         "expLevel": 238,
+        "townHallLevel": 17,
         "league": {
           "id": 29000019,
           "name": "Titan League III",
@@ -1776,6 +1816,7 @@
         "name": "ACS BloodLust",
         "role": "coLeader",
         "expLevel": 250,
+        "townHallLevel": 17,
         "league": {
           "id": 29000018,
           "name": "Champion League I",
@@ -1822,6 +1863,7 @@
         "name": "Night Ryder",
         "role": "admin",
         "expLevel": 132,
+        "townHallLevel": 17,
         "league": {
           "id": 29000018,
           "name": "Champion League I",
@@ -1868,6 +1910,7 @@
         "name": "ACS BloodShot",
         "role": "coLeader",
         "expLevel": 227,
+        "townHallLevel": 17,
         "league": {
           "id": 29000017,
           "name": "Champion League II",
@@ -1914,6 +1957,7 @@
         "name": "SOOZ",
         "role": "admin",
         "expLevel": 235,
+        "townHallLevel": 17,
         "league": {
           "id": 29000016,
           "name": "Champion League III",
@@ -1960,6 +2004,7 @@
         "name": "Prestige☣️WW",
         "role": "admin",
         "expLevel": 187,
+        "townHallLevel": 17,
         "league": {
           "id": 29000014,
           "name": "Master League II",
@@ -2006,6 +2051,7 @@
         "name": "your m o m",
         "role": "coLeader",
         "expLevel": 36,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",

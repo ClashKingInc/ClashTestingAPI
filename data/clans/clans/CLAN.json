@@ -40,6 +40,7 @@
         "name": "Ｆｌａｎｂｉ♠️",
         "role": "admin",
         "expLevel": 183,
+        "townHallLevel": 17,
         "league": {
           "id": 29000022,
           "name": "Legend League",
@@ -86,6 +87,7 @@
         "name": "mongmax",
         "role": "admin",
         "expLevel": 182,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -131,6 +133,7 @@
         "name": "Ferret",
         "role": "admin",
         "expLevel": 197,
+        "townHallLevel": 17,
         "league": {
           "id": 29000021,
           "name": "Titan League I",
@@ -177,6 +180,7 @@
         "name": "marvin_2310",
         "role": "member",
         "expLevel": 252,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -222,6 +226,7 @@
         "name": "MJ26",
         "role": "member",
         "expLevel": 236,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -267,6 +272,7 @@
         "name": "2cool4u",
         "role": "coLeader",
         "expLevel": 199,
+        "townHallLevel": 17,
         "league": {
           "id": 29000020,
           "name": "Titan League II",
@@ -313,6 +319,7 @@
         "name": "hibari kyoya",
         "role": "member",
         "expLevel": 181,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -358,6 +365,7 @@
         "name": "ДЕД-ДОЕД",
         "role": "coLeader",
         "expLevel": 231,
+        "townHallLevel": 17,
         "league": {
           "id": 29000020,
           "name": "Titan League II",
@@ -404,6 +412,7 @@
         "name": "kelcy",
         "role": "member",
         "expLevel": 170,
+        "townHallLevel": 17,
         "league": {
           "id": 29000019,
           "name": "Titan League III",
@@ -450,6 +459,7 @@
         "name": "༄༜ི༼ HUNTS ༽༜ྀ༄",
         "role": "admin",
         "expLevel": 216,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -495,6 +505,7 @@
         "name": "RANDGAMER",
         "role": "leader",
         "expLevel": 245,
+        "townHallLevel": 17,
         "league": {
           "id": 29000019,
           "name": "Titan League III",
@@ -541,6 +552,7 @@
         "name": "Gladiator",
         "role": "member",
         "expLevel": 193,
+        "townHallLevel": 17,
         "league": {
           "id": 29000019,
           "name": "Titan League III",
@@ -587,6 +599,7 @@
         "name": "Azeem mirza",
         "role": "member",
         "expLevel": 187,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -632,6 +645,7 @@
         "name": "Lord of war",
         "role": "member",
         "expLevel": 177,
+        "townHallLevel": 17,
         "league": {
           "id": 29000018,
           "name": "Champion League I",
@@ -678,6 +692,7 @@
         "name": "The KnightRider",
         "role": "member",
         "expLevel": 183,
+        "townHallLevel": 17,
         "league": {
           "id": 29000018,
           "name": "Champion League I",
@@ -724,6 +739,7 @@
         "name": "Jenn Altir",
         "role": "member",
         "expLevel": 168,
+        "townHallLevel": 17,
         "league": {
           "id": 29000018,
           "name": "Champion League I",
@@ -770,6 +786,7 @@
         "name": "Leo Valdez",
         "role": "admin",
         "expLevel": 152,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -815,6 +832,7 @@
         "name": "Eclipse",
         "role": "member",
         "expLevel": 174,
+        "townHallLevel": 17,
         "league": {
           "id": 29000017,
           "name": "Champion League II",
@@ -861,6 +879,7 @@
         "name": "MJ11",
         "role": "member",
         "expLevel": 207,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -906,6 +925,7 @@
         "name": "Andrea",
         "role": "coLeader",
         "expLevel": 193,
+        "townHallLevel": 17,
         "league": {
           "id": 29000016,
           "name": "Champion League III",
@@ -952,6 +972,7 @@
         "name": "rosvy",
         "role": "member",
         "expLevel": 179,
+        "townHallLevel": 17,
         "league": {
           "id": 29000016,
           "name": "Champion League III",
@@ -998,6 +1019,7 @@
         "name": "Xterminator",
         "role": "member",
         "expLevel": 198,
+        "townHallLevel": 17,
         "league": {
           "id": 29000016,
           "name": "Champion League III",
@@ -1044,6 +1066,7 @@
         "name": "VxAbby23",
         "role": "member",
         "expLevel": 187,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1089,6 +1112,7 @@
         "name": "SYD",
         "role": "admin",
         "expLevel": 176,
+        "townHallLevel": 17,
         "league": {
           "id": 29000016,
           "name": "Champion League III",
@@ -1135,6 +1159,7 @@
         "name": "Yisus Åhr",
         "role": "member",
         "expLevel": 195,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1180,6 +1205,7 @@
         "name": "lil maba",
         "role": "member",
         "expLevel": 131,
+        "townHallLevel": 17,
         "league": {
           "id": 29000016,
           "name": "Champion League III",
@@ -1226,6 +1252,7 @@
         "name": "ДЕД-ДОЕД II",
         "role": "member",
         "expLevel": 157,
+        "townHallLevel": 17,
         "league": {
           "id": 29000016,
           "name": "Champion League III",
@@ -1272,6 +1299,7 @@
         "name": "Kuldip Soni",
         "role": "coLeader",
         "expLevel": 188,
+        "townHallLevel": 17,
         "league": {
           "id": 29000015,
           "name": "Master League I",
@@ -1318,6 +1346,7 @@
         "name": "✨A. L. I. N✨",
         "role": "member",
         "expLevel": 172,
+        "townHallLevel": 17,
         "league": {
           "id": 29000015,
           "name": "Master League I",
@@ -1364,6 +1393,7 @@
         "name": "PHILOTECH I",
         "role": "admin",
         "expLevel": 222,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1389,6 +1419,7 @@
         "name": "MM64",
         "role": "member",
         "expLevel": 146,
+        "townHallLevel": 17,
         "league": {
           "id": 29000015,
           "name": "Master League I",
@@ -1435,6 +1466,7 @@
         "name": "wolf175",
         "role": "member",
         "expLevel": 138,
+        "townHallLevel": 17,
         "league": {
           "id": 29000014,
           "name": "Master League II",
@@ -1481,6 +1513,7 @@
         "name": "Shadow213",
         "role": "member",
         "expLevel": 171,
+        "townHallLevel": 17,
         "league": {
           "id": 29000014,
           "name": "Master League II",
@@ -1507,6 +1540,7 @@
         "name": "ThunderMaster",
         "role": "member",
         "expLevel": 141,
+        "townHallLevel": 17,
         "league": {
           "id": 29000013,
           "name": "Master League III",
@@ -1553,6 +1587,7 @@
         "name": "❤️P.L lamma❤️",
         "role": "member",
         "expLevel": 176,
+        "townHallLevel": 17,
         "league": {
           "id": 29000013,
           "name": "Master League III",
@@ -1599,6 +1634,7 @@
         "name": "H.H.O",
         "role": "member",
         "expLevel": 168,
+        "townHallLevel": 17,
         "league": {
           "id": 29000013,
           "name": "Master League III",
@@ -1625,6 +1661,7 @@
         "name": "Reloaded",
         "role": "member",
         "expLevel": 101,
+        "townHallLevel": 17,
         "league": {
           "id": 29000013,
           "name": "Master League III",
@@ -1671,6 +1708,7 @@
         "name": "paintWhisky",
         "role": "coLeader",
         "expLevel": 191,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1696,6 +1734,7 @@
         "name": "Failx",
         "role": "member",
         "expLevel": 136,
+        "townHallLevel": 17,
         "league": {
           "id": 29000012,
           "name": "Crystal League I",
@@ -1742,6 +1781,7 @@
         "name": "Conman2071",
         "role": "member",
         "expLevel": 110,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",
@@ -1787,6 +1827,7 @@
         "name": "Tungo_06",
         "role": "member",
         "expLevel": 172,
+        "townHallLevel": 17,
         "league": {
           "id": 29000012,
           "name": "Crystal League I",
@@ -1833,6 +1874,7 @@
         "name": "Chile Despertó",
         "role": "member",
         "expLevel": 142,
+        "townHallLevel": 17,
         "league": {
           "id": 29000011,
           "name": "Crystal League II",
@@ -1879,6 +1921,7 @@
         "name": "The M08",
         "role": "member",
         "expLevel": 129,
+        "townHallLevel": 17,
         "league": {
           "id": 29000012,
           "name": "Crystal League I",
@@ -1925,6 +1968,7 @@
         "name": "Moopeyman",
         "role": "member",
         "expLevel": 132,
+        "townHallLevel": 17,
         "league": {
           "id": 29000011,
           "name": "Crystal League II",
@@ -1971,6 +2015,7 @@
         "name": "Joshua",
         "role": "member",
         "expLevel": 154,
+        "townHallLevel": 17,
         "league": {
           "id": 29000011,
           "name": "Crystal League II",
@@ -2017,6 +2062,7 @@
         "name": "AT0M_DIS",
         "role": "member",
         "expLevel": 136,
+        "townHallLevel": 17,
         "league": {
           "id": 29000009,
           "name": "Gold League I",
@@ -2063,6 +2109,7 @@
         "name": "Kristen",
         "role": "member",
         "expLevel": 115,
+        "townHallLevel": 17,
         "league": {
           "id": 29000008,
           "name": "Gold League II",
@@ -2109,6 +2156,7 @@
         "name": "[ThOr] ДЕД-ДОЕД",
         "role": "member",
         "expLevel": 14,
+        "townHallLevel": 17,
         "league": {
           "id": 29000000,
           "name": "Unranked",

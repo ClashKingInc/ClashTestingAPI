@@ -1,4 +1,6 @@
 
+from typing import Literal
+
 from pydantic import Field
 
 from .common import (
@@ -19,11 +21,24 @@ from .common import (
 from .leagues import ClanWarLeagueGroup
 
 
+WarFrequency = Literal[
+    "unknown",
+    "always",
+    "moreThanOncePerWeek",
+    "oncePerWeek",
+    "lessThanOncePerWeek",
+    "never",
+    "any",
+]
+ClanType = Literal["open", "inviteOnly", "closed"]
+
+
 class ClanMember(ApiModel):
     tag: str
     name: str
     role: str
     expLevel: int
+    townHallLevel: int
     league: League | None = None
     trophies: int
     builderBaseTrophies: int | None = None
@@ -54,7 +69,7 @@ class ClanCapital(ApiModel):
 class Clan(ApiModel):
     tag: str
     name: str
-    type: str
+    type: ClanType
     description: str | None = None
     location: Location | None = None
     isFamilyFriendly: bool | None = None
@@ -66,7 +81,7 @@ class Clan(ApiModel):
     clanCapitalPoints: int | None = None
     capitalLeague: CapitalLeague | None = None
     requiredTrophies: int | None = None
-    warFrequency: str | None = None
+    warFrequency: WarFrequency | None = None
     warWinStreak: int | None = None
     warWins: int | None = None
     warTies: int | None = None
@@ -86,7 +101,7 @@ class Clan(ApiModel):
 class ClanSearchItem(ApiModel):
     tag: str
     name: str
-    type: str
+    type: ClanType
     location: Location | None = None
     isFamilyFriendly: bool | None = None
     badgeUrls: BadgeUrls | None = None
@@ -97,7 +112,7 @@ class ClanSearchItem(ApiModel):
     clanCapitalPoints: int | None = None
     capitalLeague: CapitalLeague | None = None
     requiredTrophies: int | None = None
-    warFrequency: str | None = None
+    warFrequency: WarFrequency | None = None
     warWinStreak: int | None = None
     warWins: int | None = None
     warTies: int | None = None
