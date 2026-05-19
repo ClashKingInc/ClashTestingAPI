@@ -40,7 +40,7 @@ class Player(ApiModel):
     clanCapitalContributions: int | None = None
     clan: PlayerClan | None = None
     league: League | None = None
-    leagueTier: LeagueTier | None = None
+    leagueTier: LeagueTier
     builderBaseLeague: BuilderBaseLeague | None = None
     currentLeagueGroupTag: str | None = None
     currentLeagueSeasonId: int | None = None
