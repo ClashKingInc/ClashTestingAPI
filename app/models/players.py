@@ -41,7 +41,7 @@ class Player(ApiModel):
     clan: PlayerClan | None = None
     league: League | None = None
     leagueTier: LeagueTier
-    builderBaseLeague: BuilderBaseLeague | None = None
+    builderBaseLeague: BuilderBaseLeague = None
     currentLeagueGroupTag: str | None = None
     currentLeagueSeasonId: int | None = None
     previousLeagueGroupTag: str | None = None
@@ -98,7 +98,7 @@ class PlayerBuilderBaseRanking(ApiModel):
     previousRank: int
     builderBaseTrophies: int
     clan: ClanReference | None = None
-    builderBaseLeague: BuilderBaseLeague | None = None
+    builderBaseLeague: BuilderBaseLeague = None
 
 
 class PlayerBuilderBaseRankingListResponse(ItemsResponse[PlayerBuilderBaseRanking]):
