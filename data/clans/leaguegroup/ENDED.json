@@ -1,7 +1,7 @@
 {
   "body": {
     "state": "ended",
-    "season": "2023-09",
+    "season": "2023-09-01",
     "clans": [
       {
         "tag": "#2PP",
@@ -805,4 +805,3 @@
   },
   "response_code": 200
 }
-

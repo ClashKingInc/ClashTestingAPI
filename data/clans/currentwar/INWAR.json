@@ -21,7 +21,7 @@
       "members": [
         {
           "tag": "#2PRU8RPCP",
-          "name": "\u2b50\ufe0fsncmaxi\u2b50\ufe0f",
+          "name": "⭐️sncmaxi⭐️",
           "townhallLevel": 12,
           "mapPosition": 1,
           "attacks": [
@@ -96,7 +96,7 @@
         },
         {
           "tag": "#P0C9UJLPP",
-          "name": "YoSoyGod\u2764\ufe0f\u1d40\u1d34\u00b9\u00b2\u2081",
+          "name": "YoSoyGod❤️ᵀᴴ¹²₁",
           "townhallLevel": 12,
           "mapPosition": 3,
           "attacks": [
@@ -148,7 +148,7 @@
     },
     "opponent": {
       "tag": "#2QCVRQCQR",
-      "name": "\u2122 Galaxy",
+      "name": "™ Galaxy",
       "badgeUrls": {
         "small": "https://api-assets.clashofclans.com/badges/70/AEaHm0FmstsRRGTqajAhcz1Mi7ceR2ys7g5PL7p2mvk.png",
         "large": "https://api-assets.clashofclans.com/badges/512/AEaHm0FmstsRRGTqajAhcz1Mi7ceR2ys7g5PL7p2mvk.png",
@@ -161,7 +161,7 @@
       "members": [
         {
           "tag": "#9R08QRUU2",
-          "name": "\u767c\uff2e\uff29\uff34\uff29\uff33\uff28\u2757",
+          "name": "發ＮＩＴＩＳＨ❗",
           "townhallLevel": 12,
           "mapPosition": 1,
           "attacks": [
@@ -236,7 +236,7 @@
         },
         {
           "tag": "#PLGGC0L02",
-          "name": "\uff2b\u5de5\u3057\u3057\u30e2\u5c3a \u30e0",
+          "name": "Ｋ工ししモ尺 ム",
           "townhallLevel": 12,
           "mapPosition": 5,
           "attacks": [
@@ -261,7 +261,7 @@
         },
         {
           "tag": "#28R9YGPLP",
-          "name": "\uff27\uff28\uff2f\uff33\uff34\u00a0\uff26\uff32\uff25\uff21\uff2b",
+          "name": "ＧＨＯＳＴ ＦＲＥＡＫ",
           "townhallLevel": 12,
           "mapPosition": 4,
           "attacks": [
@@ -285,7 +285,8 @@
           }
         }
       ]
-    }
+    },
+    "battleModifier": "MINUS_ONE"
   },
   "headers": {
     "cache-control": "max-age=120",

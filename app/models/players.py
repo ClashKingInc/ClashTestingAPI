@@ -57,15 +57,19 @@ class Player(ApiModel):
 
 
 class BattleLogEntry(ApiModel):
-    battleType: Literal["ranked", "legend", "homeVillage"]
+    battleType: Literal["HOME_VILLAGE", "RANKED", "LEGEND"]
     attack: bool
     armyShareCode: str | None = None
     opponentPlayerTag: str
+    opponentName: str
+    opponentTownHallLevel: int
     stars: int
     destructionPercentage: int
     lootedResources: list[Resource] = Field(default_factory=list)
     extraLootedResources: list[Resource] = Field(default_factory=list)
     availableLoot: list[Resource] = Field(default_factory=list)
+    battleTime: int
+    battleTimestamp: str
 
 
 class BattleLogResponse(ItemsResponse[BattleLogEntry]):
@@ -77,7 +81,7 @@ class PlayerRanking(ApiModel):
     name: str
     expLevel: int
     rank: int
-    previousRank: int
+    previousRank: int | None = None
     trophies: int
     attackWins: int | None = None
     defenseWins: int | None = None

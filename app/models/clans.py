@@ -31,6 +31,7 @@ WarFrequency = Literal[
     "any",
 ]
 ClanType = Literal["open", "inviteOnly", "closed"]
+BattleModifier = Literal["NONE", "HARD_MODE", "MINUS_ONE", "MINUS_TWO", "MINUS_THREE"]
 
 
 class ClanMember(ApiModel):
@@ -137,7 +138,7 @@ class ClanWarAttack(ApiModel):
     stars: int
     destructionPercentage: int
     order: int
-    duration: int | None = None
+    duration: int
 
 
 class ClanWarMember(ApiModel):
@@ -151,8 +152,8 @@ class ClanWarMember(ApiModel):
 
 
 class WarClan(ApiModel):
-    tag: str
-    name: str
+    tag: str | None = None
+    name: str | None = None
     badgeUrls: BadgeUrls | None = None
     clanLevel: int
     attacks: int | None = None
@@ -166,7 +167,7 @@ class ClanWar(ApiModel):
     state: str
     teamSize: int | None = None
     attacksPerMember: int | None = None
-    battleModifier: str | None = None
+    battleModifier: BattleModifier | None = None
     preparationStartTime: str | None = None
     startTime: str | None = None
     endTime: str | None = None
@@ -179,7 +180,7 @@ class ClanWarLogEntry(ApiModel):
     endTime: str
     teamSize: int
     attacksPerMember: int | None = None
-    battleModifier: str | None = None
+    battleModifier: BattleModifier | None = None
     clan: WarClan
     opponent: WarClan
 
