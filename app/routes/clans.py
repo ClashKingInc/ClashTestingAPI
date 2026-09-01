@@ -95,9 +95,10 @@ async def get_clan(clanTag: str = Path(..., example="#2PP")):
     normalized_tag, error = validate_tag(clanTag)
     if error:
         return error
-    if variant_offset(normalized_tag) > 0:
+    fixture_name = pick_variant(normalized_tag, ["CLAN", "CLAN_NO_CAPITAL_DISTRICTS"])
+    if fixture_name is None:
         return unsupported_variant_response(normalized_tag)
-    return respond_from_fixture("clans/clans/CLAN.json")
+    return respond_from_fixture(f"clans/clans/{fixture_name}.json")
 
 
 @router.get("/clans/{clanTag}/members", tags=["clans"], response_model=ClanMembersResponse, responses=STANDARD_ERROR_RESPONSES)

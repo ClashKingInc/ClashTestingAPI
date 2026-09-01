@@ -2208,6 +2208,7 @@
     "requiredVersusTrophies": 400,
     "requiredTownhallLevel": 13,
     "clanCapital": {
+      "clanGoldSinkTotal": 9876543210,
       "capitalHallLevel": 9,
       "districts": [
         {
