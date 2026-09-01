@@ -62,6 +62,7 @@ class ClanCapitalDistrict(ApiModel):
 
 
 class ClanCapital(ApiModel):
+    clanGoldSinkTotal: int = Field(json_schema_extra={"format": "int64"})
     capitalHallLevel: int | None = None
     districts: list[ClanCapitalDistrict] = Field(default_factory=list)
 
@@ -94,7 +95,7 @@ class Clan(ApiModel):
     requiredBuilderBaseTrophies: int | None = None
     requiredVersusTrophies: int | None = None
     requiredTownhallLevel: int | None = None
-    clanCapital: ClanCapital | None = None
+    clanCapital: ClanCapital
     chatLanguage: Language | None = None
 
 

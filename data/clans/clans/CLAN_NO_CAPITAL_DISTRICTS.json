@@ -1,0 +1,18 @@
+{
+  "body": {
+    "tag": "#2PPP",
+    "name": "Example Clan Without Capital Districts",
+    "type": "closed",
+    "clanLevel": 1,
+    "clanPoints": 0,
+    "members": 0,
+    "clanCapital": {
+      "clanGoldSinkTotal": 9876543210
+    }
+  },
+  "headers": {
+    "cache-control": "max-age=60",
+    "content-type": "application/json; charset=utf-8"
+  },
+  "response_code": 200
+}
