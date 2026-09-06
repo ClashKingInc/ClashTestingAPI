@@ -80,28 +80,7 @@ The shared [`@clashking/clash-contract`](packages/clash-contract/README.md) pack
 
 Publish a GitHub Release with a tag matching the contract package version, such as `v0.2.0`. The release workflow checks out that tag, runs `npm run check`, builds the package, and attaches `clashking-clash-contract-0.2.0.tgz`. Publishing a release does not deploy the Worker. A tag push alone does not start this workflow. Existing assets are never overwritten: upload fails if the archive already exists. Bump the package version and create a new release for changed bytes.
 
-Consumers pin the versioned download URL in `package.json`, then commit the updated npm lockfile. The reusable updater queries GitHub's latest stable release and waits for its matching archive to finish uploading. Drafts and prereleases are not adopted. It updates direct contract dependencies in tracked npm workspace manifests, refreshes the root lockfile, installs dependencies, runs the caller's validation command, and opens or updates one review PR. It does not merge that PR or update running applications.
-
-To enable it in a consuming npm repository, add a workflow like this on that repository's default branch. Replace `REVIEWED_COMMIT_SHA` with a reviewed commit containing the reusable workflow, and use the consumer's actual check command:
-
-```yaml
-name: Update Clash contract
-on:
-  schedule:
-    - cron: '23 9 * * *'
-  workflow_dispatch:
-permissions:
-  actions: read
-  contents: write
-  pull-requests: write
-jobs:
-  update:
-    uses: ClashKingInc/ClashTestingAPI/.github/workflows/update-contract.yml@REVIEWED_COMMIT_SHA
-    with:
-      validation-command: npm run typecheck && npm test
-```
-
-Enable **Allow GitHub Actions to create and approve pull requests** in the consumer repository's Actions settings. The updater validates before creating the PR, but the default `GITHUB_TOKEN` does not trigger new push/PR workflows. If branch protection requires those checks, pass a GitHub App or fine-grained PAT secret as `secrets: { update-token: '${{ secrets.CONTRACT_UPDATE_TOKEN }}' }`, with contents and pull requests write access to the consumer. Public release downloads need no registry credentials. Consumer workflows must be enabled separately; defining this reusable workflow alone does not schedule updates in other repositories.
+Consumer updates are manual. Choose a release from [GitHub Releases](https://github.com/ClashKingInc/ClashTestingAPI/releases), copy its versioned `.tgz` download URL into the consumer's contract dependency entries, then run `npm install` and the consumer's checks. Commit the changed manifests and lockfile together. For npm workspaces, update every direct declaration of `@clashking/clash-contract` consistently. Existing builds keep using their pinned archive until explicitly updated; no automated update PRs are configured.
 
 ## Deployment
 

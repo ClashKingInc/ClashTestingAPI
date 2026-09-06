@@ -10,7 +10,7 @@
   ],
   "scripts": {
     "dev": "wrangler dev",
-    "check": "npm run format:check && npm run check:generated && npm test && npm run test:automation && npm run test:bundle && npm run test:package",
+    "check": "npm run format:check && npm run check:generated && npm test && npm run test:bundle && npm run test:package",
     "build": "wrangler deploy --dry-run --env= --outdir dist",
     "deploy": "wrangler deploy --env=",
     "deploy:staging": "wrangler deploy --env staging",
@@ -21,7 +21,6 @@
     "test": "npm run test -w @clashking/clash-contract && npm run typecheck && vitest run",
     "test:bundle": "npm run build && node --import tsx scripts/smoke-worker.ts",
     "test:package": "node --import tsx scripts/smoke-package.ts",
-    "test:automation": "node --test scripts/update-contract.test.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "pack:contract": "npm pack -w @clashking/clash-contract"
