@@ -73,7 +73,71 @@ console.log(player.name, player.townHallLevel);
 
 Decoding checks that the JSON matches the schema and throws if it doesn't. It preserves extra fields and doesn't convert values or fill in missing ones.
 
-See the [package guide](packages/clash-contract/README.md) for validation inside an Effect program, reusable schema fields, and other exports.
+### Validate inside an Effect program
+
+Use `Schema.decodeUnknownEffect` to handle validation failures through Effect:
+
+```ts
+import { Effect, Schema } from 'effect';
+import { Clan } from '@clashking/clash-contract/effect';
+
+const clanName = (json: unknown) =>
+  Effect.gen(function* () {
+    const clan = yield* Schema.decodeUnknownEffect(Clan)(json);
+    return clan.name;
+  });
+```
+
+### Reuse schema fields
+
+Nested schemas are exported separately. Use `.fields` to select fields or extend a schema with your own data:
+
+```ts
+import { Schema } from 'effect';
+import { ClanCapital } from '@clashking/clash-contract/effect';
+
+const CapitalSummary = Schema.Struct({
+  gold: ClanCapital.fields.clanGoldSinkTotal,
+});
+
+const SavedCapital = Schema.Struct({
+  ...ClanCapital.fields,
+  savedAt: Schema.String,
+});
+
+type SavedCapitalData = typeof SavedCapital.Type;
+```
+
+For an array of nested objects, use `Schema.Array` with the exported item schema. Inferred properties are readonly. `Schema.optionalKey` allows a missing field; allowing `null` is a separate choice in the schema.
+
+JSON numbers remain JavaScript numbers, including fields marked `int64`. Values above `Number.MAX_SAFE_INTEGER` cannot be represented exactly.
+
+### Simple validation helpers
+
+If you just want a throwing validator or a type guard:
+
+```ts
+import { parse, validators } from '@clashking/clash-contract';
+
+const capital = parse('ClanCapital', { clanGoldSinkTotal: 9876543210 });
+
+const getClanName = (json: unknown) => {
+  if (validators.Clan(json)) return json.name;
+  return undefined;
+};
+```
+
+`parse` returns the original value or throws `TypeError`. Type guards return a boolean and expose validation details through their `errors` property. These helpers also require Effect.
+
+### Types and OpenAPI
+
+```ts
+import type { Schemas } from '@clashking/clash-contract';
+
+type ClanData = Schemas['Clan'];
+```
+
+The package also exports `paths`, `operations`, and `components` types generated from OpenAPI. The document itself is available at `@clashking/clash-contract/openapi.json` for documentation and client tooling.
 
 ## Contributing
 

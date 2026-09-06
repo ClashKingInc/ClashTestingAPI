@@ -17,8 +17,7 @@
   },
   "files": [
     "dist",
-    "openapi.json",
-    "README.md"
+    "openapi.json"
   ],
   "scripts": {
     "generate": "npm --prefix ../.. run generate",
