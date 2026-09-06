@@ -1,16 +1,18 @@
 # @clashking/clash-contract
 
-Version **0.2.0**. Hand-authored Effect 4 schemas define the Clash of Clans JSON wire contract. MockAPI's endpoints, OpenAPI, interoperability types, and validation helpers use these schemas. Python and OpenAPI-to-Effect generation are no longer involved.
+Effect schemas and TypeScript types for Clash of Clans API responses. Validate player, clan, war, and other JSON data without writing the same models yourself. The package works independently of the mock API.
 
 ## Install
 
-The package requires exactly `effect@4.0.0-rc.112`, including for root validation helpers. This pins the prerelease API shared by the Worker and consumers.
+Download the package `.tgz` from [GitHub Releases](https://github.com/ClashKingInc/ClashTestingAPI/releases) and install it, or use the asset's download URL directly:
 
 ```bash
-npm install effect@4.0.0-rc.112 ./vendor/clashking-clash-contract-0.2.0.tgz
+npm install effect@4.0.0-rc.112 /path/to/clashking-clash-contract-VERSION.tgz
 ```
 
-Build a tarball from the repository root with `npm run pack:contract`, copy it into the consumer's `vendor` directory, and commit its lockfile. A registry release can alternatively provide an exact `@clashking/clash-contract@0.2.0` dependency after publication. Creating this package or PR does not publish it. Never replace an already distributed version's contents; bump the version instead.
+The package currently requires exactly `effect@4.0.0-rc.112`. It is distributed through GitHub Releases rather than the npm registry. To build a local archive, run `npm run pack:contract` from the MockAPI repository root.
+
+Commit the dependency and lockfile together. Updates are manual: choose a newer release, install its archive, and run your application's checks.
 
 ## Use Effect directly
 
@@ -24,7 +26,8 @@ import {
 } from '@clashking/clash-contract/effect';
 
 type ClanWire = typeof Clan.Type;
-const clan = Schema.decodeUnknownSync(Clan)(unknownJson);
+const readClan = (json: unknown): ClanWire =>
+  Schema.decodeUnknownSync(Clan)(json);
 const CapitalSummary = Schema.Struct({
   gold: ClanCapital.fields.clanGoldSinkTotal,
 });
@@ -39,9 +42,9 @@ const ExtendedGroup = Schema.Struct({
 });
 ```
 
-Each named wire object is exported separately with `.fields`. For an optional array, import its named item schema instead of reaching through the wrapper with `.value`. All exported schemas require `never` decoding and encoding services. Recursive equipment uses `Schema.suspend` with an explicit wire interface, preventing emitted declarations from widening to `any`.
+Nested schemas are exported separately. Use their `.fields` to build smaller schemas or extend them with your own fields. For an array of nested objects, import the named item schema to build your own array schema.
 
-Wire schemas retain JSON primitives and preserve extra fields through decoding and encoding. They do not coerce values or insert defaults. `Schema.optionalKey` allows an absent key; a union with `Schema.Null` separately permits a present null. Effect-inferred types are readonly.
+Schemas preserve extra fields. They do not convert values or fill in missing ones. `Schema.optionalKey` allows an absent key; a union with `Schema.Null` separately permits a present null. Effect-inferred types are readonly.
 
 `clanGoldSinkTotal` is a JSON integer annotated as `int64`, represented as a JavaScript number. Values beyond `Number.MAX_SAFE_INTEGER` cannot be represented exactly; the fixture value `9_876_543_210` is exact. This field is not converted to a string or bigint.
 
@@ -57,17 +60,25 @@ import type {
 } from '@clashking/clash-contract';
 
 const capital = parse('ClanCapital', { clanGoldSinkTotal: 9876543210 });
-if (validators.Clan(unknownJson)) {
-  console.log(unknownJson.name);
-}
+const getClanName = (json: unknown) => {
+  if (validators.Clan(json)) return json.name;
+  return undefined;
+};
 ```
 
-`parse(name, value)` validates and returns the original value, throwing `TypeError` on failure. Validators are type guards with an `errors` diagnostic property; its contents are Effect diagnostics, not AJV error objects. Prefer direct decoding when already using Effect. `Schemas` infers types from editable schemas; `paths`, `operations`, and `components` derive from OpenAPI. The document is exported at `@clashking/clash-contract/openapi.json`.
+`parse(name, value)` validates and returns the original value, throwing `TypeError` on failure. Validators are type guards with an `errors` diagnostic property; it contains validation details. Prefer direct decoding when already using Effect. `Schemas` provides response types such as `Schemas['Clan']`; `paths`, `operations`, and `components` derive from OpenAPI. The document is exported at `@clashking/clash-contract/openapi.json`.
 
-## Author and release
+## Validate inside an Effect program
 
-Edit `src/effect.ts` and the repository's `src/api` declarations, then run `npm run generate`, `npm test`, and `npm run test:package` from the root. Never edit `src/schema.ts`, `openapi.json`, or build output. `npm run check:generated` checks freshness without changing files.
+Use `Schema.decodeUnknownEffect` to handle validation failures through Effect:
 
-Version 0.2.0 changes ownership and makes Effect required for root validators. Obsolete FastAPI `ValidationError`/`HTTPValidationError` models and 422 declarations are removed. Generated operation IDs follow Effect's group/endpoint names. Consumers relying on AJV diagnostics or old operation IDs must update; tested endpoint JSON and wire variants remain covered.
+```ts
+import { Effect, Schema } from 'effect';
+import { Clan } from '@clashking/clash-contract/effect';
 
-ClashKing API can import this package. It does not own the definitions, and MockAPI has no network dependency on it. Go/Python clients do not need endpoint changes for this runtime migration. The repository's `docs/typescript-migration.md` records existing downstream gaps and the evidence behind field corrections.
+const clanName = (json: unknown) =>
+  Effect.gen(function* () {
+    const clan = yield* Schema.decodeUnknownEffect(Clan)(json);
+    return clan.name;
+  });
+```
