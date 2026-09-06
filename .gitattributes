@@ -1,0 +1,5 @@
+worker-configuration.d.ts linguist-generated=true whitespace=-blank-at-eol
+packages/clash-contract/src/schema.ts linguist-generated=true
+packages/clash-contract/openapi.json linguist-generated=true
+src/fixtures/data.ts linguist-generated=true
+test/baseline/python-responses.json linguist-generated=true

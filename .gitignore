@@ -4,3 +4,9 @@ __pycache__/
 .DS_Store
 .idea/
 *.iml
+
+.venv/
+node_modules/
+dist/
+.wrangler/
+*.tgz
