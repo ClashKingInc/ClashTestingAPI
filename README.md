@@ -72,9 +72,36 @@ npm run test:package
 npm run pack:contract
 ```
 
-Tests validate all 61 fixtures, emitted package declarations and schema composition, 446 captured Python responses, request errors, filtering, request isolation, and served/exported OpenAPI equality. Bundle tests start fresh workerd isolates and cover concurrent first requests and cancellation. Package tests install a tarball in a temporary consumer. `npm run check` runs the complete validation sequence. GitHub Actions validates PRs and main without Cloudflare credentials; deployment is owned by Cloudflare Workers Builds. Packages are not published.
+Tests validate all 61 fixtures, emitted package declarations and schema composition, 446 captured Python responses, request errors, filtering, request isolation, and served/exported OpenAPI equality. Bundle tests start fresh workerd isolates and cover concurrent first requests and cancellation. Package tests install a tarball in a temporary consumer. `npm run check` runs the complete validation sequence. GitHub Actions validates PRs and main without Cloudflare credentials; deployment is owned by Cloudflare Workers Builds. Contract archives are distributed through GitHub Releases, without npm registry publication.
 
 The shared [`@clashking/clash-contract`](packages/clash-contract/README.md) package is version `0.2.0`. Applications can import these schemas; MockAPI never calls ClashKing API. See the [migration notes](docs/typescript-migration.md) for intentional differences, evidence limits, and downstream recommendations.
+
+## Contract releases and consumer updates
+
+Publish a GitHub Release with a tag matching the contract package version, such as `v0.2.0`. The release workflow checks out that tag, runs `npm run check`, builds the package, and attaches `clashking-clash-contract-0.2.0.tgz`. Publishing a release does not deploy the Worker. A tag push alone does not start this workflow. Existing assets are never overwritten: upload fails if the archive already exists. Bump the package version and create a new release for changed bytes.
+
+Consumers pin the versioned download URL in `package.json`, then commit the updated npm lockfile. The reusable updater queries GitHub's latest stable release and waits for its matching archive to finish uploading. Drafts and prereleases are not adopted. It updates direct contract dependencies in tracked npm workspace manifests, refreshes the root lockfile, installs dependencies, runs the caller's validation command, and opens or updates one review PR. It does not merge that PR or update running applications.
+
+To enable it in a consuming npm repository, add a workflow like this on that repository's default branch. Replace `REVIEWED_COMMIT_SHA` with a reviewed commit containing the reusable workflow, and use the consumer's actual check command:
+
+```yaml
+name: Update Clash contract
+on:
+  schedule:
+    - cron: '23 9 * * *'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+jobs:
+  update:
+    uses: ClashKingInc/ClashTestingAPI/.github/workflows/update-contract.yml@REVIEWED_COMMIT_SHA
+    with:
+      validation-command: npm run typecheck && npm test
+```
+
+Enable **Allow GitHub Actions to create and approve pull requests** in the consumer repository's Actions settings. The updater validates before creating the PR, but the default `GITHUB_TOKEN` does not trigger new push/PR workflows. If branch protection requires those checks, pass a GitHub App or fine-grained PAT secret as `secrets: { update-token: '${{ secrets.CONTRACT_UPDATE_TOKEN }}' }`, with contents and pull requests write access to the consumer. Public release downloads need no registry credentials. Consumer workflows must be enabled separately; defining this reusable workflow alone does not schedule updates in other repositories.
 
 ## Deployment
 

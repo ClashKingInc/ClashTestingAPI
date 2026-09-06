@@ -1,0 +1,76 @@
+name: Update consuming contract
+on:
+  workflow_call:
+    inputs:
+      validation-command:
+        description: Consumer checks to run before opening the update PR
+        required: true
+        type: string
+    secrets:
+      update-token:
+        description: Optional GitHub App or PAT token to trigger normal PR checks
+        required: false
+permissions:
+  actions: read
+  contents: write
+  pull-requests: write
+concurrency:
+  group: update-clash-contract
+  cancel-in-progress: false
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: consumer
+      - name: Locate the reusable workflow's revision
+        id: tooling
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { data } = await github.rest.actions.getWorkflowRun({
+              ...context.repo, run_id: context.runId,
+            });
+            const workflow = data.referenced_workflows?.find(w =>
+              w.path.startsWith('ClashKingInc/ClashTestingAPI/.github/workflows/update-contract.yml@'));
+            if (!workflow) throw new Error('Cannot resolve updater workflow revision');
+            core.setOutput('sha', workflow.sha);
+      - uses: actions/checkout@v4
+        with:
+          repository: ClashKingInc/ClashTestingAPI
+          ref: ${{ steps.tooling.outputs.sha }}
+          path: tooling
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: consumer/package-lock.json
+      - name: Discover and pin latest contract archive
+        id: update
+        working-directory: consumer
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node ../tooling/scripts/update-contract.ts
+      - if: steps.update.outputs.changed == 'true'
+        working-directory: consumer
+        run: npm ci
+      - if: steps.update.outputs.changed == 'true'
+        working-directory: consumer
+        env:
+          VALIDATION_COMMAND: ${{ inputs.validation-command }}
+        run: bash -e -o pipefail -c "$VALIDATION_COMMAND"
+      - if: steps.update.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v8
+        with:
+          token: ${{ secrets.update-token || github.token }}
+          path: consumer
+          branch: feat/update-clash-contract
+          commit-message: 'chore: update clash contract'
+          title: 'chore: update Clash contract to latest release'
+          body: Updates pinned GitHub Release archive URLs and the npm lockfile. Consumer validation passed in the updater workflow. Review and merge to adopt this release.
+          add-paths: |
+            **/package.json
+            package.json
+            package-lock.json

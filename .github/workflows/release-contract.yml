@@ -1,0 +1,40 @@
+name: Release contract archive
+on:
+  release:
+    types: [published]
+permissions:
+  contents: write
+concurrency:
+  group: contract-release-${{ github.event.release.tag_name }}
+  cancel-in-progress: false
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: refs/tags/${{ github.event.release.tag_name }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - name: Check release version
+        env:
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          node --input-type=module -e '
+            import fs from "node:fs";
+            const { version } = JSON.parse(fs.readFileSync("packages/clash-contract/package.json"));
+            if (process.env.RELEASE_TAG !== `v${version}`) throw new Error("Release tag must match contract version: v" + version);
+          '
+      - run: npm ci
+      - run: npm run check
+      - name: Pack and upload immutable archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_TAG: ${{ github.event.release.tag_name }}
+        run: |
+          mkdir -p dist/release
+          npm pack -w @clashking/clash-contract --pack-destination dist/release
+          gh release upload "$RELEASE_TAG" dist/release/*.tgz
