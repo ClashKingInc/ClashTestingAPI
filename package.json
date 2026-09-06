@@ -1,0 +1,43 @@
+{
+  "name": "clash-of-clans-mock-api",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "workspaces": [
+    "packages/clash-contract"
+  ],
+  "scripts": {
+    "dev": "wrangler dev",
+    "build": "wrangler deploy --dry-run --env= --outdir dist",
+    "deploy": "wrangler deploy --env=",
+    "deploy:staging": "wrangler deploy --env staging",
+    "types": "wrangler types",
+    "typecheck": "tsc --noEmit && npm run test:types -w @clashking/clash-contract",
+    "generate": "node --import tsx scripts/generate.ts",
+    "check:generated": "node --import tsx scripts/generate.ts --check",
+    "test": "npm run test -w @clashking/clash-contract && npm run typecheck && vitest run",
+    "test:bundle": "npm run build && node --import tsx scripts/smoke-worker.ts",
+    "test:package": "node --import tsx scripts/smoke-package.ts",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "pack:contract": "npm pack -w @clashking/clash-contract"
+  },
+  "dependencies": {
+    "@clashking/clash-contract": "0.2.0",
+    "effect": "4.0.0-rc.112"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "1.1.4",
+    "@types/node": "24.10.0",
+    "jsonc-parser": "3.3.1",
+    "miniflare": "5.20260903.0-alpha",
+    "openapi-typescript": "7.13.0",
+    "prettier": "3.6.2",
+    "tsx": "4.23.13",
+    "typescript": "5.9.3",
+    "vitest": "4.1.0",
+    "wrangler": "4.129.0"
+  }
+}

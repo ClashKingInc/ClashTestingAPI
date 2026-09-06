@@ -1,0 +1,7807 @@
+{
+  "components": {
+    "schemas": {
+      "BadgeUrls": {
+        "additionalProperties": true,
+        "properties": {
+          "large": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "medium": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "small": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "BattleLogEntry": {
+        "additionalProperties": true,
+        "properties": {
+          "armyShareCode": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "attack": {
+            "type": "boolean"
+          },
+          "availableLoot": {
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            },
+            "type": "array"
+          },
+          "battleType": {
+            "enum": [
+              "ranked",
+              "legend",
+              "homeVillage"
+            ],
+            "type": "string"
+          },
+          "destructionPercentage": {
+            "type": "integer"
+          },
+          "extraLootedResources": {
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            },
+            "type": "array"
+          },
+          "lootedResources": {
+            "items": {
+              "$ref": "#/components/schemas/Resource"
+            },
+            "type": "array"
+          },
+          "opponentPlayerTag": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attack",
+          "battleType",
+          "destructionPercentage",
+          "opponentPlayerTag",
+          "stars"
+        ],
+        "type": "object"
+      },
+      "BattleLogResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/BattleLogEntry"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "BuilderBaseLeague": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "BuilderBaseLeagueListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/BuilderBaseLeague"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "CapitalLeague": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "CapitalLeagueListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/CapitalLeague"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "CapitalRaidSeasonsResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalRaidSeason"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "Clan": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "capitalLeague": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CapitalLeague"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "chatLanguage": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Language"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanBuilderBasePoints": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanCapital": {
+            "$ref": "#/components/schemas/ClanCapital"
+          },
+          "clanCapitalPoints": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "clanPoints": {
+            "type": "integer"
+          },
+          "clanVersusPoints": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "description": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isFamilyFriendly": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isWarLogPublic": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "labels": {
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "type": "array"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "memberList": {
+            "items": {
+              "$ref": "#/components/schemas/ClanMember"
+            },
+            "type": "array"
+          },
+          "members": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "requiredBuilderBaseTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requiredTownhallLevel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requiredTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requiredVersusTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tag": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "open",
+              "inviteOnly",
+              "closed"
+            ],
+            "type": "string"
+          },
+          "warFrequency": {
+            "anyOf": [
+              {
+                "enum": [
+                  "unknown",
+                  "always",
+                  "moreThanOncePerWeek",
+                  "oncePerWeek",
+                  "lessThanOncePerWeek",
+                  "never",
+                  "any"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warLeague": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WarLeague"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warLosses": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warTies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warWins": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warWinStreak": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "clanCapital",
+          "clanLevel",
+          "clanPoints",
+          "members",
+          "name",
+          "tag",
+          "type"
+        ],
+        "type": "object"
+      },
+      "ClanBuilderBaseRanking": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanBuilderBasePoints": {
+            "type": "integer"
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "clanPoints": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "members": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "previousRank": {
+            "type": "integer"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clanBuilderBasePoints",
+          "clanLevel",
+          "location",
+          "members",
+          "name",
+          "previousRank",
+          "rank",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "ClanBuilderBaseRankingListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ClanBuilderBaseRanking"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "ClanCapital": {
+        "additionalProperties": true,
+        "properties": {
+          "capitalHallLevel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanGoldSinkTotal": {
+            "allOf": [
+              {
+                "format": "int64"
+              }
+            ],
+            "type": "integer"
+          },
+          "districts": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalDistrict"
+            },
+            "type": "array"
+          }
+        },
+        "required": [
+          "clanGoldSinkTotal"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalDistrict": {
+        "additionalProperties": true,
+        "properties": {
+          "districtHallLevel": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "districtHallLevel",
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRaidSeason": {
+        "additionalProperties": true,
+        "properties": {
+          "attackLog": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalRaidSeasonAttackLogEntry"
+            },
+            "type": "array"
+          },
+          "capitalTotalLoot": {
+            "type": "integer"
+          },
+          "defenseLog": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalRaidSeasonDefenseLogEntry"
+            },
+            "type": "array"
+          },
+          "defensiveReward": {
+            "type": "integer"
+          },
+          "endTime": {
+            "type": "string"
+          },
+          "enemyDistrictsDestroyed": {
+            "type": "integer"
+          },
+          "members": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalRaidSeasonMember"
+            },
+            "type": "array"
+          },
+          "offensiveReward": {
+            "type": "integer"
+          },
+          "raidsCompleted": {
+            "type": "integer"
+          },
+          "startTime": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          },
+          "totalAttacks": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "capitalTotalLoot",
+          "defensiveReward",
+          "endTime",
+          "enemyDistrictsDestroyed",
+          "offensiveReward",
+          "raidsCompleted",
+          "startTime",
+          "state",
+          "totalAttacks"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRaidSeasonAttack": {
+        "additionalProperties": true,
+        "properties": {
+          "attacker": {
+            "$ref": "#/components/schemas/ClanCapitalRaidSeasonAttacker"
+          },
+          "destructionPercent": {
+            "type": "integer"
+          },
+          "stars": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attacker",
+          "destructionPercent",
+          "stars"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRaidSeasonAttacker": {
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRaidSeasonAttackLogEntry": {
+        "additionalProperties": true,
+        "properties": {
+          "attackCount": {
+            "type": "integer"
+          },
+          "defender": {
+            "$ref": "#/components/schemas/ClanCapitalRaidSeasonClanInfo"
+          },
+          "districtCount": {
+            "type": "integer"
+          },
+          "districts": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalRaidSeasonDistrict"
+            },
+            "type": "array"
+          },
+          "districtsDestroyed": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attackCount",
+          "defender",
+          "districtCount",
+          "districtsDestroyed"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRaidSeasonClanInfo": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "level": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "level",
+          "name",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRaidSeasonDefenseLogEntry": {
+        "additionalProperties": true,
+        "properties": {
+          "attackCount": {
+            "type": "integer"
+          },
+          "attacker": {
+            "$ref": "#/components/schemas/ClanCapitalRaidSeasonClanInfo"
+          },
+          "districtCount": {
+            "type": "integer"
+          },
+          "districts": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalRaidSeasonDistrict"
+            },
+            "type": "array"
+          },
+          "districtsDestroyed": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attackCount",
+          "attacker",
+          "districtCount",
+          "districtsDestroyed"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRaidSeasonDistrict": {
+        "additionalProperties": true,
+        "properties": {
+          "attackCount": {
+            "type": "integer"
+          },
+          "attacks": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalRaidSeasonAttack"
+            },
+            "type": "array"
+          },
+          "destructionPercent": {
+            "type": "integer"
+          },
+          "districtHallLevel": {
+            "type": "integer"
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "integer"
+          },
+          "totalLooted": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attackCount",
+          "destructionPercent",
+          "districtHallLevel",
+          "id",
+          "name",
+          "stars",
+          "totalLooted"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRaidSeasonMember": {
+        "additionalProperties": true,
+        "properties": {
+          "attackLimit": {
+            "type": "integer"
+          },
+          "attacks": {
+            "type": "integer"
+          },
+          "bonusAttackLimit": {
+            "type": "integer"
+          },
+          "capitalResourcesLooted": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attackLimit",
+          "attacks",
+          "bonusAttackLimit",
+          "capitalResourcesLooted",
+          "name",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRanking": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanCapitalPoints": {
+            "type": "integer"
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "members": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "previousRank": {
+            "type": "integer"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clanCapitalPoints",
+          "clanLevel",
+          "location",
+          "members",
+          "name",
+          "previousRank",
+          "rank",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "ClanCapitalRankingListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ClanCapitalRanking"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "ClanMember": {
+        "additionalProperties": true,
+        "properties": {
+          "builderBaseLeague": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/League"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "builderBaseTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanRank": {
+            "type": "integer"
+          },
+          "donations": {
+            "type": "integer"
+          },
+          "donationsReceived": {
+            "type": "integer"
+          },
+          "expLevel": {
+            "type": "integer"
+          },
+          "league": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/League"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "playerHouse": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PlayerHouse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "previousClanRank": {
+            "type": "integer"
+          },
+          "role": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "townHallLevel": {
+            "type": "integer"
+          },
+          "trophies": {
+            "type": "integer"
+          },
+          "versusTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "clanRank",
+          "donations",
+          "donationsReceived",
+          "expLevel",
+          "name",
+          "previousClanRank",
+          "role",
+          "tag",
+          "townHallLevel",
+          "trophies"
+        ],
+        "type": "object"
+      },
+      "ClanMembersResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ClanMember"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "ClanRanking": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "clanPoints": {
+            "type": "integer"
+          },
+          "location": {
+            "$ref": "#/components/schemas/Location"
+          },
+          "members": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "previousRank": {
+            "type": "integer"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clanLevel",
+          "clanPoints",
+          "location",
+          "members",
+          "name",
+          "previousRank",
+          "rank",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "ClanRankingListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ClanRanking"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "ClanReference": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanLevel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "ClanSearchItem": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "capitalLeague": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/CapitalLeague"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "chatLanguage": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Language"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanBuilderBasePoints": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanCapitalPoints": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "clanPoints": {
+            "type": "integer"
+          },
+          "clanVersusPoints": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isFamilyFriendly": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "isWarLogPublic": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "labels": {
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "type": "array"
+          },
+          "location": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "members": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "requiredBuilderBaseTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requiredTownhallLevel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requiredTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requiredVersusTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tag": {
+            "type": "string"
+          },
+          "type": {
+            "enum": [
+              "open",
+              "inviteOnly",
+              "closed"
+            ],
+            "type": "string"
+          },
+          "warFrequency": {
+            "anyOf": [
+              {
+                "enum": [
+                  "unknown",
+                  "always",
+                  "moreThanOncePerWeek",
+                  "oncePerWeek",
+                  "lessThanOncePerWeek",
+                  "never",
+                  "any"
+                ],
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warLeague": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WarLeague"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warLosses": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warTies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warWins": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warWinStreak": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "clanLevel",
+          "clanPoints",
+          "members",
+          "name",
+          "tag",
+          "type"
+        ],
+        "type": "object"
+      },
+      "ClanSearchResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ClanSearchItem"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "ClanWar": {
+        "additionalProperties": true,
+        "properties": {
+          "attacksPerMember": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "battleModifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WarClan"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "endTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "opponent": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/WarClan"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "preparationStartTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "startTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "state": {
+            "type": "string"
+          },
+          "teamSize": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "type": "object"
+      },
+      "ClanWarAttack": {
+        "additionalProperties": true,
+        "properties": {
+          "attackerTag": {
+            "type": "string"
+          },
+          "defenderTag": {
+            "type": "string"
+          },
+          "destructionPercentage": {
+            "anyOf": [
+              {
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "Infinity",
+                  "-Infinity",
+                  "NaN"
+                ],
+                "type": "string"
+              }
+            ]
+          },
+          "duration": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "order": {
+            "type": "integer"
+          },
+          "stars": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attackerTag",
+          "defenderTag",
+          "destructionPercentage",
+          "order",
+          "stars"
+        ],
+        "type": "object"
+      },
+      "ClanWarLeagueClan": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "members": {
+            "items": {
+              "$ref": "#/components/schemas/ClanWarLeagueClanMember"
+            },
+            "type": "array"
+          },
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "clanLevel",
+          "name",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "ClanWarLeagueClanMember": {
+        "additionalProperties": true,
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "townHallLevel": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "name",
+          "tag",
+          "townHallLevel"
+        ],
+        "type": "object"
+      },
+      "ClanWarLeagueGroup": {
+        "additionalProperties": true,
+        "properties": {
+          "clans": {
+            "items": {
+              "$ref": "#/components/schemas/ClanWarLeagueClan"
+            },
+            "type": "array"
+          },
+          "rounds": {
+            "items": {
+              "$ref": "#/components/schemas/ClanWarLeagueRound"
+            },
+            "type": "array"
+          },
+          "season": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "state": {
+            "type": "string"
+          },
+          "tag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "type": "object"
+      },
+      "ClanWarLeagueRound": {
+        "additionalProperties": true,
+        "properties": {
+          "warTags": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "ClanWarLogEntry": {
+        "additionalProperties": true,
+        "properties": {
+          "attacksPerMember": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "battleModifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clan": {
+            "$ref": "#/components/schemas/WarClan"
+          },
+          "endTime": {
+            "type": "string"
+          },
+          "opponent": {
+            "$ref": "#/components/schemas/WarClan"
+          },
+          "result": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "teamSize": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "clan",
+          "endTime",
+          "opponent",
+          "teamSize"
+        ],
+        "type": "object"
+      },
+      "ClanWarLogResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/ClanWarLogEntry"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "ClanWarMember": {
+        "additionalProperties": true,
+        "properties": {
+          "attacks": {
+            "items": {
+              "$ref": "#/components/schemas/ClanWarAttack"
+            },
+            "type": "array"
+          },
+          "bestOpponentAttack": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClanWarAttack"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "mapPosition": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "opponentAttacks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tag": {
+            "type": "string"
+          },
+          "townhallLevel": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "mapPosition",
+          "name",
+          "tag",
+          "townhallLevel"
+        ],
+        "type": "object"
+      },
+      "ClientErrorResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "ClientErrorResponse_1": {
+        "additionalProperties": true,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "ClientErrorResponse_2": {
+        "additionalProperties": true,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "ClientErrorResponse_3": {
+        "additionalProperties": true,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "ClientErrorResponse_4": {
+        "additionalProperties": true,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "ClientErrorResponse_5": {
+        "additionalProperties": true,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "ClientErrorResponse_6": {
+        "additionalProperties": true,
+        "properties": {
+          "detail": {
+            "anyOf": [
+              {
+                "type": "object"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "message": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "reason": {
+            "type": "string"
+          },
+          "type": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "reason"
+        ],
+        "type": "object"
+      },
+      "CursorPaging": {
+        "additionalProperties": true,
+        "properties": {
+          "after": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "before": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "GoldPassSeason": {
+        "additionalProperties": true,
+        "properties": {
+          "endTime": {
+            "type": "string"
+          },
+          "startTime": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "endTime",
+          "startTime"
+        ],
+        "type": "object"
+      },
+      "IconUrls": {
+        "additionalProperties": true,
+        "properties": {
+          "large": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "medium": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "small": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tiny": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "Label": {
+        "additionalProperties": true,
+        "properties": {
+          "iconUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/IconUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "LabelListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "Language": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "languageCode": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "languageCode",
+          "name"
+        ],
+        "type": "object"
+      },
+      "League": {
+        "additionalProperties": true,
+        "properties": {
+          "iconUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/IconUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "LeagueBattleLogEntry": {
+        "additionalProperties": true,
+        "properties": {
+          "creationTime": {
+            "type": "string"
+          },
+          "destructionPercentage": {
+            "type": "integer"
+          },
+          "opponentName": {
+            "type": "string"
+          },
+          "opponentPlayerTag": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "integer"
+          },
+          "trophies": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "creationTime",
+          "destructionPercentage",
+          "opponentName",
+          "opponentPlayerTag",
+          "stars",
+          "trophies"
+        ],
+        "type": "object"
+      },
+      "LeagueGroup": {
+        "additionalProperties": true,
+        "properties": {
+          "attackLogs": {
+            "items": {
+              "$ref": "#/components/schemas/LeagueBattleLogEntry"
+            },
+            "type": "array"
+          },
+          "defenseLogs": {
+            "items": {
+              "$ref": "#/components/schemas/LeagueBattleLogEntry"
+            },
+            "type": "array"
+          },
+          "members": {
+            "items": {
+              "$ref": "#/components/schemas/LeagueGroupMember"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "LeagueGroupMember": {
+        "additionalProperties": true,
+        "properties": {
+          "attackLoseCount": {
+            "type": "integer"
+          },
+          "attackWinCount": {
+            "type": "integer"
+          },
+          "clanName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanTag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "defenseLoseCount": {
+            "type": "integer"
+          },
+          "defenseWinCount": {
+            "type": "integer"
+          },
+          "leagueTrophies": {
+            "type": "integer"
+          },
+          "playerName": {
+            "type": "string"
+          },
+          "playerTag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attackLoseCount",
+          "attackWinCount",
+          "clanName",
+          "clanTag",
+          "defenseLoseCount",
+          "defenseWinCount",
+          "leagueTrophies",
+          "playerName",
+          "playerTag"
+        ],
+        "type": "object"
+      },
+      "LeagueHistoryResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/LeagueSeasonResult"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "LeagueSeason": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id"
+        ],
+        "type": "object"
+      },
+      "LeagueSeasonListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/LeagueSeason"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "LeagueSeasonResult": {
+        "additionalProperties": true,
+        "properties": {
+          "attackLosses": {
+            "type": "integer"
+          },
+          "attackStars": {
+            "type": "integer"
+          },
+          "attackWins": {
+            "type": "integer"
+          },
+          "defenseLosses": {
+            "type": "integer"
+          },
+          "defenseStars": {
+            "type": "integer"
+          },
+          "defenseWins": {
+            "type": "integer"
+          },
+          "leagueSeasonId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "string"
+              }
+            ]
+          },
+          "leagueTierId": {
+            "type": "integer"
+          },
+          "leagueTrophies": {
+            "type": "integer"
+          },
+          "maxBattles": {
+            "type": "integer"
+          },
+          "placement": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attackLosses",
+          "attackStars",
+          "attackWins",
+          "defenseLosses",
+          "defenseStars",
+          "defenseWins",
+          "leagueSeasonId",
+          "leagueTierId",
+          "leagueTrophies",
+          "maxBattles",
+          "placement"
+        ],
+        "type": "object"
+      },
+      "LeagueTier": {
+        "additionalProperties": true,
+        "properties": {
+          "iconUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/IconUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "LeagueTierListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/LeagueTier"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "LegendLeagueTournamentSeasonResult": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rank": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "trophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "Location": {
+        "additionalProperties": true,
+        "properties": {
+          "countryCode": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "id": {
+            "type": "integer"
+          },
+          "isCountry": {
+            "type": "boolean"
+          },
+          "localizedName": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "isCountry",
+          "name"
+        ],
+        "type": "object"
+      },
+      "LocationListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/Location"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "Paging": {
+        "additionalProperties": true,
+        "properties": {
+          "cursors": {
+            "$ref": "#/components/schemas/CursorPaging"
+          }
+        },
+        "type": "object"
+      },
+      "Player": {
+        "additionalProperties": true,
+        "properties": {
+          "achievements": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerAchievementProgress"
+            },
+            "type": "array"
+          },
+          "attackWins": {
+            "type": "integer"
+          },
+          "bestBuilderBaseTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "bestTrophies": {
+            "type": "integer"
+          },
+          "builderBaseLeague": {
+            "$ref": "#/components/schemas/BuilderBaseLeague"
+          },
+          "builderBaseTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "builderHallLevel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PlayerClan"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanCapitalContributions": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "currentLeagueGroupTag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "currentLeagueSeasonId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "defenseWins": {
+            "type": "integer"
+          },
+          "donations": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "donationsReceived": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expLevel": {
+            "type": "integer"
+          },
+          "heroEquipment": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerItemLevel"
+            },
+            "type": "array"
+          },
+          "heroes": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerItemLevel"
+            },
+            "type": "array"
+          },
+          "labels": {
+            "items": {
+              "$ref": "#/components/schemas/Label"
+            },
+            "type": "array"
+          },
+          "league": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/League"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "leagueTier": {
+            "$ref": "#/components/schemas/LeagueTier"
+          },
+          "legendStatistics": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PlayerLegendStatistics"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "playerHouse": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/PlayerHouse"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "previousLeagueGroupTag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "previousLeagueSeasonId": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "role": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "spells": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerItemLevel"
+            },
+            "type": "array"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "townHallLevel": {
+            "type": "integer"
+          },
+          "troops": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerItemLevel"
+            },
+            "type": "array"
+          },
+          "trophies": {
+            "type": "integer"
+          },
+          "warPreference": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "warStars": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attackWins",
+          "bestTrophies",
+          "defenseWins",
+          "expLevel",
+          "name",
+          "tag",
+          "townHallLevel",
+          "trophies",
+          "warStars"
+        ],
+        "type": "object"
+      },
+      "PlayerAchievementProgress": {
+        "additionalProperties": true,
+        "properties": {
+          "completionInfo": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "info": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "integer"
+          },
+          "target": {
+            "type": "integer"
+          },
+          "value": {
+            "type": "integer"
+          },
+          "village": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "stars",
+          "target",
+          "value",
+          "village"
+        ],
+        "type": "object"
+      },
+      "PlayerBuilderBaseRanking": {
+        "additionalProperties": true,
+        "properties": {
+          "builderBaseLeague": {
+            "$ref": "#/components/schemas/BuilderBaseLeague"
+          },
+          "builderBaseTrophies": {
+            "type": "integer"
+          },
+          "clan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClanReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expLevel": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "previousRank": {
+            "type": "integer"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "builderBaseTrophies",
+          "expLevel",
+          "name",
+          "previousRank",
+          "rank",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "PlayerBuilderBaseRankingListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerBuilderBaseRanking"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "PlayerClan": {
+        "additionalProperties": true,
+        "properties": {
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanLevel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "name",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "PlayerHouse": {
+        "additionalProperties": true,
+        "properties": {
+          "elements": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerHouseElement"
+            },
+            "type": "array"
+          }
+        },
+        "type": "object"
+      },
+      "PlayerHouseElement": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "type": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "type"
+        ],
+        "type": "object"
+      },
+      "PlayerItemLevel": {
+        "additionalProperties": true,
+        "properties": {
+          "equipment": {
+            "anyOf": [
+              {
+                "items": {
+                  "$ref": "#/components/schemas/PlayerItemLevel"
+                },
+                "type": "array"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "level": {
+            "type": "integer"
+          },
+          "maxLevel": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "superTroopIsActive": {
+            "anyOf": [
+              {
+                "type": "boolean"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "village": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "level",
+          "maxLevel",
+          "name",
+          "village"
+        ],
+        "type": "object"
+      },
+      "PlayerLegendStatistics": {
+        "additionalProperties": true,
+        "properties": {
+          "bestBuilderBaseSeason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "bestSeason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "currentSeason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "legendTrophies": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "previousBuilderBaseSeason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "previousSeason": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "type": "object"
+      },
+      "PlayerRanking": {
+        "additionalProperties": true,
+        "properties": {
+          "attackWins": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClanReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "defenseWins": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expLevel": {
+            "type": "integer"
+          },
+          "league": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/League"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "leagueTier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LeagueTier"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "previousRank": {
+            "type": "integer"
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "trophies": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "expLevel",
+          "name",
+          "previousRank",
+          "rank",
+          "tag",
+          "trophies"
+        ],
+        "type": "object"
+      },
+      "PlayerRankingListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerRanking"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "PlayerSeasonRanking": {
+        "additionalProperties": true,
+        "properties": {
+          "attackWins": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clan": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/ClanReference"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "defenseWins": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expLevel": {
+            "type": "integer"
+          },
+          "league": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/League"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "leagueTier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LeagueTier"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "previousRank": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "rank": {
+            "type": "integer"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "trophies": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "expLevel",
+          "name",
+          "rank",
+          "tag",
+          "trophies"
+        ],
+        "type": "object"
+      },
+      "PlayerSeasonRankingListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/PlayerSeasonRanking"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      },
+      "Resource": {
+        "additionalProperties": true,
+        "properties": {
+          "amount": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "amount",
+          "name"
+        ],
+        "type": "object"
+      },
+      "VerifyTokenRequest": {
+        "additionalProperties": true,
+        "properties": {
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "token"
+        ],
+        "type": "object"
+      },
+      "VerifyTokenResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "status": {
+            "type": "string"
+          },
+          "tag": {
+            "type": "string"
+          },
+          "token": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "status",
+          "tag",
+          "token"
+        ],
+        "type": "object"
+      },
+      "WarClan": {
+        "additionalProperties": true,
+        "properties": {
+          "attacks": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "badgeUrls": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BadgeUrls"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "destructionPercentage": {
+            "anyOf": [
+              {
+                "anyOf": [
+                  {
+                    "type": "number"
+                  },
+                  {
+                    "enum": [
+                      "Infinity",
+                      "-Infinity",
+                      "NaN"
+                    ],
+                    "type": "string"
+                  }
+                ]
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "expEarned": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "members": {
+            "items": {
+              "$ref": "#/components/schemas/ClanWarMember"
+            },
+            "type": "array"
+          },
+          "name": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "stars": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "tag": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "clanLevel"
+        ],
+        "type": "object"
+      },
+      "WarLeague": {
+        "additionalProperties": true,
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ],
+        "type": "object"
+      },
+      "WarLeagueListResponse": {
+        "additionalProperties": true,
+        "properties": {
+          "items": {
+            "items": {
+              "$ref": "#/components/schemas/WarLeague"
+            },
+            "type": "array"
+          },
+          "paging": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Paging"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "items"
+        ],
+        "type": "object"
+      }
+    },
+    "securitySchemes": {}
+  },
+  "info": {
+    "description": "Community-maintained mock Clash of Clans API. Not affiliated with Supercell. Use #2PP and additional trailing Ps to select deterministic fixture variants. All models and OpenAPI are derived from the Effect contract.",
+    "title": "Clash of Clans example API",
+    "version": "0.2.0"
+  },
+  "openapi": "3.1.0",
+  "paths": {
+    "/builderbaseleagues": {
+      "get": {
+        "operationId": "leagues.builders",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuilderBaseLeagueListResponse"
+                }
+              }
+            },
+            "description": "BuilderBaseLeagueListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/builderbaseleagues/{leagueId}": {
+      "get": {
+        "operationId": "leagues.builder",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "leagueId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BuilderBaseLeague"
+                }
+              }
+            },
+            "description": "BuilderBaseLeague",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/capitalleagues": {
+      "get": {
+        "operationId": "leagues.capitals",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CapitalLeagueListResponse"
+                }
+              }
+            },
+            "description": "CapitalLeagueListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/capitalleagues/{leagueId}": {
+      "get": {
+        "operationId": "leagues.capital",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "leagueId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CapitalLeague"
+                }
+              }
+            },
+            "description": "CapitalLeague",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/clans": {
+      "get": {
+        "operationId": "clans.search",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "warFrequency",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "locationId",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "minMembers",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "maxMembers",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "minClanPoints",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "minClanLevel",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "labelIds",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanSearchResponse"
+                }
+              }
+            },
+            "description": "ClanSearchResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "clans"
+        ]
+      }
+    },
+    "/clans/{clanTag}": {
+      "get": {
+        "operationId": "clans.profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clanTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Clan"
+                }
+              }
+            },
+            "description": "Clan",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "clans"
+        ]
+      }
+    },
+    "/clans/{clanTag}/capitalraidseasons": {
+      "get": {
+        "operationId": "clans.raids",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clanTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CapitalRaidSeasonsResponse"
+                }
+              }
+            },
+            "description": "CapitalRaidSeasonsResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "clans"
+        ]
+      }
+    },
+    "/clans/{clanTag}/currentwar": {
+      "get": {
+        "operationId": "clans.war",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clanTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanWar"
+                }
+              }
+            },
+            "description": "ClanWar",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "clans"
+        ]
+      }
+    },
+    "/clans/{clanTag}/currentwar/leaguegroup": {
+      "get": {
+        "operationId": "clans.cwl",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clanTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanWarLeagueGroup"
+                }
+              }
+            },
+            "description": "ClanWarLeagueGroup",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "clans"
+        ]
+      }
+    },
+    "/clans/{clanTag}/members": {
+      "get": {
+        "operationId": "clans.members",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clanTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanMembersResponse"
+                }
+              }
+            },
+            "description": "ClanMembersResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "clans"
+        ]
+      }
+    },
+    "/clans/{clanTag}/warlog": {
+      "get": {
+        "operationId": "clans.warlog",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "clanTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanWarLogResponse"
+                }
+              }
+            },
+            "description": "ClanWarLogResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "clans"
+        ]
+      }
+    },
+    "/clanwarleagues/wars/{warTag}": {
+      "get": {
+        "operationId": "clans.leagueWar",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "warTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanWar"
+                }
+              }
+            },
+            "description": "ClanWar",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "clans"
+        ]
+      }
+    },
+    "/goldpass/seasons/current": {
+      "get": {
+        "operationId": "goldpass.current",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/GoldPassSeason"
+                }
+              }
+            },
+            "description": "GoldPassSeason",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "goldpass"
+        ]
+      }
+    },
+    "/labels/clans": {
+      "get": {
+        "operationId": "labels.clans",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LabelListResponse"
+                }
+              }
+            },
+            "description": "LabelListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "labels"
+        ]
+      }
+    },
+    "/labels/players": {
+      "get": {
+        "operationId": "labels.players",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LabelListResponse"
+                }
+              }
+            },
+            "description": "LabelListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "labels"
+        ]
+      }
+    },
+    "/leaguegroup/{leagueGroupTag}/{leagueSeasonId}": {
+      "get": {
+        "operationId": "leagues.group",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "leagueGroupTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "leagueSeasonId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "playerTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeagueGroup"
+                }
+              }
+            },
+            "description": "LeagueGroup",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/leagues/{leagueId}/seasons": {
+      "get": {
+        "operationId": "leagues.seasons",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "leagueId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeagueSeasonListResponse"
+                }
+              }
+            },
+            "description": "LeagueSeasonListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/leagues/{leagueId}/seasons/{seasonId}": {
+      "get": {
+        "operationId": "leagues.season",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "leagueId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "path",
+            "name": "seasonId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerSeasonRankingListResponse"
+                }
+              }
+            },
+            "description": "PlayerSeasonRankingListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/leaguetiers": {
+      "get": {
+        "operationId": "leagues.tiers",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeagueTierListResponse"
+                }
+              }
+            },
+            "description": "LeagueTierListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/leaguetiers/{leagueTierId}": {
+      "get": {
+        "operationId": "leagues.tier",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "leagueTierId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeagueTier"
+                }
+              }
+            },
+            "description": "LeagueTier",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/locations": {
+      "get": {
+        "operationId": "locations.list",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocationListResponse"
+                }
+              }
+            },
+            "description": "LocationListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "locations"
+        ]
+      }
+    },
+    "/locations/{locationId}": {
+      "get": {
+        "operationId": "locations.item",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "locationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Location"
+                }
+              }
+            },
+            "description": "Location",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "locations"
+        ]
+      }
+    },
+    "/locations/{locationId}/rankings/capitals": {
+      "get": {
+        "operationId": "locations.capitals",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "locationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanCapitalRankingListResponse"
+                }
+              }
+            },
+            "description": "ClanCapitalRankingListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "locations"
+        ]
+      }
+    },
+    "/locations/{locationId}/rankings/clans": {
+      "get": {
+        "operationId": "locations.clans",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "locationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanRankingListResponse"
+                }
+              }
+            },
+            "description": "ClanRankingListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "locations"
+        ]
+      }
+    },
+    "/locations/{locationId}/rankings/clans-builder-base": {
+      "get": {
+        "operationId": "locations.builderClans",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "locationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClanBuilderBaseRankingListResponse"
+                }
+              }
+            },
+            "description": "ClanBuilderBaseRankingListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "locations"
+        ]
+      }
+    },
+    "/locations/{locationId}/rankings/players": {
+      "get": {
+        "operationId": "locations.players",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "locationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerRankingListResponse"
+                }
+              }
+            },
+            "description": "PlayerRankingListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "locations"
+        ]
+      }
+    },
+    "/locations/{locationId}/rankings/players-builder-base": {
+      "get": {
+        "operationId": "locations.builders",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "locationId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PlayerBuilderBaseRankingListResponse"
+                }
+              }
+            },
+            "description": "PlayerBuilderBaseRankingListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "locations"
+        ]
+      }
+    },
+    "/players/{playerTag}": {
+      "get": {
+        "operationId": "players.profile",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "playerTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Player"
+                }
+              }
+            },
+            "description": "Player",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "players"
+        ],
+        "x-codeSamples": [
+          {
+            "label": "clashy.py",
+            "lang": "Python",
+            "source": "player = await coc_client.get_player(\"#2PP\")\nprint(player.name)"
+          }
+        ]
+      }
+    },
+    "/players/{playerTag}/battlelog": {
+      "get": {
+        "operationId": "players.battles",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "playerTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BattleLogResponse"
+                }
+              }
+            },
+            "description": "BattleLogResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "players"
+        ]
+      }
+    },
+    "/players/{playerTag}/leaguehistory": {
+      "get": {
+        "operationId": "players.history",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "playerTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LeagueHistoryResponse"
+                }
+              }
+            },
+            "description": "LeagueHistoryResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "players"
+        ]
+      }
+    },
+    "/players/{playerTag}/verifytoken": {
+      "post": {
+        "operationId": "players.verify",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "playerTag",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/VerifyTokenRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/VerifyTokenResponse"
+                }
+              }
+            },
+            "description": "VerifyTokenResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "players"
+        ]
+      }
+    },
+    "/warleagues": {
+      "get": {
+        "operationId": "leagues.wars",
+        "parameters": [
+          {
+            "in": "query",
+            "name": "limit",
+            "required": false,
+            "schema": {
+              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "after",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "in": "query",
+            "name": "before",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WarLeagueListResponse"
+                }
+              }
+            },
+            "description": "WarLeagueListResponse",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    },
+    "/warleagues/{leagueId}": {
+      "get": {
+        "operationId": "leagues.war",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "leagueId",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WarLeague"
+                }
+              }
+            },
+            "description": "WarLeague",
+            "headers": {
+              "cache-control": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "429": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "501": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                }
+              }
+            },
+            "description": "ClientErrorResponse"
+          }
+        },
+        "security": [],
+        "tags": [
+          "leagues"
+        ]
+      }
+    }
+  },
+  "security": [],
+  "servers": [
+    {
+      "url": "/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "clans"
+    },
+    {
+      "name": "players"
+    },
+    {
+      "name": "leagues"
+    },
+    {
+      "name": "locations"
+    },
+    {
+      "name": "labels"
+    },
+    {
+      "name": "goldpass"
+    }
+  ],
+  "x-scalar-sdk-installation": [
+    {
+      "description": "Install the Python SDK:",
+      "lang": "Python",
+      "source": "pip install clashy.py"
+    }
+  ]
+}
