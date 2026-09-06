@@ -26,7 +26,7 @@
     "pack:contract": "npm pack -w @clashking/clash-contract"
   },
   "dependencies": {
-    "@clashking/clash-contract": "0.2.0",
+    "@clashking/clash-contract": "1.0.0",
     "effect": "4.0.0-rc.112"
   },
   "devDependencies": {
