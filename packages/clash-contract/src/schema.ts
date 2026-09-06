@@ -779,7 +779,7 @@ export interface components {
         ClanWarAttack: {
             attackerTag: string;
             defenderTag: string;
-            destructionPercentage: number | ("Infinity" | "-Infinity" | "NaN");
+            destructionPercentage: number;
             duration?: number | null;
             order: number;
             stars: number;
@@ -1329,16 +1329,16 @@ export interface operations {
     "clans.search": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
                 name?: string;
                 warFrequency?: string;
-                locationId?: string;
-                minMembers?: string;
-                maxMembers?: string;
-                minClanPoints?: string;
-                minClanLevel?: string;
+                locationId?: number;
+                minMembers?: number;
+                maxMembers?: number;
+                minClanPoints?: number;
+                minClanLevel?: number;
                 labelIds?: string;
             };
             header?: never;
@@ -1511,7 +1511,7 @@ export interface operations {
     "clans.members": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -1687,7 +1687,7 @@ export interface operations {
     "clans.warlog": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -1949,7 +1949,7 @@ export interface operations {
     "clans.raids": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -2387,7 +2387,7 @@ export interface operations {
     "leagues.tiers": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -2561,7 +2561,7 @@ export interface operations {
     "leagues.capitals": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -2735,7 +2735,7 @@ export interface operations {
     "leagues.builders": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -2909,7 +2909,7 @@ export interface operations {
     "leagues.wars": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3083,7 +3083,7 @@ export interface operations {
     "leagues.seasons": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3173,7 +3173,7 @@ export interface operations {
     "leagues.season": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3353,7 +3353,7 @@ export interface operations {
     "locations.list": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3527,7 +3527,7 @@ export interface operations {
     "locations.clans": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3617,7 +3617,7 @@ export interface operations {
     "locations.players": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3707,7 +3707,7 @@ export interface operations {
     "locations.builders": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3797,7 +3797,7 @@ export interface operations {
     "locations.builderClans": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3887,7 +3887,7 @@ export interface operations {
     "locations.capitals": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -3977,7 +3977,7 @@ export interface operations {
     "labels.players": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };
@@ -4065,7 +4065,7 @@ export interface operations {
     "labels.clans": {
         parameters: {
             query?: {
-                limit?: string;
+                limit?: number;
                 after?: string;
                 before?: string;
             };

@@ -131,21 +131,30 @@ test('clanless LeagueGroup members have required nullable clan identity keys', (
   }
 });
 
-test('war attack and clan destruction percentages retain fractions', () => {
+test('individual war attacks require integers while clan aggregates allow fractions', () => {
   const attack = {
     attackerTag: '#2PP',
     defenderTag: '#2PPP',
     stars: 2,
-    destructionPercentage: 99.5,
+    destructionPercentage: 99,
     order: 1,
   };
-  assert.equal(parse('ClanWarAttack', attack).destructionPercentage, 99.5);
+  assert.equal(parse('ClanWarAttack', attack).destructionPercentage, 99);
   assert.equal(
     Schema.decodeUnknownSync(effect.ClanWarAttack)(attack)
       .destructionPercentage,
-    99.5,
+    99,
   );
   const warClan = { clanLevel: 1, destructionPercentage: 99.5 };
+  assert.throws(() =>
+    parse('ClanWarAttack', { ...attack, destructionPercentage: 99.5 }),
+  );
+  assert.throws(() =>
+    Schema.decodeUnknownSync(effect.ClanWarAttack)({
+      ...attack,
+      destructionPercentage: 99.5,
+    }),
+  );
   assert.equal(parse('WarClan', warClan).destructionPercentage, 99.5);
   assert.equal(
     Schema.decodeUnknownSync(effect.WarClan)(warClan).destructionPercentage,

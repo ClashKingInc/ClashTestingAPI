@@ -1570,19 +1570,7 @@
             "type": "string"
           },
           "destructionPercentage": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "enum": [
-                  "Infinity",
-                  "-Infinity",
-                  "NaN"
-                ],
-                "type": "string"
-              }
-            ]
+            "type": "integer"
           },
           "duration": {
             "anyOf": [
@@ -3695,8 +3683,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -3930,8 +3918,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -4165,8 +4153,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -4206,8 +4194,7 @@
             "name": "locationId",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "type": "integer"
             }
           },
           {
@@ -4215,8 +4202,7 @@
             "name": "minMembers",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "type": "integer"
             }
           },
           {
@@ -4224,8 +4210,7 @@
             "name": "maxMembers",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "type": "integer"
             }
           },
           {
@@ -4233,8 +4218,7 @@
             "name": "minClanPoints",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "type": "integer"
             }
           },
           {
@@ -4242,8 +4226,7 @@
             "name": "minClanLevel",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "type": "integer"
             }
           },
           {
@@ -4477,8 +4460,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -4829,8 +4812,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -4963,8 +4946,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -5298,8 +5281,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -5424,8 +5407,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -5683,8 +5666,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -5825,8 +5808,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -5951,8 +5934,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -6186,8 +6169,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -6429,8 +6412,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -6563,8 +6546,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -6697,8 +6680,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -6831,8 +6814,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -6965,8 +6948,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {
@@ -7544,8 +7527,8 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "pattern": "^[+-]?\\d*\\.?\\d+(?:[Ee][+-]?\\d+)?$",
-              "type": "string"
+              "minimum": 1,
+              "type": "integer"
             }
           },
           {

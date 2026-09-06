@@ -4,5 +4,8 @@
   "main": "src/worker.ts",
   "compatibility_date": "2026-09-06",
   "observability": { "enabled": true },
-  "env": { "staging": { "name": "clash-of-clans-mock-api-staging" } },
+  "routes": [{ "pattern": "mock.clashk.ing", "custom_domain": true }],
+  "env": {
+    "staging": { "name": "clash-of-clans-mock-api-staging", "routes": [] },
+  },
 }

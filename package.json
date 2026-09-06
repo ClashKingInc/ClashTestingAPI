@@ -10,6 +10,7 @@
   ],
   "scripts": {
     "dev": "wrangler dev",
+    "check": "npm run format:check && npm run check:generated && npm test && npm run test:bundle && npm run test:package",
     "build": "wrangler deploy --dry-run --env= --outdir dist",
     "deploy": "wrangler deploy --env=",
     "deploy:staging": "wrangler deploy --env staging",

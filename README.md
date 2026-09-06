@@ -72,7 +72,7 @@ npm run test:package
 npm run pack:contract
 ```
 
-Tests validate all 61 fixtures, emitted package declarations and schema composition, 446 captured Python responses, request errors, filtering, request isolation, and served/exported OpenAPI equality. Bundle tests start fresh workerd isolates and cover concurrent first requests and cancellation. Package tests install a tarball in a temporary consumer. CI runs these checks without Cloudflare credentials; it does not deploy or publish.
+Tests validate all 61 fixtures, emitted package declarations and schema composition, 446 captured Python responses, request errors, filtering, request isolation, and served/exported OpenAPI equality. Bundle tests start fresh workerd isolates and cover concurrent first requests and cancellation. Package tests install a tarball in a temporary consumer. `npm run check` runs the complete validation sequence. GitHub Actions validates PRs and main without Cloudflare credentials; deployment is owned by Cloudflare Workers Builds. Packages are not published.
 
 The shared [`@clashking/clash-contract`](packages/clash-contract/README.md) package is version `0.2.0`. Applications can import these schemas; MockAPI never calls ClashKing API. See the [migration notes](docs/typescript-migration.md) for intentional differences, evidence limits, and downstream recommendations.
 
@@ -86,7 +86,20 @@ npm run deploy:staging # Publishes staging with your Cloudflare credentials
 npm run deploy         # Publishes the main Worker with your Cloudflare credentials
 ```
 
-Account selection, custom domains, and production cutover must be configured for the intended Cloudflare account. They are not inferred from the existing public URL.
+The main Worker is configured with the custom domain `mock.clashk.ing`; staging has no custom domain. Connect this repository through Cloudflare's GitHub integration with these Workers Builds settings:
+
+| Setting           | Value                               |
+| ----------------- | ----------------------------------- |
+| Worker name       | `clash-of-clans-mock-api`           |
+| Production branch | `main`                              |
+| Root directory    | Repository root                     |
+| Build command     | `npm run check`                     |
+| Deploy command    | `npm run deploy`                    |
+| Node version      | `24` (committed in `.node-version`) |
+
+Leave non-production branch builds disabled initially. Cloudflare installs dependencies and manages deployment authentication; GitHub deployment secrets are unnecessary. Running `npm run check` in Cloudflare prevents deployment when validation fails, independently of the GitHub check run. The Cloudflare integration itself must be configured in the dashboard; it is not enabled by committing these files.
+
+Wrangler provisions the configured custom domain on deployment. The account must contain the active `clashk.ing` zone, and a conflicting hostname/DNS configuration must be resolved first. See [Workers Builds configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/) and [custom-domain requirements](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/). GitHub Actions remains validation-only, avoiding duplicate deployments. `npm run build` remains a dry run.
 
 ## License
 

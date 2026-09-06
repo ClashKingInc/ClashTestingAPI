@@ -1,5 +1,6 @@
 import { Schema } from 'effect';
 import { parse } from '@clashking/clash-contract';
+import type { paths } from '@clashking/clash-contract';
 import { Clan, WarClan } from '@clashking/clash-contract/effect';
 
 const Summary = Schema.Struct({
@@ -49,3 +50,15 @@ const nestedLevel: number | undefined =
   item.equipment?.[0]?.equipment?.[0]?.level;
 // @ts-expect-error Recursive declaration emit must not widen nested items to any.
 const invalidNestedLevel: string = item.equipment?.[0]?.equipment?.[0]?.level;
+
+type SearchQuery = NonNullable<paths['/clans']['get']['parameters']['query']>;
+const searchQuery: SearchQuery = {
+  limit: 1,
+  minMembers: 10,
+  maxMembers: 50,
+  locationId: 32000249,
+  minClanPoints: 100,
+  minClanLevel: 2,
+};
+// @ts-expect-error Numeric query parameters must be numbers in generated clients.
+const invalidQuery: SearchQuery = { limit: '1' };

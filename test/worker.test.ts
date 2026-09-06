@@ -193,6 +193,32 @@ describe('Cloudflare Worker', () => {
       expect.arrayContaining(['clanTag', 'clanName']),
     );
   });
+  it('publishes numeric queries and their decoded constraints', () => {
+    for (const item of Object.values(spec.paths)) {
+      for (const operation of Object.values(item)) {
+        for (const parameter of operation.parameters) {
+          if (parameter.in !== 'query') continue;
+          if (parameter.name === 'limit')
+            expect(parameter.schema).toMatchObject({
+              type: 'integer',
+              minimum: 1,
+            });
+          if (
+            [
+              'locationId',
+              'minMembers',
+              'maxMembers',
+              'minClanPoints',
+              'minClanLevel',
+            ].includes(parameter.name)
+          )
+            expect(parameter.schema).toMatchObject({ type: 'integer' });
+          if (['after', 'before'].includes(parameter.name))
+            expect(parameter.schema).toMatchObject({ type: 'string' });
+        }
+      }
+    }
+  });
   it('returns a safe 500 for an invalid fixture', async () => {
     // Goldpass is deliberately not loaded before this test in this module.
     const fixture = fixtures['goldpass/GOLDPASS.json'];

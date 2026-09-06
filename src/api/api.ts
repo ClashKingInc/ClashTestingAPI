@@ -220,11 +220,8 @@ export const Goldpass = G.make('goldpass').add(
     error: errors,
   }),
 );
-export const Api = HttpApi.make('ClashMockAPI')
+const BaseApi = HttpApi.make('ClashMockAPI')
   .add(Clans, Players, Leagues, Locations, Labels, Goldpass)
-  .annotate(OpenApi.Transform, (spec) =>
-    completeOpenApi(spec as OpenApi.OpenAPISpec),
-  )
   .annotate(OpenApi.Title, 'Clash of Clans example API')
   .annotate(OpenApi.Version, packageInfo.version)
   .annotate(OpenApi.Servers, [{ url: '/' }])
@@ -241,3 +238,7 @@ export const Api = HttpApi.make('ClashMockAPI')
       },
     ],
   });
+
+export const Api = BaseApi.annotate(OpenApi.Transform, (spec) =>
+  completeOpenApi(spec as OpenApi.OpenAPISpec, BaseApi),
+);

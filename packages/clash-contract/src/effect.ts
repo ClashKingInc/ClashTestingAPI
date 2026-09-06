@@ -525,7 +525,7 @@ export const ClanSearchResponse = Schema.Struct({
 export const ClanWarAttack = Schema.Struct({
   attackerTag: Schema.String,
   defenderTag: Schema.String,
-  destructionPercentage: Schema.Number,
+  destructionPercentage: Schema.Number.check(Schema.isInt()),
   duration: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
