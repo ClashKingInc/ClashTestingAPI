@@ -1,5 +1,5 @@
 import { Schema } from 'effect';
-import { HttpApiBuilder } from 'effect/unstable/httpapi';
+import { HttpApiBuilder } from 'effect/http-api';
 import * as W from '../../packages/clash-contract/src/effect.js';
 import { Api } from '../api/api.js';
 import {

@@ -1,6 +1,6 @@
 import { Layer } from 'effect';
-import { HttpRouter, HttpServer } from 'effect/unstable/http';
-import { HttpApiBuilder, HttpApiScalar } from 'effect/unstable/httpapi';
+import { HttpRouter, HttpServer } from 'effect/http';
+import { HttpApiBuilder, HttpApiScalar } from 'effect/http-api';
 import { Api } from './api/api.js';
 import { errorBoundary } from './api/errors.js';
 import { ClansLive } from './handlers/clans.js';
