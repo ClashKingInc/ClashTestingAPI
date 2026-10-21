@@ -4,8 +4,8 @@ import {
   HttpServerError,
   HttpServerRequest,
   HttpServerResponse,
-} from 'effect/unstable/http';
-import { HttpApiError } from 'effect/unstable/httpapi';
+} from 'effect/http';
+import { HttpApiError } from 'effect/http-api';
 import { Api } from './api.js';
 
 // Retain method errors and trailing-slash redirects using the same endpoint

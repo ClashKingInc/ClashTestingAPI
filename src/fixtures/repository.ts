@@ -1,6 +1,6 @@
 import { Effect, Schema } from 'effect';
-import { HttpServerResponse } from 'effect/unstable/http';
-import { HttpApiSchema } from 'effect/unstable/httpapi';
+import { HttpServerResponse } from 'effect/http';
+import { HttpApiSchema } from 'effect/http-api';
 import * as W from '../../packages/clash-contract/src/effect.js';
 import { fixtures } from './data.js';
 

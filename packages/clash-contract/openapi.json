@@ -522,7 +522,14 @@
             ]
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "members": {
             "type": "integer"
@@ -543,7 +550,6 @@
         "required": [
           "clanBuilderBasePoints",
           "clanLevel",
-          "location",
           "members",
           "name",
           "previousRank",
@@ -912,7 +918,14 @@
             "type": "integer"
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "members": {
             "type": "integer"
@@ -933,7 +946,6 @@
         "required": [
           "clanCapitalPoints",
           "clanLevel",
-          "location",
           "members",
           "name",
           "previousRank",
@@ -3670,7 +3682,7 @@
   "info": {
     "description": "Community-maintained mock Clash of Clans API. Not affiliated with Supercell. Use #2PP and additional trailing Ps to select deterministic fixture variants. All models and OpenAPI are derived from the Effect contract.",
     "title": "Clash of Clans example API",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "openapi": "3.1.0",
   "paths": {

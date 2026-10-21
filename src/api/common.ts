@@ -1,5 +1,5 @@
 import { Schema } from 'effect';
-import { HttpApiSchema } from 'effect/unstable/httpapi';
+import { HttpApiSchema } from 'effect/http-api';
 import * as Wire from '../../packages/clash-contract/src/effect.js';
 
 export const Paging = {
@@ -18,9 +18,10 @@ export const Search = {
   minClanLevel: Schema.optionalKey(Schema.Int),
   labelIds: Schema.optionalKey(Schema.String),
 };
-export const Headers = Schema.Struct({
-  'cache-control': Schema.optionalKey(Schema.String),
-}).annotate({ parseOptions: { onExcessProperty: 'preserve' } });
+export const Headers = Schema.StructWithRest(
+  Schema.Struct({ 'cache-control': Schema.optionalKey(Schema.String) }),
+  [Schema.Record(Schema.String, Schema.Unknown)],
+);
 export const success = <S extends Schema.Top>(schema: S) =>
   HttpApiSchema.WithHeaders(schema, Headers);
 export const errors = [400, 403, 404, 429, 500, 501, 503].map((status) =>

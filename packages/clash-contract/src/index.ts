@@ -13,9 +13,7 @@ function validator<K extends SchemaName>(name: K): Validator<Schemas[K]> {
     value: unknown,
   ): value is Schemas[K] => {
     try {
-      Schema.decodeUnknownSync(models[name])(value, {
-        onExcessProperty: 'preserve',
-      });
+      Schema.decodeUnknownSync(models[name])(value);
       check.errors = null;
       return true;
     } catch (error) {
