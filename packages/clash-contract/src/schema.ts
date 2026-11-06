@@ -750,7 +750,7 @@ export interface components {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
             clanLevel: number;
             clanPoints: number;
-            location: components["schemas"]["Location"];
+            location?: components["schemas"]["Location"] | null;
             members: number;
             name: string;
             previousRank: number;

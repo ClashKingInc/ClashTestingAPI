@@ -396,7 +396,8 @@ export const ClanRanking = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanLevel: Schema.Number.check(Schema.isInt()),
   clanPoints: Schema.Number.check(Schema.isInt()),
-  location: Location,
+  // Some ranked clans have no location selected. Preserve the entire row.
+  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),

@@ -1122,7 +1122,14 @@
             "type": "integer"
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "members": {
             "type": "integer"
@@ -1143,7 +1150,6 @@
         "required": [
           "clanLevel",
           "clanPoints",
-          "location",
           "members",
           "name",
           "previousRank",
