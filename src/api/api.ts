@@ -4,7 +4,7 @@ import {
   HttpApiEndpoint as E,
   HttpApiGroup as G,
   OpenApi,
-} from 'effect/unstable/httpapi';
+} from 'effect/http-api';
 import * as W from '../../packages/clash-contract/src/effect.js';
 import packageInfo from '../../packages/clash-contract/package.json';
 import { errors, Paging, Search, success } from './common.js';

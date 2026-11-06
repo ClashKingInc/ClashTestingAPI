@@ -67,6 +67,20 @@ for (const abortFirst of [false, true]) {
     });
     assert.equal(warm.status, 200);
     assert.equal(((await warm.json()) as { tag: string }).tag, '#2PP');
+    const rankings = await runtime.dispatchFetch(
+      'https://mock.test/locations/global/rankings/clans',
+      { signal: AbortSignal.timeout(15000) },
+    );
+    assert.equal(rankings.status, 200);
+    const rankingBody = (await rankings.json()) as {
+      items: { tag: string; location?: unknown }[];
+    };
+    assert.equal(rankingBody.items.length, 3);
+    assert.equal(
+      rankingBody.items.filter((item) => item.location === undefined).length,
+      2,
+    );
+    assert.ok(rankingBody.items.every((item) => item.tag.startsWith('#')));
     console.log(
       `Fresh Worker ${abortFirst ? 'with first request aborted' : 'with concurrent first requests'}: passed (${Math.round(performance.now() - started)} ms locally)`,
     );

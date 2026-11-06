@@ -1,5 +1,5 @@
 import { Schema } from 'effect';
-import { HttpApiBuilder } from 'effect/unstable/httpapi';
+import { HttpApiBuilder } from 'effect/http-api';
 import * as W from '../../packages/clash-contract/src/effect.js';
 import { Api } from '../api/api.js';
 import {
@@ -31,8 +31,11 @@ function ranking<S extends Schema.Codec<unknown, unknown, never, never>>(
   replace = false,
 ) {
   checkPaging(page);
-  if (id === 'global')
-    return reply(`locations/rankings/${kind}/COUNTRY.json`, schema, page);
+  if (id === 'global') {
+    // Global clan rankings include clans that have never selected a country.
+    const variant = kind === 'clans' ? 'GLOBAL' : 'COUNTRY';
+    return reply(`locations/rankings/${kind}/${variant}.json`, schema, page);
+  }
   const location = load(
     'locations/LISTLOCATIONS.json',
     W.LocationListResponse,

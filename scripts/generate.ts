@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { OpenApi } from 'effect/unstable/httpapi';
+import { OpenApi } from 'effect/http-api';
 import openapiTS, { astToString } from 'openapi-typescript';
 import { Api } from '../src/api/api.js';
 

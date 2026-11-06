@@ -51,7 +51,7 @@ The `@clashking/clash-contract` package provides schemas and TypeScript types fo
 Download a package `.tgz` from [GitHub Releases](https://github.com/ClashKingInc/ClashTestingAPI/releases), then install it alongside the required Effect version:
 
 ```bash
-npm install effect@4.0.0-rc.112 /path/to/clashking-clash-contract-VERSION.tgz
+npm install effect@4.0.0 /path/to/clashking-clash-contract-VERSION.tgz
 ```
 
 You can also pass the release asset's download URL directly to `npm install`. If no release is available yet, run `npm run pack:contract` in this repository to build the archive locally. Commit the dependency and lockfile together; update them when you choose to adopt a newer release.

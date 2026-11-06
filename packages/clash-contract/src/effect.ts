@@ -1,5 +1,16 @@
 // Authoritative wire schemas. Edit here; OpenAPI and types are derived outputs.
 import { Schema } from 'effect';
+
+// Explicit rest records preserve future API fields during decoding and encoding.
+// Rebuilding the struct keeps its existing .fields and inferred known-field types.
+function WireStruct<const Fields extends Schema.Struct.Fields>(fields: Fields) {
+  const struct = Schema.Struct(fields);
+  return struct.rebuild(
+    Schema.StructWithRest(struct, [
+      Schema.Record(Schema.String, Schema.Unknown),
+    ]).ast,
+  );
+}
 export interface PlayerItemLevelWire {
   readonly name: string;
   readonly level: number;
@@ -8,22 +19,20 @@ export interface PlayerItemLevelWire {
   readonly superTroopIsActive?: boolean | null;
   readonly equipment?: readonly PlayerItemLevelWire[] | null;
 }
-export const BadgeUrls = Schema.Struct({
+export const BadgeUrls = WireStruct({
   large: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   medium: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   small: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
 }).annotate({
   identifier: 'BadgeUrls',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const Resource = Schema.Struct({
+export const Resource = WireStruct({
   amount: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'Resource',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const BattleLogEntry = Schema.Struct({
+export const BattleLogEntry = WireStruct({
   armyShareCode: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   attack: Schema.Boolean,
   availableLoot: Schema.optionalKey(Schema.Array(Resource)),
@@ -35,81 +44,70 @@ export const BattleLogEntry = Schema.Struct({
   stars: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'BattleLogEntry',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const CursorPaging = Schema.Struct({
+export const CursorPaging = WireStruct({
   after: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   before: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
 }).annotate({
   identifier: 'CursorPaging',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const Paging = Schema.Struct({
+export const Paging = WireStruct({
   cursors: Schema.optionalKey(CursorPaging),
 }).annotate({
   identifier: 'Paging',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const BattleLogResponse = Schema.Struct({
+export const BattleLogResponse = WireStruct({
   items: Schema.Array(BattleLogEntry),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'BattleLogResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const BuilderBaseLeague = Schema.Struct({
+export const BuilderBaseLeague = WireStruct({
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'BuilderBaseLeague',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const BuilderBaseLeagueListResponse = Schema.Struct({
+export const BuilderBaseLeagueListResponse = WireStruct({
   items: Schema.Array(BuilderBaseLeague),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'BuilderBaseLeagueListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const CapitalLeague = Schema.Struct({
+export const CapitalLeague = WireStruct({
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'CapitalLeague',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const CapitalLeagueListResponse = Schema.Struct({
+export const CapitalLeagueListResponse = WireStruct({
   items: Schema.Array(CapitalLeague),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'CapitalLeagueListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRaidSeasonClanInfo = Schema.Struct({
+export const ClanCapitalRaidSeasonClanInfo = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   level: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanCapitalRaidSeasonClanInfo',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRaidSeasonAttacker = Schema.Struct({
+export const ClanCapitalRaidSeasonAttacker = WireStruct({
   name: Schema.String,
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanCapitalRaidSeasonAttacker',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRaidSeasonAttack = Schema.Struct({
+export const ClanCapitalRaidSeasonAttack = WireStruct({
   attacker: ClanCapitalRaidSeasonAttacker,
   destructionPercent: Schema.Number.check(Schema.isInt()),
   stars: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanCapitalRaidSeasonAttack',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRaidSeasonDistrict = Schema.Struct({
+export const ClanCapitalRaidSeasonDistrict = WireStruct({
   attackCount: Schema.Number.check(Schema.isInt()),
   attacks: Schema.optionalKey(Schema.Array(ClanCapitalRaidSeasonAttack)),
   destructionPercent: Schema.Number.check(Schema.isInt()),
@@ -120,9 +118,8 @@ export const ClanCapitalRaidSeasonDistrict = Schema.Struct({
   totalLooted: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanCapitalRaidSeasonDistrict',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRaidSeasonAttackLogEntry = Schema.Struct({
+export const ClanCapitalRaidSeasonAttackLogEntry = WireStruct({
   attackCount: Schema.Number.check(Schema.isInt()),
   defender: ClanCapitalRaidSeasonClanInfo,
   districtCount: Schema.Number.check(Schema.isInt()),
@@ -130,9 +127,8 @@ export const ClanCapitalRaidSeasonAttackLogEntry = Schema.Struct({
   districtsDestroyed: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanCapitalRaidSeasonAttackLogEntry',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRaidSeasonDefenseLogEntry = Schema.Struct({
+export const ClanCapitalRaidSeasonDefenseLogEntry = WireStruct({
   attackCount: Schema.Number.check(Schema.isInt()),
   attacker: ClanCapitalRaidSeasonClanInfo,
   districtCount: Schema.Number.check(Schema.isInt()),
@@ -140,9 +136,8 @@ export const ClanCapitalRaidSeasonDefenseLogEntry = Schema.Struct({
   districtsDestroyed: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanCapitalRaidSeasonDefenseLogEntry',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRaidSeasonMember = Schema.Struct({
+export const ClanCapitalRaidSeasonMember = WireStruct({
   attackLimit: Schema.Number.check(Schema.isInt()),
   attacks: Schema.Number.check(Schema.isInt()),
   bonusAttackLimit: Schema.Number.check(Schema.isInt()),
@@ -151,9 +146,8 @@ export const ClanCapitalRaidSeasonMember = Schema.Struct({
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanCapitalRaidSeasonMember',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRaidSeason = Schema.Struct({
+export const ClanCapitalRaidSeason = WireStruct({
   attackLog: Schema.optionalKey(
     Schema.Array(ClanCapitalRaidSeasonAttackLogEntry),
   ),
@@ -172,32 +166,28 @@ export const ClanCapitalRaidSeason = Schema.Struct({
   totalAttacks: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanCapitalRaidSeason',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const CapitalRaidSeasonsResponse = Schema.Struct({
+export const CapitalRaidSeasonsResponse = WireStruct({
   items: Schema.Array(ClanCapitalRaidSeason),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'CapitalRaidSeasonsResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const Language = Schema.Struct({
+export const Language = WireStruct({
   id: Schema.Number.check(Schema.isInt()),
   languageCode: Schema.String,
   name: Schema.String,
 }).annotate({
   identifier: 'Language',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalDistrict = Schema.Struct({
+export const ClanCapitalDistrict = WireStruct({
   districtHallLevel: Schema.Number.check(Schema.isInt()),
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'ClanCapitalDistrict',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapital = Schema.Struct({
+export const ClanCapital = WireStruct({
   capitalHallLevel: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
@@ -207,26 +197,23 @@ export const ClanCapital = Schema.Struct({
   districts: Schema.optionalKey(Schema.Array(ClanCapitalDistrict)),
 }).annotate({
   identifier: 'ClanCapital',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const IconUrls = Schema.Struct({
+export const IconUrls = WireStruct({
   large: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   medium: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   small: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   tiny: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
 }).annotate({
   identifier: 'IconUrls',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const Label = Schema.Struct({
+export const Label = WireStruct({
   iconUrls: Schema.optionalKey(Schema.Union([IconUrls, Schema.Null])),
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'Label',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const Location = Schema.Struct({
+export const Location = WireStruct({
   countryCode: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   id: Schema.Number.check(Schema.isInt()),
   isCountry: Schema.Boolean,
@@ -234,30 +221,26 @@ export const Location = Schema.Struct({
   name: Schema.String,
 }).annotate({
   identifier: 'Location',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const League = Schema.Struct({
+export const League = WireStruct({
   iconUrls: Schema.optionalKey(Schema.Union([IconUrls, Schema.Null])),
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'League',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerHouseElement = Schema.Struct({
+export const PlayerHouseElement = WireStruct({
   id: Schema.Number.check(Schema.isInt()),
   type: Schema.String,
 }).annotate({
   identifier: 'PlayerHouseElement',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerHouse = Schema.Struct({
+export const PlayerHouse = WireStruct({
   elements: Schema.optionalKey(Schema.Array(PlayerHouseElement)),
 }).annotate({
   identifier: 'PlayerHouse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanMember = Schema.Struct({
+export const ClanMember = WireStruct({
   builderBaseLeague: Schema.optionalKey(Schema.Union([League, Schema.Null])),
   builderBaseTrophies: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
@@ -279,16 +262,14 @@ export const ClanMember = Schema.Struct({
   ),
 }).annotate({
   identifier: 'ClanMember',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const WarLeague = Schema.Struct({
+export const WarLeague = WireStruct({
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'WarLeague',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const Clan = Schema.Struct({
+export const Clan = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   capitalLeague: Schema.optionalKey(Schema.Union([CapitalLeague, Schema.Null])),
   chatLanguage: Schema.optionalKey(Schema.Union([Language, Schema.Null])),
@@ -359,16 +340,17 @@ export const Clan = Schema.Struct({
   ),
 }).annotate({
   identifier: 'Clan',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanBuilderBaseRanking = Schema.Struct({
+export const ClanBuilderBaseRanking = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanBuilderBasePoints: Schema.Number.check(Schema.isInt()),
   clanLevel: Schema.Number.check(Schema.isInt()),
   clanPoints: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
-  location: Location,
+  // Worldwide leaderboards include clans with no selected location. Keep
+  // those rows: a missing location must not reject all 200 ranking entries.
+  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),
@@ -376,20 +358,20 @@ export const ClanBuilderBaseRanking = Schema.Struct({
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanBuilderBaseRanking',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanBuilderBaseRankingListResponse = Schema.Struct({
+export const ClanBuilderBaseRankingListResponse = WireStruct({
   items: Schema.Array(ClanBuilderBaseRanking),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'ClanBuilderBaseRankingListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRanking = Schema.Struct({
+export const ClanCapitalRanking = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanCapitalPoints: Schema.Number.check(Schema.isInt()),
   clanLevel: Schema.Number.check(Schema.isInt()),
-  location: Location,
+  // Global Capital rankings include clans without a configured location.
+  // Preserve those entries instead of rejecting the complete leaderboard.
+  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),
@@ -397,27 +379,25 @@ export const ClanCapitalRanking = Schema.Struct({
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanCapitalRanking',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanCapitalRankingListResponse = Schema.Struct({
+export const ClanCapitalRankingListResponse = WireStruct({
   items: Schema.Array(ClanCapitalRanking),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'ClanCapitalRankingListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanMembersResponse = Schema.Struct({
+export const ClanMembersResponse = WireStruct({
   items: Schema.Array(ClanMember),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'ClanMembersResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanRanking = Schema.Struct({
+export const ClanRanking = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanLevel: Schema.Number.check(Schema.isInt()),
   clanPoints: Schema.Number.check(Schema.isInt()),
-  location: Location,
+  // Some ranked clans have no location selected. Preserve the entire row.
+  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),
@@ -425,16 +405,14 @@ export const ClanRanking = Schema.Struct({
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanRanking',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanRankingListResponse = Schema.Struct({
+export const ClanRankingListResponse = WireStruct({
   items: Schema.Array(ClanRanking),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'ClanRankingListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanReference = Schema.Struct({
+export const ClanReference = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanLevel: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
@@ -443,9 +421,8 @@ export const ClanReference = Schema.Struct({
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanReference',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanSearchItem = Schema.Struct({
+export const ClanSearchItem = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   capitalLeague: Schema.optionalKey(Schema.Union([CapitalLeague, Schema.Null])),
   chatLanguage: Schema.optionalKey(Schema.Union([Language, Schema.Null])),
@@ -513,16 +490,14 @@ export const ClanSearchItem = Schema.Struct({
   ),
 }).annotate({
   identifier: 'ClanSearchItem',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanSearchResponse = Schema.Struct({
+export const ClanSearchResponse = WireStruct({
   items: Schema.Array(ClanSearchItem),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'ClanSearchResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWarAttack = Schema.Struct({
+export const ClanWarAttack = WireStruct({
   attackerTag: Schema.String,
   defenderTag: Schema.String,
   destructionPercentage: Schema.Number.check(Schema.isInt()),
@@ -533,9 +508,8 @@ export const ClanWarAttack = Schema.Struct({
   stars: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanWarAttack',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWarMember = Schema.Struct({
+export const ClanWarMember = WireStruct({
   attacks: Schema.optionalKey(Schema.Array(ClanWarAttack)),
   bestOpponentAttack: Schema.optionalKey(
     Schema.Union([ClanWarAttack, Schema.Null]),
@@ -549,9 +523,8 @@ export const ClanWarMember = Schema.Struct({
   townhallLevel: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanWarMember',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const WarClan = Schema.Struct({
+export const WarClan = WireStruct({
   attacks: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
@@ -571,9 +544,8 @@ export const WarClan = Schema.Struct({
   tag: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
 }).annotate({
   identifier: 'WarClan',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWar = Schema.Struct({
+export const ClanWar = WireStruct({
   attacksPerMember: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
@@ -593,17 +565,15 @@ export const ClanWar = Schema.Struct({
   ),
 }).annotate({
   identifier: 'ClanWar',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWarLeagueClanMember = Schema.Struct({
+export const ClanWarLeagueClanMember = WireStruct({
   name: Schema.String,
   tag: Schema.String,
   townHallLevel: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanWarLeagueClanMember',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWarLeagueClan = Schema.Struct({
+export const ClanWarLeagueClan = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanLevel: Schema.Number.check(Schema.isInt()),
   members: Schema.optionalKey(Schema.Array(ClanWarLeagueClanMember)),
@@ -611,15 +581,13 @@ export const ClanWarLeagueClan = Schema.Struct({
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanWarLeagueClan',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWarLeagueRound = Schema.Struct({
+export const ClanWarLeagueRound = WireStruct({
   warTags: Schema.optionalKey(Schema.Array(Schema.String)),
 }).annotate({
   identifier: 'ClanWarLeagueRound',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWarLeagueGroup = Schema.Struct({
+export const ClanWarLeagueGroup = WireStruct({
   clans: Schema.optionalKey(Schema.Array(ClanWarLeagueClan)),
   rounds: Schema.optionalKey(Schema.Array(ClanWarLeagueRound)),
   season: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
@@ -627,9 +595,8 @@ export const ClanWarLeagueGroup = Schema.Struct({
   tag: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
 }).annotate({
   identifier: 'ClanWarLeagueGroup',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWarLogEntry = Schema.Struct({
+export const ClanWarLogEntry = WireStruct({
   attacksPerMember: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
@@ -643,16 +610,14 @@ export const ClanWarLogEntry = Schema.Struct({
   teamSize: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanWarLogEntry',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClanWarLogResponse = Schema.Struct({
+export const ClanWarLogResponse = WireStruct({
   items: Schema.Array(ClanWarLogEntry),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'ClanWarLogResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const ClientErrorResponse = Schema.Struct({
+export const ClientErrorResponse = WireStruct({
   detail: Schema.optionalKey(
     Schema.Union([Schema.Record(Schema.String, Schema.Unknown), Schema.Null]),
   ),
@@ -661,23 +626,20 @@ export const ClientErrorResponse = Schema.Struct({
   type: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
 }).annotate({
   identifier: 'ClientErrorResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const GoldPassSeason = Schema.Struct({
+export const GoldPassSeason = WireStruct({
   endTime: Schema.String,
   startTime: Schema.String,
 }).annotate({
   identifier: 'GoldPassSeason',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LabelListResponse = Schema.Struct({
+export const LabelListResponse = WireStruct({
   items: Schema.Array(Label),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'LabelListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueBattleLogEntry = Schema.Struct({
+export const LeagueBattleLogEntry = WireStruct({
   creationTime: Schema.String,
   destructionPercentage: Schema.Number.check(Schema.isInt()),
   opponentName: Schema.String,
@@ -686,9 +648,8 @@ export const LeagueBattleLogEntry = Schema.Struct({
   trophies: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'LeagueBattleLogEntry',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueGroupMember = Schema.Struct({
+export const LeagueGroupMember = WireStruct({
   attackLoseCount: Schema.Number.check(Schema.isInt()),
   attackWinCount: Schema.Number.check(Schema.isInt()),
   clanName: Schema.Union([Schema.String, Schema.Null]),
@@ -700,17 +661,15 @@ export const LeagueGroupMember = Schema.Struct({
   playerTag: Schema.String,
 }).annotate({
   identifier: 'LeagueGroupMember',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueGroup = Schema.Struct({
+export const LeagueGroup = WireStruct({
   attackLogs: Schema.optionalKey(Schema.Array(LeagueBattleLogEntry)),
   defenseLogs: Schema.optionalKey(Schema.Array(LeagueBattleLogEntry)),
   members: Schema.optionalKey(Schema.Array(LeagueGroupMember)),
 }).annotate({
   identifier: 'LeagueGroup',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueSeasonResult = Schema.Struct({
+export const LeagueSeasonResult = WireStruct({
   attackLosses: Schema.Number.check(Schema.isInt()),
   attackStars: Schema.Number.check(Schema.isInt()),
   attackWins: Schema.Number.check(Schema.isInt()),
@@ -727,42 +686,36 @@ export const LeagueSeasonResult = Schema.Struct({
   placement: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'LeagueSeasonResult',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueHistoryResponse = Schema.Struct({
+export const LeagueHistoryResponse = WireStruct({
   items: Schema.Array(LeagueSeasonResult),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'LeagueHistoryResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueSeason = Schema.Struct({ id: Schema.String }).annotate({
+export const LeagueSeason = WireStruct({ id: Schema.String }).annotate({
   identifier: 'LeagueSeason',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueSeasonListResponse = Schema.Struct({
+export const LeagueSeasonListResponse = WireStruct({
   items: Schema.Array(LeagueSeason),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'LeagueSeasonListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueTier = Schema.Struct({
+export const LeagueTier = WireStruct({
   iconUrls: Schema.optionalKey(Schema.Union([IconUrls, Schema.Null])),
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'LeagueTier',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LeagueTierListResponse = Schema.Struct({
+export const LeagueTierListResponse = WireStruct({
   items: Schema.Array(LeagueTier),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'LeagueTierListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LegendLeagueTournamentSeasonResult = Schema.Struct({
+export const LegendLeagueTournamentSeasonResult = WireStruct({
   id: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   rank: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
@@ -772,16 +725,14 @@ export const LegendLeagueTournamentSeasonResult = Schema.Struct({
   ),
 }).annotate({
   identifier: 'LegendLeagueTournamentSeasonResult',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const LocationListResponse = Schema.Struct({
+export const LocationListResponse = WireStruct({
   items: Schema.Array(Location),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'LocationListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerAchievementProgress = Schema.Struct({
+export const PlayerAchievementProgress = WireStruct({
   completionInfo: Schema.optionalKey(
     Schema.Union([Schema.String, Schema.Null]),
   ),
@@ -793,9 +744,8 @@ export const PlayerAchievementProgress = Schema.Struct({
   village: Schema.String,
 }).annotate({
   identifier: 'PlayerAchievementProgress',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerClan = Schema.Struct({
+export const PlayerClan = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanLevel: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
@@ -804,9 +754,8 @@ export const PlayerClan = Schema.Struct({
   tag: Schema.String,
 }).annotate({
   identifier: 'PlayerClan',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerItemLevel = Schema.Struct({
+export const PlayerItemLevel = WireStruct({
   equipment: Schema.optionalKey(
     Schema.Union([
       Schema.Array(
@@ -831,9 +780,8 @@ export const PlayerItemLevel = Schema.Struct({
   village: Schema.String,
 }).annotate({
   identifier: 'PlayerItemLevel',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerLegendStatistics = Schema.Struct({
+export const PlayerLegendStatistics = WireStruct({
   bestBuilderBaseSeason: Schema.optionalKey(
     Schema.Union([LegendLeagueTournamentSeasonResult, Schema.Null]),
   ),
@@ -854,9 +802,8 @@ export const PlayerLegendStatistics = Schema.Struct({
   ),
 }).annotate({
   identifier: 'PlayerLegendStatistics',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const Player = Schema.Struct({
+export const Player = WireStruct({
   achievements: Schema.optionalKey(Schema.Array(PlayerAchievementProgress)),
   attackWins: Schema.Number.check(Schema.isInt()),
   bestBuilderBaseTrophies: Schema.optionalKey(
@@ -914,9 +861,8 @@ export const Player = Schema.Struct({
   warStars: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'Player',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerBuilderBaseRanking = Schema.Struct({
+export const PlayerBuilderBaseRanking = WireStruct({
   builderBaseLeague: Schema.optionalKey(BuilderBaseLeague),
   builderBaseTrophies: Schema.Number.check(Schema.isInt()),
   clan: Schema.optionalKey(Schema.Union([ClanReference, Schema.Null])),
@@ -927,16 +873,14 @@ export const PlayerBuilderBaseRanking = Schema.Struct({
   tag: Schema.String,
 }).annotate({
   identifier: 'PlayerBuilderBaseRanking',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerBuilderBaseRankingListResponse = Schema.Struct({
+export const PlayerBuilderBaseRankingListResponse = WireStruct({
   items: Schema.Array(PlayerBuilderBaseRanking),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'PlayerBuilderBaseRankingListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerRanking = Schema.Struct({
+export const PlayerRanking = WireStruct({
   attackWins: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
@@ -954,16 +898,14 @@ export const PlayerRanking = Schema.Struct({
   trophies: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'PlayerRanking',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerRankingListResponse = Schema.Struct({
+export const PlayerRankingListResponse = WireStruct({
   items: Schema.Array(PlayerRanking),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'PlayerRankingListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerSeasonRanking = Schema.Struct({
+export const PlayerSeasonRanking = WireStruct({
   attackWins: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
@@ -983,33 +925,28 @@ export const PlayerSeasonRanking = Schema.Struct({
   trophies: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'PlayerSeasonRanking',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const PlayerSeasonRankingListResponse = Schema.Struct({
+export const PlayerSeasonRankingListResponse = WireStruct({
   items: Schema.Array(PlayerSeasonRanking),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'PlayerSeasonRankingListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const VerifyTokenRequest = Schema.Struct({
+export const VerifyTokenRequest = WireStruct({
   token: Schema.String,
 }).annotate({
   identifier: 'VerifyTokenRequest',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const VerifyTokenResponse = Schema.Struct({
+export const VerifyTokenResponse = WireStruct({
   status: Schema.String,
   tag: Schema.String,
   token: Schema.String,
 }).annotate({
   identifier: 'VerifyTokenResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
-export const WarLeagueListResponse = Schema.Struct({
+export const WarLeagueListResponse = WireStruct({
   items: Schema.Array(WarLeague),
   paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'WarLeagueListResponse',
-  parseOptions: { onExcessProperty: 'preserve' },
 });
