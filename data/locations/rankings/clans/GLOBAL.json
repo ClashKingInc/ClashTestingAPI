@@ -1,0 +1,58 @@
+{
+  "body": {
+    "items": [
+      {
+        "tag": "#Y0L0QPPC",
+        "name": "الدسم",
+        "location": {
+          "id": 32000204,
+          "name": "Saudi Arabia",
+          "isCountry": true,
+          "countryCode": "SA"
+        },
+        "badgeUrls": {
+          "small": "https://api-assets.clashofclans.com/badges/70/uCLDuKIJGWxYsGNBrFa_yvWxJEP5Kw4-w-DkhkDr9CM.png",
+          "large": "https://api-assets.clashofclans.com/badges/512/uCLDuKIJGWxYsGNBrFa_yvWxJEP5Kw4-w-DkhkDr9CM.png",
+          "medium": "https://api-assets.clashofclans.com/badges/200/uCLDuKIJGWxYsGNBrFa_yvWxJEP5Kw4-w-DkhkDr9CM.png"
+        },
+        "clanLevel": 32,
+        "members": 48,
+        "clanPoints": 308586,
+        "rank": 1,
+        "previousRank": 1
+      },
+      {
+        "tag": "#2CJY9UV82",
+        "name": "YT: QWASMI COC",
+        "badgeUrls": {
+          "small": "https://api-assets.clashofclans.com/badges/70/_FqLf6FDO0dxJ26GeaomWKtJvRnxaANTI30G_7U73l4.png",
+          "large": "https://api-assets.clashofclans.com/badges/512/_FqLf6FDO0dxJ26GeaomWKtJvRnxaANTI30G_7U73l4.png",
+          "medium": "https://api-assets.clashofclans.com/badges/200/_FqLf6FDO0dxJ26GeaomWKtJvRnxaANTI30G_7U73l4.png"
+        },
+        "clanLevel": 1,
+        "members": 27,
+        "clanPoints": 209110,
+        "rank": 53,
+        "previousRank": -1
+      },
+      {
+        "tag": "#2RV2QV28U",
+        "name": "Shine ™",
+        "badgeUrls": {
+          "small": "https://api-assets.clashofclans.com/badges/70/9hjCnfsQVy8LIWGiYGDbM-a3ZYCkOavxO4A4hqU8UJM.png",
+          "large": "https://api-assets.clashofclans.com/badges/512/9hjCnfsQVy8LIWGiYGDbM-a3ZYCkOavxO4A4hqU8UJM.png",
+          "medium": "https://api-assets.clashofclans.com/badges/200/9hjCnfsQVy8LIWGiYGDbM-a3ZYCkOavxO4A4hqU8UJM.png"
+        },
+        "clanLevel": 10,
+        "members": 29,
+        "clanPoints": 165790,
+        "rank": 198,
+        "previousRank": 72
+      }
+    ],
+    "paging": {
+      "cursors": {}
+    }
+  },
+  "response_code": 200
+}
