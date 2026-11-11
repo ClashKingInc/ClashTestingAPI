@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { OpenApi } from 'effect/unstable/httpapi';
+import { OpenApi } from 'effect/http-api';
 import openapiTS, { astToString } from 'openapi-typescript';
 import { Api } from '../src/api/api.js';
 
@@ -14,6 +14,13 @@ async function output(file: string, content: string) {
     await fs.writeFile(file, content);
   }
 }
+const packageInfo = JSON.parse(
+  await fs.readFile('packages/clash-contract/package.json', 'utf8'),
+);
+await output(
+  'packages/clash-contract/src/version.ts',
+  `// Generated from package.json.\nexport const contractVersion = '${packageInfo.version}';\n`,
+);
 const spec = OpenApi.fromApi(Api);
 function canonical(value: unknown): unknown {
   if (Array.isArray(value)) return value.map(canonical);

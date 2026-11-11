@@ -1,6 +1,6 @@
 {
   "name": "@clashking/clash-contract",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Authoritative Effect schemas for the Clash of Clans wire contract",
   "license": "Apache-2.0",
   "type": "module",
@@ -13,6 +13,14 @@
     "./effect": {
       "types": "./dist/effect.d.ts",
       "import": "./dist/effect.js"
+    },
+    "./http": {
+      "types": "./dist/http-api.d.ts",
+      "import": "./dist/http-api.js"
+    },
+    "./outcomes": {
+      "types": "./dist/outcomes.d.ts",
+      "import": "./dist/outcomes.js"
     }
   },
   "files": [
@@ -27,10 +35,10 @@
     "test:types": "tsc --noEmit --strict --skipLibCheck --target ES2022 --module NodeNext --moduleResolution NodeNext test/types.ts"
   },
   "devDependencies": {
-    "effect": "4.0.0",
+    "effect": "4.1.3",
     "typescript": "5.9.3"
   },
   "peerDependencies": {
-    "effect": "4.0.0"
+    "effect": "4.1.3"
   }
 }

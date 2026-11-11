@@ -544,7 +544,7 @@ export const WarClan = WireStruct({
 }).annotate({
   identifier: 'WarClan',
 });
-export const ClanWar = WireStruct({
+const WarFields = {
   attacksPerMember: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
@@ -558,13 +558,25 @@ export const ClanWar = WireStruct({
     Schema.Union([Schema.String, Schema.Null]),
   ),
   startTime: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  state: Schema.String,
   teamSize: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
-}).annotate({
-  identifier: 'ClanWar',
-});
+};
+// Keep empty notInWar placeholders valid without making active-war data optional.
+export const ActiveClanWar = WireStruct({
+  ...WarFields,
+  state: Schema.Literals(['preparation', 'inWar', 'warEnded']),
+  clan: WarClan,
+  opponent: WarClan,
+  teamSize: Schema.Int.check(Schema.isGreaterThan(0)),
+  preparationStartTime: Schema.String,
+  startTime: Schema.String,
+  endTime: Schema.String,
+}).annotate({ identifier: 'ActiveClanWar' });
+export const ClanWar = Schema.Union([
+  WireStruct({ state: Schema.Literal('notInWar') }),
+  ActiveClanWar,
+]).annotate({ identifier: 'ClanWar' });
 export const ClanWarLeagueClanMember = WireStruct({
   name: Schema.String,
   tag: Schema.String,
