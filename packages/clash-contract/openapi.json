@@ -3759,7 +3759,7 @@
   "info": {
     "description": "Community-maintained mock Clash of Clans API. Not affiliated with Supercell. Use #2PP and additional trailing Ps to select deterministic fixture variants. All models and OpenAPI are derived from the Effect contract.",
     "title": "Clash of Clans example API",
-    "version": "1.1.0"
+    "version": "1.1.1"
   },
   "openapi": "3.1.0",
   "paths": {
