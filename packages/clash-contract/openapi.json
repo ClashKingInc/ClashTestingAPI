@@ -1347,7 +1347,14 @@
             "type": "integer"
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "members": {
             "maximum": 9007199254740991,
@@ -1374,7 +1381,6 @@
         "required": [
           "clanLevel",
           "clanPoints",
-          "location",
           "members",
           "name",
           "previousRank",
