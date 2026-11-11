@@ -116,6 +116,7 @@ try {
           assert.equal(outcome.kind, 'unavailable');
         if (scenario === 'rateLimited')
           assert.equal(outcome.retryAfterSeconds, 3);
+        if (scenario === 'forbidden') assert.equal(outcome.kind, 'forbidden');
         if (scenario === 'invalidIp') assert.equal(outcome.kind, 'forbidden');
         results.push({
           operation: group.identifier + '.' + endpoint.identifier,

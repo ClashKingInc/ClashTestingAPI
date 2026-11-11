@@ -29,11 +29,15 @@ const server = createServer(async (req, res) => {
   try {
     const url = new URL(req.url!, 'https://mock.test');
     const prefix = /^\/scenario\/([^/]+)(\/.*)$/.exec(url.pathname);
-    const scenario = prefix?.[1] ?? url.searchParams.get('scenario');
+    let scenario = prefix?.[1] ?? url.searchParams.get('scenario');
     if (prefix) url.pathname = prefix[2];
     url.searchParams.delete('scenario');
+    if (scenario === 'cwlOutage') {
+      scenario = url.pathname.endsWith('/leaguegroup') ? 'unavailable' : null;
+      if (!scenario) url.pathname = '/clans/%232PPPPP/currentwar';
+    }
     const response = await runtime.dispatchFetch(url.href, {
-      headers: { 'x-clash-mock-response': scenario ?? 'unavailable' },
+      headers: scenario ? { 'x-clash-mock-response': scenario } : {},
     });
     res.writeHead(response.status, Object.fromEntries(response.headers));
     res.end(Buffer.from(await response.arrayBuffer()));
@@ -50,7 +54,7 @@ const env = {
   CLASH_CONTRACT_TEST_ORIGIN: `http://127.0.0.1:${address.port}`,
 };
 try {
-  for (const [cmd, args, cwd] of [
+  const consumers = [
     [
       process.env.CLASH_CONTRACT_GO_BINARY!,
       [],
@@ -61,7 +65,10 @@ try {
       ['scripts/verify_contract_http.py'],
       process.env.CLASH_CONTRACT_PYTHON_REPO!,
     ],
-  ] as const) {
+  ] as const;
+  const enabled = consumers.filter(([cmd]) => cmd !== undefined);
+  if (!enabled.length) throw Error('Configure at least one real SDK consumer');
+  for (const [cmd, args, cwd] of enabled) {
     await new Promise<void>((yes, no) => {
       const child = spawn(cmd, [...args], {
         cwd,

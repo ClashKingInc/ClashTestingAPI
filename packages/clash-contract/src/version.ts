@@ -1,2 +1,2 @@
 // Generated from package.json.
-export const contractVersion = '1.1.2';
+export const contractVersion = '1.1.3';

@@ -26,5 +26,11 @@ export const Headers = Schema.StructWithRest(
 export const success = <S extends Schema.Top>(schema: S) =>
   HttpApiSchema.WithHeaders(schema, Headers);
 export const errors = ClashErrorStatuses.map((status) =>
-  Wire.ClientErrorResponse.pipe(HttpApiSchema.status(status)),
+  (status === 429
+    ? HttpApiSchema.WithHeaders(
+        Wire.ClientErrorResponse,
+        Schema.Struct({ 'retry-after': Schema.optionalKey(Schema.String) }),
+      )
+    : Wire.ClientErrorResponse
+  ).pipe(HttpApiSchema.status(status)),
 );

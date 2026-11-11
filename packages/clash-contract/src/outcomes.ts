@@ -49,7 +49,11 @@ export function classifyClashResponse(input: {
     kind = 'maintenance';
   else if (input.status === 403)
     kind =
-      ['accessDenied', 'accessDenied.privateWarLog'].includes(reason ?? '') &&
+      (reason === 'accessDenied.privateWarLog' ||
+        (reason === 'accessDenied' &&
+          typeof body.message === 'string' &&
+          /private/i.test(body.message) &&
+          /war\s*log/i.test(body.message))) &&
       /\/clans\/[^/]+\/(warlog|currentwar)$/.test(path)
         ? 'privateWarLog'
         : 'forbidden';
@@ -89,6 +93,7 @@ export const MockResponseScenario = Schema.Literals([
   'rateLimited',
   'notFound',
   'forbidden',
+  'privateWarLog',
   'invalidIp',
   'invalidRequest',
   'internalError',
@@ -100,6 +105,7 @@ export const mockResponses = {
   rateLimited: { status: 429, reason: 'tooManyRequests' },
   notFound: { status: 404, reason: 'notFound' },
   forbidden: { status: 403, reason: 'accessDenied' },
+  privateWarLog: { status: 403, reason: 'accessDenied.privateWarLog' },
   invalidIp: { status: 403, reason: 'accessDenied.invalidIp' },
   invalidRequest: { status: 400, reason: 'badRequest' },
   internalError: { status: 500, reason: 'unknownException' },

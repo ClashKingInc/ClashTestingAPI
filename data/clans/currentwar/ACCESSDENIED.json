@@ -1,6 +1,7 @@
 {
   "body": {
-    "reason": "accessDenied"
+    "reason": "accessDenied",
+    "message": "This clan's war log is private."
   },
   "headers": {
     "cache-control": "max-age=120",

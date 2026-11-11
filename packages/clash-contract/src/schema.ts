@@ -1350,6 +1350,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -1436,6 +1437,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -1526,6 +1528,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -1612,6 +1615,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -1702,6 +1706,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -1788,6 +1793,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -1874,6 +1880,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -1964,6 +1971,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2050,6 +2058,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2136,6 +2145,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2222,6 +2232,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2312,6 +2323,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2400,6 +2412,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2486,6 +2499,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2574,6 +2588,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2660,6 +2675,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2748,6 +2764,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2834,6 +2851,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -2922,6 +2940,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3008,6 +3027,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3098,6 +3118,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3189,6 +3210,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3278,6 +3300,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3366,6 +3389,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3452,6 +3476,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3542,6 +3567,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3632,6 +3658,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3722,6 +3749,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3812,6 +3840,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3902,6 +3931,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -3990,6 +4020,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -4078,6 +4109,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
@@ -4162,6 +4194,7 @@ export interface operations {
             /** @description ClientErrorResponse */
             429: {
                 headers: {
+                    "retry-after"?: string;
                     [name: string]: unknown;
                 };
                 content: {
