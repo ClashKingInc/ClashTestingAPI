@@ -619,6 +619,7 @@ export interface components {
             [key: string]: unknown;
         };
         ClanBuilderBaseRanking: {
+            clanVersusPoints?: number | null;
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
             clanBuilderBasePoints: number;
             clanLevel: number;
@@ -639,6 +640,8 @@ export interface components {
             [key: string]: unknown;
         };
         PlayerBuilderBaseRanking: {
+            versusTrophies?: number | null;
+            versusBattleWins?: number | null;
             builderBaseLeague?: components["schemas"]["BuilderBaseLeague"];
             builderBaseTrophies: number;
             clan?: components["schemas"]["ClanReference"] | null;
@@ -1065,6 +1068,7 @@ export interface components {
             [key: string]: unknown;
         }) | components["schemas"]["ActiveClanWar"];
         ActiveClanWar: {
+            warStartTime?: string | null;
             attacksPerMember?: number | null;
             battleModifier?: string | null;
             clan: components["schemas"]["WarClan"];

@@ -1,6 +1,6 @@
 {
   "name": "@clashking/clash-contract",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Authoritative Effect schemas for the Clash of Clans wire contract",
   "license": "Apache-2.0",
   "type": "module",

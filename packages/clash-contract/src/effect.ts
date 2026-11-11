@@ -342,6 +342,8 @@ export const Clan = WireStruct({
   identifier: 'Clan',
 });
 export const ClanBuilderBaseRanking = WireStruct({
+  // Retained in archived leaderboards before Builder Base renamed its points.
+  clanVersusPoints: Schema.optionalKey(Schema.Union([Schema.Int, Schema.Null])),
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanBuilderBasePoints: Schema.Number.check(Schema.isInt()),
   clanLevel: Schema.Number.check(Schema.isInt()),
@@ -545,6 +547,7 @@ export const WarClan = WireStruct({
   identifier: 'WarClan',
 });
 const WarFields = {
+  warStartTime: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   attacksPerMember: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
   ),
@@ -874,6 +877,9 @@ export const Player = WireStruct({
   identifier: 'Player',
 });
 export const PlayerBuilderBaseRanking = WireStruct({
+  // Older ranking fixtures retain these pre-Builder Base field names.
+  versusTrophies: Schema.optionalKey(Schema.Union([Schema.Int, Schema.Null])),
+  versusBattleWins: Schema.optionalKey(Schema.Union([Schema.Int, Schema.Null])),
   builderBaseLeague: Schema.optionalKey(BuilderBaseLeague),
   builderBaseTrophies: Schema.Number.check(Schema.isInt()),
   clan: Schema.optionalKey(Schema.Union([ClanReference, Schema.Null])),

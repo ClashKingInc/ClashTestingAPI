@@ -5,7 +5,10 @@ import { resolve } from 'node:path';
 import { Schema } from 'effect';
 import { Miniflare } from 'miniflare';
 import { Api } from '../packages/clash-contract/src/http-api.js';
-import { ClientErrorResponse } from '../packages/clash-contract/src/effect.js';
+import {
+  ClanWar,
+  ClientErrorResponse,
+} from '../packages/clash-contract/src/effect.js';
 import {
   mockResponses,
   classifyClashResponse,
@@ -137,6 +140,19 @@ try {
       kind,
     );
     results.push({ path, status, kind });
+  }
+  for (const [tag, state] of [
+    ['#2PPP', 'preparation'],
+    ['#2PPPP', 'warEnded'],
+    ['#2PPPPP', 'notInWar'],
+  ] as const) {
+    const response = await runtime.dispatchFetch(
+      'https://mock.test/clans/' + encodeURIComponent(tag) + '/currentwar',
+    );
+    assert.equal(response.status, 200);
+    const body = Schema.decodeUnknownSync(ClanWar)(await response.json());
+    assert.equal(body.state, state);
+    results.push({ state, status: 200 });
   }
   writeFileSync(
     '/tmp/ck-contract-http-verification.json',

@@ -53,6 +53,16 @@
             "exclusiveMinimum": 0,
             "maximum": 9007199254740991,
             "type": "integer"
+          },
+          "warStartTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -617,6 +627,18 @@
             "type": "integer"
           },
           "clanPoints": {
+            "anyOf": [
+              {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanVersusPoints": {
             "anyOf": [
               {
                 "maximum": 9007199254740991,
@@ -3088,6 +3110,30 @@
           },
           "tag": {
             "type": "string"
+          },
+          "versusBattleWins": {
+            "anyOf": [
+              {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "versusTrophies": {
+            "anyOf": [
+              {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -3759,7 +3805,7 @@
   "info": {
     "description": "Community-maintained mock Clash of Clans API. Not affiliated with Supercell. Use #2PP and additional trailing Ps to select deterministic fixture variants. All models and OpenAPI are derived from the Effect contract.",
     "title": "Clash of Clans example API",
-    "version": "1.1.1"
+    "version": "1.1.2"
   },
   "openapi": "3.1.0",
   "paths": {
