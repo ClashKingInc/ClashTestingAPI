@@ -1,6 +1,11 @@
+import { Schema } from 'effect';
+import {
+  MockResponseScenario,
+  mockResponses,
+} from '../packages/clash-contract/src/outcomes.js';
 import { Layer } from 'effect';
-import { HttpRouter, HttpServer } from 'effect/unstable/http';
-import { HttpApiBuilder, HttpApiScalar } from 'effect/unstable/httpapi';
+import { HttpRouter, HttpServer } from 'effect/http';
+import { HttpApiBuilder, HttpApiScalar } from 'effect/http-api';
 import { Api } from './api/api.js';
 import { errorBoundary } from './api/errors.js';
 import { ClansLive } from './handlers/clans.js';
@@ -35,6 +40,28 @@ const { handler } = HttpRouter.toWebHandler(routes, {
 export default {
   async fetch(request: Request): Promise<Response> {
     try {
+      const scenario = request.headers.get('x-clash-mock-response');
+      if (scenario !== null) {
+        if (!Schema.is(MockResponseScenario)(scenario))
+          return Response.json(
+            {
+              reason: 'badRequest',
+              message: 'Unknown mock response scenario.',
+            },
+            { status: 400 },
+          );
+        const value = mockResponses[scenario];
+        return Response.json(
+          { reason: value.reason },
+          {
+            status: value.status,
+            headers: {
+              'cache-control': 'no-store',
+              ...(value.status === 429 ? { 'retry-after': '3' } : {}),
+            },
+          },
+        );
+      }
       return await handler(request);
     } catch (error) {
       console.error(

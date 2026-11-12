@@ -1,6 +1,81 @@
 {
   "components": {
     "schemas": {
+      "ActiveClanWar": {
+        "additionalProperties": true,
+        "properties": {
+          "attacksPerMember": {
+            "anyOf": [
+              {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "battleModifier": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clan": {
+            "$ref": "#/components/schemas/WarClan"
+          },
+          "endTime": {
+            "type": "string"
+          },
+          "opponent": {
+            "$ref": "#/components/schemas/WarClan"
+          },
+          "preparationStartTime": {
+            "type": "string"
+          },
+          "startTime": {
+            "type": "string"
+          },
+          "state": {
+            "enum": [
+              "preparation",
+              "inWar",
+              "warEnded"
+            ],
+            "type": "string"
+          },
+          "teamSize": {
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991,
+            "type": "integer"
+          },
+          "warStartTime": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "clan",
+          "endTime",
+          "opponent",
+          "preparationStartTime",
+          "startTime",
+          "teamSize",
+          "state"
+        ],
+        "type": "object"
+      },
       "BadgeUrls": {
         "additionalProperties": true,
         "properties": {
@@ -68,6 +143,8 @@
             "type": "string"
           },
           "destructionPercentage": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "extraLootedResources": {
@@ -86,6 +163,8 @@
             "type": "string"
           },
           "stars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -127,6 +206,8 @@
         "additionalProperties": true,
         "properties": {
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -168,6 +249,8 @@
         "additionalProperties": true,
         "properties": {
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -266,6 +349,8 @@
           "clanBuilderBasePoints": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -279,6 +364,8 @@
           "clanCapitalPoints": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -287,14 +374,20 @@
             ]
           },
           "clanLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanPoints": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanVersusPoints": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -355,6 +448,8 @@
             "type": "array"
           },
           "members": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -363,6 +458,8 @@
           "requiredBuilderBaseTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -373,6 +470,8 @@
           "requiredTownhallLevel": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -383,6 +482,8 @@
           "requiredTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -393,6 +494,8 @@
           "requiredVersusTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -443,6 +546,8 @@
           "warLosses": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -453,6 +558,8 @@
           "warTies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -463,6 +570,8 @@
           "warWins": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -473,6 +582,8 @@
           "warWinStreak": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -506,14 +617,32 @@
             ]
           },
           "clanBuilderBasePoints": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanPoints": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "clanVersusPoints": {
+            "anyOf": [
+              {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -522,18 +651,31 @@
             ]
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "members": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
@@ -543,7 +685,6 @@
         "required": [
           "clanBuilderBasePoints",
           "clanLevel",
-          "location",
           "members",
           "name",
           "previousRank",
@@ -583,6 +724,8 @@
           "capitalHallLevel": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -593,7 +736,9 @@
           "clanGoldSinkTotal": {
             "allOf": [
               {
-                "format": "int64"
+                "format": "int64",
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991
               }
             ],
             "type": "integer"
@@ -614,9 +759,13 @@
         "additionalProperties": true,
         "properties": {
           "districtHallLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -640,6 +789,8 @@
             "type": "array"
           },
           "capitalTotalLoot": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseLog": {
@@ -649,12 +800,16 @@
             "type": "array"
           },
           "defensiveReward": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "endTime": {
             "type": "string"
           },
           "enemyDistrictsDestroyed": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "members": {
@@ -664,9 +819,13 @@
             "type": "array"
           },
           "offensiveReward": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "raidsCompleted": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "startTime": {
@@ -676,6 +835,8 @@
             "type": "string"
           },
           "totalAttacks": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -699,9 +860,13 @@
             "$ref": "#/components/schemas/ClanCapitalRaidSeasonAttacker"
           },
           "destructionPercent": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "stars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -732,12 +897,16 @@
         "additionalProperties": true,
         "properties": {
           "attackCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defender": {
             "$ref": "#/components/schemas/ClanCapitalRaidSeasonClanInfo"
           },
           "districtCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "districts": {
@@ -747,6 +916,8 @@
             "type": "array"
           },
           "districtsDestroyed": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -772,6 +943,8 @@
             ]
           },
           "level": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -792,12 +965,16 @@
         "additionalProperties": true,
         "properties": {
           "attackCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attacker": {
             "$ref": "#/components/schemas/ClanCapitalRaidSeasonClanInfo"
           },
           "districtCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "districts": {
@@ -807,6 +984,8 @@
             "type": "array"
           },
           "districtsDestroyed": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -822,6 +1001,8 @@
         "additionalProperties": true,
         "properties": {
           "attackCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attacks": {
@@ -831,21 +1012,31 @@
             "type": "array"
           },
           "destructionPercent": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "districtHallLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "stars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "totalLooted": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -864,15 +1055,23 @@
         "additionalProperties": true,
         "properties": {
           "attackLimit": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attacks": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "bonusAttackLimit": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "capitalResourcesLooted": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -906,24 +1105,41 @@
             ]
           },
           "clanCapitalPoints": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "members": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
@@ -933,7 +1149,6 @@
         "required": [
           "clanCapitalPoints",
           "clanLevel",
-          "location",
           "members",
           "name",
           "previousRank",
@@ -983,6 +1198,8 @@
           "builderBaseTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -991,15 +1208,23 @@
             ]
           },
           "clanRank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "donations": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "donationsReceived": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "expLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "league": {
@@ -1026,6 +1251,8 @@
             ]
           },
           "previousClanRank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "role": {
@@ -1035,14 +1262,20 @@
             "type": "string"
           },
           "townHallLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "trophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "versusTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1104,24 +1337,41 @@
             ]
           },
           "clanLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanPoints": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/Location"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "members": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
@@ -1131,7 +1381,6 @@
         "required": [
           "clanLevel",
           "clanPoints",
-          "location",
           "members",
           "name",
           "previousRank",
@@ -1181,6 +1430,8 @@
           "clanLevel": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1237,6 +1488,8 @@
           "clanBuilderBasePoints": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1247,6 +1500,8 @@
           "clanCapitalPoints": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1255,14 +1510,20 @@
             ]
           },
           "clanLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanPoints": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanVersusPoints": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1307,6 +1568,8 @@
             ]
           },
           "members": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -1315,6 +1578,8 @@
           "requiredBuilderBaseTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1325,6 +1590,8 @@
           "requiredTownhallLevel": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1335,6 +1602,8 @@
           "requiredTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1345,6 +1614,8 @@
           "requiredVersusTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1395,6 +1666,8 @@
           "warLosses": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1405,6 +1678,8 @@
           "warTies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1415,6 +1690,8 @@
           "warWins": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1425,6 +1702,8 @@
           "warWinStreak": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1469,96 +1748,26 @@
         "type": "object"
       },
       "ClanWar": {
-        "additionalProperties": true,
-        "properties": {
-          "attacksPerMember": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "battleModifier": {
-            "anyOf": [
-              {
+        "anyOf": [
+          {
+            "additionalProperties": true,
+            "properties": {
+              "state": {
+                "enum": [
+                  "notInWar"
+                ],
                 "type": "string"
-              },
-              {
-                "type": "null"
               }
-            ]
+            },
+            "required": [
+              "state"
+            ],
+            "type": "object"
           },
-          "clan": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/WarClan"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "endTime": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "opponent": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/WarClan"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "preparationStartTime": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "startTime": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "state": {
-            "type": "string"
-          },
-          "teamSize": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+          {
+            "$ref": "#/components/schemas/ActiveClanWar"
           }
-        },
-        "required": [
-          "state"
-        ],
-        "type": "object"
+        ]
       },
       "ClanWarAttack": {
         "additionalProperties": true,
@@ -1570,11 +1779,15 @@
             "type": "string"
           },
           "destructionPercentage": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "duration": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1583,9 +1796,13 @@
             ]
           },
           "order": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "stars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -1612,6 +1829,8 @@
             ]
           },
           "clanLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "members": {
@@ -1644,6 +1863,8 @@
             "type": "string"
           },
           "townHallLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -1716,6 +1937,8 @@
           "attacksPerMember": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1753,6 +1976,8 @@
             ]
           },
           "teamSize": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -1809,6 +2034,8 @@
             ]
           },
           "mapPosition": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -1817,6 +2044,8 @@
           "opponentAttacks": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1828,6 +2057,8 @@
             "type": "string"
           },
           "townhallLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -1840,258 +2071,6 @@
         "type": "object"
       },
       "ClientErrorResponse": {
-        "additionalProperties": true,
-        "properties": {
-          "detail": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "message": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "reason": {
-            "type": "string"
-          },
-          "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "required": [
-          "reason"
-        ],
-        "type": "object"
-      },
-      "ClientErrorResponse_1": {
-        "additionalProperties": true,
-        "properties": {
-          "detail": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "message": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "reason": {
-            "type": "string"
-          },
-          "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "required": [
-          "reason"
-        ],
-        "type": "object"
-      },
-      "ClientErrorResponse_2": {
-        "additionalProperties": true,
-        "properties": {
-          "detail": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "message": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "reason": {
-            "type": "string"
-          },
-          "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "required": [
-          "reason"
-        ],
-        "type": "object"
-      },
-      "ClientErrorResponse_3": {
-        "additionalProperties": true,
-        "properties": {
-          "detail": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "message": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "reason": {
-            "type": "string"
-          },
-          "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "required": [
-          "reason"
-        ],
-        "type": "object"
-      },
-      "ClientErrorResponse_4": {
-        "additionalProperties": true,
-        "properties": {
-          "detail": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "message": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "reason": {
-            "type": "string"
-          },
-          "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "required": [
-          "reason"
-        ],
-        "type": "object"
-      },
-      "ClientErrorResponse_5": {
-        "additionalProperties": true,
-        "properties": {
-          "detail": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "message": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "reason": {
-            "type": "string"
-          },
-          "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          }
-        },
-        "required": [
-          "reason"
-        ],
-        "type": "object"
-      },
-      "ClientErrorResponse_6": {
         "additionalProperties": true,
         "properties": {
           "detail": {
@@ -2235,6 +2214,8 @@
             ]
           },
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -2276,6 +2257,8 @@
         "additionalProperties": true,
         "properties": {
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "languageCode": {
@@ -2306,6 +2289,8 @@
             ]
           },
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -2325,6 +2310,8 @@
             "type": "string"
           },
           "destructionPercentage": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "opponentName": {
@@ -2334,9 +2321,13 @@
             "type": "string"
           },
           "stars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "trophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -2378,9 +2369,13 @@
         "additionalProperties": true,
         "properties": {
           "attackLoseCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attackWinCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanName": {
@@ -2404,12 +2399,18 @@
             ]
           },
           "defenseLoseCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseWinCount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "leagueTrophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "playerName": {
@@ -2498,26 +2499,40 @@
         "additionalProperties": true,
         "properties": {
           "attackLosses": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attackStars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attackWins": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseLosses": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseStars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseWins": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "leagueSeasonId": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2526,15 +2541,23 @@
             ]
           },
           "leagueTierId": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "leagueTrophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "maxBattles": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "placement": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -2567,6 +2590,8 @@
             ]
           },
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -2620,6 +2645,8 @@
           "rank": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2630,6 +2657,8 @@
           "trophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2654,6 +2683,8 @@
             ]
           },
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "isCountry": {
@@ -2724,11 +2755,15 @@
             "type": "array"
           },
           "attackWins": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "bestBuilderBaseTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2737,6 +2772,8 @@
             ]
           },
           "bestTrophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "builderBaseLeague": {
@@ -2745,6 +2782,8 @@
           "builderBaseTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2755,6 +2794,8 @@
           "builderHallLevel": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2775,6 +2816,8 @@
           "clanCapitalContributions": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2795,6 +2838,8 @@
           "currentLeagueSeasonId": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2803,11 +2848,15 @@
             ]
           },
           "defenseWins": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "donations": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2818,6 +2867,8 @@
           "donationsReceived": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2826,6 +2877,8 @@
             ]
           },
           "expLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "heroEquipment": {
@@ -2895,6 +2948,8 @@
           "previousLeagueSeasonId": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2922,6 +2977,8 @@
             "type": "string"
           },
           "townHallLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "troops": {
@@ -2931,6 +2988,8 @@
             "type": "array"
           },
           "trophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "warPreference": {
@@ -2944,6 +3003,8 @@
             ]
           },
           "warStars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -2987,12 +3048,18 @@
             "type": "string"
           },
           "stars": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "target": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "value": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "village": {
@@ -3015,6 +3082,8 @@
             "$ref": "#/components/schemas/BuilderBaseLeague"
           },
           "builderBaseTrophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clan": {
@@ -3028,19 +3097,49 @@
             ]
           },
           "expLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
             "type": "string"
+          },
+          "versusBattleWins": {
+            "anyOf": [
+              {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "versusTrophies": {
+            "anyOf": [
+              {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
           }
         },
         "required": [
@@ -3094,6 +3193,8 @@
           "clanLevel": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3130,6 +3231,8 @@
         "additionalProperties": true,
         "properties": {
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "type": {
@@ -3159,9 +3262,13 @@
             ]
           },
           "level": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "maxLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -3225,6 +3332,8 @@
           "legendTrophies": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3261,6 +3370,8 @@
           "attackWins": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3281,6 +3392,8 @@
           "defenseWins": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3289,6 +3402,8 @@
             ]
           },
           "expLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "league": {
@@ -3315,15 +3430,21 @@
             "type": "string"
           },
           "previousRank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
             "type": "string"
           },
           "trophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -3368,6 +3489,8 @@
           "attackWins": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3388,6 +3511,8 @@
           "defenseWins": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3396,6 +3521,8 @@
             ]
           },
           "expLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "league": {
@@ -3424,6 +3551,8 @@
           "previousRank": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3432,12 +3561,16 @@
             ]
           },
           "rank": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
             "type": "string"
           },
           "trophies": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -3479,6 +3612,8 @@
         "additionalProperties": true,
         "properties": {
           "amount": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -3529,6 +3664,8 @@
           "attacks": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3547,24 +3684,22 @@
             ]
           },
           "clanLevel": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "destructionPercentage": {
             "anyOf": [
               {
-                "anyOf": [
-                  {
-                    "type": "number"
-                  },
-                  {
-                    "enum": [
-                      "Infinity",
-                      "-Infinity",
-                      "NaN"
-                    ],
-                    "type": "string"
-                  }
-                ]
+                "type": "number"
+              },
+              {
+                "enum": [
+                  "Infinity",
+                  "-Infinity",
+                  "NaN"
+                ],
+                "type": "string"
               },
               {
                 "type": "null"
@@ -3574,6 +3709,8 @@
           "expEarned": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3600,6 +3737,8 @@
           "stars": {
             "anyOf": [
               {
+                "maximum": 9007199254740991,
+                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3627,6 +3766,8 @@
         "additionalProperties": true,
         "properties": {
           "id": {
+            "maximum": 9007199254740991,
+            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -3670,7 +3811,7 @@
   "info": {
     "description": "Community-maintained mock Clash of Clans API. Not affiliated with Supercell. Use #2PP and additional trailing Ps to select deterministic fixture variants. All models and OpenAPI are derived from the Effect contract.",
     "title": "Clash of Clans example API",
-    "version": "1.0.0"
+    "version": "1.1.3"
   },
   "openapi": "3.1.0",
   "paths": {
@@ -3683,6 +3824,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -3737,7 +3879,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3747,7 +3889,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3757,17 +3899,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3777,7 +3927,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3787,7 +3937,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3846,7 +3996,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3856,7 +4006,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3866,17 +4016,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3886,7 +4044,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3896,7 +4054,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3918,6 +4076,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -3972,7 +4131,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3982,7 +4141,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -3992,17 +4151,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4012,7 +4179,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4022,7 +4189,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4081,7 +4248,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4091,7 +4258,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4101,17 +4268,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4121,7 +4296,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4131,7 +4306,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4153,6 +4328,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -4194,6 +4370,8 @@
             "name": "locationId",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4202,6 +4380,8 @@
             "name": "minMembers",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4210,6 +4390,8 @@
             "name": "maxMembers",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4218,6 +4400,8 @@
             "name": "minClanPoints",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4226,6 +4410,8 @@
             "name": "minClanLevel",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
+              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4271,7 +4457,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4281,7 +4467,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4291,17 +4477,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4311,7 +4505,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4321,7 +4515,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4380,7 +4574,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4390,7 +4584,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4400,17 +4594,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4420,7 +4622,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4430,7 +4632,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4460,6 +4662,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -4514,7 +4717,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4524,7 +4727,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4534,17 +4737,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4554,7 +4765,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4564,7 +4775,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4623,7 +4834,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4633,7 +4844,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4643,17 +4854,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4663,7 +4882,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4673,7 +4892,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4732,7 +4951,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4742,7 +4961,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4752,17 +4971,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4772,7 +4999,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4782,7 +5009,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4812,6 +5039,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -4866,7 +5094,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4876,7 +5104,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4886,17 +5114,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4906,7 +5142,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4916,7 +5152,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -4946,6 +5182,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5000,7 +5237,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5010,7 +5247,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5020,17 +5257,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5040,7 +5285,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5050,7 +5295,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5109,7 +5354,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5119,7 +5364,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5129,17 +5374,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5149,7 +5402,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5159,7 +5412,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5209,7 +5462,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5219,7 +5472,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5229,17 +5482,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5249,7 +5510,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5259,7 +5520,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5281,6 +5542,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5335,7 +5597,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5345,7 +5607,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5355,17 +5617,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5375,7 +5645,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5385,7 +5655,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5407,6 +5677,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5461,7 +5732,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5471,7 +5742,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5481,17 +5752,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5501,7 +5780,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5511,7 +5790,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5586,7 +5865,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5596,7 +5875,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5606,17 +5885,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5626,7 +5913,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5636,7 +5923,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5666,6 +5953,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5720,7 +6008,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5730,7 +6018,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5740,17 +6028,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5760,7 +6056,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5770,7 +6066,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5808,6 +6104,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5862,7 +6159,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5872,7 +6169,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5882,17 +6179,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5902,7 +6207,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5912,7 +6217,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5934,6 +6239,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5988,7 +6294,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -5998,7 +6304,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6008,17 +6314,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6028,7 +6342,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6038,7 +6352,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6097,7 +6411,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6107,7 +6421,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6117,17 +6431,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6137,7 +6459,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6147,7 +6469,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6169,6 +6491,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6223,7 +6546,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6233,7 +6556,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6243,17 +6566,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6263,7 +6594,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6273,7 +6604,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6332,7 +6663,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6342,7 +6673,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6352,17 +6683,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6372,7 +6711,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6382,7 +6721,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6412,6 +6751,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6466,7 +6806,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6476,7 +6816,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6486,17 +6826,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6506,7 +6854,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6516,7 +6864,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6546,6 +6894,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6600,7 +6949,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6610,7 +6959,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6620,17 +6969,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6640,7 +6997,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6650,7 +7007,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6680,6 +7037,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6734,7 +7092,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6744,7 +7102,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6754,17 +7112,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6774,7 +7140,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6784,7 +7150,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6814,6 +7180,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6868,7 +7235,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6878,7 +7245,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6888,17 +7255,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6908,7 +7283,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6918,7 +7293,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -6948,6 +7323,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -7002,7 +7378,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7012,7 +7388,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7022,17 +7398,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7042,7 +7426,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7052,7 +7436,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7111,7 +7495,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7121,7 +7505,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7131,17 +7515,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7151,7 +7543,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7161,7 +7553,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7227,7 +7619,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7237,7 +7629,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7247,17 +7639,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7267,7 +7667,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7277,7 +7677,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7336,7 +7736,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7346,7 +7746,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7356,17 +7756,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7376,7 +7784,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7386,7 +7794,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7455,7 +7863,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7465,7 +7873,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7475,17 +7883,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7495,7 +7911,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7505,7 +7921,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7527,6 +7943,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -7581,7 +7998,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7591,7 +8008,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7601,17 +8018,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7621,7 +8046,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7631,7 +8056,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7690,7 +8115,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_1"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7700,7 +8125,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_2"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7710,17 +8135,25 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_3"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "ClientErrorResponse",
+            "headers": {
+              "retry-after": {
+                "required": false,
+                "schema": {
+                  "type": "string"
+                }
+              }
+            }
           },
           "500": {
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_4"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7730,7 +8163,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_5"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },
@@ -7740,7 +8173,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse_6"
+                  "$ref": "#/components/schemas/ClientErrorResponse"
                 }
               }
             },

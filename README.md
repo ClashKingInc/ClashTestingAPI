@@ -51,7 +51,7 @@ The `@clashking/clash-contract` package provides schemas and TypeScript types fo
 Download a package `.tgz` from [GitHub Releases](https://github.com/ClashKingInc/ClashTestingAPI/releases), then install it alongside the required Effect version:
 
 ```bash
-npm install effect@4.0.0-rc.112 /path/to/clashking-clash-contract-VERSION.tgz
+npm install effect@4.1.3 /path/to/clashking-clash-contract-VERSION.tgz
 ```
 
 You can also pass the release asset's download URL directly to `npm install`. If no release is available yet, run `npm run pack:contract` in this repository to build the archive locally. Commit the dependency and lockfile together; update them when you choose to adopt a newer release.
@@ -148,3 +148,13 @@ After making changes, run `npm run generate` and `npm run check`. See the [migra
 ## License
 
 [Apache 2.0](LICENSE).
+
+### Reproduce an HTTP failure
+
+On the mock server, set `x-clash-mock-response` to `maintenance`, `unavailable`, `rateLimited`, `notFound`, `forbidden`, `invalidIp`, `invalidRequest`, `internalError`, or `notImplemented`. The server returns that failure without reading a success fixture. Rate-limit responses include `Retry-After: 3`. This mock-only control is not part of Supercell's API.
+
+### Shared HTTP behavior
+
+`@clashking/clash-contract/http` exports the authoritative Effect HTTP API, including path/query/body shapes, response bodies and status declarations. The mock imports these definitions rather than maintaining another route list. `@clashking/clash-contract/outcomes` exports `classifyClashResponse({path,status,body,retryAfter})`. Use the returned outcome to distinguish private logs, no current CWL group, missing entities, maintenance, credential failures, rate limits and service failures. An unknown reason stays available in the result. A 403 is private only on a known war route with a recognized privacy reason; a 503 is maintenance only with a recognized maintenance reason. A 501 is not automatically retried. The optional `retryAfterSeconds` preserves numeric and HTTP-date Retry-After values. Do not retry writes automatically.
+
+Active war responses require clan/opponent, team size and timestamps. A `notInWar` response is a separate shape, which permits the official empty placeholders without weakening active-war validation. Unknown wire fields remain preserved for forward compatibility.

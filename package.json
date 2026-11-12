@@ -10,27 +10,26 @@
   ],
   "scripts": {
     "dev": "wrangler dev",
-    "check": "npm run format:check && npm run check:generated && npm test && npm run test:bundle && npm run test:package",
+    "check": "npm run format:check && npm run typecheck && npm run check:generated && npm run test:http-contract && npm run test:bundle && npm run test:package",
     "build": "wrangler deploy --dry-run --env= --outdir dist",
     "deploy": "wrangler deploy --env=",
     "deploy:staging": "wrangler deploy --env staging",
     "types": "wrangler types",
-    "typecheck": "tsc --noEmit && npm run test:types -w @clashking/clash-contract",
+    "typecheck": "npm run build -w @clashking/clash-contract && tsc --noEmit && npm run test:types -w @clashking/clash-contract",
     "generate": "node --import tsx scripts/generate.ts",
     "check:generated": "node --import tsx scripts/generate.ts --check",
-    "test": "npm run test -w @clashking/clash-contract && npm run typecheck && vitest run",
     "test:bundle": "npm run build && node --import tsx scripts/smoke-worker.ts",
     "test:package": "node --import tsx scripts/smoke-package.ts",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "pack:contract": "npm pack -w @clashking/clash-contract"
+    "pack:contract": "npm pack -w @clashking/clash-contract",
+    "test:http-contract": "npm run build && node --import tsx scripts/verify-http-contract.ts"
   },
   "dependencies": {
-    "@clashking/clash-contract": "1.0.0",
-    "effect": "4.0.0-rc.112"
+    "@clashking/clash-contract": "1.1.3",
+    "effect": "4.1.3"
   },
   "devDependencies": {
-    "@cloudflare/vitest-plugin": "1.1.4",
     "@types/node": "24.10.0",
     "jsonc-parser": "3.3.1",
     "miniflare": "5.20260903.0-alpha",
@@ -38,7 +37,6 @@
     "prettier": "3.6.2",
     "tsx": "4.23.13",
     "typescript": "5.9.3",
-    "vitest": "4.1.0",
     "wrangler": "4.129.0"
   }
 }
