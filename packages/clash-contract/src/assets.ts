@@ -54,7 +54,7 @@ export const AccountItemLevel = Fields({
   upgrade_timer: OptionalNumber,
   helper_timer: OptionalNumber,
   helper_cooldown: OptionalNumber,
-  recurrent_helper: OptionalBoolean,
+  helper_recurrent: OptionalBoolean,
   extra: OptionalBoolean,
 });
 export const AccountDefenseType = Fields({
