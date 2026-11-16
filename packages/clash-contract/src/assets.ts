@@ -20,12 +20,11 @@ export const AssetEmote = Fields({
   _id: Id,
   name: Schema.String,
   TID: AssetTid,
-  set_id: Id,
-  set_name: Schema.String,
+  set: Fields({ id: Id, name: Schema.String, TID: AssetTid }),
   prestige_medal_cost: Schema.NullOr(Id),
   required_league_tier: Schema.NullOr(Id),
   default_unlocked: Schema.Boolean,
-  required_emotes: Schema.Array(Id),
+  required_emotes: Schema.optionalKey(Schema.Array(Id)),
 });
 export const BuildingVariant = Fields({
   _id: Id,
