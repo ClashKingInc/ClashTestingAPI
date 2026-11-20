@@ -6,6 +6,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Search clans
+         * @description Search all clans by name and/or filtering parameters.
+         */
         get: operations["clans.search"];
         put?: never;
         post?: never;
@@ -22,6 +26,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get clan information
+         * @description Get information about a single clan by clan tag.
+         */
         get: operations["clans.profile"];
         put?: never;
         post?: never;
@@ -38,6 +46,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * List clan members
+         * @description List members of a clan.
+         */
         get: operations["clans.members"];
         put?: never;
         post?: never;
@@ -54,6 +66,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Retrieve current clan war
+         * @description Retrieve information about a clan's current clan war.
+         */
         get: operations["clans.war"];
         put?: never;
         post?: never;
@@ -70,6 +86,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Retrieve clan war log
+         * @description Retrieve a clan's clan war log.
+         */
         get: operations["clans.warlog"];
         put?: never;
         post?: never;
@@ -86,6 +106,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Retrieve current CWL group
+         * @description Retrieve information about a clan's current Clan War League group.
+         */
         get: operations["clans.cwl"];
         put?: never;
         post?: never;
@@ -102,6 +126,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Retrieve CWL war
+         * @description Retrieve information about an individual Clan War League war.
+         */
         get: operations["clans.leagueWar"];
         put?: never;
         post?: never;
@@ -118,6 +146,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Retrieve clan capital raid seasons
+         * @description Retrieve a clan's capital raid seasons.
+         */
         get: operations["clans.raids"];
         put?: never;
         post?: never;
@@ -134,6 +166,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get player information
+         * @description Get information about a single player by player tag.
+         */
         get: operations["players.profile"];
         put?: never;
         post?: never;
@@ -150,6 +186,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get player battle log
+         * @description Get recent battle log entries for a player.
+         */
         get: operations["players.battles"];
         put?: never;
         post?: never;
@@ -166,6 +206,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get player league history
+         * @description Get historical ranked league season results for a player.
+         */
         get: operations["players.history"];
         put?: never;
         post?: never;
@@ -184,6 +228,10 @@ export interface paths {
         };
         get?: never;
         put?: never;
+        /**
+         * Verify player API token
+         * @description Verify an in-game API token for a player account.
+         */
         post: operations["players.verify"];
         delete?: never;
         options?: never;
@@ -198,6 +246,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * List league tiers
+         * @description List ranked league tiers.
+         */
         get: operations["leagues.tiers"];
         put?: never;
         post?: never;
@@ -214,6 +266,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get league tier information
+         * @description Get information about a specific league tier.
+         */
         get: operations["leagues.tier"];
         put?: never;
         post?: never;
@@ -230,6 +286,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * List capital leagues
+         * @description List Clan Capital leagues.
+         */
         get: operations["leagues.capitals"];
         put?: never;
         post?: never;
@@ -246,6 +306,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get capital league information
+         * @description Get information about a specific Clan Capital league.
+         */
         get: operations["leagues.capital"];
         put?: never;
         post?: never;
@@ -262,6 +326,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * List Builder Base leagues
+         * @description List Builder Base leagues.
+         */
         get: operations["leagues.builders"];
         put?: never;
         post?: never;
@@ -278,6 +346,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get Builder Base league information
+         * @description Get information about a specific Builder Base league.
+         */
         get: operations["leagues.builder"];
         put?: never;
         post?: never;
@@ -294,6 +366,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * List war leagues
+         * @description List Clan War Leagues.
+         */
         get: operations["leagues.wars"];
         put?: never;
         post?: never;
@@ -310,6 +386,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get war league information
+         * @description Get information about a specific Clan War League.
+         */
         get: operations["leagues.war"];
         put?: never;
         post?: never;
@@ -326,6 +406,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get league seasons
+         * @description Get available seasons for a league (e.g. Legend League).
+         */
         get: operations["leagues.seasons"];
         put?: never;
         post?: never;
@@ -342,6 +426,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get league season rankings
+         * @description Get player rankings for a specific league season.
+         */
         get: operations["leagues.season"];
         put?: never;
         post?: never;
@@ -358,6 +446,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get ranked league group
+         * @description Get members and battle logs for a ranked league group.
+         */
         get: operations["leagues.group"];
         put?: never;
         post?: never;
@@ -374,6 +466,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * List locations
+         * @description List available leaderboard locations.
+         */
         get: operations["locations.list"];
         put?: never;
         post?: never;
@@ -390,6 +486,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get location information
+         * @description Get information about a specific location.
+         */
         get: operations["locations.item"];
         put?: never;
         post?: never;
@@ -406,6 +506,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get clan rankings for a location
+         * @description Get Home Village clan rankings for a specific location.
+         */
         get: operations["locations.clans"];
         put?: never;
         post?: never;
@@ -422,6 +526,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get player rankings for a location
+         * @description Get Home Village player rankings for a specific location.
+         */
         get: operations["locations.players"];
         put?: never;
         post?: never;
@@ -438,6 +546,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get Builder Base player rankings for a location
+         * @description Get Builder Base player rankings for a specific location.
+         */
         get: operations["locations.builders"];
         put?: never;
         post?: never;
@@ -454,6 +566,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get Builder Base clan rankings for a location
+         * @description Get Builder Base clan rankings for a specific location.
+         */
         get: operations["locations.builderClans"];
         put?: never;
         post?: never;
@@ -470,6 +586,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get clan capital rankings for a location
+         * @description Get Clan Capital rankings for a specific location.
+         */
         get: operations["locations.capitals"];
         put?: never;
         post?: never;
@@ -486,6 +606,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * List player labels
+         * @description List available player labels.
+         */
         get: operations["labels.players"];
         put?: never;
         post?: never;
@@ -502,6 +626,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * List clan labels
+         * @description List available clan labels.
+         */
         get: operations["labels.clans"];
         put?: never;
         post?: never;
@@ -518,6 +646,10 @@ export interface paths {
             path?: never;
             cookie?: never;
         };
+        /**
+         * Get current Gold Pass season
+         * @description Get information about the current Gold Pass season.
+         */
         get: operations["goldpass.current"];
         put?: never;
         post?: never;
@@ -536,52 +668,36 @@ export interface components {
             message?: string | null;
             reason: string;
             type?: string | null;
-        } & {
-            [key: string]: unknown;
         };
         GoldPassSeason: {
             endTime: string;
             startTime: string;
-        } & {
-            [key: string]: unknown;
         };
         LabelListResponse: {
             items: components["schemas"]["Label"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         Paging: {
             cursors?: components["schemas"]["CursorPaging"];
-        } & {
-            [key: string]: unknown;
         };
         CursorPaging: {
             after?: string | null;
             before?: string | null;
-        } & {
-            [key: string]: unknown;
         };
         Label: {
             iconUrls?: components["schemas"]["IconUrls"] | null;
             id: number;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         IconUrls: {
             large?: string | null;
             medium?: string | null;
             small?: string | null;
             tiny?: string | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRankingListResponse: {
             items: components["schemas"]["ClanCapitalRanking"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRanking: {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
@@ -593,8 +709,6 @@ export interface components {
             previousRank: number;
             rank: number;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         Location: {
             countryCode?: string | null;
@@ -602,21 +716,15 @@ export interface components {
             isCountry: boolean;
             localizedName?: string | null;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         BadgeUrls: {
             large?: string | null;
             medium?: string | null;
             small?: string | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanBuilderBaseRankingListResponse: {
             items: components["schemas"]["ClanBuilderBaseRanking"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanBuilderBaseRanking: {
             clanVersusPoints?: number | null;
@@ -630,14 +738,10 @@ export interface components {
             previousRank: number;
             rank: number;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         PlayerBuilderBaseRankingListResponse: {
             items: components["schemas"]["PlayerBuilderBaseRanking"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         PlayerBuilderBaseRanking: {
             versusTrophies?: number | null;
@@ -650,28 +754,20 @@ export interface components {
             previousRank: number;
             rank: number;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         ClanReference: {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
             clanLevel?: number | null;
             name: string;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         BuilderBaseLeague: {
             id: number;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         PlayerRankingListResponse: {
             items: components["schemas"]["PlayerRanking"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         PlayerRanking: {
             attackWins?: number | null;
@@ -685,28 +781,20 @@ export interface components {
             rank: number;
             tag: string;
             trophies: number;
-        } & {
-            [key: string]: unknown;
         };
         LeagueTier: {
             iconUrls?: components["schemas"]["IconUrls"] | null;
             id: number;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         League: {
             iconUrls?: components["schemas"]["IconUrls"] | null;
             id: number;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         ClanRankingListResponse: {
             items: components["schemas"]["ClanRanking"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanRanking: {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
@@ -718,21 +806,15 @@ export interface components {
             previousRank: number;
             rank: number;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         LocationListResponse: {
             items: components["schemas"]["Location"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         LeagueGroup: {
             attackLogs?: components["schemas"]["LeagueBattleLogEntry"][];
             defenseLogs?: components["schemas"]["LeagueBattleLogEntry"][];
             members?: components["schemas"]["LeagueGroupMember"][];
-        } & {
-            [key: string]: unknown;
         };
         LeagueGroupMember: {
             attackLoseCount: number;
@@ -744,8 +826,6 @@ export interface components {
             leagueTrophies: number;
             playerName: string;
             playerTag: string;
-        } & {
-            [key: string]: unknown;
         };
         LeagueBattleLogEntry: {
             creationTime: string;
@@ -754,14 +834,10 @@ export interface components {
             opponentPlayerTag: string;
             stars: number;
             trophies: number;
-        } & {
-            [key: string]: unknown;
         };
         PlayerSeasonRankingListResponse: {
             items: components["schemas"]["PlayerSeasonRanking"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         PlayerSeasonRanking: {
             attackWins?: number | null;
@@ -775,73 +851,49 @@ export interface components {
             rank: number;
             tag: string;
             trophies: number;
-        } & {
-            [key: string]: unknown;
         };
         LeagueSeasonListResponse: {
             items: components["schemas"]["LeagueSeason"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         LeagueSeason: {
             id: string;
-        } & {
-            [key: string]: unknown;
         };
         WarLeague: {
             id: number;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         WarLeagueListResponse: {
             items: components["schemas"]["WarLeague"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         BuilderBaseLeagueListResponse: {
             items: components["schemas"]["BuilderBaseLeague"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         CapitalLeague: {
             id: number;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         CapitalLeagueListResponse: {
             items: components["schemas"]["CapitalLeague"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         LeagueTierListResponse: {
             items: components["schemas"]["LeagueTier"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         VerifyTokenResponse: {
             status: string;
             tag: string;
             token: string;
-        } & {
-            [key: string]: unknown;
         };
         VerifyTokenRequest: {
             token: string;
-        } & {
-            [key: string]: unknown;
         };
         LeagueHistoryResponse: {
             items: components["schemas"]["LeagueSeasonResult"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         LeagueSeasonResult: {
             attackLosses: number;
@@ -855,14 +907,10 @@ export interface components {
             leagueTrophies: number;
             maxBattles: number;
             placement: number;
-        } & {
-            [key: string]: unknown;
         };
         BattleLogResponse: {
             items: components["schemas"]["BattleLogEntry"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         BattleLogEntry: {
             armyShareCode?: string | null;
@@ -875,14 +923,10 @@ export interface components {
             lootedResources?: components["schemas"]["Resource"][];
             opponentPlayerTag: string;
             stars: number;
-        } & {
-            [key: string]: unknown;
         };
         Resource: {
             amount: number;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         Player: {
             achievements?: components["schemas"]["PlayerAchievementProgress"][];
@@ -918,8 +962,6 @@ export interface components {
             trophies: number;
             warPreference?: string | null;
             warStars: number;
-        } & {
-            [key: string]: unknown;
         };
         PlayerItemLevel: {
             equipment?: components["schemas"]["PlayerItemLevel"][] | null;
@@ -928,19 +970,13 @@ export interface components {
             name: string;
             superTroopIsActive?: boolean | null;
             village: string;
-        } & {
-            [key: string]: unknown;
         };
         PlayerHouse: {
             elements?: components["schemas"]["PlayerHouseElement"][];
-        } & {
-            [key: string]: unknown;
         };
         PlayerHouseElement: {
             id: number;
             type: string;
-        } & {
-            [key: string]: unknown;
         };
         PlayerLegendStatistics: {
             bestBuilderBaseSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"] | null;
@@ -949,23 +985,17 @@ export interface components {
             legendTrophies?: number | null;
             previousBuilderBaseSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"] | null;
             previousSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"] | null;
-        } & {
-            [key: string]: unknown;
         };
         LegendLeagueTournamentSeasonResult: {
             id?: string | null;
             rank?: number | null;
             trophies?: number | null;
-        } & {
-            [key: string]: unknown;
         };
         PlayerClan: {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
             clanLevel?: number | null;
             name: string;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         PlayerAchievementProgress: {
             completionInfo?: string | null;
@@ -975,14 +1005,10 @@ export interface components {
             target: number;
             value: number;
             village: string;
-        } & {
-            [key: string]: unknown;
         };
         CapitalRaidSeasonsResponse: {
             items: components["schemas"]["ClanCapitalRaidSeason"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRaidSeason: {
             attackLog?: components["schemas"]["ClanCapitalRaidSeasonAttackLogEntry"][];
@@ -997,8 +1023,6 @@ export interface components {
             startTime: string;
             state: string;
             totalAttacks: number;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRaidSeasonMember: {
             attackLimit: number;
@@ -1007,8 +1031,6 @@ export interface components {
             capitalResourcesLooted: number;
             name: string;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRaidSeasonDefenseLogEntry: {
             attackCount: number;
@@ -1016,8 +1038,6 @@ export interface components {
             districtCount: number;
             districts?: components["schemas"]["ClanCapitalRaidSeasonDistrict"][];
             districtsDestroyed: number;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRaidSeasonDistrict: {
             attackCount: number;
@@ -1028,29 +1048,21 @@ export interface components {
             name: string;
             stars: number;
             totalLooted: number;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRaidSeasonAttack: {
             attacker: components["schemas"]["ClanCapitalRaidSeasonAttacker"];
             destructionPercent: number;
             stars: number;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRaidSeasonAttacker: {
             name: string;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRaidSeasonClanInfo: {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
             level: number;
             name: string;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalRaidSeasonAttackLogEntry: {
             attackCount: number;
@@ -1058,15 +1070,11 @@ export interface components {
             districtCount: number;
             districts?: components["schemas"]["ClanCapitalRaidSeasonDistrict"][];
             districtsDestroyed: number;
-        } & {
-            [key: string]: unknown;
         };
-        ClanWar: ({
+        ClanWar: {
             /** @enum {string} */
             state: "notInWar";
-        } & {
-            [key: string]: unknown;
-        }) | components["schemas"]["ActiveClanWar"];
+        } | components["schemas"]["ActiveClanWar"];
         ActiveClanWar: {
             warStartTime?: string | null;
             attacksPerMember?: number | null;
@@ -1079,21 +1087,17 @@ export interface components {
             teamSize: number;
             /** @enum {string} */
             state: "preparation" | "inWar" | "warEnded";
-        } & {
-            [key: string]: unknown;
         };
         WarClan: {
             attacks?: number | null;
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
             clanLevel: number;
-            destructionPercentage?: number | ("Infinity" | "-Infinity" | "NaN") | null;
+            destructionPercentage?: number | null;
             expEarned?: number | null;
             members?: components["schemas"]["ClanWarMember"][];
             name?: string | null;
             stars?: number | null;
             tag?: string | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanWarMember: {
             attacks?: components["schemas"]["ClanWarAttack"][];
@@ -1103,8 +1107,6 @@ export interface components {
             opponentAttacks?: number | null;
             tag: string;
             townhallLevel: number;
-        } & {
-            [key: string]: unknown;
         };
         ClanWarAttack: {
             attackerTag: string;
@@ -1113,8 +1115,6 @@ export interface components {
             duration?: number | null;
             order: number;
             stars: number;
-        } & {
-            [key: string]: unknown;
         };
         ClanWarLeagueGroup: {
             clans?: components["schemas"]["ClanWarLeagueClan"][];
@@ -1122,13 +1122,9 @@ export interface components {
             season?: string | null;
             state: string;
             tag?: string | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanWarLeagueRound: {
             warTags?: string[];
-        } & {
-            [key: string]: unknown;
         };
         ClanWarLeagueClan: {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
@@ -1136,21 +1132,15 @@ export interface components {
             members?: components["schemas"]["ClanWarLeagueClanMember"][];
             name: string;
             tag: string;
-        } & {
-            [key: string]: unknown;
         };
         ClanWarLeagueClanMember: {
             name: string;
             tag: string;
             townHallLevel: number;
-        } & {
-            [key: string]: unknown;
         };
         ClanWarLogResponse: {
             items: components["schemas"]["ClanWarLogEntry"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanWarLogEntry: {
             attacksPerMember?: number | null;
@@ -1160,14 +1150,10 @@ export interface components {
             opponent: components["schemas"]["WarClan"];
             result?: string | null;
             teamSize: number;
-        } & {
-            [key: string]: unknown;
         };
         ClanMembersResponse: {
             items: components["schemas"]["ClanMember"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanMember: {
             builderBaseLeague?: components["schemas"]["League"] | null;
@@ -1185,8 +1171,6 @@ export interface components {
             townHallLevel: number;
             trophies: number;
             versusTrophies?: number | null;
-        } & {
-            [key: string]: unknown;
         };
         Clan: {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
@@ -1219,35 +1203,26 @@ export interface components {
             warTies?: number | null;
             warWinStreak?: number | null;
             warWins?: number | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanCapital: {
             capitalHallLevel?: number | null;
-            clanGoldSinkTotal: number & unknown;
+            /** Format: int64 */
+            clanGoldSinkTotal: number;
             districts?: components["schemas"]["ClanCapitalDistrict"][];
-        } & {
-            [key: string]: unknown;
         };
         ClanCapitalDistrict: {
             districtHallLevel: number;
             id: number;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         Language: {
             id: number;
             languageCode: string;
             name: string;
-        } & {
-            [key: string]: unknown;
         };
         ClanSearchResponse: {
             items: components["schemas"]["ClanSearchItem"][];
             paging?: components["schemas"]["Paging"] | null;
-        } & {
-            [key: string]: unknown;
         };
         ClanSearchItem: {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
@@ -1277,8 +1252,6 @@ export interface components {
             warTies?: number | null;
             warWinStreak?: number | null;
             warWins?: number | null;
-        } & {
-            [key: string]: unknown;
         };
     };
     responses: never;
@@ -1320,7 +1293,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanSearchResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1329,7 +1302,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -1338,7 +1311,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1347,7 +1320,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -1357,7 +1330,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1366,7 +1339,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -1375,7 +1348,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -1407,7 +1380,7 @@ export interface operations {
                     "application/json": components["schemas"]["Clan"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1416,7 +1389,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -1425,7 +1398,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1434,7 +1407,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -1444,7 +1417,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1453,7 +1426,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -1462,7 +1435,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -1498,7 +1471,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanMembersResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1507,7 +1480,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -1516,7 +1489,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1525,7 +1498,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -1535,7 +1508,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1544,7 +1517,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -1553,7 +1526,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -1585,7 +1558,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanWar"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1594,7 +1567,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -1603,7 +1576,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1612,7 +1585,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -1622,7 +1595,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1631,7 +1604,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -1640,7 +1613,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -1676,7 +1649,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanWarLogResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1685,7 +1658,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -1694,7 +1667,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1703,7 +1676,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -1713,7 +1686,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1722,7 +1695,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -1731,7 +1704,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -1763,7 +1736,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanWarLeagueGroup"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1772,7 +1745,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -1781,7 +1754,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1790,7 +1763,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -1800,7 +1773,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1809,7 +1782,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -1818,7 +1791,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -1850,7 +1823,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanWar"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1859,7 +1832,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -1868,7 +1841,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1877,7 +1850,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -1887,7 +1860,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1896,7 +1869,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -1905,7 +1878,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -1941,7 +1914,7 @@ export interface operations {
                     "application/json": components["schemas"]["CapitalRaidSeasonsResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -1950,7 +1923,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -1959,7 +1932,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -1968,7 +1941,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -1978,7 +1951,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -1987,7 +1960,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -1996,7 +1969,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2028,7 +2001,7 @@ export interface operations {
                     "application/json": components["schemas"]["Player"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2037,7 +2010,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2046,7 +2019,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2055,7 +2028,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2065,7 +2038,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2074,7 +2047,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2083,7 +2056,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2115,7 +2088,7 @@ export interface operations {
                     "application/json": components["schemas"]["BattleLogResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2124,7 +2097,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2133,7 +2106,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2142,7 +2115,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2152,7 +2125,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2161,7 +2134,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2170,7 +2143,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2202,7 +2175,7 @@ export interface operations {
                     "application/json": components["schemas"]["LeagueHistoryResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2211,7 +2184,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2220,7 +2193,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2229,7 +2202,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2239,7 +2212,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2248,7 +2221,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2257,7 +2230,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2293,7 +2266,7 @@ export interface operations {
                     "application/json": components["schemas"]["VerifyTokenResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2302,7 +2275,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2311,7 +2284,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2320,7 +2293,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2330,7 +2303,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2339,7 +2312,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2348,7 +2321,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2382,7 +2355,7 @@ export interface operations {
                     "application/json": components["schemas"]["LeagueTierListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2391,7 +2364,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2400,7 +2373,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2409,7 +2382,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2419,7 +2392,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2428,7 +2401,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2437,7 +2410,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2469,7 +2442,7 @@ export interface operations {
                     "application/json": components["schemas"]["LeagueTier"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2478,7 +2451,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2487,7 +2460,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2496,7 +2469,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2506,7 +2479,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2515,7 +2488,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2524,7 +2497,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2558,7 +2531,7 @@ export interface operations {
                     "application/json": components["schemas"]["CapitalLeagueListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2567,7 +2540,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2576,7 +2549,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2585,7 +2558,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2595,7 +2568,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2604,7 +2577,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2613,7 +2586,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2645,7 +2618,7 @@ export interface operations {
                     "application/json": components["schemas"]["CapitalLeague"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2654,7 +2627,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2663,7 +2636,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2672,7 +2645,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2682,7 +2655,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2691,7 +2664,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2700,7 +2673,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2734,7 +2707,7 @@ export interface operations {
                     "application/json": components["schemas"]["BuilderBaseLeagueListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2743,7 +2716,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2752,7 +2725,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2761,7 +2734,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2771,7 +2744,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2780,7 +2753,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2789,7 +2762,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2821,7 +2794,7 @@ export interface operations {
                     "application/json": components["schemas"]["BuilderBaseLeague"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2830,7 +2803,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2839,7 +2812,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2848,7 +2821,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2858,7 +2831,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2867,7 +2840,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2876,7 +2849,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2910,7 +2883,7 @@ export interface operations {
                     "application/json": components["schemas"]["WarLeagueListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -2919,7 +2892,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -2928,7 +2901,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -2937,7 +2910,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -2947,7 +2920,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -2956,7 +2929,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -2965,7 +2938,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -2997,7 +2970,7 @@ export interface operations {
                     "application/json": components["schemas"]["WarLeague"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3006,7 +2979,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3015,7 +2988,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3024,7 +2997,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3034,7 +3007,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3043,7 +3016,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3052,7 +3025,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3088,7 +3061,7 @@ export interface operations {
                     "application/json": components["schemas"]["LeagueSeasonListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3097,7 +3070,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3106,7 +3079,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3115,7 +3088,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3125,7 +3098,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3134,7 +3107,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3143,7 +3116,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3180,7 +3153,7 @@ export interface operations {
                     "application/json": components["schemas"]["PlayerSeasonRankingListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3189,7 +3162,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3198,7 +3171,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3207,7 +3180,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3217,7 +3190,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3226,7 +3199,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3235,7 +3208,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3270,7 +3243,7 @@ export interface operations {
                     "application/json": components["schemas"]["LeagueGroup"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3279,7 +3252,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3288,7 +3261,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3297,7 +3270,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3307,7 +3280,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3316,7 +3289,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3325,7 +3298,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3359,7 +3332,7 @@ export interface operations {
                     "application/json": components["schemas"]["LocationListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3368,7 +3341,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3377,7 +3350,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3386,7 +3359,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3396,7 +3369,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3405,7 +3378,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3414,7 +3387,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3446,7 +3419,7 @@ export interface operations {
                     "application/json": components["schemas"]["Location"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3455,7 +3428,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3464,7 +3437,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3473,7 +3446,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3483,7 +3456,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3492,7 +3465,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3501,7 +3474,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3537,7 +3510,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanRankingListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3546,7 +3519,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3555,7 +3528,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3564,7 +3537,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3574,7 +3547,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3583,7 +3556,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3592,7 +3565,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3628,7 +3601,7 @@ export interface operations {
                     "application/json": components["schemas"]["PlayerRankingListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3637,7 +3610,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3646,7 +3619,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3655,7 +3628,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3665,7 +3638,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3674,7 +3647,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3683,7 +3656,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3719,7 +3692,7 @@ export interface operations {
                     "application/json": components["schemas"]["PlayerBuilderBaseRankingListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3728,7 +3701,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3737,7 +3710,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3746,7 +3719,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3756,7 +3729,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3765,7 +3738,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3774,7 +3747,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3810,7 +3783,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanBuilderBaseRankingListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3819,7 +3792,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3828,7 +3801,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3837,7 +3810,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3847,7 +3820,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3856,7 +3829,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3865,7 +3838,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3901,7 +3874,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClanCapitalRankingListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3910,7 +3883,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -3919,7 +3892,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -3928,7 +3901,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -3938,7 +3911,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -3947,7 +3920,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -3956,7 +3929,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -3990,7 +3963,7 @@ export interface operations {
                     "application/json": components["schemas"]["LabelListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -3999,7 +3972,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -4008,7 +3981,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -4017,7 +3990,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -4027,7 +4000,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -4036,7 +4009,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -4045,7 +4018,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -4079,7 +4052,7 @@ export interface operations {
                     "application/json": components["schemas"]["LabelListResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -4088,7 +4061,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -4097,7 +4070,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -4106,7 +4079,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -4116,7 +4089,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -4125,7 +4098,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -4134,7 +4107,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;
@@ -4164,7 +4137,7 @@ export interface operations {
                     "application/json": components["schemas"]["GoldPassSeason"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Bad request */
             400: {
                 headers: {
                     [name: string]: unknown;
@@ -4173,7 +4146,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Access denied */
             403: {
                 headers: {
                     [name: string]: unknown;
@@ -4182,7 +4155,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Resource not found */
             404: {
                 headers: {
                     [name: string]: unknown;
@@ -4191,7 +4164,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Request throttled */
             429: {
                 headers: {
                     "retry-after"?: string;
@@ -4201,7 +4174,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Internal server error */
             500: {
                 headers: {
                     [name: string]: unknown;
@@ -4210,7 +4183,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Endpoint retired */
             501: {
                 headers: {
                     [name: string]: unknown;
@@ -4219,7 +4192,7 @@ export interface operations {
                     "application/json": components["schemas"]["ClientErrorResponse"];
                 };
             };
-            /** @description ClientErrorResponse */
+            /** @description Service temporarily unavailable */
             503: {
                 headers: {
                     [name: string]: unknown;

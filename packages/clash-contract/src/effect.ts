@@ -533,7 +533,7 @@ export const WarClan = WireStruct({
   badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
   clanLevel: Schema.Number.check(Schema.isInt()),
   destructionPercentage: Schema.optionalKey(
-    Schema.Union([Schema.Number, Schema.Null]),
+    Schema.Union([Schema.Finite, Schema.Null]),
   ),
   expEarned: Schema.optionalKey(
     Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
