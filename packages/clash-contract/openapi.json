@@ -2,13 +2,10 @@
   "components": {
     "schemas": {
       "ActiveClanWar": {
-        "additionalProperties": true,
         "properties": {
           "attacksPerMember": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -51,7 +48,6 @@
           },
           "teamSize": {
             "exclusiveMinimum": 0,
-            "maximum": 9007199254740991,
             "type": "integer"
           },
           "warStartTime": {
@@ -77,7 +73,6 @@
         "type": "object"
       },
       "BadgeUrls": {
-        "additionalProperties": true,
         "properties": {
           "large": {
             "anyOf": [
@@ -113,7 +108,6 @@
         "type": "object"
       },
       "BattleLogEntry": {
-        "additionalProperties": true,
         "properties": {
           "armyShareCode": {
             "anyOf": [
@@ -143,8 +137,6 @@
             "type": "string"
           },
           "destructionPercentage": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "extraLootedResources": {
@@ -163,8 +155,6 @@
             "type": "string"
           },
           "stars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -178,7 +168,6 @@
         "type": "object"
       },
       "BattleLogResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -203,11 +192,8 @@
         "type": "object"
       },
       "BuilderBaseLeague": {
-        "additionalProperties": true,
         "properties": {
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -221,7 +207,6 @@
         "type": "object"
       },
       "BuilderBaseLeagueListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -246,11 +231,8 @@
         "type": "object"
       },
       "CapitalLeague": {
-        "additionalProperties": true,
         "properties": {
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -264,7 +246,6 @@
         "type": "object"
       },
       "CapitalLeagueListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -289,7 +270,6 @@
         "type": "object"
       },
       "CapitalRaidSeasonsResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -314,7 +294,6 @@
         "type": "object"
       },
       "Clan": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -349,8 +328,6 @@
           "clanBuilderBasePoints": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -364,8 +341,6 @@
           "clanCapitalPoints": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -374,20 +349,14 @@
             ]
           },
           "clanLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanPoints": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanVersusPoints": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -448,8 +417,6 @@
             "type": "array"
           },
           "members": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -458,8 +425,6 @@
           "requiredBuilderBaseTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -470,8 +435,6 @@
           "requiredTownhallLevel": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -482,8 +445,6 @@
           "requiredTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -494,8 +455,6 @@
           "requiredVersusTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -546,8 +505,6 @@
           "warLosses": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -558,8 +515,6 @@
           "warTies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -570,8 +525,6 @@
           "warWins": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -582,8 +535,6 @@
           "warWinStreak": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -604,7 +555,6 @@
         "type": "object"
       },
       "ClanBuilderBaseRanking": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -617,20 +567,14 @@
             ]
           },
           "clanBuilderBasePoints": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanPoints": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -641,8 +585,6 @@
           "clanVersusPoints": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -661,21 +603,15 @@
             ]
           },
           "members": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
@@ -694,7 +630,6 @@
         "type": "object"
       },
       "ClanBuilderBaseRankingListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -719,13 +654,10 @@
         "type": "object"
       },
       "ClanCapital": {
-        "additionalProperties": true,
         "properties": {
           "capitalHallLevel": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -734,13 +666,7 @@
             ]
           },
           "clanGoldSinkTotal": {
-            "allOf": [
-              {
-                "format": "int64",
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991
-              }
-            ],
+            "format": "int64",
             "type": "integer"
           },
           "districts": {
@@ -756,16 +682,11 @@
         "type": "object"
       },
       "ClanCapitalDistrict": {
-        "additionalProperties": true,
         "properties": {
           "districtHallLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -780,7 +701,6 @@
         "type": "object"
       },
       "ClanCapitalRaidSeason": {
-        "additionalProperties": true,
         "properties": {
           "attackLog": {
             "items": {
@@ -789,8 +709,6 @@
             "type": "array"
           },
           "capitalTotalLoot": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseLog": {
@@ -800,16 +718,12 @@
             "type": "array"
           },
           "defensiveReward": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "endTime": {
             "type": "string"
           },
           "enemyDistrictsDestroyed": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "members": {
@@ -819,13 +733,9 @@
             "type": "array"
           },
           "offensiveReward": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "raidsCompleted": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "startTime": {
@@ -835,8 +745,6 @@
             "type": "string"
           },
           "totalAttacks": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -854,19 +762,14 @@
         "type": "object"
       },
       "ClanCapitalRaidSeasonAttack": {
-        "additionalProperties": true,
         "properties": {
           "attacker": {
             "$ref": "#/components/schemas/ClanCapitalRaidSeasonAttacker"
           },
           "destructionPercent": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "stars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -878,7 +781,6 @@
         "type": "object"
       },
       "ClanCapitalRaidSeasonAttacker": {
-        "additionalProperties": true,
         "properties": {
           "name": {
             "type": "string"
@@ -894,19 +796,14 @@
         "type": "object"
       },
       "ClanCapitalRaidSeasonAttackLogEntry": {
-        "additionalProperties": true,
         "properties": {
           "attackCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defender": {
             "$ref": "#/components/schemas/ClanCapitalRaidSeasonClanInfo"
           },
           "districtCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "districts": {
@@ -916,8 +813,6 @@
             "type": "array"
           },
           "districtsDestroyed": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -930,7 +825,6 @@
         "type": "object"
       },
       "ClanCapitalRaidSeasonClanInfo": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -943,8 +837,6 @@
             ]
           },
           "level": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -962,19 +854,14 @@
         "type": "object"
       },
       "ClanCapitalRaidSeasonDefenseLogEntry": {
-        "additionalProperties": true,
         "properties": {
           "attackCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attacker": {
             "$ref": "#/components/schemas/ClanCapitalRaidSeasonClanInfo"
           },
           "districtCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "districts": {
@@ -984,8 +871,6 @@
             "type": "array"
           },
           "districtsDestroyed": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -998,11 +883,8 @@
         "type": "object"
       },
       "ClanCapitalRaidSeasonDistrict": {
-        "additionalProperties": true,
         "properties": {
           "attackCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attacks": {
@@ -1012,31 +894,21 @@
             "type": "array"
           },
           "destructionPercent": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "districtHallLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "stars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "totalLooted": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -1052,26 +924,17 @@
         "type": "object"
       },
       "ClanCapitalRaidSeasonMember": {
-        "additionalProperties": true,
         "properties": {
           "attackLimit": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attacks": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "bonusAttackLimit": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "capitalResourcesLooted": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -1092,7 +955,6 @@
         "type": "object"
       },
       "ClanCapitalRanking": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -1105,13 +967,9 @@
             ]
           },
           "clanCapitalPoints": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "location": {
@@ -1125,21 +983,15 @@
             ]
           },
           "members": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
@@ -1158,7 +1010,6 @@
         "type": "object"
       },
       "ClanCapitalRankingListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -1183,7 +1034,6 @@
         "type": "object"
       },
       "ClanMember": {
-        "additionalProperties": true,
         "properties": {
           "builderBaseLeague": {
             "anyOf": [
@@ -1198,8 +1048,6 @@
           "builderBaseTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1208,23 +1056,15 @@
             ]
           },
           "clanRank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "donations": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "donationsReceived": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "expLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "league": {
@@ -1251,8 +1091,6 @@
             ]
           },
           "previousClanRank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "role": {
@@ -1262,20 +1100,14 @@
             "type": "string"
           },
           "townHallLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "trophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "versusTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1299,7 +1131,6 @@
         "type": "object"
       },
       "ClanMembersResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -1324,7 +1155,6 @@
         "type": "object"
       },
       "ClanRanking": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -1337,13 +1167,9 @@
             ]
           },
           "clanLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanPoints": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "location": {
@@ -1357,21 +1183,15 @@
             ]
           },
           "members": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
@@ -1390,7 +1210,6 @@
         "type": "object"
       },
       "ClanRankingListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -1415,7 +1234,6 @@
         "type": "object"
       },
       "ClanReference": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -1430,8 +1248,6 @@
           "clanLevel": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1453,7 +1269,6 @@
         "type": "object"
       },
       "ClanSearchItem": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -1488,8 +1303,6 @@
           "clanBuilderBasePoints": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1500,8 +1313,6 @@
           "clanCapitalPoints": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1510,20 +1321,14 @@
             ]
           },
           "clanLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanPoints": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanVersusPoints": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1568,8 +1373,6 @@
             ]
           },
           "members": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -1578,8 +1381,6 @@
           "requiredBuilderBaseTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1590,8 +1391,6 @@
           "requiredTownhallLevel": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1602,8 +1401,6 @@
           "requiredTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1614,8 +1411,6 @@
           "requiredVersusTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1666,8 +1461,6 @@
           "warLosses": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1678,8 +1471,6 @@
           "warTies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1690,8 +1481,6 @@
           "warWins": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1702,8 +1491,6 @@
           "warWinStreak": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1723,7 +1510,6 @@
         "type": "object"
       },
       "ClanSearchResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -1750,7 +1536,6 @@
       "ClanWar": {
         "anyOf": [
           {
-            "additionalProperties": true,
             "properties": {
               "state": {
                 "enum": [
@@ -1770,7 +1555,6 @@
         ]
       },
       "ClanWarAttack": {
-        "additionalProperties": true,
         "properties": {
           "attackerTag": {
             "type": "string"
@@ -1779,15 +1563,11 @@
             "type": "string"
           },
           "destructionPercentage": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "duration": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1796,13 +1576,9 @@
             ]
           },
           "order": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "stars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -1816,7 +1592,6 @@
         "type": "object"
       },
       "ClanWarLeagueClan": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -1829,8 +1604,6 @@
             ]
           },
           "clanLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "members": {
@@ -1854,7 +1627,6 @@
         "type": "object"
       },
       "ClanWarLeagueClanMember": {
-        "additionalProperties": true,
         "properties": {
           "name": {
             "type": "string"
@@ -1863,8 +1635,6 @@
             "type": "string"
           },
           "townHallLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -1876,7 +1646,6 @@
         "type": "object"
       },
       "ClanWarLeagueGroup": {
-        "additionalProperties": true,
         "properties": {
           "clans": {
             "items": {
@@ -1920,7 +1689,6 @@
         "type": "object"
       },
       "ClanWarLeagueRound": {
-        "additionalProperties": true,
         "properties": {
           "warTags": {
             "items": {
@@ -1932,13 +1700,10 @@
         "type": "object"
       },
       "ClanWarLogEntry": {
-        "additionalProperties": true,
         "properties": {
           "attacksPerMember": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -1976,8 +1741,6 @@
             ]
           },
           "teamSize": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -1990,7 +1753,6 @@
         "type": "object"
       },
       "ClanWarLogResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -2015,7 +1777,6 @@
         "type": "object"
       },
       "ClanWarMember": {
-        "additionalProperties": true,
         "properties": {
           "attacks": {
             "items": {
@@ -2034,8 +1795,6 @@
             ]
           },
           "mapPosition": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -2044,8 +1803,6 @@
           "opponentAttacks": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2057,8 +1814,6 @@
             "type": "string"
           },
           "townhallLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -2071,7 +1826,6 @@
         "type": "object"
       },
       "ClientErrorResponse": {
-        "additionalProperties": true,
         "properties": {
           "detail": {
             "anyOf": [
@@ -2113,7 +1867,6 @@
         "type": "object"
       },
       "CursorPaging": {
-        "additionalProperties": true,
         "properties": {
           "after": {
             "anyOf": [
@@ -2139,7 +1892,6 @@
         "type": "object"
       },
       "GoldPassSeason": {
-        "additionalProperties": true,
         "properties": {
           "endTime": {
             "type": "string"
@@ -2155,7 +1907,6 @@
         "type": "object"
       },
       "IconUrls": {
-        "additionalProperties": true,
         "properties": {
           "large": {
             "anyOf": [
@@ -2201,7 +1952,6 @@
         "type": "object"
       },
       "Label": {
-        "additionalProperties": true,
         "properties": {
           "iconUrls": {
             "anyOf": [
@@ -2214,8 +1964,6 @@
             ]
           },
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -2229,7 +1977,6 @@
         "type": "object"
       },
       "LabelListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -2254,11 +2001,8 @@
         "type": "object"
       },
       "Language": {
-        "additionalProperties": true,
         "properties": {
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "languageCode": {
@@ -2276,7 +2020,6 @@
         "type": "object"
       },
       "League": {
-        "additionalProperties": true,
         "properties": {
           "iconUrls": {
             "anyOf": [
@@ -2289,8 +2032,6 @@
             ]
           },
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -2304,14 +2045,11 @@
         "type": "object"
       },
       "LeagueBattleLogEntry": {
-        "additionalProperties": true,
         "properties": {
           "creationTime": {
             "type": "string"
           },
           "destructionPercentage": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "opponentName": {
@@ -2321,13 +2059,9 @@
             "type": "string"
           },
           "stars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "trophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -2342,7 +2076,6 @@
         "type": "object"
       },
       "LeagueGroup": {
-        "additionalProperties": true,
         "properties": {
           "attackLogs": {
             "items": {
@@ -2366,16 +2099,11 @@
         "type": "object"
       },
       "LeagueGroupMember": {
-        "additionalProperties": true,
         "properties": {
           "attackLoseCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attackWinCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clanName": {
@@ -2399,18 +2127,12 @@
             ]
           },
           "defenseLoseCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseWinCount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "leagueTrophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "playerName": {
@@ -2434,7 +2156,6 @@
         "type": "object"
       },
       "LeagueHistoryResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -2459,7 +2180,6 @@
         "type": "object"
       },
       "LeagueSeason": {
-        "additionalProperties": true,
         "properties": {
           "id": {
             "type": "string"
@@ -2471,7 +2191,6 @@
         "type": "object"
       },
       "LeagueSeasonListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -2496,43 +2215,28 @@
         "type": "object"
       },
       "LeagueSeasonResult": {
-        "additionalProperties": true,
         "properties": {
           "attackLosses": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attackStars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "attackWins": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseLosses": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseStars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "defenseWins": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "leagueSeasonId": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2541,23 +2245,15 @@
             ]
           },
           "leagueTierId": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "leagueTrophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "maxBattles": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "placement": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -2577,7 +2273,6 @@
         "type": "object"
       },
       "LeagueTier": {
-        "additionalProperties": true,
         "properties": {
           "iconUrls": {
             "anyOf": [
@@ -2590,8 +2285,6 @@
             ]
           },
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -2605,7 +2298,6 @@
         "type": "object"
       },
       "LeagueTierListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -2630,7 +2322,6 @@
         "type": "object"
       },
       "LegendLeagueTournamentSeasonResult": {
-        "additionalProperties": true,
         "properties": {
           "id": {
             "anyOf": [
@@ -2645,8 +2336,6 @@
           "rank": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2657,8 +2346,6 @@
           "trophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2670,7 +2357,6 @@
         "type": "object"
       },
       "Location": {
-        "additionalProperties": true,
         "properties": {
           "countryCode": {
             "anyOf": [
@@ -2683,8 +2369,6 @@
             ]
           },
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "isCountry": {
@@ -2712,7 +2396,6 @@
         "type": "object"
       },
       "LocationListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -2737,7 +2420,6 @@
         "type": "object"
       },
       "Paging": {
-        "additionalProperties": true,
         "properties": {
           "cursors": {
             "$ref": "#/components/schemas/CursorPaging"
@@ -2746,7 +2428,6 @@
         "type": "object"
       },
       "Player": {
-        "additionalProperties": true,
         "properties": {
           "achievements": {
             "items": {
@@ -2755,15 +2436,11 @@
             "type": "array"
           },
           "attackWins": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "bestBuilderBaseTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2772,8 +2449,6 @@
             ]
           },
           "bestTrophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "builderBaseLeague": {
@@ -2782,8 +2457,6 @@
           "builderBaseTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2794,8 +2467,6 @@
           "builderHallLevel": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2816,8 +2487,6 @@
           "clanCapitalContributions": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2838,8 +2507,6 @@
           "currentLeagueSeasonId": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2848,15 +2515,11 @@
             ]
           },
           "defenseWins": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "donations": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2867,8 +2530,6 @@
           "donationsReceived": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2877,8 +2538,6 @@
             ]
           },
           "expLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "heroEquipment": {
@@ -2948,8 +2607,6 @@
           "previousLeagueSeasonId": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -2977,8 +2634,6 @@
             "type": "string"
           },
           "townHallLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "troops": {
@@ -2988,8 +2643,6 @@
             "type": "array"
           },
           "trophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "warPreference": {
@@ -3003,8 +2656,6 @@
             ]
           },
           "warStars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -3022,7 +2673,6 @@
         "type": "object"
       },
       "PlayerAchievementProgress": {
-        "additionalProperties": true,
         "properties": {
           "completionInfo": {
             "anyOf": [
@@ -3048,18 +2698,12 @@
             "type": "string"
           },
           "stars": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "target": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "value": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "village": {
@@ -3076,14 +2720,11 @@
         "type": "object"
       },
       "PlayerBuilderBaseRanking": {
-        "additionalProperties": true,
         "properties": {
           "builderBaseLeague": {
             "$ref": "#/components/schemas/BuilderBaseLeague"
           },
           "builderBaseTrophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "clan": {
@@ -3097,21 +2738,15 @@
             ]
           },
           "expLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
@@ -3120,8 +2755,6 @@
           "versusBattleWins": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3132,8 +2765,6 @@
           "versusTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3153,7 +2784,6 @@
         "type": "object"
       },
       "PlayerBuilderBaseRankingListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -3178,7 +2808,6 @@
         "type": "object"
       },
       "PlayerClan": {
-        "additionalProperties": true,
         "properties": {
           "badgeUrls": {
             "anyOf": [
@@ -3193,8 +2822,6 @@
           "clanLevel": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3216,7 +2843,6 @@
         "type": "object"
       },
       "PlayerHouse": {
-        "additionalProperties": true,
         "properties": {
           "elements": {
             "items": {
@@ -3228,11 +2854,8 @@
         "type": "object"
       },
       "PlayerHouseElement": {
-        "additionalProperties": true,
         "properties": {
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "type": {
@@ -3246,7 +2869,6 @@
         "type": "object"
       },
       "PlayerItemLevel": {
-        "additionalProperties": true,
         "properties": {
           "equipment": {
             "anyOf": [
@@ -3262,13 +2884,9 @@
             ]
           },
           "level": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "maxLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -3297,7 +2915,6 @@
         "type": "object"
       },
       "PlayerLegendStatistics": {
-        "additionalProperties": true,
         "properties": {
           "bestBuilderBaseSeason": {
             "anyOf": [
@@ -3332,8 +2949,6 @@
           "legendTrophies": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3365,13 +2980,10 @@
         "type": "object"
       },
       "PlayerRanking": {
-        "additionalProperties": true,
         "properties": {
           "attackWins": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3392,8 +3004,6 @@
           "defenseWins": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3402,8 +3012,6 @@
             ]
           },
           "expLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "league": {
@@ -3430,21 +3038,15 @@
             "type": "string"
           },
           "previousRank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "rank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
             "type": "string"
           },
           "trophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -3459,7 +3061,6 @@
         "type": "object"
       },
       "PlayerRankingListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -3484,13 +3085,10 @@
         "type": "object"
       },
       "PlayerSeasonRanking": {
-        "additionalProperties": true,
         "properties": {
           "attackWins": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3511,8 +3109,6 @@
           "defenseWins": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3521,8 +3117,6 @@
             ]
           },
           "expLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "league": {
@@ -3551,8 +3145,6 @@
           "previousRank": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3561,16 +3153,12 @@
             ]
           },
           "rank": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "tag": {
             "type": "string"
           },
           "trophies": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           }
         },
@@ -3584,7 +3172,6 @@
         "type": "object"
       },
       "PlayerSeasonRankingListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -3609,11 +3196,8 @@
         "type": "object"
       },
       "Resource": {
-        "additionalProperties": true,
         "properties": {
           "amount": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -3627,7 +3211,6 @@
         "type": "object"
       },
       "VerifyTokenRequest": {
-        "additionalProperties": true,
         "properties": {
           "token": {
             "type": "string"
@@ -3639,7 +3222,6 @@
         "type": "object"
       },
       "VerifyTokenResponse": {
-        "additionalProperties": true,
         "properties": {
           "status": {
             "type": "string"
@@ -3659,13 +3241,10 @@
         "type": "object"
       },
       "WarClan": {
-        "additionalProperties": true,
         "properties": {
           "attacks": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3684,22 +3263,12 @@
             ]
           },
           "clanLevel": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "destructionPercentage": {
             "anyOf": [
               {
                 "type": "number"
-              },
-              {
-                "enum": [
-                  "Infinity",
-                  "-Infinity",
-                  "NaN"
-                ],
-                "type": "string"
               },
               {
                 "type": "null"
@@ -3709,8 +3278,6 @@
           "expEarned": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3737,8 +3304,6 @@
           "stars": {
             "anyOf": [
               {
-                "maximum": 9007199254740991,
-                "minimum": -9007199254740991,
                 "type": "integer"
               },
               {
@@ -3763,11 +3328,8 @@
         "type": "object"
       },
       "WarLeague": {
-        "additionalProperties": true,
         "properties": {
           "id": {
-            "maximum": 9007199254740991,
-            "minimum": -9007199254740991,
             "type": "integer"
           },
           "name": {
@@ -3781,7 +3343,6 @@
         "type": "object"
       },
       "WarLeagueListResponse": {
-        "additionalProperties": true,
         "properties": {
           "items": {
             "items": {
@@ -3817,6 +3378,7 @@
   "paths": {
     "/builderbaseleagues": {
       "get": {
+        "description": "List Builder Base leagues.",
         "operationId": "leagues.builders",
         "parameters": [
           {
@@ -3824,7 +3386,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -3873,7 +3434,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -3883,7 +3444,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -3893,7 +3454,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -3903,7 +3464,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -3921,7 +3482,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -3931,7 +3492,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -3941,10 +3502,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "List Builder Base leagues",
         "tags": [
           "leagues"
         ]
@@ -3952,6 +3514,7 @@
     },
     "/builderbaseleagues/{leagueId}": {
       "get": {
+        "description": "Get information about a specific Builder Base league.",
         "operationId": "leagues.builder",
         "parameters": [
           {
@@ -3959,6 +3522,10 @@
             "name": "leagueId",
             "required": true,
             "schema": {
+              "description": "Identifier of the league.",
+              "examples": [
+                "29000022"
+              ],
               "type": "string"
             }
           }
@@ -3990,7 +3557,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -4000,7 +3567,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -4010,7 +3577,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -4020,7 +3587,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4038,7 +3605,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -4048,7 +3615,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -4058,10 +3625,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get Builder Base league information",
         "tags": [
           "leagues"
         ]
@@ -4069,6 +3637,7 @@
     },
     "/capitalleagues": {
       "get": {
+        "description": "List Clan Capital leagues.",
         "operationId": "leagues.capitals",
         "parameters": [
           {
@@ -4076,7 +3645,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -4125,7 +3693,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -4135,7 +3703,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -4145,7 +3713,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -4155,7 +3723,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4173,7 +3741,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -4183,7 +3751,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -4193,10 +3761,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "List capital leagues",
         "tags": [
           "leagues"
         ]
@@ -4204,6 +3773,7 @@
     },
     "/capitalleagues/{leagueId}": {
       "get": {
+        "description": "Get information about a specific Clan Capital league.",
         "operationId": "leagues.capital",
         "parameters": [
           {
@@ -4211,6 +3781,10 @@
             "name": "leagueId",
             "required": true,
             "schema": {
+              "description": "Identifier of the league.",
+              "examples": [
+                "29000022"
+              ],
               "type": "string"
             }
           }
@@ -4242,7 +3816,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -4252,7 +3826,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -4262,7 +3836,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -4272,7 +3846,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4290,7 +3864,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -4300,7 +3874,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -4310,10 +3884,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get capital league information",
         "tags": [
           "leagues"
         ]
@@ -4321,6 +3896,7 @@
     },
     "/clans": {
       "get": {
+        "description": "Search all clans by name and/or filtering parameters.",
         "operationId": "clans.search",
         "parameters": [
           {
@@ -4328,7 +3904,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -4370,8 +3945,6 @@
             "name": "locationId",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4380,8 +3953,6 @@
             "name": "minMembers",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4390,8 +3961,6 @@
             "name": "maxMembers",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4400,8 +3969,6 @@
             "name": "minClanPoints",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4410,8 +3977,6 @@
             "name": "minClanLevel",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
-              "minimum": -9007199254740991,
               "type": "integer"
             }
           },
@@ -4451,7 +4016,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -4461,7 +4026,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -4471,7 +4036,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -4481,7 +4046,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4499,7 +4064,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -4509,7 +4074,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -4519,10 +4084,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Search clans",
         "tags": [
           "clans"
         ]
@@ -4530,6 +4096,7 @@
     },
     "/clans/{clanTag}": {
       "get": {
+        "description": "Get information about a single clan by clan tag.",
         "operationId": "clans.profile",
         "parameters": [
           {
@@ -4537,6 +4104,10 @@
             "name": "clanTag",
             "required": true,
             "schema": {
+              "description": "Tag of the clan (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -4568,7 +4139,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -4578,7 +4149,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -4588,7 +4159,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -4598,7 +4169,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4616,7 +4187,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -4626,7 +4197,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -4636,10 +4207,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get clan information",
         "tags": [
           "clans"
         ]
@@ -4647,6 +4219,7 @@
     },
     "/clans/{clanTag}/capitalraidseasons": {
       "get": {
+        "description": "Retrieve a clan's capital raid seasons.",
         "operationId": "clans.raids",
         "parameters": [
           {
@@ -4654,6 +4227,10 @@
             "name": "clanTag",
             "required": true,
             "schema": {
+              "description": "Tag of the clan (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           },
@@ -4662,7 +4239,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -4711,7 +4287,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -4721,7 +4297,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -4731,7 +4307,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -4741,7 +4317,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4759,7 +4335,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -4769,7 +4345,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -4779,10 +4355,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Retrieve clan capital raid seasons",
         "tags": [
           "clans"
         ]
@@ -4790,6 +4367,7 @@
     },
     "/clans/{clanTag}/currentwar": {
       "get": {
+        "description": "Retrieve information about a clan's current clan war.",
         "operationId": "clans.war",
         "parameters": [
           {
@@ -4797,6 +4375,10 @@
             "name": "clanTag",
             "required": true,
             "schema": {
+              "description": "Tag of the clan (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -4828,7 +4410,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -4838,7 +4420,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -4848,7 +4430,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -4858,7 +4440,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4876,7 +4458,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -4886,7 +4468,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -4896,10 +4478,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Retrieve current clan war",
         "tags": [
           "clans"
         ]
@@ -4907,6 +4490,7 @@
     },
     "/clans/{clanTag}/currentwar/leaguegroup": {
       "get": {
+        "description": "Retrieve information about a clan's current Clan War League group.",
         "operationId": "clans.cwl",
         "parameters": [
           {
@@ -4914,6 +4498,10 @@
             "name": "clanTag",
             "required": true,
             "schema": {
+              "description": "Tag of the clan (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -4945,7 +4533,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -4955,7 +4543,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -4965,7 +4553,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -4975,7 +4563,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4993,7 +4581,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -5003,7 +4591,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -5013,10 +4601,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Retrieve current CWL group",
         "tags": [
           "clans"
         ]
@@ -5024,6 +4613,7 @@
     },
     "/clans/{clanTag}/members": {
       "get": {
+        "description": "List members of a clan.",
         "operationId": "clans.members",
         "parameters": [
           {
@@ -5031,6 +4621,10 @@
             "name": "clanTag",
             "required": true,
             "schema": {
+              "description": "Tag of the clan (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           },
@@ -5039,7 +4633,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5088,7 +4681,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -5098,7 +4691,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -5108,7 +4701,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -5118,7 +4711,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5136,7 +4729,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -5146,7 +4739,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -5156,10 +4749,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "List clan members",
         "tags": [
           "clans"
         ]
@@ -5167,6 +4761,7 @@
     },
     "/clans/{clanTag}/warlog": {
       "get": {
+        "description": "Retrieve a clan's clan war log.",
         "operationId": "clans.warlog",
         "parameters": [
           {
@@ -5174,6 +4769,10 @@
             "name": "clanTag",
             "required": true,
             "schema": {
+              "description": "Tag of the clan (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           },
@@ -5182,7 +4781,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5231,7 +4829,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -5241,7 +4839,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -5251,7 +4849,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -5261,7 +4859,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5279,7 +4877,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -5289,7 +4887,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -5299,10 +4897,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Retrieve clan war log",
         "tags": [
           "clans"
         ]
@@ -5310,6 +4909,7 @@
     },
     "/clanwarleagues/wars/{warTag}": {
       "get": {
+        "description": "Retrieve information about an individual Clan War League war.",
         "operationId": "clans.leagueWar",
         "parameters": [
           {
@@ -5317,6 +4917,10 @@
             "name": "warTag",
             "required": true,
             "schema": {
+              "description": "Tag of the Clan War League war.",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -5348,7 +4952,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -5358,7 +4962,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -5368,7 +4972,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -5378,7 +4982,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5396,7 +5000,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -5406,7 +5010,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -5416,10 +5020,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Retrieve CWL war",
         "tags": [
           "clans"
         ]
@@ -5427,6 +5032,7 @@
     },
     "/goldpass/seasons/current": {
       "get": {
+        "description": "Get information about the current Gold Pass season.",
         "operationId": "goldpass.current",
         "parameters": [],
         "responses": {
@@ -5456,7 +5062,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -5466,7 +5072,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -5476,7 +5082,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -5486,7 +5092,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5504,7 +5110,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -5514,7 +5120,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -5524,10 +5130,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get current Gold Pass season",
         "tags": [
           "goldpass"
         ]
@@ -5535,6 +5142,7 @@
     },
     "/labels/clans": {
       "get": {
+        "description": "List available clan labels.",
         "operationId": "labels.clans",
         "parameters": [
           {
@@ -5542,7 +5150,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5591,7 +5198,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -5601,7 +5208,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -5611,7 +5218,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -5621,7 +5228,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5639,7 +5246,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -5649,7 +5256,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -5659,10 +5266,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "List clan labels",
         "tags": [
           "labels"
         ]
@@ -5670,6 +5278,7 @@
     },
     "/labels/players": {
       "get": {
+        "description": "List available player labels.",
         "operationId": "labels.players",
         "parameters": [
           {
@@ -5677,7 +5286,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -5726,7 +5334,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -5736,7 +5344,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -5746,7 +5354,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -5756,7 +5364,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5774,7 +5382,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -5784,7 +5392,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -5794,10 +5402,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "List player labels",
         "tags": [
           "labels"
         ]
@@ -5805,6 +5414,7 @@
     },
     "/leaguegroup/{leagueGroupTag}/{leagueSeasonId}": {
       "get": {
+        "description": "Get members and battle logs for a ranked league group.",
         "operationId": "leagues.group",
         "parameters": [
           {
@@ -5812,6 +5422,10 @@
             "name": "leagueGroupTag",
             "required": true,
             "schema": {
+              "description": "Tag of the ranked league group.",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           },
@@ -5820,6 +5434,10 @@
             "name": "leagueSeasonId",
             "required": true,
             "schema": {
+              "description": "Identifier of the ranked league season.",
+              "examples": [
+                "1"
+              ],
               "type": "string"
             }
           },
@@ -5828,6 +5446,10 @@
             "name": "playerTag",
             "required": true,
             "schema": {
+              "description": "Player tag used to resolve the league group.",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -5859,7 +5481,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -5869,7 +5491,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -5879,7 +5501,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -5889,7 +5511,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5907,7 +5529,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -5917,7 +5539,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -5927,10 +5549,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get ranked league group",
         "tags": [
           "leagues"
         ]
@@ -5938,6 +5561,7 @@
     },
     "/leagues/{leagueId}/seasons": {
       "get": {
+        "description": "Get available seasons for a league (e.g. Legend League).",
         "operationId": "leagues.seasons",
         "parameters": [
           {
@@ -5945,6 +5569,10 @@
             "name": "leagueId",
             "required": true,
             "schema": {
+              "description": "Identifier of the league.",
+              "examples": [
+                "29000022"
+              ],
               "type": "string"
             }
           },
@@ -5953,7 +5581,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6002,7 +5629,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -6012,7 +5639,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -6022,7 +5649,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -6032,7 +5659,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6050,7 +5677,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -6060,7 +5687,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -6070,10 +5697,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get league seasons",
         "tags": [
           "leagues"
         ]
@@ -6081,6 +5709,7 @@
     },
     "/leagues/{leagueId}/seasons/{seasonId}": {
       "get": {
+        "description": "Get player rankings for a specific league season.",
         "operationId": "leagues.season",
         "parameters": [
           {
@@ -6088,6 +5717,10 @@
             "name": "leagueId",
             "required": true,
             "schema": {
+              "description": "Identifier of the league.",
+              "examples": [
+                "29000022"
+              ],
               "type": "string"
             }
           },
@@ -6096,6 +5729,10 @@
             "name": "seasonId",
             "required": true,
             "schema": {
+              "description": "Identifier of the season (YYYY-MM).",
+              "examples": [
+                "2025-10"
+              ],
               "type": "string"
             }
           },
@@ -6104,7 +5741,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6153,7 +5789,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -6163,7 +5799,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -6173,7 +5809,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -6183,7 +5819,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6201,7 +5837,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -6211,7 +5847,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -6221,10 +5857,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get league season rankings",
         "tags": [
           "leagues"
         ]
@@ -6232,6 +5869,7 @@
     },
     "/leaguetiers": {
       "get": {
+        "description": "List ranked league tiers.",
         "operationId": "leagues.tiers",
         "parameters": [
           {
@@ -6239,7 +5877,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6288,7 +5925,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -6298,7 +5935,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -6308,7 +5945,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -6318,7 +5955,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6336,7 +5973,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -6346,7 +5983,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -6356,10 +5993,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "List league tiers",
         "tags": [
           "leagues"
         ]
@@ -6367,6 +6005,7 @@
     },
     "/leaguetiers/{leagueTierId}": {
       "get": {
+        "description": "Get information about a specific league tier.",
         "operationId": "leagues.tier",
         "parameters": [
           {
@@ -6374,6 +6013,10 @@
             "name": "leagueTierId",
             "required": true,
             "schema": {
+              "description": "Identifier of the league tier.",
+              "examples": [
+                "105000000"
+              ],
               "type": "string"
             }
           }
@@ -6405,7 +6048,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -6415,7 +6058,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -6425,7 +6068,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -6435,7 +6078,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6453,7 +6096,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -6463,7 +6106,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -6473,10 +6116,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get league tier information",
         "tags": [
           "leagues"
         ]
@@ -6484,6 +6128,7 @@
     },
     "/locations": {
       "get": {
+        "description": "List available leaderboard locations.",
         "operationId": "locations.list",
         "parameters": [
           {
@@ -6491,7 +6136,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6540,7 +6184,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -6550,7 +6194,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -6560,7 +6204,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -6570,7 +6214,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6588,7 +6232,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -6598,7 +6242,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -6608,10 +6252,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "List locations",
         "tags": [
           "locations"
         ]
@@ -6619,6 +6264,7 @@
     },
     "/locations/{locationId}": {
       "get": {
+        "description": "Get information about a specific location.",
         "operationId": "locations.item",
         "parameters": [
           {
@@ -6626,6 +6272,10 @@
             "name": "locationId",
             "required": true,
             "schema": {
+              "description": "Identifier of the location.",
+              "examples": [
+                "32000249"
+              ],
               "type": "string"
             }
           }
@@ -6657,7 +6307,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -6667,7 +6317,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -6677,7 +6327,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -6687,7 +6337,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6705,7 +6355,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -6715,7 +6365,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -6725,10 +6375,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get location information",
         "tags": [
           "locations"
         ]
@@ -6736,6 +6387,7 @@
     },
     "/locations/{locationId}/rankings/capitals": {
       "get": {
+        "description": "Get Clan Capital rankings for a specific location.",
         "operationId": "locations.capitals",
         "parameters": [
           {
@@ -6743,6 +6395,10 @@
             "name": "locationId",
             "required": true,
             "schema": {
+              "description": "Identifier of the location.",
+              "examples": [
+                "32000249"
+              ],
               "type": "string"
             }
           },
@@ -6751,7 +6407,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6800,7 +6455,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -6810,7 +6465,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -6820,7 +6475,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -6830,7 +6485,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6848,7 +6503,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -6858,7 +6513,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -6868,10 +6523,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get clan capital rankings for a location",
         "tags": [
           "locations"
         ]
@@ -6879,6 +6535,7 @@
     },
     "/locations/{locationId}/rankings/clans": {
       "get": {
+        "description": "Get Home Village clan rankings for a specific location.",
         "operationId": "locations.clans",
         "parameters": [
           {
@@ -6886,6 +6543,10 @@
             "name": "locationId",
             "required": true,
             "schema": {
+              "description": "Identifier of the location.",
+              "examples": [
+                "32000249"
+              ],
               "type": "string"
             }
           },
@@ -6894,7 +6555,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -6943,7 +6603,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -6953,7 +6613,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -6963,7 +6623,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -6973,7 +6633,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6991,7 +6651,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -7001,7 +6661,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -7011,10 +6671,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get clan rankings for a location",
         "tags": [
           "locations"
         ]
@@ -7022,6 +6683,7 @@
     },
     "/locations/{locationId}/rankings/clans-builder-base": {
       "get": {
+        "description": "Get Builder Base clan rankings for a specific location.",
         "operationId": "locations.builderClans",
         "parameters": [
           {
@@ -7029,6 +6691,10 @@
             "name": "locationId",
             "required": true,
             "schema": {
+              "description": "Identifier of the location.",
+              "examples": [
+                "32000249"
+              ],
               "type": "string"
             }
           },
@@ -7037,7 +6703,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -7086,7 +6751,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -7096,7 +6761,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -7106,7 +6771,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -7116,7 +6781,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -7134,7 +6799,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -7144,7 +6809,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -7154,10 +6819,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get Builder Base clan rankings for a location",
         "tags": [
           "locations"
         ]
@@ -7165,6 +6831,7 @@
     },
     "/locations/{locationId}/rankings/players": {
       "get": {
+        "description": "Get Home Village player rankings for a specific location.",
         "operationId": "locations.players",
         "parameters": [
           {
@@ -7172,6 +6839,10 @@
             "name": "locationId",
             "required": true,
             "schema": {
+              "description": "Identifier of the location.",
+              "examples": [
+                "32000249"
+              ],
               "type": "string"
             }
           },
@@ -7180,7 +6851,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -7229,7 +6899,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -7239,7 +6909,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -7249,7 +6919,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -7259,7 +6929,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -7277,7 +6947,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -7287,7 +6957,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -7297,10 +6967,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get player rankings for a location",
         "tags": [
           "locations"
         ]
@@ -7308,6 +6979,7 @@
     },
     "/locations/{locationId}/rankings/players-builder-base": {
       "get": {
+        "description": "Get Builder Base player rankings for a specific location.",
         "operationId": "locations.builders",
         "parameters": [
           {
@@ -7315,6 +6987,10 @@
             "name": "locationId",
             "required": true,
             "schema": {
+              "description": "Identifier of the location.",
+              "examples": [
+                "32000249"
+              ],
               "type": "string"
             }
           },
@@ -7323,7 +6999,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -7372,7 +7047,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -7382,7 +7057,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -7392,7 +7067,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -7402,7 +7077,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -7420,7 +7095,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -7430,7 +7105,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -7440,10 +7115,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get Builder Base player rankings for a location",
         "tags": [
           "locations"
         ]
@@ -7451,6 +7127,7 @@
     },
     "/players/{playerTag}": {
       "get": {
+        "description": "Get information about a single player by player tag.",
         "operationId": "players.profile",
         "parameters": [
           {
@@ -7458,6 +7135,10 @@
             "name": "playerTag",
             "required": true,
             "schema": {
+              "description": "Tag of the player (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -7489,7 +7170,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -7499,7 +7180,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -7509,7 +7190,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -7519,7 +7200,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -7537,7 +7218,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -7547,7 +7228,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -7557,10 +7238,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get player information",
         "tags": [
           "players"
         ],
@@ -7575,6 +7257,7 @@
     },
     "/players/{playerTag}/battlelog": {
       "get": {
+        "description": "Get recent battle log entries for a player.",
         "operationId": "players.battles",
         "parameters": [
           {
@@ -7582,6 +7265,10 @@
             "name": "playerTag",
             "required": true,
             "schema": {
+              "description": "Tag of the player (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -7613,7 +7300,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -7623,7 +7310,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -7633,7 +7320,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -7643,7 +7330,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -7661,7 +7348,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -7671,7 +7358,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -7681,10 +7368,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get player battle log",
         "tags": [
           "players"
         ]
@@ -7692,6 +7380,7 @@
     },
     "/players/{playerTag}/leaguehistory": {
       "get": {
+        "description": "Get historical ranked league season results for a player.",
         "operationId": "players.history",
         "parameters": [
           {
@@ -7699,6 +7388,10 @@
             "name": "playerTag",
             "required": true,
             "schema": {
+              "description": "Tag of the player (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -7730,7 +7423,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -7740,7 +7433,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -7750,7 +7443,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -7760,7 +7453,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -7778,7 +7471,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -7788,7 +7481,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -7798,10 +7491,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get player league history",
         "tags": [
           "players"
         ]
@@ -7809,6 +7503,7 @@
     },
     "/players/{playerTag}/verifytoken": {
       "post": {
+        "description": "Verify an in-game API token for a player account.",
         "operationId": "players.verify",
         "parameters": [
           {
@@ -7816,6 +7511,10 @@
             "name": "playerTag",
             "required": true,
             "schema": {
+              "description": "Tag of the player (URL-encoded, e.g. %232PP).",
+              "examples": [
+                "#2PP"
+              ],
               "type": "string"
             }
           }
@@ -7857,7 +7556,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -7867,7 +7566,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -7877,7 +7576,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -7887,7 +7586,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -7905,7 +7604,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -7915,7 +7614,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -7925,10 +7624,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Verify player API token",
         "tags": [
           "players"
         ]
@@ -7936,6 +7636,7 @@
     },
     "/warleagues": {
       "get": {
+        "description": "List Clan War Leagues.",
         "operationId": "leagues.wars",
         "parameters": [
           {
@@ -7943,7 +7644,6 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "maximum": 9007199254740991,
               "minimum": 1,
               "type": "integer"
             }
@@ -7992,7 +7692,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -8002,7 +7702,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -8012,7 +7712,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -8022,7 +7722,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -8040,7 +7740,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -8050,7 +7750,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -8060,10 +7760,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "List war leagues",
         "tags": [
           "leagues"
         ]
@@ -8071,6 +7772,7 @@
     },
     "/warleagues/{leagueId}": {
       "get": {
+        "description": "Get information about a specific Clan War League.",
         "operationId": "leagues.war",
         "parameters": [
           {
@@ -8078,6 +7780,10 @@
             "name": "leagueId",
             "required": true,
             "schema": {
+              "description": "Identifier of the league.",
+              "examples": [
+                "29000022"
+              ],
               "type": "string"
             }
           }
@@ -8109,7 +7815,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Bad request"
           },
           "403": {
             "content": {
@@ -8119,7 +7825,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Access denied"
           },
           "404": {
             "content": {
@@ -8129,7 +7835,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Resource not found"
           },
           "429": {
             "content": {
@@ -8139,7 +7845,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse",
+            "description": "Request throttled",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -8157,7 +7863,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Internal server error"
           },
           "501": {
             "content": {
@@ -8167,7 +7873,7 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Endpoint retired"
           },
           "503": {
             "content": {
@@ -8177,10 +7883,11 @@
                 }
               }
             },
-            "description": "ClientErrorResponse"
+            "description": "Service temporarily unavailable"
           }
         },
         "security": [],
+        "summary": "Get war league information",
         "tags": [
           "leagues"
         ]

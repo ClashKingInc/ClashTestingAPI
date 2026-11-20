@@ -2,43 +2,98 @@ import { Schema } from 'effect';
 import { HttpApi, type HttpApiGroup, type OpenApi } from 'effect/http-api';
 import * as models from './effect.js';
 
-// Express unconstrained rest records as additionalProperties: true, retaining
-// the existing OpenAPI shape instead of an equivalent allOf intersection.
-function preserveAdditionalProperties(value: unknown): void {
+const ERROR_DESCRIPTIONS: Readonly<Record<string, string>> = {
+  '400': 'Bad request',
+  '403': 'Access denied',
+  '404': 'Resource not found',
+  '429': 'Request throttled',
+  '500': 'Internal server error',
+  '501': 'Endpoint retired',
+  '503': 'Service temporarily unavailable',
+};
+
+function isEmptyRecordSchema(value: unknown): boolean {
+  if (!value || typeof value !== 'object') return false;
+  const record = value as Record<string, unknown>;
+  return (
+    record.type === 'object' &&
+    record.additionalProperties !== undefined &&
+    typeof record.additionalProperties === 'object' &&
+    record.additionalProperties !== null &&
+    Object.keys(record.additionalProperties).length === 0 &&
+    Object.keys(record).every((key) =>
+      ['type', 'additionalProperties'].includes(key),
+    )
+  );
+}
+
+// Clean up Effect's JSON Schema projection so OpenAPI docs stay readable:
+// - Remove JS safe-integer min/max noise (-9007199254740991 / 9007199254740991).
+// - Omit explicit additionalProperties on structured objects (JSON Schema allows
+//   extra fields by default; explicit true makes Scalar show "propertyName*": "anything").
+// - Keep additionalProperties: true on unconstrained dictionary schemas (no properties).
+// - Flatten redundant single-item allOf wrappers (e.g., int64 format annotations).
+function cleanSchema(value: unknown): void {
   if (!value || typeof value !== 'object') return;
   if (Array.isArray(value)) {
-    value.forEach(preserveAdditionalProperties);
+    value.forEach(cleanSchema);
     return;
   }
   const object = value as Record<string, unknown>;
+
+  if (object.minimum === Number.MIN_SAFE_INTEGER) delete object.minimum;
+  if (object.maximum === Number.MAX_SAFE_INTEGER) delete object.maximum;
+
   if (Array.isArray(object.allOf)) {
-    const remaining = object.allOf.filter((part: unknown) => {
-      if (!part || typeof part !== 'object') return true;
-      const record = part as Record<string, unknown>;
+    const remaining: unknown[] = [];
+    for (const part of object.allOf) {
+      if (isEmptyRecordSchema(part)) continue;
+      cleanSchema(part);
       if (
-        record.type !== 'object' ||
-        !record.additionalProperties ||
-        typeof record.additionalProperties !== 'object' ||
-        Object.keys(record.additionalProperties).length !== 0 ||
-        Object.keys(record).some(
-          (key) => !['type', 'additionalProperties'].includes(key),
-        )
-      )
-        return true;
-      object.additionalProperties = true;
-      return false;
-    });
+        part &&
+        typeof part === 'object' &&
+        !Array.isArray(part) &&
+        !('$ref' in part) &&
+        Object.keys(part).every((key) => !(key in object))
+      ) {
+        Object.assign(object, part);
+        continue;
+      }
+      remaining.push(part);
+    }
     if (remaining.length) object.allOf = remaining;
     else delete object.allOf;
   }
+
+  const hasProperties =
+    object.properties !== undefined &&
+    typeof object.properties === 'object' &&
+    object.properties !== null &&
+    Object.keys(object.properties).length > 0;
+
+  if ('additionalProperties' in object) {
+    const extra = object.additionalProperties;
+    const isUnconstrained =
+      extra === true ||
+      extra === false ||
+      (extra !== null &&
+        typeof extra === 'object' &&
+        Object.keys(extra).length === 0);
+    if (hasProperties && isUnconstrained) {
+      delete object.additionalProperties;
+    } else if (
+      !hasProperties &&
+      extra !== null &&
+      typeof extra === 'object' &&
+      Object.keys(extra).length === 0
+    ) {
+      object.additionalProperties = true;
+    }
+  }
+
   for (const [key, child] of Object.entries(object)) {
-    if (
-      key === 'additionalProperties' &&
-      (child === false ||
-        (child && typeof child === 'object' && Object.keys(child).length === 0))
-    )
-      object[key] = true;
-    else preserveAdditionalProperties(child);
+    if (key === 'additionalProperties' && typeof child === 'boolean') continue;
+    cleanSchema(child);
   }
 }
 
@@ -49,13 +104,7 @@ function deduplicateSchemas(spec: OpenApi.OpenAPISpec): void {
   const aliases = new Map<string, string>();
   for (const [name, schema] of Object.entries(schemas)) {
     const original = name.replace(/_\d+$/, '');
-    // Status-annotated errors intentionally retain their distinct generated types.
-    if (
-      name === original ||
-      original === 'ClientErrorResponse' ||
-      !(original in models)
-    )
-      continue;
+    if (name === original || !(original in models)) continue;
     if (JSON.stringify(schema) === JSON.stringify(schemas[original])) {
       aliases.set(
         `#/components/schemas/${name}`,
@@ -74,6 +123,31 @@ function deduplicateSchemas(spec: OpenApi.OpenAPISpec): void {
   }
   replaceReferences(spec);
 }
+
+function polishResponses(spec: OpenApi.OpenAPISpec): void {
+  for (const methods of Object.values(spec.paths)) {
+    for (const operation of Object.values(methods)) {
+      if (!operation || typeof operation !== 'object') continue;
+      const op = operation as {
+        parameters?: Array<{ schema?: unknown }>;
+        responses?: Record<string, { description?: string }>;
+      };
+      if (Array.isArray(op.parameters)) {
+        for (const parameter of op.parameters) {
+          cleanSchema(parameter.schema);
+        }
+      }
+      if (op.responses) {
+        for (const [status, response] of Object.entries(op.responses)) {
+          if (status in ERROR_DESCRIPTIONS) {
+            response.description = ERROR_DESCRIPTIONS[status];
+          }
+        }
+      }
+    }
+  }
+}
+
 export function completeOpenApi<
   Id extends string,
   Groups extends HttpApiGroup.Constraint,
@@ -121,7 +195,8 @@ export function completeOpenApi<
       );
     }
   }
-  preserveAdditionalProperties(spec.components.schemas);
+  cleanSchema(spec.components.schemas);
+  polishResponses(spec);
   deduplicateSchemas(spec);
   return spec;
 }
