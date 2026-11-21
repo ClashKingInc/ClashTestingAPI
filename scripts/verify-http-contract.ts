@@ -67,6 +67,8 @@ try {
         },
       );
       const url = new URL(path, 'https://mock.test');
+      if (group.identifier === 'clans' && endpoint.identifier === 'search')
+        url.searchParams.set('name', 'test');
       if (group.identifier === 'leagues' && endpoint.identifier === 'group')
         url.searchParams.set('playerTag', '#2PP');
       const response = await runtime.dispatchFetch(url.href, {
@@ -168,6 +170,18 @@ try {
     assert.equal(response.status, 200, `${path}: ${JSON.stringify(body)}`);
     assert.ok(Array.isArray(body.items) && body.items.length > 0, path);
     results.push({ path, status: 200 });
+  }
+  for (const badPath of [
+    '/clans',
+    '/clans?name=ab',
+    '/clans?minMembers=1',
+    '/leagues/29000022/seasons/2026-02-23?limit=50',
+  ] as const) {
+    const response = await runtime.dispatchFetch('https://mock.test' + badPath);
+    const body = await response.json();
+    assert.equal(response.status, 400, `${badPath}: ${JSON.stringify(body)}`);
+    Schema.decodeUnknownSync(ClientErrorResponse)(body);
+    results.push({ path: badPath, status: 400 });
   }
   writeFileSync(
     '/tmp/ck-contract-http-verification.json',

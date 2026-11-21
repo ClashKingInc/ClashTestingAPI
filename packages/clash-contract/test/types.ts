@@ -53,11 +53,13 @@ const nestedLevel: number | undefined =
   item.equipment?.[0]?.equipment?.[0]?.level;
 // @ts-expect-error Recursive declaration emit must not widen nested items to any.
 const invalidNestedLevel: string = item.equipment?.[0]?.equipment?.[0]?.level;
+// @ts-expect-error PlayerItemLevel.village is home | builderBase only (not clanCapital).
+const invalidItemVillage: typeof item.village = 'clanCapital';
 
 type SearchQuery = NonNullable<paths['/clans']['get']['parameters']['query']>;
 const searchQuery: SearchQuery = {
   limit: 1,
-  warFrequency: 'always',
+  warFrequency: 'any',
   minMembers: 10,
   maxMembers: 50,
   locationId: 32000249,
@@ -84,34 +86,63 @@ const playerRole: 'member' | 'admin' | 'coLeader' | 'leader' | undefined = (
   {} as PlayerWire
 ).role;
 const warPref: 'in' | 'out' | undefined = ({} as PlayerWire).warPreference;
+const playerLeagueTier: typeof Wire.LeagueTier.Type = ({} as PlayerWire)
+  .leagueTier;
 // @ts-expect-error Non-nullable optional wire fields must not accept null.
 const nullRole: typeof playerRole = null;
+
+type ClanWire = typeof Wire.Clan.Type;
+const clanWarFreq: Exclude<SearchQuery['warFrequency'], 'any' | undefined> = (
+  {} as ClanWire
+).warFrequency;
+// @ts-expect-error "any" is query-only and not returned on Clan.warFrequency.
+const invalidResponseFreq: typeof clanWarFreq = 'any';
+
 type ClanMemberWire = typeof Wire.ClanMember.Type;
-const memberLeagueTier: typeof Wire.LeagueTier.Type | undefined = (
-  {} as ClanMemberWire
-).leagueTier;
-const requiredTier: typeof Wire.LeagueTier.Type | undefined = (
-  {} as typeof Wire.Clan.Type
-).requiredLeagueTier;
+const memberLeagueTier: typeof Wire.LeagueTier.Type = ({} as ClanMemberWire)
+  .leagueTier;
+const requiredTier: typeof Wire.LeagueTier.Type | undefined = ({} as ClanWire)
+  .requiredLeagueTier;
+
 const battleEntry = {} as typeof Wire.BattleLogEntry.Type;
 const battleTs: string = battleEntry.battleTimestamp;
 const battleTime: number = battleEntry.battleTime;
 const opponentName: string = battleEntry.opponentName;
 const opponentTownHallLevel: number = battleEntry.opponentTownHallLevel;
-const shareCode: string | null | undefined = battleEntry.armyShareCode;
-const notInWar: typeof Wire.NotInWar.Type = { state: 'notInWar' };
+const shareCode: string | null = battleEntry.armyShareCode;
+
+const seasonResult = {} as typeof Wire.LeagueSeasonResult.Type;
+const seasonId: number = seasonResult.leagueSeasonId;
+// @ts-expect-error LeagueSeasonResult.leagueSeasonId is int64 only, not string.
+const invalidSeasonId: typeof seasonResult.leagueSeasonId = '2026-06-02';
+
+const tierIcon: string = ({} as typeof Wire.LeagueTierIconUrls.Type).large;
+const labelIcon: string = ({} as typeof Wire.LabelIconUrls.Type).medium;
+const leagueIcon: string | undefined = ({} as typeof Wire.LeagueIconUrls.Type)
+  .medium;
+
 const warLogOppName: string | undefined = (
   {} as typeof Wire.WarLogOpponent.Type
 ).name;
-const warLogResult: 'win' | 'lose' | 'tie' | null | undefined = (
+const warLogResult: 'win' | 'lose' | 'tie' | null = (
   {} as typeof Wire.ClanWarLogEntry.Type
 ).result;
+const completionInfo: string | null = (
+  {} as typeof Wire.PlayerAchievementProgress.Type
+).completionInfo;
+
 void [
+  playerEnvelope,
+  allWireSchemas,
+  groupContract,
+  nestedLevel,
   searchQuery,
   houseElementType,
   weaponLevel,
   playerRole,
   warPref,
+  playerLeagueTier,
+  clanWarFreq,
   memberLeagueTier,
   requiredTier,
   battleTs,
@@ -119,7 +150,11 @@ void [
   opponentName,
   opponentTownHallLevel,
   shareCode,
-  notInWar,
+  seasonId,
+  tierIcon,
+  labelIcon,
+  leagueIcon,
   warLogOppName,
   warLogResult,
+  completionInfo,
 ];

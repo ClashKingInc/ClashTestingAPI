@@ -1,13 +1,104 @@
 {
   "body": {
     "tag": "#2PPP",
-    "name": "Example Clan Without Capital Districts",
-    "type": "closed",
+    "name": "Clash",
+    "type": "inviteOnly",
+    "description": "1",
+    "location": {
+      "id": 32000010,
+      "name": "Algeria",
+      "isCountry": true,
+      "countryCode": "DZ"
+    },
+    "isFamilyFriendly": false,
+    "badgeUrls": {
+      "small": "https://api-assets.clashofclans.com/badges/70/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+      "large": "https://api-assets.clashofclans.com/badges/512/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png",
+      "medium": "https://api-assets.clashofclans.com/badges/200/DcHcgP14dK0OPmf_G77JtangGL7_5u6oAOWUbbXP8Yw.png"
+    },
     "clanLevel": 1,
-    "clanPoints": 0,
-    "members": 0,
+    "clanPoints": 800,
+    "clanBuilderBasePoints": 212,
+    "clanCapitalPoints": 0,
+    "capitalLeague": {
+      "id": 85000000,
+      "name": "Unranked"
+    },
+    "requiredTrophies": 0,
+    "warFrequency": "lessThanOncePerWeek",
+    "warWinStreak": 0,
+    "warWins": 0,
+    "isWarLogPublic": false,
+    "warLeague": {
+      "id": 48000000,
+      "name": "Unranked"
+    },
+    "members": 1,
+    "memberList": [
+      {
+        "tag": "#QU8YG9VC8",
+        "name": "Жасурбек",
+        "role": "leader",
+        "townHallLevel": 12,
+        "expLevel": 43,
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000008,
+          "name": "Archer League 8",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/lzneKpnJ_ADL1Xb1rceH7-svqRN1UaLnI7ldd8BbyxI.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/lzneKpnJ_ADL1Xb1rceH7-svqRN1UaLnI7ldd8BbyxI.png"
+          }
+        },
+        "trophies": 0,
+        "builderBaseTrophies": 424,
+        "clanRank": 1,
+        "previousClanRank": 1,
+        "donations": 0,
+        "donationsReceived": 0,
+        "builderBaseLeague": {
+          "id": 44000004,
+          "name": "Wood League I"
+        }
+      }
+    ],
+    "labels": [
+      {
+        "id": 56000000,
+        "name": "Clan Wars",
+        "iconUrls": {
+          "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+          "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+        }
+      },
+      {
+        "id": 56000004,
+        "name": "Clan Games",
+        "iconUrls": {
+          "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+          "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+        }
+      }
+    ],
+    "requiredBuilderBaseTrophies": 0,
+    "requiredTownhallLevel": 13,
+    "requiredLeagueTier": {
+      "id": 105000001,
+      "name": "Skeleton League 1",
+      "iconUrls": {
+        "small": "https://api-assets.clashofclans.com/leaguetiers/125/CiSJYHyhMuloCpIIJ3n5-xCnRWrEd9vcq_zu6Ahkl3o.png",
+        "large": "https://api-assets.clashofclans.com/leaguetiers/326/CiSJYHyhMuloCpIIJ3n5-xCnRWrEd9vcq_zu6Ahkl3o.png"
+      }
+    },
     "clanCapital": {
-      "clanGoldSinkTotal": 9876543210
+      "clanGoldSinkTotal": 0
     }
   },
   "headers": {

@@ -4,6 +4,7 @@
       "ActiveClanWar": {
         "properties": {
           "attacksPerMember": {
+            "description": "Present on classic wars (typically 2); omitted on CWL wars (1 attack per member).",
             "type": "integer"
           },
           "battleModifier": {
@@ -20,15 +21,27 @@
             "$ref": "#/components/schemas/WarClan"
           },
           "endTime": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           },
           "opponent": {
             "$ref": "#/components/schemas/WarClan"
           },
           "preparationStartTime": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           },
           "startTime": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           },
           "state": {
@@ -44,6 +57,10 @@
             "type": "integer"
           },
           "warStartTime": {
+            "description": "Present on CWL war responses; omitted on classic wars.",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           }
         },
@@ -61,15 +78,26 @@
       "BadgeUrls": {
         "properties": {
           "large": {
+            "description": "512x512 clan badge PNG URL.",
+            "format": "uri",
             "type": "string"
           },
           "medium": {
+            "description": "200x200 clan badge PNG URL.",
+            "format": "uri",
             "type": "string"
           },
           "small": {
+            "description": "70x70 clan badge PNG URL.",
+            "format": "uri",
             "type": "string"
           }
         },
+        "required": [
+          "large",
+          "medium",
+          "small"
+        ],
         "type": "object"
       },
       "BattleLogEntry": {
@@ -82,7 +110,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "Shareable army composition code, or null when unavailable on a battle log entry."
           },
           "attack": {
             "type": "boolean"
@@ -94,9 +123,14 @@
             "type": "array"
           },
           "battleTime": {
+            "description": "Battle duration in seconds.",
             "type": "integer"
           },
           "battleTimestamp": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           },
           "battleType": {
@@ -108,6 +142,8 @@
             "type": "string"
           },
           "destructionPercentage": {
+            "maximum": 100,
+            "minimum": 0,
             "type": "integer"
           },
           "extraLootedResources": {
@@ -132,15 +168,21 @@
             "type": "integer"
           },
           "stars": {
+            "maximum": 3,
+            "minimum": 0,
             "type": "integer"
           }
         },
         "required": [
+          "armyShareCode",
           "attack",
+          "availableLoot",
           "battleTime",
           "battleTimestamp",
           "battleType",
           "destructionPercentage",
+          "extraLootedResources",
+          "lootedResources",
           "opponentName",
           "opponentPlayerTag",
           "opponentTownHallLevel",
@@ -190,7 +232,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -222,7 +265,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -239,7 +283,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -294,6 +339,8 @@
             "type": "array"
           },
           "members": {
+            "maximum": 50,
+            "minimum": 1,
             "type": "integer"
           },
           "name": {
@@ -306,6 +353,7 @@
             "$ref": "#/components/schemas/LeagueTier"
           },
           "requiredTownhallLevel": {
+            "description": "Minimum Town Hall level required to join. Note lowercase \"h\" in wire field name.",
             "type": "integer"
           },
           "requiredTrophies": {
@@ -329,8 +377,7 @@
               "moreThanOncePerWeek",
               "oncePerWeek",
               "lessThanOncePerWeek",
-              "never",
-              "any"
+              "never"
             ],
             "type": "string"
           },
@@ -338,9 +385,11 @@
             "$ref": "#/components/schemas/WarLeague"
           },
           "warLosses": {
+            "description": "Omitted when isWarLogPublic is false.",
             "type": "integer"
           },
           "warTies": {
+            "description": "Omitted when isWarLogPublic is false.",
             "type": "integer"
           },
           "warWins": {
@@ -351,13 +400,29 @@
           }
         },
         "required": [
+          "badgeUrls",
+          "capitalLeague",
+          "clanBuilderBasePoints",
           "clanCapital",
+          "clanCapitalPoints",
           "clanLevel",
           "clanPoints",
+          "description",
+          "isFamilyFriendly",
+          "isWarLogPublic",
+          "labels",
+          "memberList",
           "members",
           "name",
+          "requiredBuilderBaseTrophies",
+          "requiredTownhallLevel",
+          "requiredTrophies",
           "tag",
-          "type"
+          "type",
+          "warFrequency",
+          "warLeague",
+          "warWinStreak",
+          "warWins"
         ],
         "type": "object"
       },
@@ -373,9 +438,12 @@
             "type": "integer"
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "$ref": "#/components/schemas/Location",
+            "description": "Omitted on worldwide leaderboards for clans without a configured location."
           },
           "members": {
+            "maximum": 50,
+            "minimum": 1,
             "type": "integer"
           },
           "name": {
@@ -385,6 +453,7 @@
             "type": "integer"
           },
           "rank": {
+            "minimum": 1,
             "type": "integer"
           },
           "tag": {
@@ -392,6 +461,7 @@
           }
         },
         "required": [
+          "badgeUrls",
           "clanBuilderBasePoints",
           "clanLevel",
           "members",
@@ -415,13 +485,15 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
       "ClanCapital": {
         "properties": {
           "capitalHallLevel": {
+            "description": "Omitted for clans that have not unlocked Clan Capital.",
             "type": "integer"
           },
           "clanGoldSinkTotal": {
@@ -429,6 +501,7 @@
             "type": "integer"
           },
           "districts": {
+            "description": "Omitted for clans that have not unlocked Clan Capital.",
             "items": {
               "$ref": "#/components/schemas/ClanCapitalDistrict"
             },
@@ -480,12 +553,17 @@
             "type": "integer"
           },
           "endTime": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           },
           "enemyDistrictsDestroyed": {
             "type": "integer"
           },
           "members": {
+            "description": "Participating clan members who have made at least one attack. Present on ongoing raid seasons and omitted on ended seasons.",
             "items": {
               "$ref": "#/components/schemas/ClanCapitalRaidSeasonMember"
             },
@@ -498,6 +576,10 @@
             "type": "integer"
           },
           "startTime": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           },
           "state": {
@@ -512,7 +594,9 @@
           }
         },
         "required": [
+          "attackLog",
           "capitalTotalLoot",
+          "defenseLog",
           "defensiveReward",
           "endTime",
           "enemyDistrictsDestroyed",
@@ -530,9 +614,13 @@
             "$ref": "#/components/schemas/ClanCapitalRaidSeasonAttacker"
           },
           "destructionPercent": {
+            "maximum": 100,
+            "minimum": 0,
             "type": "integer"
           },
           "stars": {
+            "maximum": 3,
+            "minimum": 0,
             "type": "integer"
           }
         },
@@ -583,6 +671,7 @@
           "attackCount",
           "defender",
           "districtCount",
+          "districts",
           "districtsDestroyed"
         ],
         "type": "object"
@@ -603,6 +692,7 @@
           }
         },
         "required": [
+          "badgeUrls",
           "level",
           "name",
           "tag"
@@ -634,6 +724,7 @@
           "attackCount",
           "attacker",
           "districtCount",
+          "districts",
           "districtsDestroyed"
         ],
         "type": "object"
@@ -644,12 +735,15 @@
             "type": "integer"
           },
           "attacks": {
+            "description": "Individual attacks against this district. Included only for attacked districts in an ongoing raid season; omitted on ended seasons.",
             "items": {
               "$ref": "#/components/schemas/ClanCapitalRaidSeasonAttack"
             },
             "type": "array"
           },
           "destructionPercent": {
+            "maximum": 100,
+            "minimum": 0,
             "type": "integer"
           },
           "districtHallLevel": {
@@ -662,6 +756,8 @@
             "type": "string"
           },
           "stars": {
+            "maximum": 3,
+            "minimum": 0,
             "type": "integer"
           },
           "totalLooted": {
@@ -722,18 +818,23 @@
             "type": "integer"
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "$ref": "#/components/schemas/Location",
+            "description": "Omitted on worldwide leaderboards for clans without a configured location."
           },
           "members": {
+            "maximum": 50,
+            "minimum": 1,
             "type": "integer"
           },
           "name": {
             "type": "string"
           },
           "previousRank": {
+            "description": "Previous leaderboard rank, or -1 when unavailable.",
             "type": "integer"
           },
           "rank": {
+            "minimum": 1,
             "type": "integer"
           },
           "tag": {
@@ -741,6 +842,7 @@
           }
         },
         "required": [
+          "badgeUrls",
           "clanCapitalPoints",
           "clanLevel",
           "members",
@@ -764,7 +866,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -777,6 +880,7 @@
             "type": "integer"
           },
           "clanRank": {
+            "minimum": 1,
             "type": "integer"
           },
           "donations": {
@@ -801,9 +905,11 @@
             "$ref": "#/components/schemas/PlayerHouse"
           },
           "previousClanRank": {
+            "description": "Previous clan rank, or 0 for newly joined members.",
             "type": "integer"
           },
           "role": {
+            "description": "Clan role. Note: \"admin\" represents Elder in-game, and \"coLeader\" is Co-Leader.",
             "enum": [
               "member",
               "admin",
@@ -823,10 +929,14 @@
           }
         },
         "required": [
+          "builderBaseLeague",
+          "builderBaseTrophies",
           "clanRank",
           "donations",
           "donationsReceived",
           "expLevel",
+          "league",
+          "leagueTier",
           "name",
           "previousClanRank",
           "role",
@@ -849,7 +959,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -865,9 +976,12 @@
             "type": "integer"
           },
           "location": {
-            "$ref": "#/components/schemas/Location"
+            "$ref": "#/components/schemas/Location",
+            "description": "Omitted on worldwide leaderboards for clans without a configured location."
           },
           "members": {
+            "maximum": 50,
+            "minimum": 1,
             "type": "integer"
           },
           "name": {
@@ -877,6 +991,7 @@
             "type": "integer"
           },
           "rank": {
+            "minimum": 1,
             "type": "integer"
           },
           "tag": {
@@ -884,6 +999,7 @@
           }
         },
         "required": [
+          "badgeUrls",
           "clanLevel",
           "clanPoints",
           "members",
@@ -907,7 +1023,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -924,6 +1041,7 @@
           }
         },
         "required": [
+          "badgeUrls",
           "name",
           "tag"
         ],
@@ -968,6 +1086,8 @@
             "$ref": "#/components/schemas/Location"
           },
           "members": {
+            "maximum": 50,
+            "minimum": 1,
             "type": "integer"
           },
           "name": {
@@ -980,6 +1100,7 @@
             "$ref": "#/components/schemas/LeagueTier"
           },
           "requiredTownhallLevel": {
+            "description": "Minimum Town Hall level required to join. Note lowercase \"h\" in wire field name.",
             "type": "integer"
           },
           "requiredTrophies": {
@@ -1003,8 +1124,7 @@
               "moreThanOncePerWeek",
               "oncePerWeek",
               "lessThanOncePerWeek",
-              "never",
-              "any"
+              "never"
             ],
             "type": "string"
           },
@@ -1012,9 +1132,11 @@
             "$ref": "#/components/schemas/WarLeague"
           },
           "warLosses": {
+            "description": "Omitted when isWarLogPublic is false.",
             "type": "integer"
           },
           "warTies": {
+            "description": "Omitted when isWarLogPublic is false.",
             "type": "integer"
           },
           "warWins": {
@@ -1025,12 +1147,26 @@
           }
         },
         "required": [
+          "badgeUrls",
+          "capitalLeague",
+          "clanBuilderBasePoints",
+          "clanCapitalPoints",
           "clanLevel",
           "clanPoints",
+          "isFamilyFriendly",
+          "isWarLogPublic",
+          "labels",
           "members",
           "name",
+          "requiredBuilderBaseTrophies",
+          "requiredTownhallLevel",
+          "requiredTrophies",
           "tag",
-          "type"
+          "type",
+          "warFrequency",
+          "warLeague",
+          "warWinStreak",
+          "warWins"
         ],
         "type": "object"
       },
@@ -1047,12 +1183,22 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
       "ClanWar": {
-        "anyOf": [
+        "discriminator": {
+          "mapping": {
+            "inWar": "#/components/schemas/ActiveClanWar",
+            "notInWar": "#/components/schemas/NotInWar",
+            "preparation": "#/components/schemas/ActiveClanWar",
+            "warEnded": "#/components/schemas/ActiveClanWar"
+          },
+          "propertyName": "state"
+        },
+        "oneOf": [
           {
             "$ref": "#/components/schemas/ActiveClanWar"
           },
@@ -1070,15 +1216,20 @@
             "type": "string"
           },
           "destructionPercentage": {
+            "maximum": 100,
+            "minimum": 0,
             "type": "integer"
           },
           "duration": {
+            "description": "Attack duration in seconds.",
             "type": "integer"
           },
           "order": {
             "type": "integer"
           },
           "stars": {
+            "maximum": 3,
+            "minimum": 0,
             "type": "integer"
           }
         },
@@ -1086,6 +1237,7 @@
           "attackerTag",
           "defenderTag",
           "destructionPercentage",
+          "duration",
           "order",
           "stars"
         ],
@@ -1173,6 +1325,7 @@
       "ClanWarLeagueRound": {
         "properties": {
           "warTags": {
+            "description": "War tags for this round. Unmatched future rounds use placeholder \"#0\".",
             "items": {
               "type": "string"
             },
@@ -1200,6 +1353,10 @@
             "$ref": "#/components/schemas/WarLogClan"
           },
           "endTime": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           },
           "opponent": {
@@ -1218,16 +1375,20 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "War outcome. Often null on CWL season summary rows, though some CWL rows carry win/tie; check for missing opponent.tag to reliably detect CWL rows."
           },
           "teamSize": {
             "type": "integer"
           }
         },
         "required": [
+          "attacksPerMember",
+          "battleModifier",
           "clan",
           "endTime",
           "opponent",
+          "result",
           "teamSize"
         ],
         "type": "object"
@@ -1245,22 +1406,26 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
       "ClanWarMember": {
         "properties": {
           "attacks": {
+            "description": "Omitted until the member performs at least one attack.",
             "items": {
               "$ref": "#/components/schemas/ClanWarAttack"
             },
             "type": "array"
           },
           "bestOpponentAttack": {
-            "$ref": "#/components/schemas/ClanWarAttack"
+            "$ref": "#/components/schemas/ClanWarAttack",
+            "description": "Omitted when opponentAttacks is 0."
           },
           "mapPosition": {
+            "minimum": 1,
             "type": "integer"
           },
           "name": {
@@ -1273,12 +1438,14 @@
             "type": "string"
           },
           "townhallLevel": {
+            "description": "Member Town Hall level. Note lowercase \"h\" on the wire (unlike townHallLevel elsewhere).",
             "type": "integer"
           }
         },
         "required": [
           "mapPosition",
           "name",
+          "opponentAttacks",
           "tag",
           "townhallLevel"
         ],
@@ -1286,38 +1453,12 @@
       },
       "ClientErrorResponse": {
         "properties": {
-          "detail": {
-            "anyOf": [
-              {
-                "type": "object"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
           "message": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "reason": {
             "type": "string"
           },
-          "type": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+          "reason": {
+            "description": "Machine-readable error reason (e.g. badRequest, notFound, accessDenied, accessDenied.invalidIp, tooManyRequests, inMaintenance, unknownException).",
+            "type": "string"
           }
         },
         "required": [
@@ -1328,9 +1469,11 @@
       "CursorPaging": {
         "properties": {
           "after": {
+            "description": "Opaque cursor for fetching the next page.",
             "type": "string"
           },
           "before": {
+            "description": "Opaque cursor for fetching the previous page.",
             "type": "string"
           }
         },
@@ -1339,9 +1482,17 @@
       "GoldPassSeason": {
         "properties": {
           "endTime": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           },
           "startTime": {
+            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "examples": [
+              "20261119T165155.000Z"
+            ],
             "type": "string"
           }
         },
@@ -1351,27 +1502,10 @@
         ],
         "type": "object"
       },
-      "IconUrls": {
-        "properties": {
-          "large": {
-            "type": "string"
-          },
-          "medium": {
-            "type": "string"
-          },
-          "small": {
-            "type": "string"
-          },
-          "tiny": {
-            "type": "string"
-          }
-        },
-        "type": "object"
-      },
       "Label": {
         "properties": {
           "iconUrls": {
-            "$ref": "#/components/schemas/IconUrls"
+            "$ref": "#/components/schemas/LabelIconUrls"
           },
           "id": {
             "type": "integer"
@@ -1381,8 +1515,28 @@
           }
         },
         "required": [
+          "iconUrls",
           "id",
           "name"
+        ],
+        "type": "object"
+      },
+      "LabelIconUrls": {
+        "properties": {
+          "medium": {
+            "description": "128x128 label icon PNG URL.",
+            "format": "uri",
+            "type": "string"
+          },
+          "small": {
+            "description": "64x64 label icon PNG URL.",
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "medium",
+          "small"
         ],
         "type": "object"
       },
@@ -1399,11 +1553,13 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
       "Language": {
+        "description": "Omitted when the clan has not configured a chat language.",
         "properties": {
           "id": {
             "type": "integer"
@@ -1423,9 +1579,10 @@
         "type": "object"
       },
       "League": {
+        "description": "Legacy pre-2025 league object (often Unranked id 29000000). Prefer leagueTier for current ranked leagues.",
         "properties": {
           "iconUrls": {
-            "$ref": "#/components/schemas/IconUrls"
+            "$ref": "#/components/schemas/LeagueIconUrls"
           },
           "id": {
             "type": "integer"
@@ -1435,6 +1592,7 @@
           }
         },
         "required": [
+          "iconUrls",
           "id",
           "name"
         ],
@@ -1443,9 +1601,16 @@
       "LeagueBattleLogEntry": {
         "properties": {
           "creationTime": {
+            "description": "ISO-8601 UTC timestamp (unlike most other Clash API timestamps, which use compact YYYYMMDDTHHmmss.SSSZ).",
+            "examples": [
+              "2026-10-17T09:24:48Z"
+            ],
+            "format": "date-time",
             "type": "string"
           },
           "destructionPercentage": {
+            "maximum": 100,
+            "minimum": 0,
             "type": "integer"
           },
           "opponentName": {
@@ -1455,6 +1620,8 @@
             "type": "string"
           },
           "stars": {
+            "maximum": 3,
+            "minimum": 0,
             "type": "integer"
           },
           "trophies": {
@@ -1492,6 +1659,11 @@
             "type": "array"
           }
         },
+        "required": [
+          "attackLogs",
+          "defenseLogs",
+          "members"
+        ],
         "type": "object"
       },
       "LeagueGroupMember": {
@@ -1510,7 +1682,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "Member clan name, or null when the player is clanless."
           },
           "clanTag": {
             "anyOf": [
@@ -1520,7 +1693,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "Member clan tag, or null when the player is clanless."
           },
           "defenseLoseCount": {
             "type": "integer"
@@ -1565,9 +1739,34 @@
         ],
         "type": "object"
       },
+      "LeagueIconUrls": {
+        "properties": {
+          "medium": {
+            "description": "288x288 legacy league icon PNG URL. Omitted for Unranked (id 29000000).",
+            "format": "uri",
+            "type": "string"
+          },
+          "small": {
+            "description": "72x72 legacy league icon PNG URL.",
+            "format": "uri",
+            "type": "string"
+          },
+          "tiny": {
+            "description": "36x36 legacy league icon PNG URL.",
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "small",
+          "tiny"
+        ],
+        "type": "object"
+      },
       "LeagueSeason": {
         "properties": {
           "id": {
+            "description": "Season identifier: YYYY-MM (2015-07 to 2025-08), YYYY-MM-DD (2025-10-06 to 2026-04-20), or v2-YYYY-MM-DDTHH:MM:SSZ (2026-05-11 onward).",
             "type": "string"
           }
         },
@@ -1589,7 +1788,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -1614,15 +1814,9 @@
             "type": "integer"
           },
           "leagueSeasonId": {
-            "anyOf": [
-              {
-                "format": "int64",
-                "type": "integer"
-              },
-              {
-                "type": "string"
-              }
-            ]
+            "description": "Unix epoch timestamp (seconds) identifying the ranked season.",
+            "format": "int64",
+            "type": "integer"
           },
           "leagueTierId": {
             "type": "integer"
@@ -1653,9 +1847,10 @@
         "type": "object"
       },
       "LeagueTier": {
+        "description": "Minimum ranked league tier required to join. Omitted when unset.",
         "properties": {
           "iconUrls": {
-            "$ref": "#/components/schemas/IconUrls"
+            "$ref": "#/components/schemas/LeagueTierIconUrls"
           },
           "id": {
             "type": "integer"
@@ -1665,8 +1860,28 @@
           }
         },
         "required": [
+          "iconUrls",
           "id",
           "name"
+        ],
+        "type": "object"
+      },
+      "LeagueTierIconUrls": {
+        "properties": {
+          "large": {
+            "description": "326x326 league tier icon PNG URL.",
+            "format": "uri",
+            "type": "string"
+          },
+          "small": {
+            "description": "125x125 league tier icon PNG URL.",
+            "format": "uri",
+            "type": "string"
+          }
+        },
+        "required": [
+          "large",
+          "small"
         ],
         "type": "object"
       },
@@ -1683,27 +1898,35 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
       "LegendLeagueTournamentSeasonResult": {
         "properties": {
           "id": {
+            "description": "Season identifier. Omitted on currentSeason.",
             "type": "string"
           },
           "rank": {
+            "description": "Season rank. Omitted on currentSeason when unranked.",
             "type": "integer"
           },
           "trophies": {
             "type": "integer"
           }
         },
+        "required": [
+          "trophies"
+        ],
         "type": "object"
       },
       "Location": {
+        "description": "Omitted when the clan has not configured a location.",
         "properties": {
           "countryCode": {
+            "description": "ISO 3166-1 alpha-2 country code. Present if and only if isCountry is true.",
             "type": "string"
           },
           "id": {
@@ -1736,7 +1959,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -1746,7 +1970,8 @@
             "$ref": "#/components/schemas/NotInWarClan"
           },
           "opponent": {
-            "$ref": "#/components/schemas/NotInWarClan"
+            "$ref": "#/components/schemas/NotInWarClan",
+            "description": "Zeroed placeholder opponent object returned when not in war."
           },
           "state": {
             "enum": [
@@ -1756,11 +1981,14 @@
           }
         },
         "required": [
+          "clan",
+          "opponent",
           "state"
         ],
         "type": "object"
       },
       "NotInWarClan": {
+        "description": "Zeroed placeholder clan object returned when not in war.",
         "properties": {
           "attacks": {
             "type": "integer"
@@ -1772,6 +2000,8 @@
             "type": "integer"
           },
           "destructionPercentage": {
+            "maximum": 100,
+            "minimum": 0,
             "type": "number"
           },
           "stars": {
@@ -1793,6 +2023,9 @@
             "$ref": "#/components/schemas/CursorPaging"
           }
         },
+        "required": [
+          "cursors"
+        ],
         "type": "object"
       },
       "Player": {
@@ -1813,12 +2046,14 @@
             "type": "integer"
           },
           "builderBaseLeague": {
-            "$ref": "#/components/schemas/BuilderBaseLeague"
+            "$ref": "#/components/schemas/BuilderBaseLeague",
+            "description": "Omitted when the player has not unlocked Builder Base."
           },
           "builderBaseTrophies": {
             "type": "integer"
           },
           "builderHallLevel": {
+            "description": "Omitted when the player has not unlocked Builder Base.",
             "type": "integer"
           },
           "clan": {
@@ -1828,9 +2063,11 @@
             "type": "integer"
           },
           "currentLeagueGroupTag": {
+            "description": "Current ranked league group tag. May be placeholder \"#0\" (querying /leaguegroup/%230/... returns 404). Omitted when currentLeagueSeasonId is 0.",
             "type": "string"
           },
           "currentLeagueSeasonId": {
+            "description": "Current ranked league season epoch (seconds), or 0 when the player is not in a league group.",
             "format": "int64",
             "type": "integer"
           },
@@ -1865,7 +2102,8 @@
             "type": "array"
           },
           "league": {
-            "$ref": "#/components/schemas/League"
+            "$ref": "#/components/schemas/League",
+            "description": "Legacy pre-2025 league object. Usually omitted; prefer leagueTier."
           },
           "leagueTier": {
             "$ref": "#/components/schemas/LeagueTier"
@@ -1880,13 +2118,16 @@
             "$ref": "#/components/schemas/PlayerHouse"
           },
           "previousLeagueGroupTag": {
+            "description": "Previous ranked league group tag. May be placeholder \"#0\" (querying /leaguegroup/%230/... returns 404).",
             "type": "string"
           },
           "previousLeagueSeasonId": {
+            "description": "Previous ranked league season epoch (seconds), or 0 when unavailable.",
             "format": "int64",
             "type": "integer"
           },
           "role": {
+            "description": "Clan role. Note: \"admin\" represents Elder in-game, and \"coLeader\" is Co-Leader.",
             "enum": [
               "member",
               "admin",
@@ -1908,6 +2149,7 @@
             "type": "integer"
           },
           "townHallWeaponLevel": {
+            "description": "Town Hall weapon level. Present for TH12-TH17; omitted for TH1-TH11 and TH18+.",
             "type": "integer"
           },
           "troops": {
@@ -1920,6 +2162,7 @@
             "type": "integer"
           },
           "warPreference": {
+            "description": "Omitted when the player is not in a clan.",
             "enum": [
               "in",
               "out"
@@ -1931,13 +2174,27 @@
           }
         },
         "required": [
+          "achievements",
           "attackWins",
+          "bestBuilderBaseTrophies",
           "bestTrophies",
+          "builderBaseTrophies",
+          "clanCapitalContributions",
+          "currentLeagueSeasonId",
           "defenseWins",
+          "donations",
+          "donationsReceived",
           "expLevel",
+          "heroEquipment",
+          "heroes",
+          "labels",
+          "leagueTier",
           "name",
+          "previousLeagueSeasonId",
+          "spells",
           "tag",
           "townHallLevel",
+          "troops",
           "trophies",
           "warStars"
         ],
@@ -1953,7 +2210,8 @@
               {
                 "type": "null"
               }
-            ]
+            ],
+            "description": "Progress/completion text, or null for achievements that do not report completion info."
           },
           "info": {
             "type": "string"
@@ -1962,12 +2220,15 @@
             "type": "string"
           },
           "stars": {
+            "maximum": 3,
+            "minimum": 0,
             "type": "integer"
           },
           "target": {
             "type": "integer"
           },
           "value": {
+            "format": "int64",
             "type": "integer"
           },
           "village": {
@@ -1980,6 +2241,8 @@
           }
         },
         "required": [
+          "completionInfo",
+          "info",
           "name",
           "stars",
           "target",
@@ -2009,6 +2272,7 @@
             "type": "integer"
           },
           "rank": {
+            "minimum": 1,
             "type": "integer"
           },
           "tag": {
@@ -2016,6 +2280,7 @@
           }
         },
         "required": [
+          "builderBaseLeague",
           "builderBaseTrophies",
           "expLevel",
           "name",
@@ -2038,11 +2303,13 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
       "PlayerClan": {
+        "description": "Omitted when the player is not in a clan.",
         "properties": {
           "badgeUrls": {
             "$ref": "#/components/schemas/BadgeUrls"
@@ -2058,6 +2325,8 @@
           }
         },
         "required": [
+          "badgeUrls",
+          "clanLevel",
           "name",
           "tag"
         ],
@@ -2072,6 +2341,9 @@
             "type": "array"
           }
         },
+        "required": [
+          "elements"
+        ],
         "type": "object"
       },
       "PlayerHouseElement": {
@@ -2080,6 +2352,7 @@
             "type": "integer"
           },
           "type": {
+            "description": "Wire element slot type (\"walls\" and \"decoration\", not the official Swagger names FOOT/DECO).",
             "enum": [
               "ground",
               "walls",
@@ -2098,6 +2371,7 @@
       "PlayerItemLevel": {
         "properties": {
           "equipment": {
+            "description": "Equipped hero equipment. Present only on Home Village heroes.",
             "items": {
               "$ref": "#/components/schemas/PlayerItemLevel"
             },
@@ -2113,13 +2387,13 @@
             "type": "string"
           },
           "superTroopIsActive": {
+            "description": "Emitted only when true on currently active super troops.",
             "type": "boolean"
           },
           "village": {
             "enum": [
               "home",
-              "builderBase",
-              "clanCapital"
+              "builderBase"
             ],
             "type": "string"
           }
@@ -2146,13 +2420,14 @@
           "legendTrophies": {
             "type": "integer"
           },
-          "previousBuilderBaseSeason": {
-            "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
-          },
           "previousSeason": {
             "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
           }
         },
+        "required": [
+          "currentSeason",
+          "legendTrophies"
+        ],
         "type": "object"
       },
       "PlayerRanking": {
@@ -2170,7 +2445,8 @@
             "type": "integer"
           },
           "league": {
-            "$ref": "#/components/schemas/League"
+            "$ref": "#/components/schemas/League",
+            "description": "Legacy pre-2025 league object (often Unranked id 29000000). Prefer leagueTier."
           },
           "leagueTier": {
             "$ref": "#/components/schemas/LeagueTier"
@@ -2182,6 +2458,7 @@
             "type": "integer"
           },
           "rank": {
+            "minimum": 1,
             "type": "integer"
           },
           "tag": {
@@ -2192,7 +2469,11 @@
           }
         },
         "required": [
+          "attackWins",
+          "defenseWins",
           "expLevel",
+          "league",
+          "leagueTier",
           "name",
           "previousRank",
           "rank",
@@ -2214,7 +2495,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -2239,6 +2521,7 @@
             "type": "string"
           },
           "rank": {
+            "minimum": 1,
             "type": "integer"
           },
           "tag": {
@@ -2249,7 +2532,10 @@
           }
         },
         "required": [
+          "attackWins",
+          "defenseWins",
           "expLevel",
+          "leagueTier",
           "name",
           "rank",
           "tag",
@@ -2270,7 +2556,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -2281,6 +2568,7 @@
             "type": "integer"
           },
           "name": {
+            "description": "Internal resource identifier (e.g. Gold, Elixir, DarkElixir, Gold2, CommonOre, CraftingResource1). Not a fixed enum.",
             "type": "string"
           }
         },
@@ -2293,6 +2581,7 @@
       "VerifyTokenRequest": {
         "properties": {
           "token": {
+            "description": "In-game API token to verify. Send literal \"TOKEN\" against the mock API for a valid response.",
             "examples": [
               "TOKEN"
             ],
@@ -2339,6 +2628,8 @@
             "type": "integer"
           },
           "destructionPercentage": {
+            "maximum": 100,
+            "minimum": 0,
             "type": "number"
           },
           "members": {
@@ -2362,6 +2653,7 @@
           "badgeUrls",
           "clanLevel",
           "destructionPercentage",
+          "members",
           "name",
           "stars",
           "tag"
@@ -2396,7 +2688,8 @@
           }
         },
         "required": [
-          "items"
+          "items",
+          "paging"
         ],
         "type": "object"
       },
@@ -2412,6 +2705,7 @@
             "type": "integer"
           },
           "destructionPercentage": {
+            "description": "Average destruction percentage (0-100) for classic wars, or the cumulative sum across all CWL rounds (can exceed 100) on CWL summary entries.",
             "type": "number"
           },
           "expEarned": {
@@ -2448,15 +2742,19 @@
             "type": "integer"
           },
           "destructionPercentage": {
+            "maximum": 100,
+            "minimum": 0,
             "type": "number"
           },
           "name": {
+            "description": "Omitted on CWL season summary entries in the war log.",
             "type": "string"
           },
           "stars": {
             "type": "integer"
           },
           "tag": {
+            "description": "Omitted on CWL season summary entries in the war log. Detecting missing opponent.tag reliably identifies CWL summary rows.",
             "type": "string"
           }
         },
@@ -2471,10 +2769,12 @@
     },
     "securitySchemes": {}
   },
+  "externalDocs": {
+    "description": "Official Supercell Clash of Clans Developer Portal",
+    "url": "https://developer.clashofclans.com"
+  },
   "info": {
-    "description": "Community-maintained mock Clash of Clans API. Not affiliated with Supercell. Use #2PP and additional trailing Ps to select deterministic fixture variants. All models and OpenAPI are derived from the Effect contract.",
-    "title": "Clash of Clans example API",
-    "version": "2.0.0"
+    "summary": "Live-verified Clash of Clans wire contract and deterministic mock server."
   },
   "openapi": "3.1.0",
   "paths": {
@@ -2498,7 +2798,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -2507,7 +2807,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -2521,7 +2821,7 @@
                 }
               }
             },
-            "description": "BuilderBaseLeagueListResponse",
+            "description": "Builder Base leagues.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -2539,7 +2839,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -2549,7 +2849,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -2559,7 +2859,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -2569,7 +2869,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -2587,17 +2887,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -2607,7 +2897,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -2644,7 +2934,7 @@
                 }
               }
             },
-            "description": "BuilderBaseLeague",
+            "description": "Builder Base league.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -2662,7 +2952,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -2672,7 +2962,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -2682,7 +2972,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -2692,7 +2982,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -2710,17 +3000,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -2730,7 +3010,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -2760,7 +3040,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -2769,7 +3049,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -2783,7 +3063,7 @@
                 }
               }
             },
-            "description": "CapitalLeagueListResponse",
+            "description": "Clan Capital leagues.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -2801,7 +3081,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -2811,7 +3091,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -2821,7 +3101,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -2831,7 +3111,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -2849,17 +3129,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -2869,7 +3139,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -2906,7 +3176,7 @@
                 }
               }
             },
-            "description": "CapitalLeague",
+            "description": "Clan Capital league.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -2924,7 +3194,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -2934,7 +3204,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -2944,7 +3214,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -2954,7 +3224,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -2972,17 +3242,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -2992,7 +3252,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -3004,7 +3264,7 @@
     },
     "/clans": {
       "get": {
-        "description": "Search all clans by name and/or filtering parameters.",
+        "description": "Search clans by name and/or filtering parameters. At least one filtering parameter is required (`name`, `warFrequency`, `locationId`, `minMembers`, `maxMembers`, `minClanPoints`, `minClanLevel`, or `labelIds`).",
         "operationId": "clans.search",
         "parameters": [
           {
@@ -3022,7 +3282,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -3031,7 +3291,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           },
@@ -3040,7 +3300,8 @@
             "name": "name",
             "required": false,
             "schema": {
-              "description": "Search clans by name (at least 3 characters on the live Supercell API).",
+              "description": "Search clans by name (minimum 3 characters).",
+              "minLength": 2,
               "type": "string"
             }
           },
@@ -3049,7 +3310,7 @@
             "name": "warFrequency",
             "required": false,
             "schema": {
-              "description": "Filter by clan war frequency.",
+              "description": "Filter by clan war frequency (\"any\" is query-only and is not returned in clan responses).",
               "enum": [
                 "unknown",
                 "always",
@@ -3076,7 +3337,9 @@
             "name": "minMembers",
             "required": false,
             "schema": {
-              "description": "Filter by minimum number of clan members.",
+              "description": "Filter by minimum number of clan members (2 to 50).",
+              "maximum": 50,
+              "minimum": 2,
               "type": "integer"
             }
           },
@@ -3085,7 +3348,9 @@
             "name": "maxMembers",
             "required": false,
             "schema": {
-              "description": "Filter by maximum number of clan members.",
+              "description": "Filter by maximum number of clan members (1 to 50).",
+              "maximum": 50,
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -3095,6 +3360,7 @@
             "required": false,
             "schema": {
               "description": "Filter by minimum clan points.",
+              "minimum": 0,
               "type": "integer"
             }
           },
@@ -3104,6 +3370,7 @@
             "required": false,
             "schema": {
               "description": "Filter by minimum clan level.",
+              "minimum": 1,
               "type": "integer"
             }
           },
@@ -3112,7 +3379,7 @@
             "name": "labelIds",
             "required": false,
             "schema": {
-              "description": "Comma-separated list of label IDs to filter by.",
+              "description": "Comma-separated list of clan label IDs to filter by.",
               "type": "string"
             }
           }
@@ -3126,7 +3393,7 @@
                 }
               }
             },
-            "description": "ClanSearchResponse",
+            "description": "Matching clans.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -3144,7 +3411,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -3154,7 +3421,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -3164,7 +3431,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -3174,7 +3441,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -3192,17 +3459,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -3212,7 +3469,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -3224,7 +3481,7 @@
     },
     "/clans/{clanTag}": {
       "get": {
-        "description": "Get information about a single clan by clan tag.",
+        "description": "Get information about a single clan by clan tag. Mock variants: `#2PP` (full clan with Capital districts), `#2PPP` (no-Capital clan with private war log).",
         "operationId": "clans.profile",
         "parameters": [
           {
@@ -3249,7 +3506,7 @@
                 }
               }
             },
-            "description": "Clan",
+            "description": "Clan profile.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -3267,7 +3524,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -3277,7 +3534,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -3287,7 +3544,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -3297,7 +3554,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -3315,17 +3572,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -3335,7 +3582,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -3347,7 +3594,7 @@
     },
     "/clans/{clanTag}/capitalraidseasons": {
       "get": {
-        "description": "Retrieve a clan's capital raid seasons.",
+        "description": "Retrieve a clan's capital raid seasons. Ongoing seasons include `members` and district `attacks`; ended seasons omit both.",
         "operationId": "clans.raids",
         "parameters": [
           {
@@ -3377,7 +3624,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -3386,7 +3633,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -3400,7 +3647,7 @@
                 }
               }
             },
-            "description": "CapitalRaidSeasonsResponse",
+            "description": "Clan Capital raid seasons.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -3418,7 +3665,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -3428,7 +3675,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -3438,7 +3685,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -3448,7 +3695,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -3466,17 +3713,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -3486,7 +3723,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -3498,7 +3735,7 @@
     },
     "/clans/{clanTag}/currentwar": {
       "get": {
-        "description": "Retrieve information about a clan's current clan war.",
+        "description": "Retrieve information about a clan's current clan war. Mock variants: `#2PP` (inWar), `#2PPP` (preparation), `#2PPPP` (warEnded), `#2PPPPP` (notInWar), `#2PPPPPP` (403 private war log).",
         "operationId": "clans.war",
         "parameters": [
           {
@@ -3523,7 +3760,7 @@
                 }
               }
             },
-            "description": "ClanWar",
+            "description": "Current clan war or not-in-war placeholder.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -3541,7 +3778,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -3551,7 +3788,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -3561,7 +3798,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -3571,7 +3808,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -3589,17 +3826,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -3609,7 +3836,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -3621,7 +3848,7 @@
     },
     "/clans/{clanTag}/currentwar/leaguegroup": {
       "get": {
-        "description": "Retrieve information about a clan's current Clan War League group.",
+        "description": "Retrieve information about a clan's current Clan War League group. Mock variants: `#2PP` (inWar), `#2PPP` (ended), `#2PPPP` (404 not found).",
         "operationId": "clans.cwl",
         "parameters": [
           {
@@ -3646,7 +3873,7 @@
                 }
               }
             },
-            "description": "ClanWarLeagueGroup",
+            "description": "Current Clan War League group.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -3664,7 +3891,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -3674,7 +3901,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -3684,7 +3911,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -3694,7 +3921,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -3712,17 +3939,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -3732,7 +3949,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -3774,7 +3991,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -3783,7 +4000,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -3797,7 +4014,7 @@
                 }
               }
             },
-            "description": "ClanMembersResponse",
+            "description": "Clan member list.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -3815,7 +4032,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -3825,7 +4042,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -3835,7 +4052,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -3845,7 +4062,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -3863,17 +4080,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -3883,7 +4090,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -3895,7 +4102,7 @@
     },
     "/clans/{clanTag}/warlog": {
       "get": {
-        "description": "Retrieve a clan's clan war log.",
+        "description": "Retrieve a clan's clan war log (includes both classic wars and CWL season summary rows). Mock variants: `#2PP` (war log), `#2PPP` (403 private war log).",
         "operationId": "clans.warlog",
         "parameters": [
           {
@@ -3925,7 +4132,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -3934,7 +4141,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -3948,7 +4155,7 @@
                 }
               }
             },
-            "description": "ClanWarLogResponse",
+            "description": "Clan war log entries.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -3966,7 +4173,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -3976,7 +4183,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -3986,7 +4193,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -3996,7 +4203,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4014,17 +4221,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -4034,7 +4231,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -4046,7 +4243,7 @@
     },
     "/clanwarleagues/wars/{warTag}": {
       "get": {
-        "description": "Retrieve information about an individual Clan War League war.",
+        "description": "Retrieve information about an individual Clan War League war. Mock variants: `#2PP` (inWar), `#2PPP` (preparation), `#2PPPP` (warEnded).",
         "operationId": "clans.leagueWar",
         "parameters": [
           {
@@ -4071,7 +4268,7 @@
                 }
               }
             },
-            "description": "ClanWar",
+            "description": "Individual Clan War League war.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -4089,7 +4286,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -4099,7 +4296,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -4109,7 +4306,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -4119,7 +4316,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4137,17 +4334,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -4157,7 +4344,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -4169,7 +4356,7 @@
     },
     "/goldpass/seasons/current": {
       "get": {
-        "description": "Get information about the current Gold Pass season.",
+        "description": "Get start and end times for the current Gold Pass season.",
         "operationId": "goldpass.current",
         "parameters": [],
         "responses": {
@@ -4181,7 +4368,7 @@
                 }
               }
             },
-            "description": "GoldPassSeason",
+            "description": "Current Gold Pass season window.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -4199,7 +4386,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -4209,7 +4396,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -4219,7 +4406,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -4229,7 +4416,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4247,17 +4434,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -4267,7 +4444,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -4297,7 +4474,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -4306,7 +4483,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -4320,7 +4497,7 @@
                 }
               }
             },
-            "description": "LabelListResponse",
+            "description": "Clan labels.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -4338,7 +4515,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -4348,7 +4525,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -4358,7 +4535,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -4368,7 +4545,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4386,17 +4563,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -4406,7 +4573,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -4436,7 +4603,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -4445,7 +4612,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -4459,7 +4626,7 @@
                 }
               }
             },
-            "description": "LabelListResponse",
+            "description": "Player labels.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -4477,7 +4644,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -4487,7 +4654,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -4497,7 +4664,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -4507,7 +4674,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4525,17 +4692,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -4545,7 +4702,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -4557,7 +4714,7 @@
     },
     "/leaguegroup/{leagueGroupTag}/{leagueSeasonId}": {
       "get": {
-        "description": "Get members and battle logs for a ranked league group.",
+        "description": "Get members and battle logs for a ranked league group. Mock variants (with `playerTag=#2PP`): `#2YYCYCC`/`1773032400` (current), `#2PGCG0J`/`1772427600` (previous). Note: upstream intermittently returns HTTP 500 `unknownException` for older groups.",
         "operationId": "leagues.group",
         "parameters": [
           {
@@ -4565,7 +4722,7 @@
             "name": "leagueGroupTag",
             "required": true,
             "schema": {
-              "description": "Tag of the ranked league group.",
+              "description": "Tag of the ranked league group (URL-encoded). Placeholder \"#0\" returns 404.",
               "examples": [
                 "#2YYCYCC"
               ],
@@ -4577,7 +4734,7 @@
             "name": "leagueSeasonId",
             "required": true,
             "schema": {
-              "description": "Identifier of the ranked league season.",
+              "description": "Unix epoch timestamp (seconds) of the ranked season.",
               "examples": [
                 "1773032400"
               ],
@@ -4606,7 +4763,7 @@
                 }
               }
             },
-            "description": "LeagueGroup",
+            "description": "Ranked league group members and battle logs.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -4624,7 +4781,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -4634,7 +4791,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -4644,7 +4801,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -4654,7 +4811,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4672,17 +4829,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -4692,7 +4839,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -4704,7 +4851,7 @@
     },
     "/leagues/{leagueId}/seasons": {
       "get": {
-        "description": "Get available seasons for a league (e.g. Legend League).",
+        "description": "Get available seasons for a league (e.g. Legend League `29000022`).",
         "operationId": "leagues.seasons",
         "parameters": [
           {
@@ -4734,7 +4881,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -4743,7 +4890,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -4757,7 +4904,7 @@
                 }
               }
             },
-            "description": "LeagueSeasonListResponse",
+            "description": "Available league seasons.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -4775,7 +4922,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -4785,7 +4932,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -4795,7 +4942,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -4805,7 +4952,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4823,17 +4970,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -4843,7 +4980,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -4855,7 +4992,7 @@
     },
     "/leagues/{leagueId}/seasons/{seasonId}": {
       "get": {
-        "description": "Get player rankings for a specific league season.",
+        "description": "Get player rankings for a specific league season. On the live Supercell API, `limit` must be between 100 and 25,000 when specified.",
         "operationId": "leagues.season",
         "parameters": [
           {
@@ -4875,7 +5012,7 @@
             "name": "seasonId",
             "required": true,
             "schema": {
-              "description": "Identifier of the season (YYYY-MM, YYYY-MM-DD, or v2-YYYY-MM-DDTHH:MM:SSZ).",
+              "description": "Identifier of the season: YYYY-MM (2015-07 to 2025-08), YYYY-MM-DD (2025-10-06 to 2026-04-20), or URL-encoded v2-YYYY-MM-DDTHH:MM:SSZ (2026-05-11 onward).",
               "examples": [
                 "2026-02-23"
               ],
@@ -4887,8 +5024,9 @@
             "name": "limit",
             "required": false,
             "schema": {
-              "description": "Limit the number of items returned in the response.",
-              "minimum": 1,
+              "description": "Limit the number of season rankings returned. Live Supercell API requires a value between 100 and 25,000.",
+              "maximum": 25000,
+              "minimum": 100,
               "type": "integer"
             }
           },
@@ -4897,7 +5035,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -4906,7 +5044,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -4920,7 +5058,7 @@
                 }
               }
             },
-            "description": "PlayerSeasonRankingListResponse",
+            "description": "Player rankings for the requested league season.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -4938,7 +5076,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -4948,7 +5086,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -4958,7 +5096,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -4968,7 +5106,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -4986,17 +5124,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -5006,7 +5134,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -5036,7 +5164,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5045,7 +5173,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5059,7 +5187,7 @@
                 }
               }
             },
-            "description": "LeagueTierListResponse",
+            "description": "Ranked league tiers.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -5077,7 +5205,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -5087,7 +5215,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -5097,7 +5225,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -5107,7 +5235,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5125,17 +5253,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -5145,7 +5263,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -5182,7 +5300,7 @@
                 }
               }
             },
-            "description": "LeagueTier",
+            "description": "Ranked league tier.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -5200,7 +5318,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -5210,7 +5328,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -5220,7 +5338,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -5230,7 +5348,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5248,17 +5366,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -5268,7 +5376,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -5298,7 +5406,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5307,7 +5415,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5321,7 +5429,7 @@
                 }
               }
             },
-            "description": "LocationListResponse",
+            "description": "Available leaderboard locations.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -5339,7 +5447,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -5349,7 +5457,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -5359,7 +5467,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -5369,7 +5477,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5387,17 +5495,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -5407,7 +5505,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -5419,7 +5517,7 @@
     },
     "/locations/{locationId}": {
       "get": {
-        "description": "Get information about a specific location.",
+        "description": "Get information about a specific location. Unknown location IDs return HTTP 400 (`badRequest`).",
         "operationId": "locations.item",
         "parameters": [
           {
@@ -5427,7 +5525,7 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location.",
+              "description": "Identifier of the location. Unknown IDs return HTTP 400 (badRequest).",
               "examples": [
                 "32000249"
               ],
@@ -5444,7 +5542,7 @@
                 }
               }
             },
-            "description": "Location",
+            "description": "Location details.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -5462,7 +5560,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -5472,7 +5570,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -5482,7 +5580,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -5492,7 +5590,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5510,17 +5608,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -5530,7 +5618,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -5542,7 +5630,7 @@
     },
     "/locations/{locationId}/rankings/capitals": {
       "get": {
-        "description": "Get Clan Capital rankings for a specific location.",
+        "description": "Get Clan Capital rankings for a specific location or `\"global\"`. Non-country region IDs return an empty list.",
         "operationId": "locations.capitals",
         "parameters": [
           {
@@ -5550,7 +5638,7 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings, or a numeric country/region ID (e.g. 32000249).",
               "examples": [
                 "global"
               ],
@@ -5572,7 +5660,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5581,7 +5669,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5595,7 +5683,7 @@
                 }
               }
             },
-            "description": "ClanCapitalRankingListResponse",
+            "description": "Clan Capital rankings.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -5613,7 +5701,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -5623,7 +5711,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -5633,7 +5721,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -5643,7 +5731,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5661,17 +5749,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -5681,7 +5759,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -5693,7 +5771,7 @@
     },
     "/locations/{locationId}/rankings/clans": {
       "get": {
-        "description": "Get Home Village clan rankings for a specific location.",
+        "description": "Get Home Village clan rankings for a specific location or `\"global\"`. Non-country region IDs return an empty list.",
         "operationId": "locations.clans",
         "parameters": [
           {
@@ -5701,7 +5779,7 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings, or a numeric country/region ID (e.g. 32000249).",
               "examples": [
                 "global"
               ],
@@ -5723,7 +5801,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5732,7 +5810,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5746,7 +5824,7 @@
                 }
               }
             },
-            "description": "ClanRankingListResponse",
+            "description": "Home Village clan rankings.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -5764,7 +5842,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -5774,7 +5852,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -5784,7 +5862,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -5794,7 +5872,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5812,17 +5890,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -5832,7 +5900,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -5844,7 +5912,7 @@
     },
     "/locations/{locationId}/rankings/clans-builder-base": {
       "get": {
-        "description": "Get Builder Base clan rankings for a specific location.",
+        "description": "Get Builder Base clan rankings for a specific location or `\"global\"`. Non-country region IDs return an empty list.",
         "operationId": "locations.builderClans",
         "parameters": [
           {
@@ -5852,7 +5920,7 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings, or a numeric country/region ID (e.g. 32000249).",
               "examples": [
                 "global"
               ],
@@ -5874,7 +5942,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5883,7 +5951,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5897,7 +5965,7 @@
                 }
               }
             },
-            "description": "ClanBuilderBaseRankingListResponse",
+            "description": "Builder Base clan rankings.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -5915,7 +5983,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -5925,7 +5993,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -5935,7 +6003,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -5945,7 +6013,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -5963,17 +6031,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -5983,7 +6041,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -5995,7 +6053,7 @@
     },
     "/locations/{locationId}/rankings/players": {
       "get": {
-        "description": "Get Home Village player rankings for a specific location.",
+        "description": "Get Home Village player rankings for a specific location or `\"global\"`. Non-country region IDs return an empty list.",
         "operationId": "locations.players",
         "parameters": [
           {
@@ -6003,7 +6061,7 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings, or a numeric country/region ID (e.g. 32000249).",
               "examples": [
                 "global"
               ],
@@ -6025,7 +6083,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -6034,7 +6092,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6048,7 +6106,7 @@
                 }
               }
             },
-            "description": "PlayerRankingListResponse",
+            "description": "Home Village player rankings.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -6066,7 +6124,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -6076,7 +6134,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -6086,7 +6144,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -6096,7 +6154,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6114,17 +6172,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -6134,7 +6182,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -6146,7 +6194,7 @@
     },
     "/locations/{locationId}/rankings/players-builder-base": {
       "get": {
-        "description": "Get Builder Base player rankings for a specific location.",
+        "description": "Get Builder Base player rankings for a specific location or `\"global\"`. Non-country region IDs return an empty list.",
         "operationId": "locations.builders",
         "parameters": [
           {
@@ -6154,7 +6202,7 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings, or a numeric country/region ID (e.g. 32000249).",
               "examples": [
                 "global"
               ],
@@ -6176,7 +6224,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -6185,7 +6233,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6199,7 +6247,7 @@
                 }
               }
             },
-            "description": "PlayerBuilderBaseRankingListResponse",
+            "description": "Builder Base player rankings.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -6217,7 +6265,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -6227,7 +6275,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -6237,7 +6285,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -6247,7 +6295,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6265,17 +6313,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -6285,7 +6323,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -6297,7 +6335,7 @@
     },
     "/players/{playerTag}": {
       "get": {
-        "description": "Get information about a single player by player tag.",
+        "description": "Get information about a single player by player tag. Mock variants: `#2PP` (found), `#2PPP` (404 not found).",
         "operationId": "players.profile",
         "parameters": [
           {
@@ -6322,7 +6360,7 @@
                 }
               }
             },
-            "description": "Player",
+            "description": "Player profile.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -6340,7 +6378,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -6350,7 +6388,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -6360,7 +6398,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -6370,7 +6408,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6388,17 +6426,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -6408,7 +6436,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -6452,7 +6480,7 @@
                 }
               }
             },
-            "description": "BattleLogResponse",
+            "description": "Recent player battle log entries.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -6470,7 +6498,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -6480,7 +6508,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -6490,7 +6518,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -6500,7 +6528,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6518,17 +6546,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -6538,7 +6556,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -6575,7 +6593,7 @@
                 }
               }
             },
-            "description": "LeagueHistoryResponse",
+            "description": "Historical ranked league season results.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -6593,7 +6611,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -6603,7 +6621,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -6613,7 +6631,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -6623,7 +6641,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6641,17 +6659,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -6661,7 +6669,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -6673,7 +6681,7 @@
     },
     "/players/{playerTag}/verifytoken": {
       "post": {
-        "description": "Verify an in-game API token for a player account.",
+        "description": "Verify an in-game API token for a player account. Mock behavior: `#2PP` with `{\"token\":\"TOKEN\"}` returns `ok` (other tokens return `invalid`); `#2PPP` returns 404.",
         "operationId": "players.verify",
         "parameters": [
           {
@@ -6708,7 +6716,7 @@
                 }
               }
             },
-            "description": "VerifyTokenResponse",
+            "description": "API token verification result.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -6726,7 +6734,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -6736,7 +6744,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -6746,7 +6754,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -6756,7 +6764,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6774,17 +6782,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -6794,7 +6792,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -6824,7 +6822,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Return only items that occur after this marker. Cannot be used together with before.",
+              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -6833,7 +6831,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Return only items that occur before this marker. Cannot be used together with after.",
+              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6847,7 +6845,7 @@
                 }
               }
             },
-            "description": "WarLeagueListResponse",
+            "description": "Clan War Leagues.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -6865,7 +6863,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -6875,7 +6873,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -6885,7 +6883,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -6895,7 +6893,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -6913,17 +6911,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -6933,7 +6921,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -6970,7 +6958,7 @@
                 }
               }
             },
-            "description": "WarLeague",
+            "description": "Clan War League.",
             "headers": {
               "cache-control": {
                 "required": false,
@@ -6988,7 +6976,7 @@
                 }
               }
             },
-            "description": "Bad request"
+            "description": "Bad request (`badRequest`)."
           },
           "403": {
             "content": {
@@ -6998,7 +6986,7 @@
                 }
               }
             },
-            "description": "Access denied"
+            "description": "Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`)."
           },
           "404": {
             "content": {
@@ -7008,7 +6996,7 @@
                 }
               }
             },
-            "description": "Resource not found"
+            "description": "Resource not found (`notFound`)."
           },
           "429": {
             "content": {
@@ -7018,7 +7006,7 @@
                 }
               }
             },
-            "description": "Request throttled",
+            "description": "Request throttled (`tooManyRequests`). See `Retry-After` header.",
             "headers": {
               "retry-after": {
                 "required": false,
@@ -7036,17 +7024,7 @@
                 }
               }
             },
-            "description": "Internal server error"
-          },
-          "501": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ClientErrorResponse"
-                }
-              }
-            },
-            "description": "Endpoint retired"
+            "description": "Internal server error (`unknownException`)."
           },
           "503": {
             "content": {
@@ -7056,7 +7034,7 @@
                 }
               }
             },
-            "description": "Service temporarily unavailable"
+            "description": "Service temporarily unavailable (`inMaintenance`)."
           }
         },
         "security": [],
@@ -7075,21 +7053,27 @@
   ],
   "tags": [
     {
+      "description": "Clan search, profiles, member lists, classic wars, Clan War Leagues (CWL), war logs, and Clan Capital raid seasons.",
       "name": "clans"
     },
     {
+      "description": "Player profiles, battle logs, ranked league history, and in-game API token verification.",
       "name": "players"
     },
     {
+      "description": "Ranked league tiers, Clan Capital leagues, Builder Base leagues, Clan War Leagues, Legend League seasons, and ranked league groups.",
       "name": "leagues"
     },
     {
+      "description": "Leaderboard locations and global or country rankings for clans, players, Builder Base, and Clan Capital.",
       "name": "locations"
     },
     {
+      "description": "Official player and clan profile label catalogs.",
       "name": "labels"
     },
     {
+      "description": "Current Gold Pass season start and end times.",
       "name": "goldpass"
     }
   ],
