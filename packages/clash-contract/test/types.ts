@@ -7,7 +7,10 @@ const Summary = Schema.Struct({
   gold: Clan.fields.clanCapital.fields.clanGoldSinkTotal,
   name: WarClan.fields.name,
 });
-const summary = Schema.decodeUnknownSync(Summary)({ gold: 9876543210 });
+const summary = Schema.decodeUnknownSync(Summary)({
+  gold: 9876543210,
+  name: 'Clash',
+});
 const gold: number = summary.gold;
 // @ts-expect-error The nested field must stay typed, not any.
 const invalid: string = summary.gold;
@@ -76,22 +79,18 @@ const houseElementType: 'ground' | 'walls' | 'roof' | 'decoration' =
 const invalidHouseElementType: typeof houseElement.type = 'FOOT';
 
 type PlayerWire = typeof Wire.Player.Type;
-const weaponLevel: number | null | undefined = ({} as PlayerWire)
-  .townHallWeaponLevel;
-const playerRole:
-  | 'member'
-  | 'admin'
-  | 'coLeader'
-  | 'leader'
-  | null
-  | undefined = ({} as PlayerWire).role;
-const warPref: 'in' | 'out' | null | undefined = ({} as PlayerWire)
-  .warPreference;
+const weaponLevel: number | undefined = ({} as PlayerWire).townHallWeaponLevel;
+const playerRole: 'member' | 'admin' | 'coLeader' | 'leader' | undefined = (
+  {} as PlayerWire
+).role;
+const warPref: 'in' | 'out' | undefined = ({} as PlayerWire).warPreference;
+// @ts-expect-error Non-nullable optional wire fields must not accept null.
+const nullRole: typeof playerRole = null;
 type ClanMemberWire = typeof Wire.ClanMember.Type;
-const memberLeagueTier: typeof Wire.LeagueTier.Type | null | undefined = (
+const memberLeagueTier: typeof Wire.LeagueTier.Type | undefined = (
   {} as ClanMemberWire
 ).leagueTier;
-const requiredTier: typeof Wire.LeagueTier.Type | null | undefined = (
+const requiredTier: typeof Wire.LeagueTier.Type | undefined = (
   {} as typeof Wire.Clan.Type
 ).requiredLeagueTier;
 const battleEntry = {} as typeof Wire.BattleLogEntry.Type;
@@ -99,6 +98,14 @@ const battleTs: string = battleEntry.battleTimestamp;
 const battleTime: number = battleEntry.battleTime;
 const opponentName: string = battleEntry.opponentName;
 const opponentTownHallLevel: number = battleEntry.opponentTownHallLevel;
+const shareCode: string | null | undefined = battleEntry.armyShareCode;
+const notInWar: typeof Wire.NotInWar.Type = { state: 'notInWar' };
+const warLogOppName: string | undefined = (
+  {} as typeof Wire.WarLogOpponent.Type
+).name;
+const warLogResult: 'win' | 'lose' | 'tie' | null | undefined = (
+  {} as typeof Wire.ClanWarLogEntry.Type
+).result;
 void [
   searchQuery,
   houseElementType,
@@ -111,4 +118,8 @@ void [
   battleTime,
   opponentName,
   opponentTownHallLevel,
+  shareCode,
+  notInWar,
+  warLogOppName,
+  warLogResult,
 ];

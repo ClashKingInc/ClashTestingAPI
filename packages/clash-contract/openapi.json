@@ -4,31 +4,17 @@
       "ActiveClanWar": {
         "properties": {
           "attacksPerMember": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "battleModifier": {
-            "anyOf": [
-              {
-                "enum": [
-                  "none",
-                  "hardMode",
-                  "minusOne",
-                  "minusTwo",
-                  "minusThree"
-                ],
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "enum": [
+              "none",
+              "hardMode",
+              "minusOne",
+              "minusTwo",
+              "minusThree"
+            ],
+            "type": "string"
           },
           "clan": {
             "$ref": "#/components/schemas/WarClan"
@@ -58,14 +44,7 @@
             "type": "integer"
           },
           "warStartTime": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           }
         },
         "required": [
@@ -74,42 +53,21 @@
           "opponent",
           "preparationStartTime",
           "startTime",
-          "teamSize",
-          "state"
+          "state",
+          "teamSize"
         ],
         "type": "object"
       },
       "BadgeUrls": {
         "properties": {
           "large": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "medium": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "small": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           }
         },
         "type": "object"
@@ -197,16 +155,6 @@
               "$ref": "#/components/schemas/BattleLogEntry"
             },
             "type": "array"
-          },
-          "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
         "required": [
@@ -238,14 +186,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -277,14 +218,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -301,14 +235,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -319,57 +246,22 @@
       "Clan": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "capitalLeague": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/CapitalLeague"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/CapitalLeague"
           },
           "chatLanguage": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Language"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Language"
           },
           "clanBuilderBasePoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clanCapital": {
             "$ref": "#/components/schemas/ClanCapital"
           },
           "clanCapitalPoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clanLevel": {
             "type": "integer"
@@ -377,45 +269,14 @@
           "clanPoints": {
             "type": "integer"
           },
-          "clanVersusPoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
           "description": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "isFamilyFriendly": {
-            "anyOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "boolean"
           },
           "isWarLogPublic": {
-            "anyOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "boolean"
           },
           "labels": {
             "items": {
@@ -424,14 +285,7 @@
             "type": "array"
           },
           "location": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Location"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Location"
           },
           "memberList": {
             "items": {
@@ -446,54 +300,16 @@
             "type": "string"
           },
           "requiredBuilderBaseTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "requiredLeagueTier": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LeagueTier"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LeagueTier"
           },
           "requiredTownhallLevel": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "requiredTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "requiredVersusTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "tag": {
             "type": "string"
@@ -507,73 +323,31 @@
             "type": "string"
           },
           "warFrequency": {
-            "anyOf": [
-              {
-                "enum": [
-                  "unknown",
-                  "always",
-                  "moreThanOncePerWeek",
-                  "oncePerWeek",
-                  "lessThanOncePerWeek",
-                  "never",
-                  "any"
-                ],
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "enum": [
+              "unknown",
+              "always",
+              "moreThanOncePerWeek",
+              "oncePerWeek",
+              "lessThanOncePerWeek",
+              "never",
+              "any"
+            ],
+            "type": "string"
           },
           "warLeague": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/WarLeague"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/WarLeague"
           },
           "warLosses": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "warTies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "warWins": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "warWinStreak": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           }
         },
         "required": [
@@ -590,14 +364,7 @@
       "ClanBuilderBaseRanking": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "clanBuilderBasePoints": {
             "type": "integer"
@@ -605,35 +372,8 @@
           "clanLevel": {
             "type": "integer"
           },
-          "clanPoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "clanVersusPoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
           "location": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Location"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Location"
           },
           "members": {
             "type": "integer"
@@ -671,14 +411,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -689,14 +422,7 @@
       "ClanCapital": {
         "properties": {
           "capitalHallLevel": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clanGoldSinkTotal": {
             "format": "int64",
@@ -864,14 +590,7 @@
       "ClanCapitalRaidSeasonClanInfo": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "level": {
             "type": "integer"
@@ -994,14 +713,7 @@
       "ClanCapitalRanking": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "clanCapitalPoints": {
             "type": "integer"
@@ -1009,25 +721,8 @@
           "clanLevel": {
             "type": "integer"
           },
-          "clanPoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
           "location": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Location"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Location"
           },
           "members": {
             "type": "integer"
@@ -1065,14 +760,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -1083,24 +771,10 @@
       "ClanMember": {
         "properties": {
           "builderBaseLeague": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BuilderBaseLeague"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BuilderBaseLeague"
           },
           "builderBaseTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clanRank": {
             "type": "integer"
@@ -1115,37 +789,16 @@
             "type": "integer"
           },
           "league": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/League"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/League"
           },
           "leagueTier": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LeagueTier"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LeagueTier"
           },
           "name": {
             "type": "string"
           },
           "playerHouse": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/PlayerHouse"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/PlayerHouse"
           },
           "previousClanRank": {
             "type": "integer"
@@ -1167,16 +820,6 @@
           },
           "trophies": {
             "type": "integer"
-          },
-          "versusTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
         "required": [
@@ -1202,14 +845,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -1220,14 +856,7 @@
       "ClanRanking": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "clanLevel": {
             "type": "integer"
@@ -1236,14 +865,7 @@
             "type": "integer"
           },
           "location": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Location"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Location"
           },
           "members": {
             "type": "integer"
@@ -1281,14 +903,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -1299,24 +914,7 @@
       "ClanReference": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "clanLevel": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "name": {
             "type": "string"
@@ -1334,54 +932,19 @@
       "ClanSearchItem": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "capitalLeague": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/CapitalLeague"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/CapitalLeague"
           },
           "chatLanguage": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Language"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Language"
           },
           "clanBuilderBasePoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clanCapitalPoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clanLevel": {
             "type": "integer"
@@ -1389,35 +952,11 @@
           "clanPoints": {
             "type": "integer"
           },
-          "clanVersusPoints": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
           "isFamilyFriendly": {
-            "anyOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "boolean"
           },
           "isWarLogPublic": {
-            "anyOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "boolean"
           },
           "labels": {
             "items": {
@@ -1426,14 +965,7 @@
             "type": "array"
           },
           "location": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Location"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Location"
           },
           "members": {
             "type": "integer"
@@ -1442,54 +974,16 @@
             "type": "string"
           },
           "requiredBuilderBaseTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "requiredLeagueTier": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LeagueTier"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LeagueTier"
           },
           "requiredTownhallLevel": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "requiredTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "requiredVersusTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "tag": {
             "type": "string"
@@ -1503,73 +997,31 @@
             "type": "string"
           },
           "warFrequency": {
-            "anyOf": [
-              {
-                "enum": [
-                  "unknown",
-                  "always",
-                  "moreThanOncePerWeek",
-                  "oncePerWeek",
-                  "lessThanOncePerWeek",
-                  "never",
-                  "any"
-                ],
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "enum": [
+              "unknown",
+              "always",
+              "moreThanOncePerWeek",
+              "oncePerWeek",
+              "lessThanOncePerWeek",
+              "never",
+              "any"
+            ],
+            "type": "string"
           },
           "warLeague": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/WarLeague"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/WarLeague"
           },
           "warLosses": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "warTies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "warWins": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "warWinStreak": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           }
         },
         "required": [
@@ -1591,14 +1043,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -1609,41 +1054,10 @@
       "ClanWar": {
         "anyOf": [
           {
-            "properties": {
-              "clan": {
-                "anyOf": [
-                  {
-                    "$ref": "#/components/schemas/WarClan"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "opponent": {
-                "anyOf": [
-                  {
-                    "$ref": "#/components/schemas/WarClan"
-                  },
-                  {
-                    "type": "null"
-                  }
-                ]
-              },
-              "state": {
-                "enum": [
-                  "notInWar"
-                ],
-                "type": "string"
-              }
-            },
-            "required": [
-              "state"
-            ],
-            "type": "object"
+            "$ref": "#/components/schemas/ActiveClanWar"
           },
           {
-            "$ref": "#/components/schemas/ActiveClanWar"
+            "$ref": "#/components/schemas/NotInWar"
           }
         ]
       },
@@ -1659,14 +1073,7 @@
             "type": "integer"
           },
           "duration": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "order": {
             "type": "integer"
@@ -1687,14 +1094,7 @@
       "ClanWarLeagueClan": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "clanLevel": {
             "type": "integer"
@@ -1753,14 +1153,7 @@
             "type": "array"
           },
           "season": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "state": {
             "enum": [
@@ -1770,16 +1163,6 @@
               "ended"
             ],
             "type": "string"
-          },
-          "tag": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
         "required": [
@@ -1801,40 +1184,26 @@
       "ClanWarLogEntry": {
         "properties": {
           "attacksPerMember": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "battleModifier": {
-            "anyOf": [
-              {
-                "enum": [
-                  "none",
-                  "hardMode",
-                  "minusOne",
-                  "minusTwo",
-                  "minusThree"
-                ],
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "enum": [
+              "none",
+              "hardMode",
+              "minusOne",
+              "minusTwo",
+              "minusThree"
+            ],
+            "type": "string"
           },
           "clan": {
-            "$ref": "#/components/schemas/WarClan"
+            "$ref": "#/components/schemas/WarLogClan"
           },
           "endTime": {
             "type": "string"
           },
           "opponent": {
-            "$ref": "#/components/schemas/WarClan"
+            "$ref": "#/components/schemas/WarLogOpponent"
           },
           "result": {
             "anyOf": [
@@ -1872,14 +1241,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -1896,14 +1258,7 @@
             "type": "array"
           },
           "bestOpponentAttack": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ClanWarAttack"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/ClanWarAttack"
           },
           "mapPosition": {
             "type": "integer"
@@ -1912,14 +1267,7 @@
             "type": "string"
           },
           "opponentAttacks": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "tag": {
             "type": "string"
@@ -1980,24 +1328,10 @@
       "CursorPaging": {
         "properties": {
           "after": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "before": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           }
         },
         "type": "object"
@@ -2020,44 +1354,16 @@
       "IconUrls": {
         "properties": {
           "large": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "medium": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "small": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "tiny": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           }
         },
         "type": "object"
@@ -2065,14 +1371,7 @@
       "Label": {
         "properties": {
           "iconUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/IconUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/IconUrls"
           },
           "id": {
             "type": "integer"
@@ -2096,14 +1395,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -2133,14 +1425,7 @@
       "League": {
         "properties": {
           "iconUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/IconUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/IconUrls"
           },
           "id": {
             "type": "integer"
@@ -2273,16 +1558,6 @@
               "$ref": "#/components/schemas/LeagueSeasonResult"
             },
             "type": "array"
-          },
-          "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
         "required": [
@@ -2310,14 +1585,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -2387,14 +1655,7 @@
       "LeagueTier": {
         "properties": {
           "iconUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/IconUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/IconUrls"
           },
           "id": {
             "type": "integer"
@@ -2418,14 +1679,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -2436,34 +1690,13 @@
       "LegendLeagueTournamentSeasonResult": {
         "properties": {
           "id": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "rank": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "trophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           }
         },
         "type": "object"
@@ -2471,30 +1704,13 @@
       "Location": {
         "properties": {
           "countryCode": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "id": {
             "type": "integer"
           },
           "isCountry": {
             "type": "boolean"
-          },
-          "localizedName": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
           },
           "name": {
             "type": "string"
@@ -2516,18 +1732,58 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
           "items"
+        ],
+        "type": "object"
+      },
+      "NotInWar": {
+        "properties": {
+          "clan": {
+            "$ref": "#/components/schemas/NotInWarClan"
+          },
+          "opponent": {
+            "$ref": "#/components/schemas/NotInWarClan"
+          },
+          "state": {
+            "enum": [
+              "notInWar"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "state"
+        ],
+        "type": "object"
+      },
+      "NotInWarClan": {
+        "properties": {
+          "attacks": {
+            "type": "integer"
+          },
+          "badgeUrls": {
+            "$ref": "#/components/schemas/BadgeUrls"
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "destructionPercentage": {
+            "type": "number"
+          },
+          "stars": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "attacks",
+          "badgeUrls",
+          "clanLevel",
+          "destructionPercentage",
+          "stars"
         ],
         "type": "object"
       },
@@ -2551,111 +1807,41 @@
             "type": "integer"
           },
           "bestBuilderBaseTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "bestTrophies": {
             "type": "integer"
           },
           "builderBaseLeague": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BuilderBaseLeague"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BuilderBaseLeague"
           },
           "builderBaseTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "builderHallLevel": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clan": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/PlayerClan"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/PlayerClan"
           },
           "clanCapitalContributions": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "currentLeagueGroupTag": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "currentLeagueSeasonId": {
-            "anyOf": [
-              {
-                "format": "int64",
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "format": "int64",
+            "type": "integer"
           },
           "defenseWins": {
             "type": "integer"
           },
           "donations": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "donationsReceived": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "expLevel": {
             "type": "integer"
@@ -2679,84 +1865,35 @@
             "type": "array"
           },
           "league": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/League"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/League"
           },
           "leagueTier": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LeagueTier"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LeagueTier"
           },
           "legendStatistics": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/PlayerLegendStatistics"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/PlayerLegendStatistics"
           },
           "name": {
             "type": "string"
           },
           "playerHouse": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/PlayerHouse"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/PlayerHouse"
           },
           "previousLeagueGroupTag": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "previousLeagueSeasonId": {
-            "anyOf": [
-              {
-                "format": "int64",
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "format": "int64",
+            "type": "integer"
           },
           "role": {
-            "anyOf": [
-              {
-                "enum": [
-                  "member",
-                  "admin",
-                  "coLeader",
-                  "leader"
-                ],
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "enum": [
+              "member",
+              "admin",
+              "coLeader",
+              "leader"
+            ],
+            "type": "string"
           },
           "spells": {
             "items": {
@@ -2771,14 +1908,7 @@
             "type": "integer"
           },
           "townHallWeaponLevel": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "troops": {
             "items": {
@@ -2790,18 +1920,11 @@
             "type": "integer"
           },
           "warPreference": {
-            "anyOf": [
-              {
-                "enum": [
-                  "in",
-                  "out"
-                ],
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "enum": [
+              "in",
+              "out"
+            ],
+            "type": "string"
           },
           "warStars": {
             "type": "integer"
@@ -2833,14 +1956,7 @@
             ]
           },
           "info": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "name": {
             "type": "string"
@@ -2875,27 +1991,13 @@
       "PlayerBuilderBaseRanking": {
         "properties": {
           "builderBaseLeague": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BuilderBaseLeague"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BuilderBaseLeague"
           },
           "builderBaseTrophies": {
             "type": "integer"
           },
           "clan": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ClanReference"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/ClanReference"
           },
           "expLevel": {
             "type": "integer"
@@ -2911,26 +2013,6 @@
           },
           "tag": {
             "type": "string"
-          },
-          "versusBattleWins": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "versusTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
           }
         },
         "required": [
@@ -2952,14 +2034,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -2970,24 +2045,10 @@
       "PlayerClan": {
         "properties": {
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "clanLevel": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "name": {
             "type": "string"
@@ -3037,17 +2098,10 @@
       "PlayerItemLevel": {
         "properties": {
           "equipment": {
-            "anyOf": [
-              {
-                "items": {
-                  "$ref": "#/components/schemas/PlayerItemLevel"
-                },
-                "type": "array"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "items": {
+              "$ref": "#/components/schemas/PlayerItemLevel"
+            },
+            "type": "array"
           },
           "level": {
             "type": "integer"
@@ -3059,14 +2113,7 @@
             "type": "string"
           },
           "superTroopIsActive": {
-            "anyOf": [
-              {
-                "type": "boolean"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "boolean"
           },
           "village": {
             "enum": [
@@ -3088,64 +2135,22 @@
       "PlayerLegendStatistics": {
         "properties": {
           "bestBuilderBaseSeason": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
           },
           "bestSeason": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
           },
           "currentSeason": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
           },
           "legendTrophies": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "previousBuilderBaseSeason": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
           },
           "previousSeason": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
           }
         },
         "type": "object"
@@ -3153,57 +2158,22 @@
       "PlayerRanking": {
         "properties": {
           "attackWins": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clan": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ClanReference"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/ClanReference"
           },
           "defenseWins": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "expLevel": {
             "type": "integer"
           },
           "league": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/League"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/League"
           },
           "leagueTier": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LeagueTier"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LeagueTier"
           },
           "name": {
             "type": "string"
@@ -3240,14 +2210,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -3258,70 +2221,22 @@
       "PlayerSeasonRanking": {
         "properties": {
           "attackWins": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "clan": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/ClanReference"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/ClanReference"
           },
           "defenseWins": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "expLevel": {
             "type": "integer"
           },
-          "league": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/League"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
           "leagueTier": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/LeagueTier"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/LeagueTier"
           },
           "name": {
             "type": "string"
-          },
-          "previousRank": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
           },
           "rank": {
             "type": "integer"
@@ -3351,14 +2266,7 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
@@ -3422,47 +2330,16 @@
       "WarClan": {
         "properties": {
           "attacks": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "badgeUrls": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/BadgeUrls"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/BadgeUrls"
           },
           "clanLevel": {
             "type": "integer"
           },
           "destructionPercentage": {
-            "anyOf": [
-              {
-                "type": "number"
-              },
-              {
-                "type": "null"
-              }
-            ]
-          },
-          "expEarned": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "number"
           },
           "members": {
             "items": {
@@ -3471,38 +2348,23 @@
             "type": "array"
           },
           "name": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           },
           "stars": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "integer"
           },
           "tag": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "type": "string"
           }
         },
         "required": [
-          "clanLevel"
+          "attacks",
+          "badgeUrls",
+          "clanLevel",
+          "destructionPercentage",
+          "name",
+          "stars",
+          "tag"
         ],
         "type": "object"
       },
@@ -3530,18 +2392,79 @@
             "type": "array"
           },
           "paging": {
-            "anyOf": [
-              {
-                "$ref": "#/components/schemas/Paging"
-              },
-              {
-                "type": "null"
-              }
-            ]
+            "$ref": "#/components/schemas/Paging"
           }
         },
         "required": [
           "items"
+        ],
+        "type": "object"
+      },
+      "WarLogClan": {
+        "properties": {
+          "attacks": {
+            "type": "integer"
+          },
+          "badgeUrls": {
+            "$ref": "#/components/schemas/BadgeUrls"
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "destructionPercentage": {
+            "type": "number"
+          },
+          "expEarned": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "integer"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "attacks",
+          "badgeUrls",
+          "clanLevel",
+          "destructionPercentage",
+          "expEarned",
+          "name",
+          "stars",
+          "tag"
+        ],
+        "type": "object"
+      },
+      "WarLogOpponent": {
+        "properties": {
+          "badgeUrls": {
+            "$ref": "#/components/schemas/BadgeUrls"
+          },
+          "clanLevel": {
+            "type": "integer"
+          },
+          "destructionPercentage": {
+            "type": "number"
+          },
+          "name": {
+            "type": "string"
+          },
+          "stars": {
+            "type": "integer"
+          },
+          "tag": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "badgeUrls",
+          "clanLevel",
+          "destructionPercentage",
+          "stars"
         ],
         "type": "object"
       }
@@ -3551,7 +2474,7 @@
   "info": {
     "description": "Community-maintained mock Clash of Clans API. Not affiliated with Supercell. Use #2PP and additional trailing Ps to select deterministic fixture variants. All models and OpenAPI are derived from the Effect contract.",
     "title": "Clash of Clans example API",
-    "version": "1.1.4"
+    "version": "2.0.0"
   },
   "openapi": "3.1.0",
   "paths": {
