@@ -28,10 +28,35 @@ const location = {
     examples: ['32000249'],
   }),
 };
+const rankingLocation = {
+  locationId: Schema.String.annotate({
+    description:
+      'Identifier of the location. Use "global" for worldwide rankings.',
+    examples: ['global'],
+  }),
+};
 const league = {
   leagueId: Schema.String.annotate({
     description: 'Identifier of the league.',
     examples: ['29000022'],
+  }),
+};
+const capitalLeague = {
+  leagueId: Schema.String.annotate({
+    description: 'Identifier of the Clan Capital league.',
+    examples: ['85000022'],
+  }),
+};
+const builderBaseLeague = {
+  leagueId: Schema.String.annotate({
+    description: 'Identifier of the Builder Base league.',
+    examples: ['44000041'],
+  }),
+};
+const warLeague = {
+  leagueId: Schema.String.annotate({
+    description: 'Identifier of the Clan War League.',
+    examples: ['48000018'],
   }),
 };
 
@@ -200,7 +225,7 @@ export const Leagues = G.make('leagues').add(
     .annotate(OpenApi.Summary, 'List capital leagues')
     .annotate(OpenApi.Description, 'List Clan Capital leagues.'),
   E.get('capital', '/capitalleagues/:leagueId', {
-    params: league,
+    params: capitalLeague,
     success: success(W.CapitalLeague),
     error: errors,
   })
@@ -217,7 +242,7 @@ export const Leagues = G.make('leagues').add(
     .annotate(OpenApi.Summary, 'List Builder Base leagues')
     .annotate(OpenApi.Description, 'List Builder Base leagues.'),
   E.get('builder', '/builderbaseleagues/:leagueId', {
-    params: league,
+    params: builderBaseLeague,
     success: success(W.BuilderBaseLeague),
     error: errors,
   })
@@ -234,7 +259,7 @@ export const Leagues = G.make('leagues').add(
     .annotate(OpenApi.Summary, 'List war leagues')
     .annotate(OpenApi.Description, 'List Clan War Leagues.'),
   E.get('war', '/warleagues/:leagueId', {
-    params: league,
+    params: warLeague,
     success: success(W.WarLeague),
     error: errors,
   })
@@ -258,8 +283,9 @@ export const Leagues = G.make('leagues').add(
     params: {
       ...league,
       seasonId: Schema.String.annotate({
-        description: 'Identifier of the season (YYYY-MM).',
-        examples: ['2025-10'],
+        description:
+          'Identifier of the season (YYYY-MM, YYYY-MM-DD, or v2-YYYY-MM-DDTHH:MM:SSZ).',
+        examples: ['2026-02-23'],
       }),
     },
     query: Paging,
@@ -275,11 +301,11 @@ export const Leagues = G.make('leagues').add(
     params: {
       leagueGroupTag: Schema.String.annotate({
         description: 'Tag of the ranked league group.',
-        examples: ['#2PP'],
+        examples: ['#2YYCYCC'],
       }),
       leagueSeasonId: Schema.String.annotate({
         description: 'Identifier of the ranked league season.',
-        examples: ['1'],
+        examples: ['1773032400'],
       }),
     },
     query: {
@@ -324,7 +350,7 @@ export const Locations = G.make('locations').add(
       'Get information about a specific location.',
     ),
   E.get('clans', '/locations/:locationId/rankings/clans', {
-    params: location,
+    params: rankingLocation,
     query: Paging,
     success: success(W.ClanRankingListResponse),
     error: errors,
@@ -335,7 +361,7 @@ export const Locations = G.make('locations').add(
       'Get Home Village clan rankings for a specific location.',
     ),
   E.get('players', '/locations/:locationId/rankings/players', {
-    params: location,
+    params: rankingLocation,
     query: Paging,
     success: success(W.PlayerRankingListResponse),
     error: errors,
@@ -346,7 +372,7 @@ export const Locations = G.make('locations').add(
       'Get Home Village player rankings for a specific location.',
     ),
   E.get('builders', '/locations/:locationId/rankings/players-builder-base', {
-    params: location,
+    params: rankingLocation,
     query: Paging,
     success: success(W.PlayerBuilderBaseRankingListResponse),
     error: errors,
@@ -360,7 +386,7 @@ export const Locations = G.make('locations').add(
       'Get Builder Base player rankings for a specific location.',
     ),
   E.get('builderClans', '/locations/:locationId/rankings/clans-builder-base', {
-    params: location,
+    params: rankingLocation,
     query: Paging,
     success: success(W.ClanBuilderBaseRankingListResponse),
     error: errors,
@@ -371,7 +397,7 @@ export const Locations = G.make('locations').add(
       'Get Builder Base clan rankings for a specific location.',
     ),
   E.get('capitals', '/locations/:locationId/rankings/capitals', {
-    params: location,
+    params: rankingLocation,
     query: Paging,
     success: success(W.ClanCapitalRankingListResponse),
     error: errors,

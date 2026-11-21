@@ -703,6 +703,7 @@ export interface components {
             badgeUrls?: components["schemas"]["BadgeUrls"] | null;
             clanCapitalPoints: number;
             clanLevel: number;
+            clanPoints?: number | null;
             location?: components["schemas"]["Location"] | null;
             members: number;
             name: string;
@@ -746,7 +747,7 @@ export interface components {
         PlayerBuilderBaseRanking: {
             versusTrophies?: number | null;
             versusBattleWins?: number | null;
-            builderBaseLeague?: components["schemas"]["BuilderBaseLeague"];
+            builderBaseLeague?: components["schemas"]["BuilderBaseLeague"] | null;
             builderBaseTrophies: number;
             clan?: components["schemas"]["ClanReference"] | null;
             expLevel: number;
@@ -884,11 +885,13 @@ export interface components {
             paging?: components["schemas"]["Paging"] | null;
         };
         VerifyTokenResponse: {
-            status: string;
+            /** @enum {string} */
+            status: "ok" | "invalid";
             tag: string;
             token: string;
         };
         VerifyTokenRequest: {
+            /** @example TOKEN */
             token: string;
         };
         LeagueHistoryResponse: {
@@ -916,15 +919,20 @@ export interface components {
             armyShareCode?: string | null;
             attack: boolean;
             availableLoot?: components["schemas"]["Resource"][];
+            battleTime: number;
+            battleTimestamp: string;
             /** @enum {string} */
             battleType: "ranked" | "legend" | "homeVillage";
             destructionPercentage: number;
             extraLootedResources?: components["schemas"]["Resource"][];
             lootedResources?: components["schemas"]["Resource"][];
+            opponentName: string;
             opponentPlayerTag: string;
+            opponentTownHallLevel: number;
             stars: number;
         };
         Resource: {
+            /** Format: int64 */
             amount: number;
             name: string;
         };
@@ -933,7 +941,7 @@ export interface components {
             attackWins: number;
             bestBuilderBaseTrophies?: number | null;
             bestTrophies: number;
-            builderBaseLeague?: components["schemas"]["BuilderBaseLeague"];
+            builderBaseLeague?: components["schemas"]["BuilderBaseLeague"] | null;
             builderBaseTrophies?: number | null;
             builderHallLevel?: number | null;
             clan?: components["schemas"]["PlayerClan"] | null;
@@ -948,19 +956,20 @@ export interface components {
             heroes?: components["schemas"]["PlayerItemLevel"][];
             labels?: components["schemas"]["Label"][];
             league?: components["schemas"]["League"] | null;
-            leagueTier?: components["schemas"]["LeagueTier"];
+            leagueTier?: components["schemas"]["LeagueTier"] | null;
             legendStatistics?: components["schemas"]["PlayerLegendStatistics"] | null;
             name: string;
             playerHouse?: components["schemas"]["PlayerHouse"] | null;
             previousLeagueGroupTag?: string | null;
             previousLeagueSeasonId?: number | null;
-            role?: string | null;
+            role?: ("member" | "admin" | "coLeader" | "leader") | null;
             spells?: components["schemas"]["PlayerItemLevel"][];
             tag: string;
             townHallLevel: number;
+            townHallWeaponLevel?: number | null;
             troops?: components["schemas"]["PlayerItemLevel"][];
             trophies: number;
-            warPreference?: string | null;
+            warPreference?: ("in" | "out") | null;
             warStars: number;
         };
         PlayerItemLevel: {
@@ -969,14 +978,16 @@ export interface components {
             maxLevel: number;
             name: string;
             superTroopIsActive?: boolean | null;
-            village: string;
+            /** @enum {string} */
+            village: "home" | "builderBase" | "clanCapital";
         };
         PlayerHouse: {
             elements?: components["schemas"]["PlayerHouseElement"][];
         };
         PlayerHouseElement: {
             id: number;
-            type: string;
+            /** @enum {string} */
+            type: "ground" | "walls" | "roof" | "decoration";
         };
         PlayerLegendStatistics: {
             bestBuilderBaseSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"] | null;
@@ -1004,7 +1015,8 @@ export interface components {
             stars: number;
             target: number;
             value: number;
-            village: string;
+            /** @enum {string} */
+            village: "home" | "builderBase" | "clanCapital";
         };
         CapitalRaidSeasonsResponse: {
             items: components["schemas"]["ClanCapitalRaidSeason"][];
@@ -1021,7 +1033,8 @@ export interface components {
             offensiveReward: number;
             raidsCompleted: number;
             startTime: string;
-            state: string;
+            /** @enum {string} */
+            state: "ongoing" | "ended";
             totalAttacks: number;
         };
         ClanCapitalRaidSeasonMember: {
@@ -1074,11 +1087,13 @@ export interface components {
         ClanWar: {
             /** @enum {string} */
             state: "notInWar";
+            clan?: components["schemas"]["WarClan"] | null;
+            opponent?: components["schemas"]["WarClan"] | null;
         } | components["schemas"]["ActiveClanWar"];
         ActiveClanWar: {
             warStartTime?: string | null;
             attacksPerMember?: number | null;
-            battleModifier?: string | null;
+            battleModifier?: ("none" | "hardMode" | "minusOne" | "minusTwo" | "minusThree") | null;
             clan: components["schemas"]["WarClan"];
             endTime: string;
             opponent: components["schemas"]["WarClan"];
@@ -1120,7 +1135,8 @@ export interface components {
             clans?: components["schemas"]["ClanWarLeagueClan"][];
             rounds?: components["schemas"]["ClanWarLeagueRound"][];
             season?: string | null;
-            state: string;
+            /** @enum {string} */
+            state: "notInWar" | "preparation" | "inWar" | "ended";
             tag?: string | null;
         };
         ClanWarLeagueRound: {
@@ -1144,11 +1160,11 @@ export interface components {
         };
         ClanWarLogEntry: {
             attacksPerMember?: number | null;
-            battleModifier?: string | null;
+            battleModifier?: ("none" | "hardMode" | "minusOne" | "minusTwo" | "minusThree") | null;
             clan: components["schemas"]["WarClan"];
             endTime: string;
             opponent: components["schemas"]["WarClan"];
-            result?: string | null;
+            result?: ("win" | "lose" | "tie") | null;
             teamSize: number;
         };
         ClanMembersResponse: {
@@ -1156,17 +1172,19 @@ export interface components {
             paging?: components["schemas"]["Paging"] | null;
         };
         ClanMember: {
-            builderBaseLeague?: components["schemas"]["League"] | null;
+            builderBaseLeague?: components["schemas"]["BuilderBaseLeague"] | null;
             builderBaseTrophies?: number | null;
             clanRank: number;
             donations: number;
             donationsReceived: number;
             expLevel: number;
             league?: components["schemas"]["League"] | null;
+            leagueTier?: components["schemas"]["LeagueTier"] | null;
             name: string;
             playerHouse?: components["schemas"]["PlayerHouse"] | null;
             previousClanRank: number;
-            role: string;
+            /** @enum {string} */
+            role: "member" | "admin" | "coLeader" | "leader";
             tag: string;
             townHallLevel: number;
             trophies: number;
@@ -1191,6 +1209,7 @@ export interface components {
             members: number;
             name: string;
             requiredBuilderBaseTrophies?: number | null;
+            requiredLeagueTier?: components["schemas"]["LeagueTier"] | null;
             requiredTownhallLevel?: number | null;
             requiredTrophies?: number | null;
             requiredVersusTrophies?: number | null;
@@ -1240,6 +1259,7 @@ export interface components {
             members: number;
             name: string;
             requiredBuilderBaseTrophies?: number | null;
+            requiredLeagueTier?: components["schemas"]["LeagueTier"] | null;
             requiredTownhallLevel?: number | null;
             requiredTrophies?: number | null;
             requiredVersusTrophies?: number | null;
@@ -1269,7 +1289,7 @@ export interface operations {
                 after?: string;
                 before?: string;
                 name?: string;
-                warFrequency?: string;
+                warFrequency?: "unknown" | "always" | "moreThanOncePerWeek" | "oncePerWeek" | "lessThanOncePerWeek" | "never" | "any";
                 locationId?: number;
                 minMembers?: number;
                 maxMembers?: number;

@@ -2,54 +2,77 @@
   "body": {
     "items": [
       {
-        "tag": "#2LYQCJJ2U",
+        "tag": "#2L8URYJ9L",
         "name": "test",
         "type": "closed",
         "location": {
-          "id": 32000204,
-          "name": "Saudi Arabia",
+          "id": 32000115,
+          "name": "Iran",
           "isCountry": true,
-          "countryCode": "SA"
+          "countryCode": "IR"
         },
-        "isFamilyFriendly": false,
+        "isFamilyFriendly": true,
         "badgeUrls": {
-          "small": "https://api-assets.clashofclans.com/badges/70/gVTj7fCqT1XMQD2ozZIuvUigj7r2n1qgbnAzByQvuhw.png",
-          "large": "https://api-assets.clashofclans.com/badges/512/gVTj7fCqT1XMQD2ozZIuvUigj7r2n1qgbnAzByQvuhw.png",
-          "medium": "https://api-assets.clashofclans.com/badges/200/gVTj7fCqT1XMQD2ozZIuvUigj7r2n1qgbnAzByQvuhw.png"
+          "small": "https://api-assets.clashofclans.com/badges/70/4vLvAkaNNp2h-f8z58GVtDIJj0P5F9GliQV3ov25krg.png",
+          "large": "https://api-assets.clashofclans.com/badges/512/4vLvAkaNNp2h-f8z58GVtDIJj0P5F9GliQV3ov25krg.png",
+          "medium": "https://api-assets.clashofclans.com/badges/200/4vLvAkaNNp2h-f8z58GVtDIJj0P5F9GliQV3ov25krg.png"
         },
-        "clanLevel": 1,
-        "clanPoints": 4356,
-        "clanBuilderBasePoints": 3643,
-        "clanVersusPoints": 3643,
+        "clanLevel": 7,
+        "clanPoints": 27800,
+        "clanBuilderBasePoints": 20751,
         "clanCapitalPoints": 0,
         "capitalLeague": {
           "id": 85000000,
           "name": "Unranked"
         },
-        "requiredTrophies": 0,
-        "warFrequency": "unknown",
-        "warWinStreak": 0,
-        "warWins": 0,
-        "warTies": 0,
-        "warLosses": 0,
+        "requiredTrophies": 2000,
+        "warFrequency": "always",
+        "warWinStreak": 1,
+        "warWins": 31,
+        "warTies": 1,
+        "warLosses": 47,
         "isWarLogPublic": true,
         "warLeague": {
-          "id": 48000000,
-          "name": "Unranked"
+          "id": 48000007,
+          "name": "Gold League III"
         },
-        "members": 5,
-        "labels": [],
-        "requiredBuilderBaseTrophies": 0,
-        "requiredVersusTrophies": 0,
-        "requiredTownhallLevel": 14,
+        "members": 31,
+        "labels": [
+          {
+            "id": 56000001,
+            "name": "Clan War League",
+            "iconUrls": {
+              "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+              "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+            }
+          },
+          {
+            "id": 56000003,
+            "name": "Friendly Wars",
+            "iconUrls": {
+              "small": "https://api-assets.clashofclans.com/labels/64/6NxZMDn9ryFw8-FHJJimcEkKwnXZHMVUp_0cCVT6onY.png",
+              "medium": "https://api-assets.clashofclans.com/labels/128/6NxZMDn9ryFw8-FHJJimcEkKwnXZHMVUp_0cCVT6onY.png"
+            }
+          },
+          {
+            "id": 56000004,
+            "name": "Clan Games",
+            "iconUrls": {
+              "small": "https://api-assets.clashofclans.com/labels/64/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png",
+              "medium": "https://api-assets.clashofclans.com/labels/128/7qU7tQGERiVITVG0CPFov1-BnFldu4bMN2gXML5bLIU.png"
+            }
+          }
+        ],
+        "requiredBuilderBaseTrophies": 800,
+        "requiredTownhallLevel": 10,
         "chatLanguage": {
-          "id": 75000014,
-          "name": "العربية",
-          "languageCode": "AR"
+          "id": 75000015,
+          "name": "فارسی",
+          "languageCode": "FA"
         }
       },
       {
-        "tag": "#2Q2CVGJUP",
+        "tag": "#2RR89G20R",
         "name": "clan test",
         "type": "inviteOnly",
         "location": {
@@ -59,31 +82,30 @@
         },
         "isFamilyFriendly": false,
         "badgeUrls": {
-          "small": "https://api-assets.clashofclans.com/badges/70/NLvUgoC_zxul5PaUT_wK0y5qwYa7MpYSw2Sgl9MspmM.png",
-          "large": "https://api-assets.clashofclans.com/badges/512/NLvUgoC_zxul5PaUT_wK0y5qwYa7MpYSw2Sgl9MspmM.png",
-          "medium": "https://api-assets.clashofclans.com/badges/200/NLvUgoC_zxul5PaUT_wK0y5qwYa7MpYSw2Sgl9MspmM.png"
+          "small": "https://api-assets.clashofclans.com/badges/70/bpjWMZz606PFZeQJq2itYsiZby4zOJHpDsDlgWZw7B8.png",
+          "large": "https://api-assets.clashofclans.com/badges/512/bpjWMZz606PFZeQJq2itYsiZby4zOJHpDsDlgWZw7B8.png",
+          "medium": "https://api-assets.clashofclans.com/badges/200/bpjWMZz606PFZeQJq2itYsiZby4zOJHpDsDlgWZw7B8.png"
         },
-        "clanLevel": 6,
-        "clanPoints": 11528,
-        "clanBuilderBasePoints": 9363,
-        "clanVersusPoints": 9363,
+        "clanLevel": 10,
+        "clanPoints": 42750,
+        "clanBuilderBasePoints": 25935,
         "clanCapitalPoints": 0,
         "capitalLeague": {
           "id": 85000000,
           "name": "Unranked"
         },
-        "requiredTrophies": 1000,
-        "warFrequency": "always",
-        "warWinStreak": 1,
-        "warWins": 63,
-        "warTies": 0,
-        "warLosses": 42,
+        "requiredTrophies": 600,
+        "warFrequency": "unknown",
+        "warWinStreak": 2,
+        "warWins": 37,
+        "warTies": 2,
+        "warLosses": 34,
         "isWarLogPublic": true,
         "warLeague": {
-          "id": 48000000,
-          "name": "Unranked"
+          "id": 48000007,
+          "name": "Gold League III"
         },
-        "members": 7,
+        "members": 48,
         "labels": [
           {
             "id": 56000000,
@@ -94,11 +116,11 @@
             }
           },
           {
-            "id": 56000009,
-            "name": "Donations",
+            "id": 56000001,
+            "name": "Clan War League",
             "iconUrls": {
-              "small": "https://api-assets.clashofclans.com/labels/64/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png",
-              "medium": "https://api-assets.clashofclans.com/labels/128/RauzS-02tv4vWm1edZ-q3gPQGWKGANLZ-85HCw_NVP0.png"
+              "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+              "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
             }
           },
           {
@@ -110,15 +132,103 @@
             }
           }
         ],
-        "requiredBuilderBaseTrophies": 400,
-        "requiredVersusTrophies": 400,
-        "requiredTownhallLevel": 11
+        "requiredBuilderBaseTrophies": 1000,
+        "requiredTownhallLevel": 10,
+        "requiredLeagueTier": {
+          "id": 105000009,
+          "name": "Archer League 9",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/ieEdz9Mqbo7g9iJfXwTnIh7Iwz-37aPEmWma1ENEwXE.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/ieEdz9Mqbo7g9iJfXwTnIh7Iwz-37aPEmWma1ENEwXE.png"
+          }
+        },
+        "chatLanguage": {
+          "id": 75000000,
+          "name": "English",
+          "languageCode": "EN"
+        }
+      },
+      {
+        "tag": "#2GGRJ2QGR",
+        "name": "clash",
+        "type": "open",
+        "location": {
+          "id": 32000113,
+          "name": "India",
+          "isCountry": true,
+          "countryCode": "IN"
+        },
+        "isFamilyFriendly": false,
+        "badgeUrls": {
+          "small": "https://api-assets.clashofclans.com/badges/70/cWALcvn8_OemsVg6REqa-DbsyMXrJdbS8GUBrKRIdD8.png",
+          "large": "https://api-assets.clashofclans.com/badges/512/cWALcvn8_OemsVg6REqa-DbsyMXrJdbS8GUBrKRIdD8.png",
+          "medium": "https://api-assets.clashofclans.com/badges/200/cWALcvn8_OemsVg6REqa-DbsyMXrJdbS8GUBrKRIdD8.png"
+        },
+        "clanLevel": 15,
+        "clanPoints": 71600,
+        "clanBuilderBasePoints": 29077,
+        "clanCapitalPoints": 0,
+        "capitalLeague": {
+          "id": 85000000,
+          "name": "Unranked"
+        },
+        "requiredTrophies": 1000,
+        "warFrequency": "always",
+        "warWinStreak": 1,
+        "warWins": 83,
+        "warTies": 1,
+        "warLosses": 116,
+        "isWarLogPublic": true,
+        "warLeague": {
+          "id": 48000009,
+          "name": "Gold League I"
+        },
+        "members": 35,
+        "labels": [
+          {
+            "id": 56000000,
+            "name": "Clan Wars",
+            "iconUrls": {
+              "small": "https://api-assets.clashofclans.com/labels/64/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png",
+              "medium": "https://api-assets.clashofclans.com/labels/128/lXaIuoTlfoNOY5fKcQGeT57apz1KFWkN9-raxqIlMbE.png"
+            }
+          },
+          {
+            "id": 56000001,
+            "name": "Clan War League",
+            "iconUrls": {
+              "small": "https://api-assets.clashofclans.com/labels/64/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png",
+              "medium": "https://api-assets.clashofclans.com/labels/128/5w60_3bdtYUe9SM6rkxBRyV_8VvWw_jTlDS5ieU3IsI.png"
+            }
+          },
+          {
+            "id": 56000002,
+            "name": "Trophy Pushing",
+            "iconUrls": {
+              "small": "https://api-assets.clashofclans.com/labels/64/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png",
+              "medium": "https://api-assets.clashofclans.com/labels/128/hNtigjuwJjs6PWhVtVt5HvJgAp4ZOMO8e2nyjHX29sA.png"
+            }
+          }
+        ],
+        "requiredBuilderBaseTrophies": 0,
+        "requiredTownhallLevel": 14,
+        "requiredLeagueTier": {
+          "id": 105000001,
+          "name": "Skeleton League 1",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/CiSJYHyhMuloCpIIJ3n5-xCnRWrEd9vcq_zu6Ahkl3o.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/CiSJYHyhMuloCpIIJ3n5-xCnRWrEd9vcq_zu6Ahkl3o.png"
+          }
+        },
+        "chatLanguage": {
+          "id": 75000000,
+          "name": "English",
+          "languageCode": "EN"
+        }
       }
     ],
     "paging": {
-      "cursors": {
-        "after": "eyJwb3MiOjJ9"
-      }
+      "cursors": {}
     }
   },
   "headers": {
