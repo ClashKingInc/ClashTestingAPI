@@ -2,414 +2,707 @@
   "body": {
     "items": [
       {
-        "tag": "#29C8JY20C",
-        "name": "Grantツ",
-        "expLevel": 243,
+        "tag": "#R8C8LCCY",
+        "name": "风暴之城",
+        "expLevel": 276,
+        "trophies": 5600,
+        "attackWins": 604,
+        "defenseWins": 49,
         "rank": 1,
-        "previousRank": 2,
-        "builderBaseTrophies": 6300,
-        "clan": {
-          "tag": "#2RC28RQ88",
-          "name": "The Creators",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png"
-          }
-        },
-        "builderBaseLeague": {
-          "id": 44000041,
-          "name": "Diamond League"
-        }
-      },
-      {
-        "tag": "#GLC289U92",
-        "name": "Clapmaster",
-        "expLevel": 250,
-        "rank": 2,
         "previousRank": 3,
-        "builderBaseTrophies": 6245,
         "clan": {
-          "tag": "#2RC28RQ88",
-          "name": "The Creators",
+          "tag": "#2JLUG982Y",
+          "name": "Lost Souls",
           "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png"
+            "small": "https://api-assets.clashofclans.com/badges/70/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000041,
-          "name": "Diamond League"
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
         }
       },
       {
-        "tag": "#C8VLYQYR",
-        "name": "GodsOn3264",
-        "expLevel": 254,
-        "rank": 3,
-        "previousRank": 4,
-        "builderBaseTrophies": 6139,
+        "tag": "#8LUJ9UL82",
+        "name": "Ruthless^_^",
+        "expLevel": 270,
+        "trophies": 5495,
+        "attackWins": 1087,
+        "defenseWins": 33,
+        "rank": 2,
+        "previousRank": 6,
         "clan": {
-          "tag": "#2G2VR929L",
-          "name": "DOSTLAR KLANI",
+          "tag": "#2GRPGV0VL",
+          "name": "July",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/vTXIeyOBhf7LsuLNf9rxSCaKrSo6zqaGtAXQ5rwA0FI.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/vTXIeyOBhf7LsuLNf9rxSCaKrSo6zqaGtAXQ5rwA0FI.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/vTXIeyOBhf7LsuLNf9rxSCaKrSo6zqaGtAXQ5rwA0FI.png"
+          }
+        },
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#QCRJ02298",
+        "name": "sus amogus 727",
+        "expLevel": 262,
+        "trophies": 5475,
+        "attackWins": 1207,
+        "defenseWins": 60,
+        "rank": 3,
+        "previousRank": 1,
+        "clan": {
+          "tag": "#2GRC08RJ",
+          "name": "ABO_FAHAD COC",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/2dDRZMW6A2jP_ZwPEqqVorfIz848Gz67kyWDvFzrbIE.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/2dDRZMW6A2jP_ZwPEqqVorfIz848Gz67kyWDvFzrbIE.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/2dDRZMW6A2jP_ZwPEqqVorfIz848Gz67kyWDvFzrbIE.png"
+          }
+        },
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#QP9JY9LGY",
+        "name": "BB✨ Lynn",
+        "expLevel": 253,
+        "trophies": 5467,
+        "attackWins": 1215,
+        "defenseWins": 62,
+        "rank": 4,
+        "previousRank": 24,
+        "clan": {
+          "tag": "#222GVL0YL",
+          "name": "咿呀咿呀柚",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/BGks_0zi5uaMgGdh3JfegKTfcZdSyfIxylk4-Ebqc3w.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/BGks_0zi5uaMgGdh3JfegKTfcZdSyfIxylk4-Ebqc3w.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/BGks_0zi5uaMgGdh3JfegKTfcZdSyfIxylk4-Ebqc3w.png"
+          }
+        },
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#QQYL9YYQQ",
+        "name": "男叶",
+        "expLevel": 244,
+        "trophies": 5466,
+        "attackWins": 1726,
+        "defenseWins": 95,
+        "rank": 5,
+        "previousRank": 5,
+        "clan": {
+          "tag": "#22RR0PPUL",
+          "name": "最强部落",
           "badgeUrls": {
             "small": "https://api-assets.clashofclans.com/badges/70/f6Yglz_HpPjYzfVEgnowYO5L4EjNR3buOu32Pw5a0SI.png",
             "large": "https://api-assets.clashofclans.com/badges/512/f6Yglz_HpPjYzfVEgnowYO5L4EjNR3buOu32Pw5a0SI.png",
             "medium": "https://api-assets.clashofclans.com/badges/200/f6Yglz_HpPjYzfVEgnowYO5L4EjNR3buOu32Pw5a0SI.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000040,
-          "name": "Ruby League I"
-        }
-      },
-      {
-        "tag": "#J8R2LVJQ",
-        "name": "UsedTubesock",
-        "expLevel": 230,
-        "rank": 4,
-        "previousRank": 8,
-        "builderBaseTrophies": 6133,
-        "clan": {
-          "tag": "#2QQV8UVUU",
-          "name": "KURD",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/0mIIvT1qMEwyYZIFEWCcGSfI0L3yixIp9ZlMPnZpHXg.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/0mIIvT1qMEwyYZIFEWCcGSfI0L3yixIp9ZlMPnZpHXg.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/0mIIvT1qMEwyYZIFEWCcGSfI0L3yixIp9ZlMPnZpHXg.png"
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000040,
-          "name": "Ruby League I"
-        }
-      },
-      {
-        "tag": "#LGJLC8VYR",
-        "name": "Little Gavin",
-        "expLevel": 297,
-        "rank": 5,
-        "previousRank": 1,
-        "builderBaseTrophies": 6039,
-        "clan": {
-          "tag": "#R09QQPUQ",
-          "name": "Knights",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/3xaFJQYN3j6JEKHvyDNO6-7pG7Foa9MePjJfnggtGC0.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/3xaFJQYN3j6JEKHvyDNO6-7pG7Foa9MePjJfnggtGC0.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/3xaFJQYN3j6JEKHvyDNO6-7pG7Foa9MePjJfnggtGC0.png"
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
           }
-        },
-        "builderBaseLeague": {
-          "id": 44000040,
-          "name": "Ruby League I"
         }
       },
       {
-        "tag": "#GY2LLPYPU",
-        "name": "Clapmaster 2",
-        "expLevel": 223,
+        "tag": "#LPC908UP",
+        "name": "Big Country",
+        "expLevel": 279,
+        "trophies": 5436,
+        "attackWins": 1184,
+        "defenseWins": 33,
         "rank": 6,
-        "previousRank": 5,
-        "builderBaseTrophies": 5997,
+        "previousRank": 8,
         "clan": {
-          "tag": "#2RC28RQ88",
-          "name": "The Creators",
+          "tag": "#QVUYRJLL",
+          "name": "The Bad Batch",
           "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/amDK6k1GPaB8kurPJBfDx97Jep5sOlznkuJHjHUq9nc.png"
+            "small": "https://api-assets.clashofclans.com/badges/70/ITMHqKCB5FrsQsChyzeA3ZQyUUht4mYShfeIPIiiiug.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/ITMHqKCB5FrsQsChyzeA3ZQyUUht4mYShfeIPIiiiug.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/ITMHqKCB5FrsQsChyzeA3ZQyUUht4mYShfeIPIiiiug.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000039,
-          "name": "Ruby League II"
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
         }
       },
       {
-        "tag": "#LJU2JCCG9",
-        "name": "YOKAI",
-        "expLevel": 262,
+        "tag": "#QUCRRQJPJ",
+        "name": "Mouth Breather",
+        "expLevel": 234,
+        "trophies": 5424,
+        "attackWins": 1382,
+        "defenseWins": 87,
         "rank": 7,
-        "previousRank": 6,
-        "builderBaseTrophies": 5948,
+        "previousRank": 2,
         "clan": {
-          "tag": "#2G9VRJ2C8",
-          "name": "ㅤㅤㅤ",
+          "tag": "#2GRC08RJ",
+          "name": "ABO_FAHAD COC",
           "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/IuD30W8lcoKfT3JwrVAesVApTmgMTPaNCJakp5FaaR4.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/IuD30W8lcoKfT3JwrVAesVApTmgMTPaNCJakp5FaaR4.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/IuD30W8lcoKfT3JwrVAesVApTmgMTPaNCJakp5FaaR4.png"
+            "small": "https://api-assets.clashofclans.com/badges/70/2dDRZMW6A2jP_ZwPEqqVorfIz848Gz67kyWDvFzrbIE.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/2dDRZMW6A2jP_ZwPEqqVorfIz848Gz67kyWDvFzrbIE.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/2dDRZMW6A2jP_ZwPEqqVorfIz848Gz67kyWDvFzrbIE.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000039,
-          "name": "Ruby League II"
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
         }
       },
       {
-        "tag": "#8UU2GGJR",
-        "name": "☠️嗎嗎嗎嗎我我我我✌️✌️",
-        "expLevel": 238,
+        "tag": "#2LV0UGYRP",
+        "name": "⭐️LURPAPRANDO⭐️",
+        "expLevel": 276,
+        "trophies": 5413,
+        "attackWins": 1445,
+        "defenseWins": 38,
         "rank": 8,
-        "previousRank": 7,
-        "builderBaseTrophies": 5905,
+        "previousRank": 34,
         "clan": {
-          "tag": "#CLUP8RPC",
-          "name": "Rejects",
+          "tag": "#2GRPC0UQY",
+          "name": "TEAM CUBA",
           "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/0mIsEmPZ2x0kC5U0f6SQihPXIREYvVmNnVzRlZra0dM.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/0mIsEmPZ2x0kC5U0f6SQihPXIREYvVmNnVzRlZra0dM.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/0mIsEmPZ2x0kC5U0f6SQihPXIREYvVmNnVzRlZra0dM.png"
+            "small": "https://api-assets.clashofclans.com/badges/70/5-bNcXrqLPJ-pEmp5Lw9Q_g5tcZsjmkPIm3feVuNqXU.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/5-bNcXrqLPJ-pEmp5Lw9Q_g5tcZsjmkPIm3feVuNqXU.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/5-bNcXrqLPJ-pEmp5Lw9Q_g5tcZsjmkPIm3feVuNqXU.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000039,
-          "name": "Ruby League II"
+        "league": {
+          "id": 29000022,
+          "name": "Legend League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png",
+            "medium": "https://api-assets.clashofclans.com/leagues/288/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
         }
       },
       {
-        "tag": "#C9GCCRL0",
-        "name": "The_Fro_is_Pro",
-        "expLevel": 248,
+        "tag": "#UPUQQU88",
+        "name": "CrushedFortune",
+        "expLevel": 257,
+        "trophies": 5401,
+        "attackWins": 1166,
+        "defenseWins": 54,
         "rank": 9,
-        "previousRank": 9,
-        "builderBaseTrophies": 5803,
+        "previousRank": 12,
         "clan": {
-          "tag": "#2LJCGJJU8",
-          "name": "Dirty Loafers",
+          "tag": "#2GYQ8YY2V",
+          "name": "Savage Stars",
           "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/PGqaXo7R7ggXc7tafXWx3EXNhniuIde2lzWIPnutx0g.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/PGqaXo7R7ggXc7tafXWx3EXNhniuIde2lzWIPnutx0g.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/PGqaXo7R7ggXc7tafXWx3EXNhniuIde2lzWIPnutx0g.png"
+            "small": "https://api-assets.clashofclans.com/badges/70/1Cgd3Zm-x3ZFpkEQk-F0GEgiie5ZDw_8QdC5MFsOYc4.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/1Cgd3Zm-x3ZFpkEQk-F0GEgiie5ZDw_8QdC5MFsOYc4.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/1Cgd3Zm-x3ZFpkEQk-F0GEgiie5ZDw_8QdC5MFsOYc4.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000039,
-          "name": "Ruby League II"
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
         }
       },
       {
-        "tag": "#YYVPYVVGV",
-        "name": "Bucky",
-        "expLevel": 224,
+        "tag": "#GRJVCPYGV",
+        "name": "LS ✧ Karn ᵕ̈",
+        "expLevel": 261,
+        "trophies": 5399,
+        "attackWins": 1447,
+        "defenseWins": 36,
         "rank": 10,
-        "previousRank": 10,
-        "builderBaseTrophies": 5775,
+        "previousRank": 13,
         "clan": {
-          "tag": "#2QQV8UVUU",
-          "name": "KURD",
+          "tag": "#2JLUG982Y",
+          "name": "Lost Souls",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png"
+          }
+        },
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#YQQGGPU9G",
+        "name": "AFG ⚜️ NOORİ",
+        "expLevel": 277,
+        "trophies": 5399,
+        "attackWins": 182,
+        "defenseWins": 21,
+        "rank": 11,
+        "previousRank": 41,
+        "clan": {
+          "tag": "#20P8U9RVY",
+          "name": "سلطان کلش",
           "badgeUrls": {
             "small": "https://api-assets.clashofclans.com/badges/70/0mIIvT1qMEwyYZIFEWCcGSfI0L3yixIp9ZlMPnZpHXg.png",
             "large": "https://api-assets.clashofclans.com/badges/512/0mIIvT1qMEwyYZIFEWCcGSfI0L3yixIp9ZlMPnZpHXg.png",
             "medium": "https://api-assets.clashofclans.com/badges/200/0mIIvT1qMEwyYZIFEWCcGSfI0L3yixIp9ZlMPnZpHXg.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
-        }
-      },
-      {
-        "tag": "#CJ0UUCPC",
-        "name": "!-Dark Lucid✨",
-        "expLevel": 239,
-        "rank": 11,
-        "previousRank": 18,
-        "builderBaseTrophies": 5723,
-        "clan": {
-          "tag": "#2QJLLLLJJ",
-          "name": "Aussie might",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/GuP1llaaqf64kZ5fF7YXX0VZE6QIkKwBewVK9k1eMDw.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/GuP1llaaqf64kZ5fF7YXX0VZE6QIkKwBewVK9k1eMDw.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/GuP1llaaqf64kZ5fF7YXX0VZE6QIkKwBewVK9k1eMDw.png"
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
         }
       },
       {
-        "tag": "#GG2PVL0PR",
-        "name": "Ch4n",
-        "expLevel": 222,
+        "tag": "#GJLRRJQUC",
+        "name": "AMG YouTube 3",
+        "expLevel": 217,
+        "trophies": 5395,
+        "attackWins": 710,
+        "defenseWins": 21,
         "rank": 12,
-        "previousRank": 11,
-        "builderBaseTrophies": 5676,
+        "previousRank": 65,
         "clan": {
-          "tag": "#2PP09G2JJ",
-          "name": "TEAM CAMBODIA",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/kgK0jc04dM9UHn56N7KctM44c_Or4ZSkzA1XOqURheY.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/kgK0jc04dM9UHn56N7KctM44c_Or4ZSkzA1XOqURheY.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/kgK0jc04dM9UHn56N7KctM44c_Or4ZSkzA1XOqURheY.png"
-          }
-        },
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
-        }
-      },
-      {
-        "tag": "#9P2G88LC",
-        "name": "Swords and Bows",
-        "expLevel": 237,
-        "rank": 13,
-        "previousRank": 14,
-        "builderBaseTrophies": 5652,
-        "clan": {
-          "tag": "#2GVUL9PUJ",
-          "name": "The New",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/NdVtVWD0GRPIi-edDlipEBrr1bv2EX0PelHmlGGSVrE.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/NdVtVWD0GRPIi-edDlipEBrr1bv2EX0PelHmlGGSVrE.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/NdVtVWD0GRPIi-edDlipEBrr1bv2EX0PelHmlGGSVrE.png"
-          }
-        },
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
-        }
-      },
-      {
-        "tag": "#29QYPQP2C",
-        "name": "tyrusasaurus",
-        "expLevel": 281,
-        "rank": 14,
-        "previousRank": 12,
-        "builderBaseTrophies": 5648,
-        "clan": {
-          "tag": "#2C02JPRQ",
-          "name": "Zacstrong",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/r2KWo-W4AjODkBcVr9GdZARcPSyBNdqcS1yWO66nSm4.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/r2KWo-W4AjODkBcVr9GdZARcPSyBNdqcS1yWO66nSm4.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/r2KWo-W4AjODkBcVr9GdZARcPSyBNdqcS1yWO66nSm4.png"
-          }
-        },
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
-        }
-      },
-      {
-        "tag": "#PY89UJUQL",
-        "name": "DOMINATOR",
-        "expLevel": 293,
-        "rank": 15,
-        "previousRank": 17,
-        "builderBaseTrophies": 5641,
-        "clan": {
-          "tag": "#9VRP8CQQ",
-          "name": "Psycho Soldiers",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/ny-vo8DRxjkG-UIm0MqAF6xYYo2_phbeZjfHD82RXlY.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/ny-vo8DRxjkG-UIm0MqAF6xYYo2_phbeZjfHD82RXlY.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/ny-vo8DRxjkG-UIm0MqAF6xYYo2_phbeZjfHD82RXlY.png"
-          }
-        },
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
-        }
-      },
-      {
-        "tag": "#YLL0UCRP9",
-        "name": "UNDISPUTED",
-        "expLevel": 282,
-        "rank": 16,
-        "previousRank": 23,
-        "builderBaseTrophies": 5635,
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
-        }
-      },
-      {
-        "tag": "#98CU2VQ0P",
-        "name": "♕﷼MADRID ☆",
-        "expLevel": 232,
-        "rank": 17,
-        "previousRank": 13,
-        "builderBaseTrophies": 5633,
-        "clan": {
-          "tag": "#22JRL0Y2C",
-          "name": "ابطال صعدة",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/mFB6xc5lPvro-TR1fZxkhfNXVqsmnGFVW53uYwrNyd0.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/mFB6xc5lPvro-TR1fZxkhfNXVqsmnGFVW53uYwrNyd0.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/mFB6xc5lPvro-TR1fZxkhfNXVqsmnGFVW53uYwrNyd0.png"
-          }
-        },
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
-        }
-      },
-      {
-        "tag": "#28882QPCL",
-        "name": "SurreyCCC",
-        "expLevel": 164,
-        "rank": 18,
-        "previousRank": 15,
-        "builderBaseTrophies": 5628,
-        "clan": {
-          "tag": "#2QCVPJ9VJ",
-          "name": "Legend Empires",
-          "badgeUrls": {
-            "small": "https://api-assets.clashofclans.com/badges/70/fvoF2pJTtXkG7nzx6jWYwQPbK_KyECrRV8z7Mt2KRT0.png",
-            "large": "https://api-assets.clashofclans.com/badges/512/fvoF2pJTtXkG7nzx6jWYwQPbK_KyECrRV8z7Mt2KRT0.png",
-            "medium": "https://api-assets.clashofclans.com/badges/200/fvoF2pJTtXkG7nzx6jWYwQPbK_KyECrRV8z7Mt2KRT0.png"
-          }
-        },
-        "builderBaseLeague": {
-          "id": 44000038,
-          "name": "Ruby League III"
-        }
-      },
-      {
-        "tag": "#JLVRUQCR",
-        "name": "Kevin",
-        "expLevel": 249,
-        "rank": 19,
-        "previousRank": 26,
-        "builderBaseTrophies": 5546,
-        "clan": {
-          "tag": "#PR8GUP8Y",
-          "name": "CrbnFbrWarriors",
+          "tag": "#2RVLJG9Q9",
+          "name": "AMG YouTube",
           "badgeUrls": {
             "small": "https://api-assets.clashofclans.com/badges/70/jA0A1-BAutiOTM9fWQbKkXZMCteT8NswDo_QW1TSnIk.png",
             "large": "https://api-assets.clashofclans.com/badges/512/jA0A1-BAutiOTM9fWQbKkXZMCteT8NswDo_QW1TSnIk.png",
             "medium": "https://api-assets.clashofclans.com/badges/200/jA0A1-BAutiOTM9fWQbKkXZMCteT8NswDo_QW1TSnIk.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000037,
-          "name": "Emerald League I"
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
         }
       },
       {
-        "tag": "#V902Q28",
-        "name": "crobbins2000",
-        "expLevel": 271,
-        "rank": 20,
+        "tag": "#8L9JQQRPU",
+        "name": "Ruthless",
+        "expLevel": 283,
+        "trophies": 5391,
+        "attackWins": 1128,
+        "defenseWins": 46,
+        "rank": 13,
         "previousRank": 19,
-        "builderBaseTrophies": 5543,
         "clan": {
-          "tag": "#29QRVYJ99",
-          "name": "boosted",
+          "tag": "#8JU2L8Q0",
+          "name": "DownSouth Kings",
           "badgeUrls": {
             "small": "https://api-assets.clashofclans.com/badges/70/e1VRvDtsd-fA2Stvc4VsJWYAvld9mYGTSkff_260Av4.png",
             "large": "https://api-assets.clashofclans.com/badges/512/e1VRvDtsd-fA2Stvc4VsJWYAvld9mYGTSkff_260Av4.png",
             "medium": "https://api-assets.clashofclans.com/badges/200/e1VRvDtsd-fA2Stvc4VsJWYAvld9mYGTSkff_260Av4.png"
           }
         },
-        "builderBaseLeague": {
-          "id": 44000037,
-          "name": "Emerald League I"
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#PVGYJ9UQ8",
+        "name": "柒✨️JYT",
+        "expLevel": 271,
+        "trophies": 5378,
+        "attackWins": 1664,
+        "defenseWins": 43,
+        "rank": 14,
+        "previousRank": 20,
+        "clan": {
+          "tag": "#2GRPGV0VL",
+          "name": "July",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/vTXIeyOBhf7LsuLNf9rxSCaKrSo6zqaGtAXQ5rwA0FI.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/vTXIeyOBhf7LsuLNf9rxSCaKrSo6zqaGtAXQ5rwA0FI.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/vTXIeyOBhf7LsuLNf9rxSCaKrSo6zqaGtAXQ5rwA0FI.png"
+          }
+        },
+        "league": {
+          "id": 29000022,
+          "name": "Legend League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png",
+            "medium": "https://api-assets.clashofclans.com/leagues/288/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#PCUJPGQ9",
+        "name": "SSS⚡️HaiKoii",
+        "expLevel": 273,
+        "trophies": 5370,
+        "attackWins": 831,
+        "defenseWins": 24,
+        "rank": 15,
+        "previousRank": 15,
+        "clan": {
+          "tag": "#2JVC9920Q",
+          "name": "trứng cá",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/H39b_-WLZGtZVWQ0hqTkE-Tn2AaQnQWy_Iz4yBlvL0M.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/H39b_-WLZGtZVWQ0hqTkE-Tn2AaQnQWy_Iz4yBlvL0M.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/H39b_-WLZGtZVWQ0hqTkE-Tn2AaQnQWy_Iz4yBlvL0M.png"
+          }
+        },
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#2V002RVC",
+        "name": "SlaYer !!!",
+        "expLevel": 275,
+        "trophies": 5356,
+        "attackWins": 1704,
+        "defenseWins": 96,
+        "rank": 16,
+        "previousRank": 17,
+        "clan": {
+          "tag": "#CYU9QYV9",
+          "name": "INTER SLY ll",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/Yafe6MmAlMuwti0JKKcQJWJVHRCL9_FfKpVZJJD-xZs.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/Yafe6MmAlMuwti0JKKcQJWJVHRCL9_FfKpVZJJD-xZs.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/Yafe6MmAlMuwti0JKKcQJWJVHRCL9_FfKpVZJJD-xZs.png"
+          }
+        },
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#92GR8V08U",
+        "name": "柒✨Sky",
+        "expLevel": 268,
+        "trophies": 5350,
+        "attackWins": 1279,
+        "defenseWins": 61,
+        "rank": 17,
+        "previousRank": 61,
+        "clan": {
+          "tag": "#2C0C2V80R",
+          "name": "Lotus",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/xC_6rGfuq7bOLKVnxF9u5vXlyzGnezC2SLcu9zZPepA.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/xC_6rGfuq7bOLKVnxF9u5vXlyzGnezC2SLcu9zZPepA.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/xC_6rGfuq7bOLKVnxF9u5vXlyzGnezC2SLcu9zZPepA.png"
+          }
+        },
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#GPY8Y08YL",
+        "name": "D.Z✨ACE",
+        "expLevel": 222,
+        "trophies": 5335,
+        "attackWins": 311,
+        "defenseWins": 11,
+        "rank": 18,
+        "previousRank": 37,
+        "clan": {
+          "tag": "#2J9GC9999",
+          "name": "D.Z.Legend",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/jA0A1-BAutiOTM9fWQbKkXZMCteT8NswDo_QW1TSnIk.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/jA0A1-BAutiOTM9fWQbKkXZMCteT8NswDo_QW1TSnIk.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/jA0A1-BAutiOTM9fWQbKkXZMCteT8NswDo_QW1TSnIk.png"
+          }
+        },
+        "league": {
+          "id": 29000000,
+          "name": "Unranked",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/e--YMyIexEQQhE4imLoJcwhYn6Uy8KqlgyY3_kFV6t4.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#JQ98LP9P",
+        "name": "Chris",
+        "expLevel": 277,
+        "trophies": 5333,
+        "attackWins": 328,
+        "defenseWins": 7,
+        "rank": 19,
+        "previousRank": 47,
+        "clan": {
+          "tag": "#2L0YJLY8C",
+          "name": "Mavericks",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/CA5Wbb0u_guAvM00fbdx8qUclAK9Z-Wq09UZu6VEaIU.png"
+          }
+        },
+        "league": {
+          "id": 29000022,
+          "name": "Legend League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png",
+            "medium": "https://api-assets.clashofclans.com/leagues/288/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
+        }
+      },
+      {
+        "tag": "#8QY8Q820R",
+        "name": "VK ★ Bobby",
+        "expLevel": 242,
+        "trophies": 5332,
+        "attackWins": 1536,
+        "defenseWins": 62,
+        "rank": 20,
+        "previousRank": 21,
+        "clan": {
+          "tag": "#2GUGQ8JRY",
+          "name": "VIKINGS",
+          "badgeUrls": {
+            "small": "https://api-assets.clashofclans.com/badges/70/Ha7GqnHoMWJpwlF03t-T73lpPF3zviJeh09-h8QT7Lg.png",
+            "large": "https://api-assets.clashofclans.com/badges/512/Ha7GqnHoMWJpwlF03t-T73lpPF3zviJeh09-h8QT7Lg.png",
+            "medium": "https://api-assets.clashofclans.com/badges/200/Ha7GqnHoMWJpwlF03t-T73lpPF3zviJeh09-h8QT7Lg.png"
+          }
+        },
+        "league": {
+          "id": 29000022,
+          "name": "Legend League",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leagues/72/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png",
+            "tiny": "https://api-assets.clashofclans.com/leagues/36/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png",
+            "medium": "https://api-assets.clashofclans.com/leagues/288/R2zmhyqQ0_lKcDR5EyghXCxgyC9mm_mVMIjAbmGoZtw.png"
+          }
+        },
+        "leagueTier": {
+          "id": 105000036,
+          "name": "Legend League I",
+          "iconUrls": {
+            "small": "https://api-assets.clashofclans.com/leaguetiers/125/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png",
+            "large": "https://api-assets.clashofclans.com/leaguetiers/326/s5Y12RDRg7tgznd2RwU9kgLbedC5Not4peiHfOaWfJo.png"
+          }
         }
       }
     ],
