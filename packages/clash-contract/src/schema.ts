@@ -730,9 +730,9 @@ export interface components {
             cursors: components["schemas"]["CursorPaging"];
         };
         CursorPaging: {
-            /** @description Opaque cursor for fetching the next page. */
+            /** @description Cursor for the next page. */
             after?: string;
-            /** @description Opaque cursor for fetching the previous page. */
+            /** @description Cursor for the previous page. */
             before?: string;
         };
         Label: {

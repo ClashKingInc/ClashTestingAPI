@@ -152,12 +152,12 @@ export const BattleLogEntry = WireStruct({
 export const CursorPaging = WireStruct({
   after: Schema.optionalKey(
     Schema.String.annotate({
-      description: 'Opaque cursor for fetching the next page.',
+      description: 'Cursor for the next page.',
     }),
   ),
   before: Schema.optionalKey(
     Schema.String.annotate({
-      description: 'Opaque cursor for fetching the previous page.',
+      description: 'Cursor for the previous page.',
     }),
   ),
 }).annotate({

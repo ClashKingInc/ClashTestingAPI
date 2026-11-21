@@ -7,13 +7,13 @@ const PagingCursors = {
   after: Schema.optionalKey(
     Schema.String.annotate({
       description:
-        'Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.',
+        'Return only items after this cursor. Cannot be used with before.',
     }),
   ),
   before: Schema.optionalKey(
     Schema.String.annotate({
       description:
-        'Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.',
+        'Return only items before this cursor. Cannot be used with after.',
     }),
   ),
 };

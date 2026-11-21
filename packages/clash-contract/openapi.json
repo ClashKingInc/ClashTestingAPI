@@ -1469,11 +1469,11 @@
       "CursorPaging": {
         "properties": {
           "after": {
-            "description": "Opaque cursor for fetching the next page.",
+            "description": "Cursor for the next page.",
             "type": "string"
           },
           "before": {
-            "description": "Opaque cursor for fetching the previous page.",
+            "description": "Cursor for the previous page.",
             "type": "string"
           }
         },
@@ -2819,7 +2819,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -2828,7 +2828,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -3061,7 +3061,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -3070,7 +3070,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -3303,7 +3303,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -3312,7 +3312,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           },
@@ -3645,7 +3645,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -3654,7 +3654,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -4012,7 +4012,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -4021,7 +4021,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -4153,7 +4153,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -4162,7 +4162,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -4495,7 +4495,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -4504,7 +4504,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -4624,7 +4624,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -4633,7 +4633,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -4891,7 +4891,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -4900,7 +4900,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -5146,7 +5146,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -5155,7 +5155,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -5300,7 +5300,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -5309,7 +5309,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -5429,7 +5429,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -5438,7 +5438,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -5671,7 +5671,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -5680,7 +5680,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -5925,7 +5925,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -5934,7 +5934,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -6066,7 +6066,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -6075,7 +6075,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -6207,7 +6207,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -6216,7 +6216,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -6348,7 +6348,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -6357,7 +6357,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -6489,7 +6489,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -6498,7 +6498,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
@@ -7087,7 +7087,7 @@
             "name": "after",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.",
+              "description": "Return only items after this cursor. Cannot be used with before.",
               "type": "string"
             }
           },
@@ -7096,7 +7096,7 @@
             "name": "before",
             "required": false,
             "schema": {
-              "description": "Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.",
+              "description": "Return only items before this cursor. Cannot be used with after.",
               "type": "string"
             }
           }
