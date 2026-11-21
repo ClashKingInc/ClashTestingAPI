@@ -155,6 +155,20 @@ try {
     assert.equal(body.state, state);
     results.push({ state, status: 200 });
   }
+  for (const kind of [
+    'clans',
+    'players',
+    'players-builder-base',
+    'clans-builder-base',
+    'capitals',
+  ] as const) {
+    const path = `/locations/global/rankings/${kind}`;
+    const response = await runtime.dispatchFetch('https://mock.test' + path);
+    const body = (await response.json()) as { items?: unknown[] };
+    assert.equal(response.status, 200, `${path}: ${JSON.stringify(body)}`);
+    assert.ok(Array.isArray(body.items) && body.items.length > 0, path);
+    results.push({ path, status: 200 });
+  }
   writeFileSync(
     '/tmp/ck-contract-http-verification.json',
     JSON.stringify(results, null, 2),
