@@ -459,6 +459,48 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/leagues": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * List legacy leagues
+         * @deprecated
+         * @description Deprecated: Supercell replaced Home Village trophy leagues with ranked league tiers (`/leaguetiers`), though this endpoint still returns HTTP 200 with the 23 legacy leagues on live servers.
+         */
+        get: operations["leagues.legacyList"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
+    "/leagues/{leagueId}": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        /**
+         * Get legacy league information
+         * @deprecated
+         * @description Deprecated: Supercell replaced Home Village trophy leagues with ranked league tiers (`/leaguetiers/{leagueTierId}`), though this endpoint still returns HTTP 200 on live servers (e.g. `29000022` for Legend League).
+         */
+        get: operations["leagues.legacy"];
+        put?: never;
+        post?: never;
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
     "/locations": {
         parameters: {
             query?: never;
@@ -848,6 +890,10 @@ export interface components {
         };
         LocationListResponse: {
             items: components["schemas"]["Location"][];
+            paging: components["schemas"]["Paging"];
+        };
+        LeagueListResponse: {
+            items: components["schemas"]["League"][];
             paging: components["schemas"]["Paging"];
         };
         LeagueGroup: {
@@ -3254,6 +3300,164 @@ export interface operations {
                 };
                 content: {
                     "application/json": components["schemas"]["LeagueGroup"];
+                };
+            };
+            /** @description Bad request (`badRequest`). */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`). */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Resource not found (`notFound`). */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Request throttled (`tooManyRequests`). See `Retry-After` header. */
+            429: {
+                headers: {
+                    "retry-after"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Internal server error (`unknownException`). */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Service temporarily unavailable (`inMaintenance`). */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+        };
+    };
+    "leagues.legacyList": {
+        parameters: {
+            query?: {
+                limit?: number;
+                after?: string;
+                before?: string;
+            };
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Legacy Home Village leagues (deprecated). */
+            200: {
+                headers: {
+                    "cache-control"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["LeagueListResponse"];
+                };
+            };
+            /** @description Bad request (`badRequest`). */
+            400: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Access denied (`accessDenied` for private war logs/tokens, or `accessDenied.invalidIp`). */
+            403: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Resource not found (`notFound`). */
+            404: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Request throttled (`tooManyRequests`). See `Retry-After` header. */
+            429: {
+                headers: {
+                    "retry-after"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Internal server error (`unknownException`). */
+            500: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+            /** @description Service temporarily unavailable (`inMaintenance`). */
+            503: {
+                headers: {
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["ClientErrorResponse"];
+                };
+            };
+        };
+    };
+    "leagues.legacy": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path: {
+                leagueId: string;
+            };
+            cookie?: never;
+        };
+        requestBody?: never;
+        responses: {
+            /** @description Legacy Home Village league (deprecated). */
+            200: {
+                headers: {
+                    "cache-control"?: string;
+                    [name: string]: unknown;
+                };
+                content: {
+                    "application/json": components["schemas"]["League"];
                 };
             };
             /** @description Bad request (`badRequest`). */

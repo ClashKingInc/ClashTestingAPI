@@ -36,6 +36,8 @@ const SUCCESS_DESCRIPTIONS: Readonly<Record<string, string>> = {
   'leagues.seasons': 'Available league seasons.',
   'leagues.season': 'Player rankings for the requested league season.',
   'leagues.group': 'Ranked league group members and battle logs.',
+  'leagues.legacyList': 'Legacy Home Village leagues (deprecated).',
+  'leagues.legacy': 'Legacy Home Village league (deprecated).',
   'locations.list': 'Available leaderboard locations.',
   'locations.item': 'Location details.',
   'locations.clans': 'Home Village clan rankings.',
@@ -204,7 +206,7 @@ function polishResponses(spec: OpenApi.OpenAPISpec): void {
         }
       }
       if (op.responses) {
-        // 501 only applies to the excluded legacy /leagues routes, not public endpoints.
+        // 501 is only produced by the mock server's x-clash-mock-response: notImplemented override.
         delete op.responses['501'];
         if (
           op.responses['200'] &&
@@ -289,6 +291,8 @@ export function completeOpenApi<
       );
     }
   }
+  (spec.info as unknown as Record<string, unknown>).summary =
+    'Live-verified Clash of Clans wire contract and deterministic mock server.';
   cleanSchema(spec.components.schemas);
   addClanWarDiscriminator(spec);
   polishResponses(spec);

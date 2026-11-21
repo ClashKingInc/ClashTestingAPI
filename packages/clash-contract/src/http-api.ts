@@ -222,7 +222,7 @@ export const Players = G.make('players')
 export const Leagues = G.make('leagues')
   .annotate(
     OpenApi.Description,
-    'Ranked league tiers, Clan Capital leagues, Builder Base leagues, Clan War Leagues, Legend League seasons, and ranked league groups.',
+    'Ranked league tiers, Clan Capital leagues, Builder Base leagues, Clan War Leagues, Legend League seasons, ranked league groups, and deprecated legacy leagues.',
   )
   .add(
     E.get('tiers', '/leaguetiers', {
@@ -353,14 +353,28 @@ export const Leagues = G.make('leagues')
         OpenApi.Description,
         'Get members and battle logs for a ranked league group. Mock variants (with `playerTag=#2PP`): `#2YYCYCC`/`1773032400` (current), `#2PGCG0J`/`1772427600` (previous). Note: upstream intermittently returns HTTP 500 `unknownException` for older groups.',
       ),
-    E.get('legacyList', '/leagues', { query: Paging, error: errors }).annotate(
-      OpenApi.Exclude,
-      true,
-    ),
+    E.get('legacyList', '/leagues', {
+      query: Paging,
+      success: success(W.LeagueListResponse),
+      error: errors,
+    })
+      .annotate(OpenApi.Deprecated, true)
+      .annotate(OpenApi.Summary, 'List legacy leagues')
+      .annotate(
+        OpenApi.Description,
+        'Deprecated: Supercell replaced Home Village trophy leagues with ranked league tiers (`/leaguetiers`), though this endpoint still returns HTTP 200 with the 23 legacy leagues on live servers.',
+      ),
     E.get('legacy', '/leagues/:leagueId', {
       params: league,
+      success: success(W.League),
       error: errors,
-    }).annotate(OpenApi.Exclude, true),
+    })
+      .annotate(OpenApi.Deprecated, true)
+      .annotate(OpenApi.Summary, 'Get legacy league information')
+      .annotate(
+        OpenApi.Description,
+        'Deprecated: Supercell replaced Home Village trophy leagues with ranked league tiers (`/leaguetiers/{leagueTierId}`), though this endpoint still returns HTTP 200 on live servers (e.g. `29000022` for Legend League).',
+      ),
   );
 
 export const Locations = G.make('locations')
@@ -513,10 +527,6 @@ const BaseApi = HttpApi.make('ClashMockAPI')
   .annotate(OpenApi.Servers, [{ url: '/' }])
   .annotate(OpenApi.Description, API_DESCRIPTION)
   .annotate(OpenApi.Override, {
-    info: {
-      summary:
-        'Live-verified Clash of Clans wire contract and deterministic mock server.',
-    },
     externalDocs: {
       description: 'Official Supercell Clash of Clans Developer Portal',
       url: 'https://developer.clashofclans.com',

@@ -852,6 +852,12 @@ export const LeagueHistoryResponse = WireStruct({
 }).annotate({
   identifier: 'LeagueHistoryResponse',
 });
+export const LeagueListResponse = WireStruct({
+  items: Schema.Array(League),
+  paging: Paging,
+}).annotate({
+  identifier: 'LeagueListResponse',
+});
 export const LeagueSeason = WireStruct({
   id: Schema.String.annotate({
     description:

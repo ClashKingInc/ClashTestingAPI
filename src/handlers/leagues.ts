@@ -132,10 +132,16 @@ export const LeaguesLive = HttpApiBuilder.group(Api, 'leagues', (h) =>
       }),
     )
     .handle('legacyList', ({ query }) =>
-      run(() => {
-        checkPaging(query);
-        return badFixture('errors/MISSING_MOCK.json');
-      }),
+      run(() => reply('leagues/LISTLEAGUES.json', W.LeagueListResponse, query)),
     )
-    .handle('legacy', () => run(() => badFixture('errors/MISSING_MOCK.json'))),
+    .handle('legacy', ({ params }) =>
+      run(() =>
+        item(
+          'leagues/LISTLEAGUES.json',
+          W.LeagueListResponse,
+          params.leagueId,
+          'leagues/league/BADREQUEST.json',
+        ),
+      ),
+    ),
 );
