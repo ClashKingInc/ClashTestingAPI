@@ -24,43 +24,45 @@ import fixture20 from '../../data/labels/clans/CLANLABELS.json';
 import fixture21 from '../../data/labels/players/PLAYERLABELS.json';
 import fixture22 from '../../data/leagues/LISTBUILDERLEAGUES.json';
 import fixture23 from '../../data/leagues/LISTCAPITALLEAGUES.json';
-import fixture24 from '../../data/leagues/LISTLEAGUESEASONS.json';
-import fixture25 from '../../data/leagues/LISTLEAGUETIERS.json';
-import fixture26 from '../../data/leagues/LISTWARELEAGUES.json';
-import fixture27 from '../../data/leagues/builderbaseleague/BADREQUEST.json';
-import fixture28 from '../../data/leagues/capital-league/BADREQUEST.json';
-import fixture29 from '../../data/leagues/league-season/BADREQUEST.json';
-import fixture30 from '../../data/leagues/league-season/LEAGUESEASON.json';
-import fixture31 from '../../data/leagues/leaguegroup/CURRENT.json';
-import fixture32 from '../../data/leagues/leaguegroup/PREVIOUS.json';
-import fixture33 from '../../data/leagues/leaguetier/BADREQUEST.json';
-import fixture34 from '../../data/leagues/war-league/BADREQUEST.json';
-import fixture35 from '../../data/locations/LISTLOCATIONS.json';
-import fixture36 from '../../data/locations/location/BADREQUEST.json';
-import fixture37 from '../../data/locations/location/COUNTRY.json';
-import fixture38 from '../../data/locations/location/REGION.json';
-import fixture39 from '../../data/locations/rankings/capitals/BADREQUEST.json';
-import fixture40 from '../../data/locations/rankings/capitals/COUNTRY.json';
-import fixture41 from '../../data/locations/rankings/capitals/REGION.json';
-import fixture42 from '../../data/locations/rankings/clans-builder-base/BADREQUEST.json';
-import fixture43 from '../../data/locations/rankings/clans-builder-base/COUNTRY.json';
-import fixture44 from '../../data/locations/rankings/clans-builder-base/REGION.json';
-import fixture45 from '../../data/locations/rankings/clans/BADREQUEST.json';
-import fixture46 from '../../data/locations/rankings/clans/COUNTRY.json';
-import fixture47 from '../../data/locations/rankings/clans/REGION.json';
-import fixture48 from '../../data/locations/rankings/players-builder-base/BADREQUEST.json';
-import fixture49 from '../../data/locations/rankings/players-builder-base/COUNTRY.json';
-import fixture50 from '../../data/locations/rankings/players-builder-base/REGION.json';
-import fixture51 from '../../data/locations/rankings/players/BADREQUEST.json';
-import fixture52 from '../../data/locations/rankings/players/COUNTRY.json';
-import fixture53 from '../../data/locations/rankings/players/REGION.json';
-import fixture54 from '../../data/players/battlelog/LOG.json';
-import fixture55 from '../../data/players/leaguehistory/LOG.json';
-import fixture56 from '../../data/players/player/FOUND.json';
-import fixture57 from '../../data/players/player/NOTFOUND.json';
-import fixture58 from '../../data/players/verifytoken/INVALID.json';
-import fixture59 from '../../data/players/verifytoken/NOTFOUND.json';
-import fixture60 from '../../data/players/verifytoken/VALID.json';
+import fixture24 from '../../data/leagues/LISTLEAGUES.json';
+import fixture25 from '../../data/leagues/LISTLEAGUESEASONS.json';
+import fixture26 from '../../data/leagues/LISTLEAGUETIERS.json';
+import fixture27 from '../../data/leagues/LISTWARELEAGUES.json';
+import fixture28 from '../../data/leagues/builderbaseleague/BADREQUEST.json';
+import fixture29 from '../../data/leagues/capital-league/BADREQUEST.json';
+import fixture30 from '../../data/leagues/league-season/BADREQUEST.json';
+import fixture31 from '../../data/leagues/league-season/LEAGUESEASON.json';
+import fixture32 from '../../data/leagues/league/BADREQUEST.json';
+import fixture33 from '../../data/leagues/leaguegroup/CURRENT.json';
+import fixture34 from '../../data/leagues/leaguegroup/PREVIOUS.json';
+import fixture35 from '../../data/leagues/leaguetier/BADREQUEST.json';
+import fixture36 from '../../data/leagues/war-league/BADREQUEST.json';
+import fixture37 from '../../data/locations/LISTLOCATIONS.json';
+import fixture38 from '../../data/locations/location/BADREQUEST.json';
+import fixture39 from '../../data/locations/location/COUNTRY.json';
+import fixture40 from '../../data/locations/location/REGION.json';
+import fixture41 from '../../data/locations/rankings/capitals/BADREQUEST.json';
+import fixture42 from '../../data/locations/rankings/capitals/COUNTRY.json';
+import fixture43 from '../../data/locations/rankings/capitals/REGION.json';
+import fixture44 from '../../data/locations/rankings/clans-builder-base/BADREQUEST.json';
+import fixture45 from '../../data/locations/rankings/clans-builder-base/COUNTRY.json';
+import fixture46 from '../../data/locations/rankings/clans-builder-base/REGION.json';
+import fixture47 from '../../data/locations/rankings/clans/BADREQUEST.json';
+import fixture48 from '../../data/locations/rankings/clans/COUNTRY.json';
+import fixture49 from '../../data/locations/rankings/clans/REGION.json';
+import fixture50 from '../../data/locations/rankings/players-builder-base/BADREQUEST.json';
+import fixture51 from '../../data/locations/rankings/players-builder-base/COUNTRY.json';
+import fixture52 from '../../data/locations/rankings/players-builder-base/REGION.json';
+import fixture53 from '../../data/locations/rankings/players/BADREQUEST.json';
+import fixture54 from '../../data/locations/rankings/players/COUNTRY.json';
+import fixture55 from '../../data/locations/rankings/players/REGION.json';
+import fixture56 from '../../data/players/battlelog/LOG.json';
+import fixture57 from '../../data/players/leaguehistory/LOG.json';
+import fixture58 from '../../data/players/player/FOUND.json';
+import fixture59 from '../../data/players/player/NOTFOUND.json';
+import fixture60 from '../../data/players/verifytoken/INVALID.json';
+import fixture61 from '../../data/players/verifytoken/NOTFOUND.json';
+import fixture62 from '../../data/players/verifytoken/VALID.json';
 export const fixtures: Readonly<Record<string,Wrapped>> = {"clans/capitalraidseasons/CAPITALRAIDSEASON.json": fixture0,
 "clans/clans/CLAN.json": fixture1,
 "clans/clans/CLAN_NO_CAPITAL_DISTRICTS.json": fixture2,
@@ -85,40 +87,42 @@ export const fixtures: Readonly<Record<string,Wrapped>> = {"clans/capitalraidsea
 "labels/players/PLAYERLABELS.json": fixture21,
 "leagues/LISTBUILDERLEAGUES.json": fixture22,
 "leagues/LISTCAPITALLEAGUES.json": fixture23,
-"leagues/LISTLEAGUESEASONS.json": fixture24,
-"leagues/LISTLEAGUETIERS.json": fixture25,
-"leagues/LISTWARELEAGUES.json": fixture26,
-"leagues/builderbaseleague/BADREQUEST.json": fixture27,
-"leagues/capital-league/BADREQUEST.json": fixture28,
-"leagues/league-season/BADREQUEST.json": fixture29,
-"leagues/league-season/LEAGUESEASON.json": fixture30,
-"leagues/leaguegroup/CURRENT.json": fixture31,
-"leagues/leaguegroup/PREVIOUS.json": fixture32,
-"leagues/leaguetier/BADREQUEST.json": fixture33,
-"leagues/war-league/BADREQUEST.json": fixture34,
-"locations/LISTLOCATIONS.json": fixture35,
-"locations/location/BADREQUEST.json": fixture36,
-"locations/location/COUNTRY.json": fixture37,
-"locations/location/REGION.json": fixture38,
-"locations/rankings/capitals/BADREQUEST.json": fixture39,
-"locations/rankings/capitals/COUNTRY.json": fixture40,
-"locations/rankings/capitals/REGION.json": fixture41,
-"locations/rankings/clans-builder-base/BADREQUEST.json": fixture42,
-"locations/rankings/clans-builder-base/COUNTRY.json": fixture43,
-"locations/rankings/clans-builder-base/REGION.json": fixture44,
-"locations/rankings/clans/BADREQUEST.json": fixture45,
-"locations/rankings/clans/COUNTRY.json": fixture46,
-"locations/rankings/clans/REGION.json": fixture47,
-"locations/rankings/players-builder-base/BADREQUEST.json": fixture48,
-"locations/rankings/players-builder-base/COUNTRY.json": fixture49,
-"locations/rankings/players-builder-base/REGION.json": fixture50,
-"locations/rankings/players/BADREQUEST.json": fixture51,
-"locations/rankings/players/COUNTRY.json": fixture52,
-"locations/rankings/players/REGION.json": fixture53,
-"players/battlelog/LOG.json": fixture54,
-"players/leaguehistory/LOG.json": fixture55,
-"players/player/FOUND.json": fixture56,
-"players/player/NOTFOUND.json": fixture57,
-"players/verifytoken/INVALID.json": fixture58,
-"players/verifytoken/NOTFOUND.json": fixture59,
-"players/verifytoken/VALID.json": fixture60};
+"leagues/LISTLEAGUES.json": fixture24,
+"leagues/LISTLEAGUESEASONS.json": fixture25,
+"leagues/LISTLEAGUETIERS.json": fixture26,
+"leagues/LISTWARELEAGUES.json": fixture27,
+"leagues/builderbaseleague/BADREQUEST.json": fixture28,
+"leagues/capital-league/BADREQUEST.json": fixture29,
+"leagues/league-season/BADREQUEST.json": fixture30,
+"leagues/league-season/LEAGUESEASON.json": fixture31,
+"leagues/league/BADREQUEST.json": fixture32,
+"leagues/leaguegroup/CURRENT.json": fixture33,
+"leagues/leaguegroup/PREVIOUS.json": fixture34,
+"leagues/leaguetier/BADREQUEST.json": fixture35,
+"leagues/war-league/BADREQUEST.json": fixture36,
+"locations/LISTLOCATIONS.json": fixture37,
+"locations/location/BADREQUEST.json": fixture38,
+"locations/location/COUNTRY.json": fixture39,
+"locations/location/REGION.json": fixture40,
+"locations/rankings/capitals/BADREQUEST.json": fixture41,
+"locations/rankings/capitals/COUNTRY.json": fixture42,
+"locations/rankings/capitals/REGION.json": fixture43,
+"locations/rankings/clans-builder-base/BADREQUEST.json": fixture44,
+"locations/rankings/clans-builder-base/COUNTRY.json": fixture45,
+"locations/rankings/clans-builder-base/REGION.json": fixture46,
+"locations/rankings/clans/BADREQUEST.json": fixture47,
+"locations/rankings/clans/COUNTRY.json": fixture48,
+"locations/rankings/clans/REGION.json": fixture49,
+"locations/rankings/players-builder-base/BADREQUEST.json": fixture50,
+"locations/rankings/players-builder-base/COUNTRY.json": fixture51,
+"locations/rankings/players-builder-base/REGION.json": fixture52,
+"locations/rankings/players/BADREQUEST.json": fixture53,
+"locations/rankings/players/COUNTRY.json": fixture54,
+"locations/rankings/players/REGION.json": fixture55,
+"players/battlelog/LOG.json": fixture56,
+"players/leaguehistory/LOG.json": fixture57,
+"players/player/FOUND.json": fixture58,
+"players/player/NOTFOUND.json": fixture59,
+"players/verifytoken/INVALID.json": fixture60,
+"players/verifytoken/NOTFOUND.json": fixture61,
+"players/verifytoken/VALID.json": fixture62};

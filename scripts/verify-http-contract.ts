@@ -81,18 +81,15 @@ try {
           : {}),
       });
       const body = await response.json();
-      const legacy = endpoint.identifier.startsWith('legacy');
       assert.equal(
         response.status,
-        legacy ? 501 : 200,
+        200,
         `${endpoint.method} ${path}: ${JSON.stringify(body)}`,
       );
-      if (response.ok) {
-        const success = [...endpoint.success][0] as unknown as {
-          schema: Schema.Codec<unknown>;
-        };
-        Schema.decodeUnknownSync(success.schema)(body);
-      } else Schema.decodeUnknownSync(ClientErrorResponse)(body);
+      const success = [...endpoint.success][0] as unknown as {
+        schema: Schema.Codec<unknown>;
+      };
+      Schema.decodeUnknownSync(success.schema)(body);
       results.push({
         operation: group.identifier + '.' + endpoint.identifier,
         path,
@@ -175,6 +172,7 @@ try {
     '/clans',
     '/clans?name=ab',
     '/clans?minMembers=1',
+    '/leagues/99999999',
     '/leagues/29000022/seasons/2026-02-23?limit=50',
   ] as const) {
     const response = await runtime.dispatchFetch('https://mock.test' + badPath);

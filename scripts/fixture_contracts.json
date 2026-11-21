@@ -13,6 +13,7 @@
   "players/verifytoken": "VerifyTokenResponse",
   "leagues/leaguegroup": "LeagueGroup",
   "leagues/league-season": "PlayerSeasonRankingListResponse",
+  "leagues/LISTLEAGUES.json": "LeagueListResponse",
   "leagues/LISTLEAGUESEASONS.json": "LeagueSeasonListResponse",
   "leagues/LISTLEAGUETIERS.json": "LeagueTierListResponse",
   "leagues/LISTBUILDERLEAGUES.json": "BuilderBaseLeagueListResponse",
