@@ -73,6 +73,7 @@
           "state",
           "teamSize"
         ],
+        "title": "ActiveClanWar",
         "type": "object"
       },
       "BadgeUrls": {
@@ -98,6 +99,7 @@
           "medium",
           "small"
         ],
+        "title": "BadgeUrls",
         "type": "object"
       },
       "BattleLogEntry": {
@@ -188,6 +190,7 @@
           "opponentTownHallLevel",
           "stars"
         ],
+        "title": "BattleLogEntry",
         "type": "object"
       },
       "BattleLogResponse": {
@@ -202,6 +205,7 @@
         "required": [
           "items"
         ],
+        "title": "BattleLogResponse",
         "type": "object"
       },
       "BuilderBaseLeague": {
@@ -217,6 +221,7 @@
           "id",
           "name"
         ],
+        "title": "BuilderBaseLeague",
         "type": "object"
       },
       "BuilderBaseLeagueListResponse": {
@@ -235,6 +240,7 @@
           "items",
           "paging"
         ],
+        "title": "BuilderBaseLeagueListResponse",
         "type": "object"
       },
       "CapitalLeague": {
@@ -250,6 +256,7 @@
           "id",
           "name"
         ],
+        "title": "CapitalLeague",
         "type": "object"
       },
       "CapitalLeagueListResponse": {
@@ -268,6 +275,7 @@
           "items",
           "paging"
         ],
+        "title": "CapitalLeagueListResponse",
         "type": "object"
       },
       "CapitalRaidSeasonsResponse": {
@@ -286,6 +294,7 @@
           "items",
           "paging"
         ],
+        "title": "CapitalRaidSeasonsResponse",
         "type": "object"
       },
       "Clan": {
@@ -424,6 +433,7 @@
           "warWinStreak",
           "warWins"
         ],
+        "title": "Clan",
         "type": "object"
       },
       "ClanBuilderBaseRanking": {
@@ -470,6 +480,7 @@
           "rank",
           "tag"
         ],
+        "title": "ClanBuilderBaseRanking",
         "type": "object"
       },
       "ClanBuilderBaseRankingListResponse": {
@@ -488,6 +499,7 @@
           "items",
           "paging"
         ],
+        "title": "ClanBuilderBaseRankingListResponse",
         "type": "object"
       },
       "ClanCapital": {
@@ -511,6 +523,7 @@
         "required": [
           "clanGoldSinkTotal"
         ],
+        "title": "ClanCapital",
         "type": "object"
       },
       "ClanCapitalDistrict": {
@@ -530,6 +543,7 @@
           "id",
           "name"
         ],
+        "title": "ClanCapitalDistrict",
         "type": "object"
       },
       "ClanCapitalRaidSeason": {
@@ -606,6 +620,7 @@
           "state",
           "totalAttacks"
         ],
+        "title": "ClanCapitalRaidSeason",
         "type": "object"
       },
       "ClanCapitalRaidSeasonAttack": {
@@ -629,6 +644,7 @@
           "destructionPercent",
           "stars"
         ],
+        "title": "ClanCapitalRaidSeasonAttack",
         "type": "object"
       },
       "ClanCapitalRaidSeasonAttacker": {
@@ -644,6 +660,7 @@
           "name",
           "tag"
         ],
+        "title": "ClanCapitalRaidSeasonAttacker",
         "type": "object"
       },
       "ClanCapitalRaidSeasonAttackLogEntry": {
@@ -674,6 +691,7 @@
           "districts",
           "districtsDestroyed"
         ],
+        "title": "ClanCapitalRaidSeasonAttackLogEntry",
         "type": "object"
       },
       "ClanCapitalRaidSeasonClanInfo": {
@@ -697,6 +715,7 @@
           "name",
           "tag"
         ],
+        "title": "ClanCapitalRaidSeasonClanInfo",
         "type": "object"
       },
       "ClanCapitalRaidSeasonDefenseLogEntry": {
@@ -727,6 +746,7 @@
           "districts",
           "districtsDestroyed"
         ],
+        "title": "ClanCapitalRaidSeasonDefenseLogEntry",
         "type": "object"
       },
       "ClanCapitalRaidSeasonDistrict": {
@@ -773,6 +793,7 @@
           "stars",
           "totalLooted"
         ],
+        "title": "ClanCapitalRaidSeasonDistrict",
         "type": "object"
       },
       "ClanCapitalRaidSeasonMember": {
@@ -804,6 +825,7 @@
           "name",
           "tag"
         ],
+        "title": "ClanCapitalRaidSeasonMember",
         "type": "object"
       },
       "ClanCapitalRanking": {
@@ -851,6 +873,7 @@
           "rank",
           "tag"
         ],
+        "title": "ClanCapitalRanking",
         "type": "object"
       },
       "ClanCapitalRankingListResponse": {
@@ -869,6 +892,7 @@
           "items",
           "paging"
         ],
+        "title": "ClanCapitalRankingListResponse",
         "type": "object"
       },
       "ClanMember": {
@@ -944,6 +968,7 @@
           "townHallLevel",
           "trophies"
         ],
+        "title": "ClanMember",
         "type": "object"
       },
       "ClanMembersResponse": {
@@ -962,6 +987,7 @@
           "items",
           "paging"
         ],
+        "title": "ClanMembersResponse",
         "type": "object"
       },
       "ClanRanking": {
@@ -1008,6 +1034,7 @@
           "rank",
           "tag"
         ],
+        "title": "ClanRanking",
         "type": "object"
       },
       "ClanRankingListResponse": {
@@ -1026,6 +1053,7 @@
           "items",
           "paging"
         ],
+        "title": "ClanRankingListResponse",
         "type": "object"
       },
       "ClanReference": {
@@ -1045,6 +1073,7 @@
           "name",
           "tag"
         ],
+        "title": "ClanReference",
         "type": "object"
       },
       "ClanSearchItem": {
@@ -1168,6 +1197,7 @@
           "warWinStreak",
           "warWins"
         ],
+        "title": "ClanSearchItem",
         "type": "object"
       },
       "ClanSearchResponse": {
@@ -1186,6 +1216,7 @@
           "items",
           "paging"
         ],
+        "title": "ClanSearchResponse",
         "type": "object"
       },
       "ClanWar": {
@@ -1205,7 +1236,8 @@
           {
             "$ref": "#/components/schemas/NotInWar"
           }
-        ]
+        ],
+        "title": "ClanWar"
       },
       "ClanWarAttack": {
         "properties": {
@@ -1241,6 +1273,7 @@
           "order",
           "stars"
         ],
+        "title": "ClanWarAttack",
         "type": "object"
       },
       "ClanWarLeagueClan": {
@@ -1269,6 +1302,7 @@
           "name",
           "tag"
         ],
+        "title": "ClanWarLeagueClan",
         "type": "object"
       },
       "ClanWarLeagueClanMember": {
@@ -1288,6 +1322,7 @@
           "tag",
           "townHallLevel"
         ],
+        "title": "ClanWarLeagueClanMember",
         "type": "object"
       },
       "ClanWarLeagueGroup": {
@@ -1320,6 +1355,7 @@
         "required": [
           "state"
         ],
+        "title": "ClanWarLeagueGroup",
         "type": "object"
       },
       "ClanWarLeagueRound": {
@@ -1332,6 +1368,7 @@
             "type": "array"
           }
         },
+        "title": "ClanWarLeagueRound",
         "type": "object"
       },
       "ClanWarLogEntry": {
@@ -1391,6 +1428,7 @@
           "result",
           "teamSize"
         ],
+        "title": "ClanWarLogEntry",
         "type": "object"
       },
       "ClanWarLogResponse": {
@@ -1409,6 +1447,7 @@
           "items",
           "paging"
         ],
+        "title": "ClanWarLogResponse",
         "type": "object"
       },
       "ClanWarMember": {
@@ -1449,6 +1488,7 @@
           "tag",
           "townhallLevel"
         ],
+        "title": "ClanWarMember",
         "type": "object"
       },
       "ClientErrorResponse": {
@@ -1464,6 +1504,7 @@
         "required": [
           "reason"
         ],
+        "title": "ClientErrorResponse",
         "type": "object"
       },
       "CursorPaging": {
@@ -1477,6 +1518,7 @@
             "type": "string"
           }
         },
+        "title": "CursorPaging",
         "type": "object"
       },
       "GoldPassSeason": {
@@ -1500,6 +1542,7 @@
           "endTime",
           "startTime"
         ],
+        "title": "GoldPassSeason",
         "type": "object"
       },
       "Label": {
@@ -1519,6 +1562,7 @@
           "id",
           "name"
         ],
+        "title": "Label",
         "type": "object"
       },
       "LabelIconUrls": {
@@ -1538,6 +1582,7 @@
           "medium",
           "small"
         ],
+        "title": "LabelIconUrls",
         "type": "object"
       },
       "LabelListResponse": {
@@ -1556,6 +1601,7 @@
           "items",
           "paging"
         ],
+        "title": "LabelListResponse",
         "type": "object"
       },
       "Language": {
@@ -1576,6 +1622,7 @@
           "languageCode",
           "name"
         ],
+        "title": "Language",
         "type": "object"
       },
       "League": {
@@ -1596,6 +1643,7 @@
           "id",
           "name"
         ],
+        "title": "League",
         "type": "object"
       },
       "LeagueBattleLogEntry": {
@@ -1636,6 +1684,7 @@
           "stars",
           "trophies"
         ],
+        "title": "LeagueBattleLogEntry",
         "type": "object"
       },
       "LeagueGroup": {
@@ -1664,6 +1713,7 @@
           "defenseLogs",
           "members"
         ],
+        "title": "LeagueGroup",
         "type": "object"
       },
       "LeagueGroupMember": {
@@ -1723,6 +1773,7 @@
           "playerName",
           "playerTag"
         ],
+        "title": "LeagueGroupMember",
         "type": "object"
       },
       "LeagueHistoryResponse": {
@@ -1737,6 +1788,7 @@
         "required": [
           "items"
         ],
+        "title": "LeagueHistoryResponse",
         "type": "object"
       },
       "LeagueIconUrls": {
@@ -1761,6 +1813,7 @@
           "small",
           "tiny"
         ],
+        "title": "LeagueIconUrls",
         "type": "object"
       },
       "LeagueListResponse": {
@@ -1779,6 +1832,7 @@
           "items",
           "paging"
         ],
+        "title": "LeagueListResponse",
         "type": "object"
       },
       "LeagueSeason": {
@@ -1791,6 +1845,7 @@
         "required": [
           "id"
         ],
+        "title": "LeagueSeason",
         "type": "object"
       },
       "LeagueSeasonListResponse": {
@@ -1809,6 +1864,7 @@
           "items",
           "paging"
         ],
+        "title": "LeagueSeasonListResponse",
         "type": "object"
       },
       "LeagueSeasonResult": {
@@ -1862,6 +1918,7 @@
           "maxBattles",
           "placement"
         ],
+        "title": "LeagueSeasonResult",
         "type": "object"
       },
       "LeagueTier": {
@@ -1882,6 +1939,7 @@
           "id",
           "name"
         ],
+        "title": "LeagueTier",
         "type": "object"
       },
       "LeagueTierIconUrls": {
@@ -1901,6 +1959,7 @@
           "large",
           "small"
         ],
+        "title": "LeagueTierIconUrls",
         "type": "object"
       },
       "LeagueTierListResponse": {
@@ -1919,6 +1978,7 @@
           "items",
           "paging"
         ],
+        "title": "LeagueTierListResponse",
         "type": "object"
       },
       "LegendLeagueTournamentSeasonResult": {
@@ -1938,6 +1998,7 @@
         "required": [
           "trophies"
         ],
+        "title": "LegendLeagueTournamentSeasonResult",
         "type": "object"
       },
       "Location": {
@@ -1962,6 +2023,7 @@
           "isCountry",
           "name"
         ],
+        "title": "Location",
         "type": "object"
       },
       "LocationListResponse": {
@@ -1980,6 +2042,7 @@
           "items",
           "paging"
         ],
+        "title": "LocationListResponse",
         "type": "object"
       },
       "NotInWar": {
@@ -2003,6 +2066,7 @@
           "opponent",
           "state"
         ],
+        "title": "NotInWar",
         "type": "object"
       },
       "NotInWarClan": {
@@ -2033,6 +2097,7 @@
           "destructionPercentage",
           "stars"
         ],
+        "title": "NotInWarClan",
         "type": "object"
       },
       "Paging": {
@@ -2044,6 +2109,7 @@
         "required": [
           "cursors"
         ],
+        "title": "Paging",
         "type": "object"
       },
       "Player": {
@@ -2216,6 +2282,7 @@
           "trophies",
           "warStars"
         ],
+        "title": "Player",
         "type": "object"
       },
       "PlayerAchievementProgress": {
@@ -2267,6 +2334,7 @@
           "value",
           "village"
         ],
+        "title": "PlayerAchievementProgress",
         "type": "object"
       },
       "PlayerBuilderBaseRanking": {
@@ -2306,6 +2374,7 @@
           "rank",
           "tag"
         ],
+        "title": "PlayerBuilderBaseRanking",
         "type": "object"
       },
       "PlayerBuilderBaseRankingListResponse": {
@@ -2324,6 +2393,7 @@
           "items",
           "paging"
         ],
+        "title": "PlayerBuilderBaseRankingListResponse",
         "type": "object"
       },
       "PlayerClan": {
@@ -2348,6 +2418,7 @@
           "name",
           "tag"
         ],
+        "title": "PlayerClan",
         "type": "object"
       },
       "PlayerHero": {
@@ -2382,6 +2453,7 @@
           "name",
           "village"
         ],
+        "title": "PlayerHero",
         "type": "object"
       },
       "PlayerHouse": {
@@ -2396,6 +2468,7 @@
         "required": [
           "elements"
         ],
+        "title": "PlayerHouse",
         "type": "object"
       },
       "PlayerHouseElement": {
@@ -2418,6 +2491,7 @@
           "id",
           "type"
         ],
+        "title": "PlayerHouseElement",
         "type": "object"
       },
       "PlayerItemLevel": {
@@ -2445,6 +2519,7 @@
           "name",
           "village"
         ],
+        "title": "PlayerItemLevel",
         "type": "object"
       },
       "PlayerLegendStatistics": {
@@ -2469,6 +2544,7 @@
           "currentSeason",
           "legendTrophies"
         ],
+        "title": "PlayerLegendStatistics",
         "type": "object"
       },
       "PlayerRanking": {
@@ -2521,6 +2597,7 @@
           "tag",
           "trophies"
         ],
+        "title": "PlayerRanking",
         "type": "object"
       },
       "PlayerRankingListResponse": {
@@ -2539,6 +2616,7 @@
           "items",
           "paging"
         ],
+        "title": "PlayerRankingListResponse",
         "type": "object"
       },
       "PlayerSeasonRanking": {
@@ -2582,6 +2660,7 @@
           "tag",
           "trophies"
         ],
+        "title": "PlayerSeasonRanking",
         "type": "object"
       },
       "PlayerSeasonRankingListResponse": {
@@ -2600,6 +2679,7 @@
           "items",
           "paging"
         ],
+        "title": "PlayerSeasonRankingListResponse",
         "type": "object"
       },
       "PlayerTroop": {
@@ -2631,6 +2711,7 @@
           "name",
           "village"
         ],
+        "title": "PlayerTroop",
         "type": "object"
       },
       "Resource": {
@@ -2648,6 +2729,7 @@
           "amount",
           "name"
         ],
+        "title": "Resource",
         "type": "object"
       },
       "VerifyTokenRequest": {
@@ -2663,6 +2745,7 @@
         "required": [
           "token"
         ],
+        "title": "VerifyTokenRequest",
         "type": "object"
       },
       "VerifyTokenResponse": {
@@ -2686,6 +2769,7 @@
           "tag",
           "token"
         ],
+        "title": "VerifyTokenResponse",
         "type": "object"
       },
       "WarClan": {
@@ -2730,6 +2814,7 @@
           "stars",
           "tag"
         ],
+        "title": "WarClan",
         "type": "object"
       },
       "WarLeague": {
@@ -2745,6 +2830,7 @@
           "id",
           "name"
         ],
+        "title": "WarLeague",
         "type": "object"
       },
       "WarLeagueListResponse": {
@@ -2763,6 +2849,7 @@
           "items",
           "paging"
         ],
+        "title": "WarLeagueListResponse",
         "type": "object"
       },
       "WarLogClan": {
@@ -2803,6 +2890,7 @@
           "stars",
           "tag"
         ],
+        "title": "WarLogClan",
         "type": "object"
       },
       "WarLogOpponent": {
@@ -2836,6 +2924,7 @@
           "destructionPercentage",
           "stars"
         ],
+        "title": "WarLogOpponent",
         "type": "object"
       }
     },

@@ -297,5 +297,10 @@ export function completeOpenApi<
   addClanWarDiscriminator(spec);
   polishResponses(spec);
   deduplicateSchemas(spec);
+  for (const [name, schema] of Object.entries(spec.components.schemas)) {
+    if (schema && typeof schema === 'object' && !('title' in schema)) {
+      (schema as Record<string, unknown>).title = name;
+    }
+  }
   return spec;
 }

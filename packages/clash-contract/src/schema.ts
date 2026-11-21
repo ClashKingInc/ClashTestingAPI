@@ -705,11 +705,13 @@ export interface paths {
 export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
+        /** ClientErrorResponse */
         ClientErrorResponse: {
             message?: string;
             /** @description Machine-readable error reason (e.g. badRequest, notFound, accessDenied, accessDenied.invalidIp, tooManyRequests, inMaintenance, unknownException). */
             reason: string;
         };
+        /** GoldPassSeason */
         GoldPassSeason: {
             /**
              * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
@@ -722,24 +724,29 @@ export interface components {
              */
             startTime: string;
         };
+        /** LabelListResponse */
         LabelListResponse: {
             items: components["schemas"]["Label"][];
             paging: components["schemas"]["Paging"];
         };
+        /** Paging */
         Paging: {
             cursors: components["schemas"]["CursorPaging"];
         };
+        /** CursorPaging */
         CursorPaging: {
             /** @description Cursor for the next page. */
             after?: string;
             /** @description Cursor for the previous page. */
             before?: string;
         };
+        /** Label */
         Label: {
             iconUrls: components["schemas"]["LabelIconUrls"];
             id: number;
             name: string;
         };
+        /** LabelIconUrls */
         LabelIconUrls: {
             /**
              * Format: uri
@@ -752,10 +759,12 @@ export interface components {
              */
             small: string;
         };
+        /** ClanCapitalRankingListResponse */
         ClanCapitalRankingListResponse: {
             items: components["schemas"]["ClanCapitalRanking"][];
             paging: components["schemas"]["Paging"];
         };
+        /** ClanCapitalRanking */
         ClanCapitalRanking: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             clanCapitalPoints: number;
@@ -769,6 +778,7 @@ export interface components {
             rank: number;
             tag: string;
         };
+        /** BadgeUrls */
         BadgeUrls: {
             /**
              * Format: uri
@@ -786,10 +796,12 @@ export interface components {
              */
             small: string;
         };
+        /** ClanBuilderBaseRankingListResponse */
         ClanBuilderBaseRankingListResponse: {
             items: components["schemas"]["ClanBuilderBaseRanking"][];
             paging: components["schemas"]["Paging"];
         };
+        /** ClanBuilderBaseRanking */
         ClanBuilderBaseRanking: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             clanBuilderBasePoints: number;
@@ -802,10 +814,12 @@ export interface components {
             rank: number;
             tag: string;
         };
+        /** PlayerBuilderBaseRankingListResponse */
         PlayerBuilderBaseRankingListResponse: {
             items: components["schemas"]["PlayerBuilderBaseRanking"][];
             paging: components["schemas"]["Paging"];
         };
+        /** PlayerBuilderBaseRanking */
         PlayerBuilderBaseRanking: {
             builderBaseLeague: components["schemas"]["BuilderBaseLeague"];
             builderBaseTrophies: number;
@@ -816,19 +830,23 @@ export interface components {
             rank: number;
             tag: string;
         };
+        /** ClanReference */
         ClanReference: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             name: string;
             tag: string;
         };
+        /** BuilderBaseLeague */
         BuilderBaseLeague: {
             id: number;
             name: string;
         };
+        /** PlayerRankingListResponse */
         PlayerRankingListResponse: {
             items: components["schemas"]["PlayerRanking"][];
             paging: components["schemas"]["Paging"];
         };
+        /** PlayerRanking */
         PlayerRanking: {
             attackWins: number;
             clan?: components["schemas"]["ClanReference"];
@@ -843,6 +861,7 @@ export interface components {
             tag: string;
             trophies: number;
         };
+        /** LeagueTierIconUrls */
         LeagueTierIconUrls: {
             /**
              * Format: uri
@@ -855,6 +874,7 @@ export interface components {
              */
             small: string;
         };
+        /** LeagueIconUrls */
         LeagueIconUrls: {
             /**
              * Format: uri
@@ -872,10 +892,12 @@ export interface components {
              */
             tiny: string;
         };
+        /** ClanRankingListResponse */
         ClanRankingListResponse: {
             items: components["schemas"]["ClanRanking"][];
             paging: components["schemas"]["Paging"];
         };
+        /** ClanRanking */
         ClanRanking: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             clanLevel: number;
@@ -888,19 +910,23 @@ export interface components {
             rank: number;
             tag: string;
         };
+        /** LocationListResponse */
         LocationListResponse: {
             items: components["schemas"]["Location"][];
             paging: components["schemas"]["Paging"];
         };
+        /** LeagueListResponse */
         LeagueListResponse: {
             items: components["schemas"]["League"][];
             paging: components["schemas"]["Paging"];
         };
+        /** LeagueGroup */
         LeagueGroup: {
             attackLogs: components["schemas"]["LeagueBattleLogEntry"][];
             defenseLogs: components["schemas"]["LeagueBattleLogEntry"][];
             members: components["schemas"]["LeagueGroupMember"][];
         };
+        /** LeagueGroupMember */
         LeagueGroupMember: {
             attackLoseCount: number;
             attackWinCount: number;
@@ -914,6 +940,7 @@ export interface components {
             playerName: string;
             playerTag: string;
         };
+        /** LeagueBattleLogEntry */
         LeagueBattleLogEntry: {
             /**
              * Format: date-time
@@ -927,10 +954,12 @@ export interface components {
             stars: number;
             trophies: number;
         };
+        /** PlayerSeasonRankingListResponse */
         PlayerSeasonRankingListResponse: {
             items: components["schemas"]["PlayerSeasonRanking"][];
             paging: components["schemas"]["Paging"];
         };
+        /** PlayerSeasonRanking */
         PlayerSeasonRanking: {
             attackWins: number;
             clan?: components["schemas"]["ClanReference"];
@@ -942,44 +971,54 @@ export interface components {
             tag: string;
             trophies: number;
         };
+        /** LeagueSeasonListResponse */
         LeagueSeasonListResponse: {
             items: components["schemas"]["LeagueSeason"][];
             paging: components["schemas"]["Paging"];
         };
+        /** LeagueSeason */
         LeagueSeason: {
             /** @description Season identifier: YYYY-MM (2015-07 to 2025-08), YYYY-MM-DD (2025-10-06 to 2026-04-20), or v2-YYYY-MM-DDTHH:MM:SSZ (2026-05-11 onward). */
             id: string;
         };
+        /** WarLeague */
         WarLeague: {
             id: number;
             name: string;
         };
+        /** WarLeagueListResponse */
         WarLeagueListResponse: {
             items: components["schemas"]["WarLeague"][];
             paging: components["schemas"]["Paging"];
         };
+        /** BuilderBaseLeagueListResponse */
         BuilderBaseLeagueListResponse: {
             items: components["schemas"]["BuilderBaseLeague"][];
             paging: components["schemas"]["Paging"];
         };
+        /** CapitalLeague */
         CapitalLeague: {
             id: number;
             name: string;
         };
+        /** CapitalLeagueListResponse */
         CapitalLeagueListResponse: {
             items: components["schemas"]["CapitalLeague"][];
             paging: components["schemas"]["Paging"];
         };
+        /** LeagueTierListResponse */
         LeagueTierListResponse: {
             items: components["schemas"]["LeagueTier"][];
             paging: components["schemas"]["Paging"];
         };
+        /** VerifyTokenResponse */
         VerifyTokenResponse: {
             /** @enum {string} */
             status: "ok" | "invalid";
             tag: string;
             token: string;
         };
+        /** VerifyTokenRequest */
         VerifyTokenRequest: {
             /**
              * @description In-game API token to verify. Send literal "TOKEN" against the mock API for a valid response.
@@ -987,9 +1026,11 @@ export interface components {
              */
             token: string;
         };
+        /** LeagueHistoryResponse */
         LeagueHistoryResponse: {
             items: components["schemas"]["LeagueSeasonResult"][];
         };
+        /** LeagueSeasonResult */
         LeagueSeasonResult: {
             attackLosses: number;
             attackStars: number;
@@ -1007,9 +1048,11 @@ export interface components {
             maxBattles: number;
             placement: number;
         };
+        /** BattleLogResponse */
         BattleLogResponse: {
             items: components["schemas"]["BattleLogEntry"][];
         };
+        /** BattleLogEntry */
         BattleLogEntry: {
             /** @description Shareable army composition code, or null when unavailable on a battle log entry. */
             armyShareCode: string | null;
@@ -1032,12 +1075,14 @@ export interface components {
             opponentTownHallLevel: number;
             stars: number;
         };
+        /** Resource */
         Resource: {
             /** Format: int64 */
             amount: number;
             /** @description Internal resource identifier (e.g. Gold, Elixir, DarkElixir, Gold2, CommonOre, CraftingResource1). Not a fixed enum. */
             name: string;
         };
+        /** Player */
         Player: {
             achievements: components["schemas"]["PlayerAchievementProgress"][];
             attackWins: number;
@@ -1096,6 +1141,7 @@ export interface components {
             warPreference?: "in" | "out";
             warStars: number;
         };
+        /** PlayerTroop */
         PlayerTroop: {
             level: number;
             maxLevel: number;
@@ -1105,6 +1151,7 @@ export interface components {
             /** @enum {string} */
             village: "home" | "builderBase";
         };
+        /** PlayerItemLevel */
         PlayerItemLevel: {
             level: number;
             maxLevel: number;
@@ -1112,9 +1159,11 @@ export interface components {
             /** @enum {string} */
             village: "home" | "builderBase";
         };
+        /** PlayerHouse */
         PlayerHouse: {
             elements: components["schemas"]["PlayerHouseElement"][];
         };
+        /** PlayerHouseElement */
         PlayerHouseElement: {
             id: number;
             /**
@@ -1123,6 +1172,7 @@ export interface components {
              */
             type: "ground" | "walls" | "roof" | "decoration";
         };
+        /** PlayerLegendStatistics */
         PlayerLegendStatistics: {
             bestBuilderBaseSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"];
             bestSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"];
@@ -1130,6 +1180,7 @@ export interface components {
             legendTrophies: number;
             previousSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"];
         };
+        /** LegendLeagueTournamentSeasonResult */
         LegendLeagueTournamentSeasonResult: {
             /** @description Season identifier. Omitted on currentSeason. */
             id?: string;
@@ -1137,6 +1188,7 @@ export interface components {
             rank?: number;
             trophies: number;
         };
+        /** PlayerHero */
         PlayerHero: {
             /** @description Equipped hero equipment. Present only on Home Village heroes. */
             equipment?: components["schemas"]["PlayerItemLevel"][];
@@ -1146,13 +1198,17 @@ export interface components {
             /** @enum {string} */
             village: "home" | "builderBase";
         };
-        /** @description Omitted when the player is not in a clan. */
+        /**
+         * PlayerClan
+         * @description Omitted when the player is not in a clan.
+         */
         PlayerClan: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             clanLevel: number;
             name: string;
             tag: string;
         };
+        /** PlayerAchievementProgress */
         PlayerAchievementProgress: {
             /** @description Progress/completion text, or null for achievements that do not report completion info. */
             completionInfo: string | null;
@@ -1165,10 +1221,12 @@ export interface components {
             /** @enum {string} */
             village: "home" | "builderBase" | "clanCapital";
         };
+        /** CapitalRaidSeasonsResponse */
         CapitalRaidSeasonsResponse: {
             items: components["schemas"]["ClanCapitalRaidSeason"][];
             paging: components["schemas"]["Paging"];
         };
+        /** ClanCapitalRaidSeason */
         ClanCapitalRaidSeason: {
             attackLog: components["schemas"]["ClanCapitalRaidSeasonAttackLogEntry"][];
             capitalTotalLoot: number;
@@ -1193,6 +1251,7 @@ export interface components {
             state: "ongoing" | "ended";
             totalAttacks: number;
         };
+        /** ClanCapitalRaidSeasonMember */
         ClanCapitalRaidSeasonMember: {
             attackLimit: number;
             attacks: number;
@@ -1201,6 +1260,7 @@ export interface components {
             name: string;
             tag: string;
         };
+        /** ClanCapitalRaidSeasonDefenseLogEntry */
         ClanCapitalRaidSeasonDefenseLogEntry: {
             attackCount: number;
             attacker: components["schemas"]["ClanCapitalRaidSeasonClanInfo"];
@@ -1208,6 +1268,7 @@ export interface components {
             districts: components["schemas"]["ClanCapitalRaidSeasonDistrict"][];
             districtsDestroyed: number;
         };
+        /** ClanCapitalRaidSeasonDistrict */
         ClanCapitalRaidSeasonDistrict: {
             attackCount: number;
             /** @description Individual attacks against this district. Included only for attacked districts in an ongoing raid season; omitted on ended seasons. */
@@ -1219,21 +1280,25 @@ export interface components {
             stars: number;
             totalLooted: number;
         };
+        /** ClanCapitalRaidSeasonAttack */
         ClanCapitalRaidSeasonAttack: {
             attacker: components["schemas"]["ClanCapitalRaidSeasonAttacker"];
             destructionPercent: number;
             stars: number;
         };
+        /** ClanCapitalRaidSeasonAttacker */
         ClanCapitalRaidSeasonAttacker: {
             name: string;
             tag: string;
         };
+        /** ClanCapitalRaidSeasonClanInfo */
         ClanCapitalRaidSeasonClanInfo: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             level: number;
             name: string;
             tag: string;
         };
+        /** ClanCapitalRaidSeasonAttackLogEntry */
         ClanCapitalRaidSeasonAttackLogEntry: {
             attackCount: number;
             defender: components["schemas"]["ClanCapitalRaidSeasonClanInfo"];
@@ -1241,7 +1306,9 @@ export interface components {
             districts: components["schemas"]["ClanCapitalRaidSeasonDistrict"][];
             districtsDestroyed: number;
         };
+        /** ClanWar */
         ClanWar: components["schemas"]["ActiveClanWar"] | components["schemas"]["NotInWar"];
+        /** NotInWar */
         NotInWar: {
             clan: components["schemas"]["NotInWarClan"];
             /** @description Zeroed placeholder opponent object returned when not in war. */
@@ -1252,7 +1319,10 @@ export interface components {
              */
             state: "notInWar";
         };
-        /** @description Zeroed placeholder clan object returned when not in war. */
+        /**
+         * NotInWarClan
+         * @description Zeroed placeholder clan object returned when not in war.
+         */
         NotInWarClan: {
             attacks: number;
             badgeUrls: components["schemas"]["BadgeUrls"];
@@ -1260,6 +1330,7 @@ export interface components {
             destructionPercentage: number;
             stars: number;
         };
+        /** ActiveClanWar */
         ActiveClanWar: {
             /** @description Present on classic wars (typically 2); omitted on CWL wars (1 attack per member). */
             attacksPerMember?: number;
@@ -1294,6 +1365,7 @@ export interface components {
              */
             warStartTime?: string;
         };
+        /** WarClan */
         WarClan: {
             attacks: number;
             badgeUrls: components["schemas"]["BadgeUrls"];
@@ -1304,6 +1376,7 @@ export interface components {
             stars: number;
             tag: string;
         };
+        /** ClanWarMember */
         ClanWarMember: {
             /** @description Omitted until the member performs at least one attack. */
             attacks?: components["schemas"]["ClanWarAttack"][];
@@ -1316,6 +1389,7 @@ export interface components {
             /** @description Member Town Hall level. Note lowercase "h" on the wire (unlike townHallLevel elsewhere). */
             townhallLevel: number;
         };
+        /** ClanWarAttack */
         ClanWarAttack: {
             attackerTag: string;
             defenderTag: string;
@@ -1325,6 +1399,7 @@ export interface components {
             order: number;
             stars: number;
         };
+        /** ClanWarLeagueGroup */
         ClanWarLeagueGroup: {
             clans?: components["schemas"]["ClanWarLeagueClan"][];
             rounds?: components["schemas"]["ClanWarLeagueRound"][];
@@ -1332,10 +1407,12 @@ export interface components {
             /** @enum {string} */
             state: "notInWar" | "preparation" | "inWar" | "ended";
         };
+        /** ClanWarLeagueRound */
         ClanWarLeagueRound: {
             /** @description War tags for this round. Unmatched future rounds use placeholder "#0". */
             warTags?: string[];
         };
+        /** ClanWarLeagueClan */
         ClanWarLeagueClan: {
             badgeUrls?: components["schemas"]["BadgeUrls"];
             clanLevel: number;
@@ -1343,15 +1420,18 @@ export interface components {
             name: string;
             tag: string;
         };
+        /** ClanWarLeagueClanMember */
         ClanWarLeagueClanMember: {
             name: string;
             tag: string;
             townHallLevel: number;
         };
+        /** ClanWarLogResponse */
         ClanWarLogResponse: {
             items: components["schemas"]["ClanWarLogEntry"][];
             paging: components["schemas"]["Paging"];
         };
+        /** ClanWarLogEntry */
         ClanWarLogEntry: {
             attacksPerMember: number;
             /** @enum {string} */
@@ -1367,6 +1447,7 @@ export interface components {
             result: ("win" | "lose" | "tie") | null;
             teamSize: number;
         };
+        /** WarLogOpponent */
         WarLogOpponent: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             clanLevel: number;
@@ -1377,6 +1458,7 @@ export interface components {
             /** @description Omitted on CWL season summary entries in the war log. Detecting missing opponent.tag reliably identifies CWL summary rows. */
             tag?: string;
         };
+        /** WarLogClan */
         WarLogClan: {
             attacks: number;
             badgeUrls: components["schemas"]["BadgeUrls"];
@@ -1388,10 +1470,12 @@ export interface components {
             stars: number;
             tag: string;
         };
+        /** ClanMembersResponse */
         ClanMembersResponse: {
             items: components["schemas"]["ClanMember"][];
             paging: components["schemas"]["Paging"];
         };
+        /** ClanMember */
         ClanMember: {
             builderBaseLeague: components["schemas"]["BuilderBaseLeague"];
             builderBaseTrophies: number;
@@ -1414,12 +1498,16 @@ export interface components {
             townHallLevel: number;
             trophies: number;
         };
-        /** @description Legacy pre-2025 league object (often Unranked id 29000000). Prefer leagueTier for current ranked leagues. */
+        /**
+         * League
+         * @description Legacy pre-2025 league object (often Unranked id 29000000). Prefer leagueTier for current ranked leagues.
+         */
         League: {
             iconUrls: components["schemas"]["LeagueIconUrls"];
             id: number;
             name: string;
         };
+        /** Clan */
         Clan: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             capitalLeague: components["schemas"]["CapitalLeague"];
@@ -1455,6 +1543,7 @@ export interface components {
             warWinStreak: number;
             warWins: number;
         };
+        /** ClanCapital */
         ClanCapital: {
             /** @description Omitted for clans that have not unlocked Clan Capital. */
             capitalHallLevel?: number;
@@ -1463,15 +1552,18 @@ export interface components {
             /** @description Omitted for clans that have not unlocked Clan Capital. */
             districts?: components["schemas"]["ClanCapitalDistrict"][];
         };
+        /** ClanCapitalDistrict */
         ClanCapitalDistrict: {
             districtHallLevel: number;
             id: number;
             name: string;
         };
+        /** ClanSearchResponse */
         ClanSearchResponse: {
             items: components["schemas"]["ClanSearchItem"][];
             paging: components["schemas"]["Paging"];
         };
+        /** ClanSearchItem */
         ClanSearchItem: {
             badgeUrls: components["schemas"]["BadgeUrls"];
             capitalLeague: components["schemas"]["CapitalLeague"];
@@ -1504,13 +1596,19 @@ export interface components {
             warWinStreak: number;
             warWins: number;
         };
-        /** @description Minimum ranked league tier required to join. Omitted when unset. */
+        /**
+         * LeagueTier
+         * @description Minimum ranked league tier required to join. Omitted when unset.
+         */
         LeagueTier: {
             iconUrls: components["schemas"]["LeagueTierIconUrls"];
             id: number;
             name: string;
         };
-        /** @description Omitted when the clan has not configured a location. */
+        /**
+         * Location
+         * @description Omitted when the clan has not configured a location.
+         */
         Location: {
             /** @description ISO 3166-1 alpha-2 country code. Present if and only if isCountry is true. */
             countryCode?: string;
@@ -1518,7 +1616,10 @@ export interface components {
             isCountry: boolean;
             name: string;
         };
-        /** @description Omitted when the clan has not configured a chat language. */
+        /**
+         * Language
+         * @description Omitted when the clan has not configured a chat language.
+         */
         Language: {
             id: number;
             languageCode: string;
