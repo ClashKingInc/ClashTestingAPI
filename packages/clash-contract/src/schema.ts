@@ -712,12 +712,12 @@ export interface components {
         };
         GoldPassSeason: {
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             endTime: string;
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             startTime: string;
@@ -1018,7 +1018,7 @@ export interface components {
             /** @description Battle duration in seconds. */
             battleTime: number;
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             battleTimestamp: string;
@@ -1161,7 +1161,7 @@ export interface components {
             defenseLog: components["schemas"]["ClanCapitalRaidSeasonDefenseLogEntry"][];
             defensiveReward: number;
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             endTime: string;
@@ -1171,7 +1171,7 @@ export interface components {
             offensiveReward: number;
             raidsCompleted: number;
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             startTime: string;
@@ -1253,18 +1253,18 @@ export interface components {
             battleModifier?: "none" | "hardMode" | "minusOne" | "minusTwo" | "minusThree";
             clan: components["schemas"]["WarClan"];
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             endTime: string;
             opponent: components["schemas"]["WarClan"];
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             preparationStartTime: string;
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             startTime: string;
@@ -1344,7 +1344,7 @@ export interface components {
             battleModifier: "none" | "hardMode" | "minusOne" | "minusTwo" | "minusThree";
             clan: components["schemas"]["WarLogClan"];
             /**
-             * @description Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).
+             * @description UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.
              * @example 20261119T165155.000Z
              */
             endTime: string;

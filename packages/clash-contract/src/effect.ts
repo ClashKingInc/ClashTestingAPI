@@ -26,8 +26,7 @@ const Uri = Schema.String.annotate({ format: 'uri' });
 const CompactTimestamp = Schema.String.check(
   Schema.isPattern(/^\d{8}T\d{6}\.\d{3}Z$/),
 ).annotate({
-  description:
-    'Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).',
+  description: 'UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.',
   examples: ['20261119T165155.000Z'],
 });
 const IsoTimestamp = Schema.String.annotate({

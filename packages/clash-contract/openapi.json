@@ -21,7 +21,7 @@
             "$ref": "#/components/schemas/WarClan"
           },
           "endTime": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
@@ -31,14 +31,14 @@
             "$ref": "#/components/schemas/WarClan"
           },
           "preparationStartTime": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
             "type": "string"
           },
           "startTime": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
@@ -127,7 +127,7 @@
             "type": "integer"
           },
           "battleTimestamp": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
@@ -553,7 +553,7 @@
             "type": "integer"
           },
           "endTime": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
@@ -576,7 +576,7 @@
             "type": "integer"
           },
           "startTime": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
@@ -1353,7 +1353,7 @@
             "$ref": "#/components/schemas/WarLogClan"
           },
           "endTime": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
@@ -1482,14 +1482,14 @@
       "GoldPassSeason": {
         "properties": {
           "endTime": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
             "type": "string"
           },
           "startTime": {
-            "description": "Compact UTC timestamp in YYYYMMDDTHHmmss.SSSZ format (not RFC 3339).",
+            "description": "UTC timestamp in YYYYMMDDTHHmmss.SSSZ format.",
             "examples": [
               "20261119T165155.000Z"
             ],
