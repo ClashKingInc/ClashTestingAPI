@@ -16,8 +16,8 @@ export interface PlayerItemLevelWire {
   readonly level: number;
   readonly maxLevel: number;
   readonly village: 'home' | 'builderBase' | 'clanCapital';
-  readonly superTroopIsActive?: boolean | null;
-  readonly equipment?: readonly PlayerItemLevelWire[] | null;
+  readonly superTroopIsActive?: boolean;
+  readonly equipment?: readonly PlayerItemLevelWire[];
 }
 
 const BattleModifier = Schema.Literals([
@@ -58,9 +58,9 @@ const WarPreference = Schema.Literals(['in', 'out']);
 const WarResult = Schema.Literals(['win', 'lose', 'tie']);
 
 export const BadgeUrls = WireStruct({
-  large: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  medium: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  small: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
+  large: Schema.optionalKey(Schema.String),
+  medium: Schema.optionalKey(Schema.String),
+  small: Schema.optionalKey(Schema.String),
 }).annotate({
   identifier: 'BadgeUrls',
 });
@@ -90,8 +90,8 @@ export const BattleLogEntry = WireStruct({
   identifier: 'BattleLogEntry',
 });
 export const CursorPaging = WireStruct({
-  after: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  before: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
+  after: Schema.optionalKey(Schema.String),
+  before: Schema.optionalKey(Schema.String),
 }).annotate({
   identifier: 'CursorPaging',
 });
@@ -102,7 +102,6 @@ export const Paging = WireStruct({
 });
 export const BattleLogResponse = WireStruct({
   items: Schema.Array(BattleLogEntry),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'BattleLogResponse',
 });
@@ -114,7 +113,7 @@ export const BuilderBaseLeague = WireStruct({
 });
 export const BuilderBaseLeagueListResponse = WireStruct({
   items: Schema.Array(BuilderBaseLeague),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'BuilderBaseLeagueListResponse',
 });
@@ -126,12 +125,12 @@ export const CapitalLeague = WireStruct({
 });
 export const CapitalLeagueListResponse = WireStruct({
   items: Schema.Array(CapitalLeague),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'CapitalLeagueListResponse',
 });
 export const ClanCapitalRaidSeasonClanInfo = WireStruct({
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
   level: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   tag: Schema.String,
@@ -213,7 +212,7 @@ export const ClanCapitalRaidSeason = WireStruct({
 });
 export const CapitalRaidSeasonsResponse = WireStruct({
   items: Schema.Array(ClanCapitalRaidSeason),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'CapitalRaidSeasonsResponse',
 });
@@ -232,9 +231,7 @@ export const ClanCapitalDistrict = WireStruct({
   identifier: 'ClanCapitalDistrict',
 });
 export const ClanCapital = WireStruct({
-  capitalHallLevel: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  capitalHallLevel: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   clanGoldSinkTotal: Schema.Number.check(Schema.isInt()).annotate({
     format: 'int64',
   }),
@@ -243,38 +240,37 @@ export const ClanCapital = WireStruct({
   identifier: 'ClanCapital',
 });
 export const IconUrls = WireStruct({
-  large: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  medium: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  small: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  tiny: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
+  large: Schema.optionalKey(Schema.String),
+  medium: Schema.optionalKey(Schema.String),
+  small: Schema.optionalKey(Schema.String),
+  tiny: Schema.optionalKey(Schema.String),
 }).annotate({
   identifier: 'IconUrls',
 });
 export const Label = WireStruct({
-  iconUrls: Schema.optionalKey(Schema.Union([IconUrls, Schema.Null])),
+  iconUrls: Schema.optionalKey(IconUrls),
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'Label',
 });
 export const Location = WireStruct({
-  countryCode: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
+  countryCode: Schema.optionalKey(Schema.String),
   id: Schema.Number.check(Schema.isInt()),
   isCountry: Schema.Boolean,
-  localizedName: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
   name: Schema.String,
 }).annotate({
   identifier: 'Location',
 });
 export const League = WireStruct({
-  iconUrls: Schema.optionalKey(Schema.Union([IconUrls, Schema.Null])),
+  iconUrls: Schema.optionalKey(IconUrls),
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
   identifier: 'League',
 });
 export const LeagueTier = WireStruct({
-  iconUrls: Schema.optionalKey(Schema.Union([IconUrls, Schema.Null])),
+  iconUrls: Schema.optionalKey(IconUrls),
   id: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
 }).annotate({
@@ -292,28 +288,21 @@ export const PlayerHouse = WireStruct({
   identifier: 'PlayerHouse',
 });
 export const ClanMember = WireStruct({
-  builderBaseLeague: Schema.optionalKey(
-    Schema.Union([BuilderBaseLeague, Schema.Null]),
-  ),
-  builderBaseTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  builderBaseLeague: Schema.optionalKey(BuilderBaseLeague),
+  builderBaseTrophies: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   clanRank: Schema.Number.check(Schema.isInt()),
   donations: Schema.Number.check(Schema.isInt()),
   donationsReceived: Schema.Number.check(Schema.isInt()),
   expLevel: Schema.Number.check(Schema.isInt()),
-  league: Schema.optionalKey(Schema.Union([League, Schema.Null])),
-  leagueTier: Schema.optionalKey(Schema.Union([LeagueTier, Schema.Null])),
+  league: Schema.optionalKey(League),
+  leagueTier: Schema.optionalKey(LeagueTier),
   name: Schema.String,
-  playerHouse: Schema.optionalKey(Schema.Union([PlayerHouse, Schema.Null])),
+  playerHouse: Schema.optionalKey(PlayerHouse),
   previousClanRank: Schema.Number.check(Schema.isInt()),
   role: ClanRole,
   tag: Schema.String,
   townHallLevel: Schema.Number.check(Schema.isInt()),
   trophies: Schema.Number.check(Schema.isInt()),
-  versusTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
 }).annotate({
   identifier: 'ClanMember',
 });
@@ -324,79 +313,49 @@ export const WarLeague = WireStruct({
   identifier: 'WarLeague',
 });
 export const Clan = WireStruct({
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
-  capitalLeague: Schema.optionalKey(Schema.Union([CapitalLeague, Schema.Null])),
-  chatLanguage: Schema.optionalKey(Schema.Union([Language, Schema.Null])),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
+  capitalLeague: Schema.optionalKey(CapitalLeague),
+  chatLanguage: Schema.optionalKey(Language),
   clanBuilderBasePoints: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
+    Schema.Number.check(Schema.isInt()),
   ),
   clanCapital: ClanCapital,
-  clanCapitalPoints: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  clanCapitalPoints: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   clanLevel: Schema.Number.check(Schema.isInt()),
   clanPoints: Schema.Number.check(Schema.isInt()),
-  clanVersusPoints: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  description: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  isFamilyFriendly: Schema.optionalKey(
-    Schema.Union([Schema.Boolean, Schema.Null]),
-  ),
-  isWarLogPublic: Schema.optionalKey(
-    Schema.Union([Schema.Boolean, Schema.Null]),
-  ),
+  description: Schema.optionalKey(Schema.String),
+  isFamilyFriendly: Schema.optionalKey(Schema.Boolean),
+  isWarLogPublic: Schema.optionalKey(Schema.Boolean),
   labels: Schema.optionalKey(Schema.Array(Label)),
-  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
+  location: Schema.optionalKey(Location),
   memberList: Schema.optionalKey(Schema.Array(ClanMember)),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   requiredBuilderBaseTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
+    Schema.Number.check(Schema.isInt()),
   ),
-  requiredLeagueTier: Schema.optionalKey(
-    Schema.Union([LeagueTier, Schema.Null]),
-  ),
+  requiredLeagueTier: Schema.optionalKey(LeagueTier),
   requiredTownhallLevel: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
+    Schema.Number.check(Schema.isInt()),
   ),
-  requiredTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  requiredVersusTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  requiredTrophies: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   tag: Schema.String,
   type: ClanType,
-  warFrequency: Schema.optionalKey(Schema.Union([WarFrequency, Schema.Null])),
-  warLeague: Schema.optionalKey(Schema.Union([WarLeague, Schema.Null])),
-  warLosses: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  warTies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  warWinStreak: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  warWins: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  warFrequency: Schema.optionalKey(WarFrequency),
+  warLeague: Schema.optionalKey(WarLeague),
+  warLosses: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  warTies: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  warWinStreak: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  warWins: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
 }).annotate({
   identifier: 'Clan',
 });
 export const ClanBuilderBaseRanking = WireStruct({
-  // Retained in archived leaderboards before Builder Base renamed its points.
-  clanVersusPoints: Schema.optionalKey(Schema.Union([Schema.Int, Schema.Null])),
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
   clanBuilderBasePoints: Schema.Number.check(Schema.isInt()),
   clanLevel: Schema.Number.check(Schema.isInt()),
-  clanPoints: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  // Worldwide leaderboards include clans with no selected location. Keep
-  // those rows: a missing location must not reject all 200 ranking entries.
-  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
+  // Worldwide leaderboards include clans with no selected location.
+  location: Schema.optionalKey(Location),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),
@@ -407,20 +366,16 @@ export const ClanBuilderBaseRanking = WireStruct({
 });
 export const ClanBuilderBaseRankingListResponse = WireStruct({
   items: Schema.Array(ClanBuilderBaseRanking),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'ClanBuilderBaseRankingListResponse',
 });
 export const ClanCapitalRanking = WireStruct({
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
   clanCapitalPoints: Schema.Number.check(Schema.isInt()),
   clanLevel: Schema.Number.check(Schema.isInt()),
-  clanPoints: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
   // Global Capital rankings include clans without a configured location.
-  // Preserve those entries instead of rejecting the complete leaderboard.
-  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
+  location: Schema.optionalKey(Location),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),
@@ -431,22 +386,22 @@ export const ClanCapitalRanking = WireStruct({
 });
 export const ClanCapitalRankingListResponse = WireStruct({
   items: Schema.Array(ClanCapitalRanking),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'ClanCapitalRankingListResponse',
 });
 export const ClanMembersResponse = WireStruct({
   items: Schema.Array(ClanMember),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'ClanMembersResponse',
 });
 export const ClanRanking = WireStruct({
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
   clanLevel: Schema.Number.check(Schema.isInt()),
   clanPoints: Schema.Number.check(Schema.isInt()),
   // Unset clan locations are omitted on worldwide rankings.
-  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
+  location: Schema.optionalKey(Location),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),
@@ -457,82 +412,55 @@ export const ClanRanking = WireStruct({
 });
 export const ClanRankingListResponse = WireStruct({
   items: Schema.Array(ClanRanking),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'ClanRankingListResponse',
 });
 export const ClanReference = WireStruct({
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
-  clanLevel: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
   name: Schema.String,
   tag: Schema.String,
 }).annotate({
   identifier: 'ClanReference',
 });
 export const ClanSearchItem = WireStruct({
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
-  capitalLeague: Schema.optionalKey(Schema.Union([CapitalLeague, Schema.Null])),
-  chatLanguage: Schema.optionalKey(Schema.Union([Language, Schema.Null])),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
+  capitalLeague: Schema.optionalKey(CapitalLeague),
+  chatLanguage: Schema.optionalKey(Language),
   clanBuilderBasePoints: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
+    Schema.Number.check(Schema.isInt()),
   ),
-  clanCapitalPoints: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  clanCapitalPoints: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   clanLevel: Schema.Number.check(Schema.isInt()),
   clanPoints: Schema.Number.check(Schema.isInt()),
-  clanVersusPoints: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  isFamilyFriendly: Schema.optionalKey(
-    Schema.Union([Schema.Boolean, Schema.Null]),
-  ),
-  isWarLogPublic: Schema.optionalKey(
-    Schema.Union([Schema.Boolean, Schema.Null]),
-  ),
+  isFamilyFriendly: Schema.optionalKey(Schema.Boolean),
+  isWarLogPublic: Schema.optionalKey(Schema.Boolean),
   labels: Schema.optionalKey(Schema.Array(Label)),
-  location: Schema.optionalKey(Schema.Union([Location, Schema.Null])),
+  location: Schema.optionalKey(Location),
   members: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   requiredBuilderBaseTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
+    Schema.Number.check(Schema.isInt()),
   ),
-  requiredLeagueTier: Schema.optionalKey(
-    Schema.Union([LeagueTier, Schema.Null]),
-  ),
+  requiredLeagueTier: Schema.optionalKey(LeagueTier),
   requiredTownhallLevel: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
+    Schema.Number.check(Schema.isInt()),
   ),
-  requiredTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  requiredVersusTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  requiredTrophies: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   tag: Schema.String,
   type: ClanType,
-  warFrequency: Schema.optionalKey(Schema.Union([WarFrequency, Schema.Null])),
-  warLeague: Schema.optionalKey(Schema.Union([WarLeague, Schema.Null])),
-  warLosses: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  warTies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  warWinStreak: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  warWins: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  warFrequency: Schema.optionalKey(WarFrequency),
+  warLeague: Schema.optionalKey(WarLeague),
+  warLosses: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  warTies: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  warWinStreak: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  warWins: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
 }).annotate({
   identifier: 'ClanSearchItem',
 });
 export const ClanSearchResponse = WireStruct({
   items: Schema.Array(ClanSearchItem),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'ClanSearchResponse',
 });
@@ -540,9 +468,7 @@ export const ClanWarAttack = WireStruct({
   attackerTag: Schema.String,
   defenderTag: Schema.String,
   destructionPercentage: Schema.Number.check(Schema.isInt()),
-  duration: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  duration: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   order: Schema.Number.check(Schema.isInt()),
   stars: Schema.Number.check(Schema.isInt()),
 }).annotate({
@@ -550,78 +476,59 @@ export const ClanWarAttack = WireStruct({
 });
 export const ClanWarMember = WireStruct({
   attacks: Schema.optionalKey(Schema.Array(ClanWarAttack)),
-  bestOpponentAttack: Schema.optionalKey(
-    Schema.Union([ClanWarAttack, Schema.Null]),
-  ),
+  bestOpponentAttack: Schema.optionalKey(ClanWarAttack),
   mapPosition: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
-  opponentAttacks: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  opponentAttacks: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   tag: Schema.String,
   townhallLevel: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'ClanWarMember',
 });
 export const WarClan = WireStruct({
-  attacks: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
+  attacks: Schema.Number.check(Schema.isInt()),
+  badgeUrls: BadgeUrls,
   clanLevel: Schema.Number.check(Schema.isInt()),
-  destructionPercentage: Schema.optionalKey(
-    Schema.Union([Schema.Finite, Schema.Null]),
-  ),
-  expEarned: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  destructionPercentage: Schema.Finite,
   members: Schema.optionalKey(Schema.Array(ClanWarMember)),
-  name: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  stars: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  tag: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
+  name: Schema.String,
+  stars: Schema.Number.check(Schema.isInt()),
+  tag: Schema.String,
 }).annotate({
   identifier: 'WarClan',
 });
-const WarFields = {
-  warStartTime: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  attacksPerMember: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  battleModifier: Schema.optionalKey(
-    Schema.Union([BattleModifier, Schema.Null]),
-  ),
-  clan: Schema.optionalKey(Schema.Union([WarClan, Schema.Null])),
-  endTime: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  opponent: Schema.optionalKey(Schema.Union([WarClan, Schema.Null])),
-  preparationStartTime: Schema.optionalKey(
-    Schema.Union([Schema.String, Schema.Null]),
-  ),
-  startTime: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  teamSize: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-};
-// Keep empty notInWar placeholders valid without making active-war data optional.
+export const NotInWarClan = WireStruct({
+  attacks: Schema.Number.check(Schema.isInt()),
+  badgeUrls: BadgeUrls,
+  clanLevel: Schema.Number.check(Schema.isInt()),
+  destructionPercentage: Schema.Finite,
+  stars: Schema.Number.check(Schema.isInt()),
+}).annotate({
+  identifier: 'NotInWarClan',
+});
+export const NotInWar = WireStruct({
+  clan: Schema.optionalKey(NotInWarClan),
+  opponent: Schema.optionalKey(NotInWarClan),
+  state: Schema.Literal('notInWar'),
+}).annotate({
+  identifier: 'NotInWar',
+});
 export const ActiveClanWar = WireStruct({
-  ...WarFields,
-  state: Schema.Literals(['preparation', 'inWar', 'warEnded']),
+  attacksPerMember: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  battleModifier: Schema.optionalKey(BattleModifier),
   clan: WarClan,
+  endTime: Schema.String,
   opponent: WarClan,
-  teamSize: Schema.Int.check(Schema.isGreaterThan(0)),
   preparationStartTime: Schema.String,
   startTime: Schema.String,
-  endTime: Schema.String,
+  state: Schema.Literals(['preparation', 'inWar', 'warEnded']),
+  teamSize: Schema.Int.check(Schema.isGreaterThan(0)),
+  warStartTime: Schema.optionalKey(Schema.String),
 }).annotate({ identifier: 'ActiveClanWar' });
-export const ClanWar = Schema.Union([
-  WireStruct({
-    state: Schema.Literal('notInWar'),
-    clan: Schema.optionalKey(Schema.Union([WarClan, Schema.Null])),
-    opponent: Schema.optionalKey(Schema.Union([WarClan, Schema.Null])),
-  }),
-  ActiveClanWar,
-]).annotate({ identifier: 'ClanWar' });
+// List ActiveClanWar first so OpenAPI/Scalar docs default to active wars.
+export const ClanWar = Schema.Union([ActiveClanWar, NotInWar]).annotate({
+  identifier: 'ClanWar',
+});
 export const ClanWarLeagueClanMember = WireStruct({
   name: Schema.String,
   tag: Schema.String,
@@ -630,7 +537,7 @@ export const ClanWarLeagueClanMember = WireStruct({
   identifier: 'ClanWarLeagueClanMember',
 });
 export const ClanWarLeagueClan = WireStruct({
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
   clanLevel: Schema.Number.check(Schema.isInt()),
   members: Schema.optionalKey(Schema.Array(ClanWarLeagueClanMember)),
   name: Schema.String,
@@ -646,22 +553,42 @@ export const ClanWarLeagueRound = WireStruct({
 export const ClanWarLeagueGroup = WireStruct({
   clans: Schema.optionalKey(Schema.Array(ClanWarLeagueClan)),
   rounds: Schema.optionalKey(Schema.Array(ClanWarLeagueRound)),
-  season: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
+  season: Schema.optionalKey(Schema.String),
   state: ClanWarLeagueGroupState,
-  tag: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
 }).annotate({
   identifier: 'ClanWarLeagueGroup',
 });
+export const WarLogClan = WireStruct({
+  attacks: Schema.Number.check(Schema.isInt()),
+  badgeUrls: BadgeUrls,
+  clanLevel: Schema.Number.check(Schema.isInt()),
+  destructionPercentage: Schema.Finite,
+  expEarned: Schema.Number.check(Schema.isInt()),
+  name: Schema.String,
+  stars: Schema.Number.check(Schema.isInt()),
+  tag: Schema.String,
+}).annotate({
+  identifier: 'WarLogClan',
+});
+export const WarLogOpponent = WireStruct({
+  badgeUrls: BadgeUrls,
+  clanLevel: Schema.Number.check(Schema.isInt()),
+  destructionPercentage: Schema.Finite,
+  // Omitted on CWL season summary entries in the war log.
+  name: Schema.optionalKey(Schema.String),
+  stars: Schema.Number.check(Schema.isInt()),
+  // Omitted on CWL season summary entries in the war log.
+  tag: Schema.optionalKey(Schema.String),
+}).annotate({
+  identifier: 'WarLogOpponent',
+});
 export const ClanWarLogEntry = WireStruct({
-  attacksPerMember: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  battleModifier: Schema.optionalKey(
-    Schema.Union([BattleModifier, Schema.Null]),
-  ),
-  clan: WarClan,
+  attacksPerMember: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  battleModifier: Schema.optionalKey(BattleModifier),
+  clan: WarLogClan,
   endTime: Schema.String,
-  opponent: WarClan,
+  opponent: WarLogOpponent,
+  // Null on CWL season summary entries in the war log.
   result: Schema.optionalKey(Schema.Union([WarResult, Schema.Null])),
   teamSize: Schema.Number.check(Schema.isInt()),
 }).annotate({
@@ -669,7 +596,7 @@ export const ClanWarLogEntry = WireStruct({
 });
 export const ClanWarLogResponse = WireStruct({
   items: Schema.Array(ClanWarLogEntry),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'ClanWarLogResponse',
 });
@@ -691,7 +618,7 @@ export const GoldPassSeason = WireStruct({
 });
 export const LabelListResponse = WireStruct({
   items: Schema.Array(Label),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'LabelListResponse',
 });
@@ -745,7 +672,6 @@ export const LeagueSeasonResult = WireStruct({
 });
 export const LeagueHistoryResponse = WireStruct({
   items: Schema.Array(LeagueSeasonResult),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
 }).annotate({
   identifier: 'LeagueHistoryResponse',
 });
@@ -754,30 +680,26 @@ export const LeagueSeason = WireStruct({ id: Schema.String }).annotate({
 });
 export const LeagueSeasonListResponse = WireStruct({
   items: Schema.Array(LeagueSeason),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'LeagueSeasonListResponse',
 });
 export const LeagueTierListResponse = WireStruct({
   items: Schema.Array(LeagueTier),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'LeagueTierListResponse',
 });
 export const LegendLeagueTournamentSeasonResult = WireStruct({
-  id: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
-  rank: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  trophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  id: Schema.optionalKey(Schema.String),
+  rank: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  trophies: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
 }).annotate({
   identifier: 'LegendLeagueTournamentSeasonResult',
 });
 export const LocationListResponse = WireStruct({
   items: Schema.Array(Location),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'LocationListResponse',
 });
@@ -785,7 +707,7 @@ export const PlayerAchievementProgress = WireStruct({
   completionInfo: Schema.optionalKey(
     Schema.Union([Schema.String, Schema.Null]),
   ),
-  info: Schema.optionalKey(Schema.Union([Schema.String, Schema.Null])),
+  info: Schema.optionalKey(Schema.String),
   name: Schema.String,
   stars: Schema.Number.check(Schema.isInt()),
   target: Schema.Number.check(Schema.isInt()),
@@ -795,10 +717,8 @@ export const PlayerAchievementProgress = WireStruct({
   identifier: 'PlayerAchievementProgress',
 });
 export const PlayerClan = WireStruct({
-  badgeUrls: Schema.optionalKey(Schema.Union([BadgeUrls, Schema.Null])),
-  clanLevel: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  badgeUrls: Schema.optionalKey(BadgeUrls),
+  clanLevel: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   name: Schema.String,
   tag: Schema.String,
 }).annotate({
@@ -806,49 +726,34 @@ export const PlayerClan = WireStruct({
 });
 export const PlayerItemLevel = WireStruct({
   equipment: Schema.optionalKey(
-    Schema.Union([
-      Schema.Array(
-        Schema.suspend(
-          (): Schema.Codec<
-            PlayerItemLevelWire,
-            PlayerItemLevelWire,
-            never,
-            never
-          > => PlayerItemLevel,
-        ),
+    Schema.Array(
+      Schema.suspend(
+        (): Schema.Codec<
+          PlayerItemLevelWire,
+          PlayerItemLevelWire,
+          never,
+          never
+        > => PlayerItemLevel,
       ),
-      Schema.Null,
-    ]),
+    ),
   ),
   level: Schema.Number.check(Schema.isInt()),
   maxLevel: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
-  superTroopIsActive: Schema.optionalKey(
-    Schema.Union([Schema.Boolean, Schema.Null]),
-  ),
+  superTroopIsActive: Schema.optionalKey(Schema.Boolean),
   village: VillageType,
 }).annotate({
   identifier: 'PlayerItemLevel',
 });
 export const PlayerLegendStatistics = WireStruct({
-  bestBuilderBaseSeason: Schema.optionalKey(
-    Schema.Union([LegendLeagueTournamentSeasonResult, Schema.Null]),
-  ),
-  bestSeason: Schema.optionalKey(
-    Schema.Union([LegendLeagueTournamentSeasonResult, Schema.Null]),
-  ),
-  currentSeason: Schema.optionalKey(
-    Schema.Union([LegendLeagueTournamentSeasonResult, Schema.Null]),
-  ),
-  legendTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  bestBuilderBaseSeason: Schema.optionalKey(LegendLeagueTournamentSeasonResult),
+  bestSeason: Schema.optionalKey(LegendLeagueTournamentSeasonResult),
+  currentSeason: Schema.optionalKey(LegendLeagueTournamentSeasonResult),
+  legendTrophies: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   previousBuilderBaseSeason: Schema.optionalKey(
-    Schema.Union([LegendLeagueTournamentSeasonResult, Schema.Null]),
+    LegendLeagueTournamentSeasonResult,
   ),
-  previousSeason: Schema.optionalKey(
-    Schema.Union([LegendLeagueTournamentSeasonResult, Schema.Null]),
-  ),
+  previousSeason: Schema.optionalKey(LegendLeagueTournamentSeasonResult),
 }).annotate({
   identifier: 'PlayerLegendStatistics',
 });
@@ -856,81 +761,52 @@ export const Player = WireStruct({
   achievements: Schema.optionalKey(Schema.Array(PlayerAchievementProgress)),
   attackWins: Schema.Number.check(Schema.isInt()),
   bestBuilderBaseTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
+    Schema.Number.check(Schema.isInt()),
   ),
   bestTrophies: Schema.Number.check(Schema.isInt()),
-  builderBaseLeague: Schema.optionalKey(
-    Schema.Union([BuilderBaseLeague, Schema.Null]),
-  ),
-  builderBaseTrophies: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  builderHallLevel: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  clan: Schema.optionalKey(Schema.Union([PlayerClan, Schema.Null])),
+  builderBaseLeague: Schema.optionalKey(BuilderBaseLeague),
+  builderBaseTrophies: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  builderHallLevel: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  clan: Schema.optionalKey(PlayerClan),
   clanCapitalContributions: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
+    Schema.Number.check(Schema.isInt()),
   ),
-  currentLeagueGroupTag: Schema.optionalKey(
-    Schema.Union([Schema.String, Schema.Null]),
-  ),
+  currentLeagueGroupTag: Schema.optionalKey(Schema.String),
   currentLeagueSeasonId: Schema.optionalKey(
-    Schema.Union([
-      Schema.Number.check(Schema.isInt()).annotate({ format: 'int64' }),
-      Schema.Null,
-    ]),
+    Schema.Number.check(Schema.isInt()).annotate({ format: 'int64' }),
   ),
   defenseWins: Schema.Number.check(Schema.isInt()),
-  donations: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  donationsReceived: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  donations: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  donationsReceived: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   expLevel: Schema.Number.check(Schema.isInt()),
   heroEquipment: Schema.optionalKey(Schema.Array(PlayerItemLevel)),
   heroes: Schema.optionalKey(Schema.Array(PlayerItemLevel)),
   labels: Schema.optionalKey(Schema.Array(Label)),
-  league: Schema.optionalKey(Schema.Union([League, Schema.Null])),
-  leagueTier: Schema.optionalKey(Schema.Union([LeagueTier, Schema.Null])),
-  legendStatistics: Schema.optionalKey(
-    Schema.Union([PlayerLegendStatistics, Schema.Null]),
-  ),
+  league: Schema.optionalKey(League),
+  leagueTier: Schema.optionalKey(LeagueTier),
+  legendStatistics: Schema.optionalKey(PlayerLegendStatistics),
   name: Schema.String,
-  playerHouse: Schema.optionalKey(Schema.Union([PlayerHouse, Schema.Null])),
-  previousLeagueGroupTag: Schema.optionalKey(
-    Schema.Union([Schema.String, Schema.Null]),
-  ),
+  playerHouse: Schema.optionalKey(PlayerHouse),
+  previousLeagueGroupTag: Schema.optionalKey(Schema.String),
   previousLeagueSeasonId: Schema.optionalKey(
-    Schema.Union([
-      Schema.Number.check(Schema.isInt()).annotate({ format: 'int64' }),
-      Schema.Null,
-    ]),
+    Schema.Number.check(Schema.isInt()).annotate({ format: 'int64' }),
   ),
-  role: Schema.optionalKey(Schema.Union([ClanRole, Schema.Null])),
+  role: Schema.optionalKey(ClanRole),
   spells: Schema.optionalKey(Schema.Array(PlayerItemLevel)),
   tag: Schema.String,
   townHallLevel: Schema.Number.check(Schema.isInt()),
-  townHallWeaponLevel: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  townHallWeaponLevel: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   troops: Schema.optionalKey(Schema.Array(PlayerItemLevel)),
   trophies: Schema.Number.check(Schema.isInt()),
-  warPreference: Schema.optionalKey(Schema.Union([WarPreference, Schema.Null])),
+  warPreference: Schema.optionalKey(WarPreference),
   warStars: Schema.Number.check(Schema.isInt()),
 }).annotate({
   identifier: 'Player',
 });
 export const PlayerBuilderBaseRanking = WireStruct({
-  // Older ranking fixtures retain these pre-Builder Base field names.
-  versusTrophies: Schema.optionalKey(Schema.Union([Schema.Int, Schema.Null])),
-  versusBattleWins: Schema.optionalKey(Schema.Union([Schema.Int, Schema.Null])),
-  builderBaseLeague: Schema.optionalKey(
-    Schema.Union([BuilderBaseLeague, Schema.Null]),
-  ),
+  builderBaseLeague: Schema.optionalKey(BuilderBaseLeague),
   builderBaseTrophies: Schema.Number.check(Schema.isInt()),
-  clan: Schema.optionalKey(Schema.Union([ClanReference, Schema.Null])),
+  clan: Schema.optionalKey(ClanReference),
   expLevel: Schema.Number.check(Schema.isInt()),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),
@@ -941,21 +817,17 @@ export const PlayerBuilderBaseRanking = WireStruct({
 });
 export const PlayerBuilderBaseRankingListResponse = WireStruct({
   items: Schema.Array(PlayerBuilderBaseRanking),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'PlayerBuilderBaseRankingListResponse',
 });
 export const PlayerRanking = WireStruct({
-  attackWins: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  clan: Schema.optionalKey(Schema.Union([ClanReference, Schema.Null])),
-  defenseWins: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  attackWins: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  clan: Schema.optionalKey(ClanReference),
+  defenseWins: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   expLevel: Schema.Number.check(Schema.isInt()),
-  league: Schema.optionalKey(Schema.Union([League, Schema.Null])),
-  leagueTier: Schema.optionalKey(Schema.Union([LeagueTier, Schema.Null])),
+  league: Schema.optionalKey(League),
+  leagueTier: Schema.optionalKey(LeagueTier),
   name: Schema.String,
   previousRank: Schema.Number.check(Schema.isInt()),
   rank: Schema.Number.check(Schema.isInt()),
@@ -966,25 +838,17 @@ export const PlayerRanking = WireStruct({
 });
 export const PlayerRankingListResponse = WireStruct({
   items: Schema.Array(PlayerRanking),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'PlayerRankingListResponse',
 });
 export const PlayerSeasonRanking = WireStruct({
-  attackWins: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
-  clan: Schema.optionalKey(Schema.Union([ClanReference, Schema.Null])),
-  defenseWins: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
+  attackWins: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
+  clan: Schema.optionalKey(ClanReference),
+  defenseWins: Schema.optionalKey(Schema.Number.check(Schema.isInt())),
   expLevel: Schema.Number.check(Schema.isInt()),
-  league: Schema.optionalKey(Schema.Union([League, Schema.Null])),
-  leagueTier: Schema.optionalKey(Schema.Union([LeagueTier, Schema.Null])),
+  leagueTier: Schema.optionalKey(LeagueTier),
   name: Schema.String,
-  previousRank: Schema.optionalKey(
-    Schema.Union([Schema.Number.check(Schema.isInt()), Schema.Null]),
-  ),
   rank: Schema.Number.check(Schema.isInt()),
   tag: Schema.String,
   trophies: Schema.Number.check(Schema.isInt()),
@@ -993,7 +857,7 @@ export const PlayerSeasonRanking = WireStruct({
 });
 export const PlayerSeasonRankingListResponse = WireStruct({
   items: Schema.Array(PlayerSeasonRanking),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'PlayerSeasonRankingListResponse',
 });
@@ -1011,7 +875,7 @@ export const VerifyTokenResponse = WireStruct({
 });
 export const WarLeagueListResponse = WireStruct({
   items: Schema.Array(WarLeague),
-  paging: Schema.optionalKey(Schema.Union([Paging, Schema.Null])),
+  paging: Schema.optionalKey(Paging),
 }).annotate({
   identifier: 'WarLeagueListResponse',
 });
