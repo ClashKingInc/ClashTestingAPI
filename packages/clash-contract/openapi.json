@@ -16,6 +16,13 @@
           "battleModifier": {
             "anyOf": [
               {
+                "enum": [
+                  "none",
+                  "hardMode",
+                  "minusOne",
+                  "minusTwo",
+                  "minusThree"
+                ],
                 "type": "string"
               },
               {
@@ -128,6 +135,12 @@
             },
             "type": "array"
           },
+          "battleTime": {
+            "type": "integer"
+          },
+          "battleTimestamp": {
+            "type": "string"
+          },
           "battleType": {
             "enum": [
               "ranked",
@@ -151,8 +164,14 @@
             },
             "type": "array"
           },
+          "opponentName": {
+            "type": "string"
+          },
           "opponentPlayerTag": {
             "type": "string"
+          },
+          "opponentTownHallLevel": {
+            "type": "integer"
           },
           "stars": {
             "type": "integer"
@@ -160,9 +179,13 @@
         },
         "required": [
           "attack",
+          "battleTime",
+          "battleTimestamp",
           "battleType",
           "destructionPercentage",
+          "opponentName",
           "opponentPlayerTag",
+          "opponentTownHallLevel",
           "stars"
         ],
         "type": "object"
@@ -426,6 +449,16 @@
             "anyOf": [
               {
                 "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
+          "requiredLeagueTier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LeagueTier"
               },
               {
                 "type": "null"
@@ -742,6 +775,10 @@
             "type": "string"
           },
           "state": {
+            "enum": [
+              "ongoing",
+              "ended"
+            ],
             "type": "string"
           },
           "totalAttacks": {
@@ -972,6 +1009,16 @@
           "clanLevel": {
             "type": "integer"
           },
+          "clanPoints": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "location": {
             "anyOf": [
               {
@@ -1038,7 +1085,7 @@
           "builderBaseLeague": {
             "anyOf": [
               {
-                "$ref": "#/components/schemas/League"
+                "$ref": "#/components/schemas/BuilderBaseLeague"
               },
               {
                 "type": "null"
@@ -1077,6 +1124,16 @@
               }
             ]
           },
+          "leagueTier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LeagueTier"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "name": {
             "type": "string"
           },
@@ -1094,6 +1151,12 @@
             "type": "integer"
           },
           "role": {
+            "enum": [
+              "member",
+              "admin",
+              "coLeader",
+              "leader"
+            ],
             "type": "string"
           },
           "tag": {
@@ -1388,6 +1451,16 @@
               }
             ]
           },
+          "requiredLeagueTier": {
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LeagueTier"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "requiredTownhallLevel": {
             "anyOf": [
               {
@@ -1537,6 +1610,26 @@
         "anyOf": [
           {
             "properties": {
+              "clan": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/WarClan"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
+              "opponent": {
+                "anyOf": [
+                  {
+                    "$ref": "#/components/schemas/WarClan"
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              },
               "state": {
                 "enum": [
                   "notInWar"
@@ -1670,6 +1763,12 @@
             ]
           },
           "state": {
+            "enum": [
+              "notInWar",
+              "preparation",
+              "inWar",
+              "ended"
+            ],
             "type": "string"
           },
           "tag": {
@@ -1714,6 +1813,13 @@
           "battleModifier": {
             "anyOf": [
               {
+                "enum": [
+                  "none",
+                  "hardMode",
+                  "minusOne",
+                  "minusTwo",
+                  "minusThree"
+                ],
                 "type": "string"
               },
               {
@@ -1733,6 +1839,11 @@
           "result": {
             "anyOf": [
               {
+                "enum": [
+                  "win",
+                  "lose",
+                  "tie"
+                ],
                 "type": "string"
               },
               {
@@ -2237,6 +2348,7 @@
           "leagueSeasonId": {
             "anyOf": [
               {
+                "format": "int64",
                 "type": "integer"
               },
               {
@@ -2452,7 +2564,14 @@
             "type": "integer"
           },
           "builderBaseLeague": {
-            "$ref": "#/components/schemas/BuilderBaseLeague"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BuilderBaseLeague"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "builderBaseTrophies": {
             "anyOf": [
@@ -2507,6 +2626,7 @@
           "currentLeagueSeasonId": {
             "anyOf": [
               {
+                "format": "int64",
                 "type": "integer"
               },
               {
@@ -2569,7 +2689,14 @@
             ]
           },
           "leagueTier": {
-            "$ref": "#/components/schemas/LeagueTier"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/LeagueTier"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "legendStatistics": {
             "anyOf": [
@@ -2607,6 +2734,7 @@
           "previousLeagueSeasonId": {
             "anyOf": [
               {
+                "format": "int64",
                 "type": "integer"
               },
               {
@@ -2617,6 +2745,12 @@
           "role": {
             "anyOf": [
               {
+                "enum": [
+                  "member",
+                  "admin",
+                  "coLeader",
+                  "leader"
+                ],
                 "type": "string"
               },
               {
@@ -2636,6 +2770,16 @@
           "townHallLevel": {
             "type": "integer"
           },
+          "townHallWeaponLevel": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ]
+          },
           "troops": {
             "items": {
               "$ref": "#/components/schemas/PlayerItemLevel"
@@ -2648,6 +2792,10 @@
           "warPreference": {
             "anyOf": [
               {
+                "enum": [
+                  "in",
+                  "out"
+                ],
                 "type": "string"
               },
               {
@@ -2707,6 +2855,11 @@
             "type": "integer"
           },
           "village": {
+            "enum": [
+              "home",
+              "builderBase",
+              "clanCapital"
+            ],
             "type": "string"
           }
         },
@@ -2722,7 +2875,14 @@
       "PlayerBuilderBaseRanking": {
         "properties": {
           "builderBaseLeague": {
-            "$ref": "#/components/schemas/BuilderBaseLeague"
+            "anyOf": [
+              {
+                "$ref": "#/components/schemas/BuilderBaseLeague"
+              },
+              {
+                "type": "null"
+              }
+            ]
           },
           "builderBaseTrophies": {
             "type": "integer"
@@ -2859,6 +3019,12 @@
             "type": "integer"
           },
           "type": {
+            "enum": [
+              "ground",
+              "walls",
+              "roof",
+              "decoration"
+            ],
             "type": "string"
           }
         },
@@ -2903,6 +3069,11 @@
             ]
           },
           "village": {
+            "enum": [
+              "home",
+              "builderBase",
+              "clanCapital"
+            ],
             "type": "string"
           }
         },
@@ -3198,6 +3369,7 @@
       "Resource": {
         "properties": {
           "amount": {
+            "format": "int64",
             "type": "integer"
           },
           "name": {
@@ -3213,6 +3385,9 @@
       "VerifyTokenRequest": {
         "properties": {
           "token": {
+            "examples": [
+              "TOKEN"
+            ],
             "type": "string"
           }
         },
@@ -3224,6 +3399,10 @@
       "VerifyTokenResponse": {
         "properties": {
           "status": {
+            "enum": [
+              "ok",
+              "invalid"
+            ],
             "type": "string"
           },
           "tag": {
@@ -3386,6 +3565,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -3395,6 +3575,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -3403,6 +3584,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -3522,9 +3704,9 @@
             "name": "leagueId",
             "required": true,
             "schema": {
-              "description": "Identifier of the league.",
+              "description": "Identifier of the Builder Base league.",
               "examples": [
-                "29000022"
+                "44000041"
               ],
               "type": "string"
             }
@@ -3645,6 +3827,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -3654,6 +3837,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -3662,6 +3846,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -3781,9 +3966,9 @@
             "name": "leagueId",
             "required": true,
             "schema": {
-              "description": "Identifier of the league.",
+              "description": "Identifier of the Clan Capital league.",
               "examples": [
-                "29000022"
+                "85000022"
               ],
               "type": "string"
             }
@@ -3904,6 +4089,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -3913,6 +4099,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -3921,6 +4108,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           },
@@ -3929,6 +4117,7 @@
             "name": "name",
             "required": false,
             "schema": {
+              "description": "Search clans by name (at least 3 characters on the live Supercell API).",
               "type": "string"
             }
           },
@@ -3937,6 +4126,16 @@
             "name": "warFrequency",
             "required": false,
             "schema": {
+              "description": "Filter by clan war frequency.",
+              "enum": [
+                "unknown",
+                "always",
+                "moreThanOncePerWeek",
+                "oncePerWeek",
+                "lessThanOncePerWeek",
+                "never",
+                "any"
+              ],
               "type": "string"
             }
           },
@@ -3945,6 +4144,7 @@
             "name": "locationId",
             "required": false,
             "schema": {
+              "description": "Filter by clan location identifier.",
               "type": "integer"
             }
           },
@@ -3953,6 +4153,7 @@
             "name": "minMembers",
             "required": false,
             "schema": {
+              "description": "Filter by minimum number of clan members.",
               "type": "integer"
             }
           },
@@ -3961,6 +4162,7 @@
             "name": "maxMembers",
             "required": false,
             "schema": {
+              "description": "Filter by maximum number of clan members.",
               "type": "integer"
             }
           },
@@ -3969,6 +4171,7 @@
             "name": "minClanPoints",
             "required": false,
             "schema": {
+              "description": "Filter by minimum clan points.",
               "type": "integer"
             }
           },
@@ -3977,6 +4180,7 @@
             "name": "minClanLevel",
             "required": false,
             "schema": {
+              "description": "Filter by minimum clan level.",
               "type": "integer"
             }
           },
@@ -3985,6 +4189,7 @@
             "name": "labelIds",
             "required": false,
             "schema": {
+              "description": "Comma-separated list of label IDs to filter by.",
               "type": "string"
             }
           }
@@ -4239,6 +4444,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -4248,6 +4454,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -4256,6 +4463,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -4633,6 +4841,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -4642,6 +4851,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -4650,6 +4860,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -4781,6 +4992,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -4790,6 +5002,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -4798,6 +5011,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5150,6 +5364,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -5159,6 +5374,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5167,6 +5383,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5286,6 +5503,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -5295,6 +5513,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5303,6 +5522,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5424,7 +5644,7 @@
             "schema": {
               "description": "Tag of the ranked league group.",
               "examples": [
-                "#2PP"
+                "#2YYCYCC"
               ],
               "type": "string"
             }
@@ -5436,7 +5656,7 @@
             "schema": {
               "description": "Identifier of the ranked league season.",
               "examples": [
-                "1"
+                "1773032400"
               ],
               "type": "string"
             }
@@ -5581,6 +5801,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -5590,6 +5811,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5598,6 +5820,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5729,9 +5952,9 @@
             "name": "seasonId",
             "required": true,
             "schema": {
-              "description": "Identifier of the season (YYYY-MM).",
+              "description": "Identifier of the season (YYYY-MM, YYYY-MM-DD, or v2-YYYY-MM-DDTHH:MM:SSZ).",
               "examples": [
-                "2025-10"
+                "2026-02-23"
               ],
               "type": "string"
             }
@@ -5741,6 +5964,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -5750,6 +5974,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5758,6 +5983,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -5877,6 +6103,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -5886,6 +6113,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -5894,6 +6122,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6136,6 +6365,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -6145,6 +6375,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -6153,6 +6384,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6395,9 +6627,9 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
               "examples": [
-                "32000249"
+                "global"
               ],
               "type": "string"
             }
@@ -6407,6 +6639,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -6416,6 +6649,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -6424,6 +6658,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6543,9 +6778,9 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
               "examples": [
-                "32000249"
+                "global"
               ],
               "type": "string"
             }
@@ -6555,6 +6790,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -6564,6 +6800,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -6572,6 +6809,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6691,9 +6929,9 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
               "examples": [
-                "32000249"
+                "global"
               ],
               "type": "string"
             }
@@ -6703,6 +6941,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -6712,6 +6951,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -6720,6 +6960,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6839,9 +7080,9 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
               "examples": [
-                "32000249"
+                "global"
               ],
               "type": "string"
             }
@@ -6851,6 +7092,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -6860,6 +7102,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -6868,6 +7111,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -6987,9 +7231,9 @@
             "name": "locationId",
             "required": true,
             "schema": {
-              "description": "Identifier of the location.",
+              "description": "Identifier of the location. Use \"global\" for worldwide rankings.",
               "examples": [
-                "32000249"
+                "global"
               ],
               "type": "string"
             }
@@ -6999,6 +7243,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -7008,6 +7253,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -7016,6 +7262,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -7644,6 +7891,7 @@
             "name": "limit",
             "required": false,
             "schema": {
+              "description": "Limit the number of items returned in the response.",
               "minimum": 1,
               "type": "integer"
             }
@@ -7653,6 +7901,7 @@
             "name": "after",
             "required": false,
             "schema": {
+              "description": "Return only items that occur after this marker. Cannot be used together with before.",
               "type": "string"
             }
           },
@@ -7661,6 +7910,7 @@
             "name": "before",
             "required": false,
             "schema": {
+              "description": "Return only items that occur before this marker. Cannot be used together with after.",
               "type": "string"
             }
           }
@@ -7780,9 +8030,9 @@
             "name": "leagueId",
             "required": true,
             "schema": {
-              "description": "Identifier of the league.",
+              "description": "Identifier of the Clan War League.",
               "examples": [
-                "29000022"
+                "48000018"
               ],
               "type": "string"
             }

@@ -54,6 +54,7 @@ const invalidNestedLevel: string = item.equipment?.[0]?.equipment?.[0]?.level;
 type SearchQuery = NonNullable<paths['/clans']['get']['parameters']['query']>;
 const searchQuery: SearchQuery = {
   limit: 1,
+  warFrequency: 'always',
   minMembers: 10,
   maxMembers: 50,
   locationId: 32000249,
@@ -62,3 +63,52 @@ const searchQuery: SearchQuery = {
 };
 // @ts-expect-error Numeric query parameters must be numbers in generated clients.
 const invalidQuery: SearchQuery = { limit: '1' };
+// @ts-expect-error Enum query parameters must reject Supercell Swagger ALL_CAPS values.
+const invalidWarFrequency: SearchQuery = { warFrequency: 'ALWAYS' };
+
+const houseElement = Schema.decodeUnknownSync(Wire.PlayerHouseElement)({
+  id: 82000000,
+  type: 'walls',
+});
+const houseElementType: 'ground' | 'walls' | 'roof' | 'decoration' =
+  houseElement.type;
+// @ts-expect-error Wire enum uses "walls", not Supercell Swagger's "FOOT".
+const invalidHouseElementType: typeof houseElement.type = 'FOOT';
+
+type PlayerWire = typeof Wire.Player.Type;
+const weaponLevel: number | null | undefined = ({} as PlayerWire)
+  .townHallWeaponLevel;
+const playerRole:
+  | 'member'
+  | 'admin'
+  | 'coLeader'
+  | 'leader'
+  | null
+  | undefined = ({} as PlayerWire).role;
+const warPref: 'in' | 'out' | null | undefined = ({} as PlayerWire)
+  .warPreference;
+type ClanMemberWire = typeof Wire.ClanMember.Type;
+const memberLeagueTier: typeof Wire.LeagueTier.Type | null | undefined = (
+  {} as ClanMemberWire
+).leagueTier;
+const requiredTier: typeof Wire.LeagueTier.Type | null | undefined = (
+  {} as typeof Wire.Clan.Type
+).requiredLeagueTier;
+const battleEntry = {} as typeof Wire.BattleLogEntry.Type;
+const battleTs: string = battleEntry.battleTimestamp;
+const battleTime: number = battleEntry.battleTime;
+const opponentName: string = battleEntry.opponentName;
+const opponentTownHallLevel: number = battleEntry.opponentTownHallLevel;
+void [
+  searchQuery,
+  houseElementType,
+  weaponLevel,
+  playerRole,
+  warPref,
+  memberLeagueTier,
+  requiredTier,
+  battleTs,
+  battleTime,
+  opponentName,
+  opponentTownHallLevel,
+];
