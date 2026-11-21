@@ -44,17 +44,31 @@ type EveryService = {
 }[keyof typeof Wire];
 type AllServicesAreNever = Assert<IsNever<EveryService>>;
 const item = Schema.decodeUnknownSync(Wire.PlayerItemLevel)({
-  name: 'a',
-  level: 1,
-  maxLevel: 2,
+  name: 'Giant Gauntlet',
+  level: 27,
+  maxLevel: 27,
   village: 'home',
 });
-const nestedLevel: number | undefined =
-  item.equipment?.[0]?.equipment?.[0]?.level;
-// @ts-expect-error Recursive declaration emit must not widen nested items to any.
-const invalidNestedLevel: string = item.equipment?.[0]?.equipment?.[0]?.level;
+const hero = Schema.decodeUnknownSync(Wire.PlayerHero)({
+  name: 'Barbarian King',
+  level: 100,
+  maxLevel: 100,
+  village: 'home',
+  equipment: [item],
+});
+const equippedLevel: number | undefined = hero.equipment?.[0]?.level;
+// @ts-expect-error Hero equipment items are flat PlayerItemLevel (non-recursive).
+const nestedEquipment = hero.equipment?.[0]?.equipment;
 // @ts-expect-error PlayerItemLevel.village is home | builderBase only (not clanCapital).
 const invalidItemVillage: typeof item.village = 'clanCapital';
+const troop = Schema.decodeUnknownSync(Wire.PlayerTroop)({
+  name: 'Super Goblin',
+  level: 9,
+  maxLevel: 9,
+  village: 'home',
+  superTroopIsActive: true,
+});
+const superActive: boolean | undefined = troop.superTroopIsActive;
 
 type SearchQuery = NonNullable<paths['/clans']['get']['parameters']['query']>;
 const searchQuery: SearchQuery = {
@@ -135,7 +149,9 @@ void [
   playerEnvelope,
   allWireSchemas,
   groupContract,
-  nestedLevel,
+  equippedLevel,
+  nestedEquipment,
+  superActive,
   searchQuery,
   houseElementType,
   weaponLevel,

@@ -2109,7 +2109,7 @@
           },
           "heroes": {
             "items": {
-              "$ref": "#/components/schemas/PlayerItemLevel"
+              "$ref": "#/components/schemas/PlayerHero"
             },
             "type": "array"
           },
@@ -2172,7 +2172,7 @@
           },
           "troops": {
             "items": {
-              "$ref": "#/components/schemas/PlayerItemLevel"
+              "$ref": "#/components/schemas/PlayerTroop"
             },
             "type": "array"
           },
@@ -2350,6 +2350,40 @@
         ],
         "type": "object"
       },
+      "PlayerHero": {
+        "properties": {
+          "equipment": {
+            "description": "Equipped hero equipment. Present only on Home Village heroes.",
+            "items": {
+              "$ref": "#/components/schemas/PlayerItemLevel"
+            },
+            "type": "array"
+          },
+          "level": {
+            "type": "integer"
+          },
+          "maxLevel": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "village": {
+            "enum": [
+              "home",
+              "builderBase"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "level",
+          "maxLevel",
+          "name",
+          "village"
+        ],
+        "type": "object"
+      },
       "PlayerHouse": {
         "properties": {
           "elements": {
@@ -2388,13 +2422,6 @@
       },
       "PlayerItemLevel": {
         "properties": {
-          "equipment": {
-            "description": "Equipped hero equipment. Present only on Home Village heroes.",
-            "items": {
-              "$ref": "#/components/schemas/PlayerItemLevel"
-            },
-            "type": "array"
-          },
           "level": {
             "type": "integer"
           },
@@ -2403,10 +2430,6 @@
           },
           "name": {
             "type": "string"
-          },
-          "superTroopIsActive": {
-            "description": "Emitted only when true on currently active super troops.",
-            "type": "boolean"
           },
           "village": {
             "enum": [
@@ -2576,6 +2599,37 @@
         "required": [
           "items",
           "paging"
+        ],
+        "type": "object"
+      },
+      "PlayerTroop": {
+        "properties": {
+          "level": {
+            "type": "integer"
+          },
+          "maxLevel": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "superTroopIsActive": {
+            "description": "Emitted only when true on currently active super troops.",
+            "type": "boolean"
+          },
+          "village": {
+            "enum": [
+              "home",
+              "builderBase"
+            ],
+            "type": "string"
+          }
+        },
+        "required": [
+          "level",
+          "maxLevel",
+          "name",
+          "village"
         ],
         "type": "object"
       },

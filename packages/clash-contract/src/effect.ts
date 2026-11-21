@@ -11,14 +11,6 @@ function WireStruct<const Fields extends Schema.Struct.Fields>(fields: Fields) {
     ]).ast,
   );
 }
-export interface PlayerItemLevelWire {
-  readonly name: string;
-  readonly level: number;
-  readonly maxLevel: number;
-  readonly village: 'home' | 'builderBase';
-  readonly superTroopIsActive?: boolean;
-  readonly equipment?: readonly PlayerItemLevelWire[];
-}
 
 const Int = Schema.Number.check(Schema.isInt());
 const Int64 = Int.annotate({ format: 'int64' });
@@ -921,21 +913,28 @@ export const PlayerClan = WireStruct({
   identifier: 'PlayerClan',
 });
 export const PlayerItemLevel = WireStruct({
+  level: Int,
+  maxLevel: Int,
+  name: Schema.String,
+  village: ItemVillageType,
+}).annotate({
+  identifier: 'PlayerItemLevel',
+});
+export const PlayerHero = WireStruct({
   equipment: Schema.optionalKey(
-    Schema.Array(
-      Schema.suspend(
-        (): Schema.Codec<
-          PlayerItemLevelWire,
-          PlayerItemLevelWire,
-          never,
-          never
-        > => PlayerItemLevel,
-      ),
-    ).annotate({
+    Schema.Array(PlayerItemLevel).annotate({
       description:
         'Equipped hero equipment. Present only on Home Village heroes.',
     }),
   ),
+  level: Int,
+  maxLevel: Int,
+  name: Schema.String,
+  village: ItemVillageType,
+}).annotate({
+  identifier: 'PlayerHero',
+});
+export const PlayerTroop = WireStruct({
   level: Int,
   maxLevel: Int,
   name: Schema.String,
@@ -946,7 +945,7 @@ export const PlayerItemLevel = WireStruct({
   ),
   village: ItemVillageType,
 }).annotate({
-  identifier: 'PlayerItemLevel',
+  identifier: 'PlayerTroop',
 });
 export const PlayerLegendStatistics = WireStruct({
   bestBuilderBaseSeason: Schema.optionalKey(LegendLeagueTournamentSeasonResult),
@@ -994,7 +993,7 @@ export const Player = WireStruct({
   donationsReceived: Int,
   expLevel: Int,
   heroEquipment: Schema.Array(PlayerItemLevel),
-  heroes: Schema.Array(PlayerItemLevel),
+  heroes: Schema.Array(PlayerHero),
   labels: Schema.Array(Label),
   league: Schema.optionalKey(
     League.annotate({
@@ -1026,7 +1025,7 @@ export const Player = WireStruct({
         'Town Hall weapon level. Present for TH12-TH17; omitted for TH1-TH11 and TH18+.',
     }),
   ),
-  troops: Schema.Array(PlayerItemLevel),
+  troops: Schema.Array(PlayerTroop),
   trophies: Int,
   warPreference: Schema.optionalKey(
     WarPreference.annotate({

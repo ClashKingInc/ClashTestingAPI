@@ -1062,7 +1062,7 @@ export interface components {
             donationsReceived: number;
             expLevel: number;
             heroEquipment: components["schemas"]["PlayerItemLevel"][];
-            heroes: components["schemas"]["PlayerItemLevel"][];
+            heroes: components["schemas"]["PlayerHero"][];
             labels: components["schemas"]["Label"][];
             /** @description Legacy pre-2025 league object. Usually omitted; prefer leagueTier. */
             league?: components["schemas"]["League"];
@@ -1087,7 +1087,7 @@ export interface components {
             townHallLevel: number;
             /** @description Town Hall weapon level. Present for TH12-TH17; omitted for TH1-TH11 and TH18+. */
             townHallWeaponLevel?: number;
-            troops: components["schemas"]["PlayerItemLevel"][];
+            troops: components["schemas"]["PlayerTroop"][];
             trophies: number;
             /**
              * @description Omitted when the player is not in a clan.
@@ -1096,14 +1096,19 @@ export interface components {
             warPreference?: "in" | "out";
             warStars: number;
         };
-        PlayerItemLevel: {
-            /** @description Equipped hero equipment. Present only on Home Village heroes. */
-            equipment?: components["schemas"]["PlayerItemLevel"][];
+        PlayerTroop: {
             level: number;
             maxLevel: number;
             name: string;
             /** @description Emitted only when true on currently active super troops. */
             superTroopIsActive?: boolean;
+            /** @enum {string} */
+            village: "home" | "builderBase";
+        };
+        PlayerItemLevel: {
+            level: number;
+            maxLevel: number;
+            name: string;
             /** @enum {string} */
             village: "home" | "builderBase";
         };
@@ -1131,6 +1136,15 @@ export interface components {
             /** @description Season rank. Omitted on currentSeason when unranked. */
             rank?: number;
             trophies: number;
+        };
+        PlayerHero: {
+            /** @description Equipped hero equipment. Present only on Home Village heroes. */
+            equipment?: components["schemas"]["PlayerItemLevel"][];
+            level: number;
+            maxLevel: number;
+            name: string;
+            /** @enum {string} */
+            village: "home" | "builderBase";
         };
         /** @description Omitted when the player is not in a clan. */
         PlayerClan: {
