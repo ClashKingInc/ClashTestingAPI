@@ -14,6 +14,21 @@ export const ClansLive = HttpApiBuilder.group(Api, 'clans', (handlers) =>
     .handle('search', ({ query }) =>
       run(() => {
         if (
+          query.name === undefined &&
+          query.warFrequency === undefined &&
+          query.locationId === undefined &&
+          query.minMembers === undefined &&
+          query.maxMembers === undefined &&
+          query.minClanPoints === undefined &&
+          query.minClanLevel === undefined &&
+          query.labelIds === undefined
+        )
+          fail(
+            400,
+            'badRequest',
+            'At least one filtering parameter must exist.',
+          );
+        if (
           query.minMembers !== undefined &&
           query.maxMembers !== undefined &&
           query.minMembers > query.maxMembers

@@ -3,31 +3,47 @@ import { HttpApiSchema } from 'effect/http-api';
 import * as Wire from './effect.js';
 import { ClashErrorStatuses } from './outcomes.js';
 
+const PagingCursors = {
+  after: Schema.optionalKey(
+    Schema.String.annotate({
+      description:
+        'Opaque cursor from paging.cursors.after for the next page. Cannot be used together with before.',
+    }),
+  ),
+  before: Schema.optionalKey(
+    Schema.String.annotate({
+      description:
+        'Opaque cursor from paging.cursors.before for the previous page. Cannot be used together with after.',
+    }),
+  ),
+};
+
 export const Paging = {
   limit: Schema.optionalKey(
     Schema.Int.check(Schema.isGreaterThanOrEqualTo(1)).annotate({
       description: 'Limit the number of items returned in the response.',
     }),
   ),
-  after: Schema.optionalKey(
-    Schema.String.annotate({
-      description:
-        'Return only items that occur after this marker. Cannot be used together with before.',
-    }),
-  ),
-  before: Schema.optionalKey(
-    Schema.String.annotate({
-      description:
-        'Return only items that occur before this marker. Cannot be used together with after.',
-    }),
-  ),
+  ...PagingCursors,
 };
+
+export const SeasonPaging = {
+  limit: Schema.optionalKey(
+    Schema.Int.check(
+      Schema.isBetween({ minimum: 100, maximum: 25000 }),
+    ).annotate({
+      description:
+        'Limit the number of season rankings returned. Live Supercell API requires a value between 100 and 25,000.',
+    }),
+  ),
+  ...PagingCursors,
+};
+
 export const Search = {
   ...Paging,
   name: Schema.optionalKey(
-    Schema.String.annotate({
-      description:
-        'Search clans by name (at least 3 characters on the live Supercell API).',
+    Schema.String.check(Schema.isMinLength(3)).annotate({
+      description: 'Search clans by name (minimum 3 characters).',
     }),
   ),
   warFrequency: Schema.optionalKey(
@@ -40,7 +56,8 @@ export const Search = {
       'never',
       'any',
     ]).annotate({
-      description: 'Filter by clan war frequency.',
+      description:
+        'Filter by clan war frequency ("any" is query-only and is not returned in clan responses).',
     }),
   ),
   locationId: Schema.optionalKey(
@@ -49,31 +66,32 @@ export const Search = {
     }),
   ),
   minMembers: Schema.optionalKey(
-    Schema.Int.annotate({
-      description: 'Filter by minimum number of clan members.',
+    Schema.Int.check(Schema.isBetween({ minimum: 2, maximum: 50 })).annotate({
+      description: 'Filter by minimum number of clan members (2 to 50).',
     }),
   ),
   maxMembers: Schema.optionalKey(
-    Schema.Int.annotate({
-      description: 'Filter by maximum number of clan members.',
+    Schema.Int.check(Schema.isBetween({ minimum: 1, maximum: 50 })).annotate({
+      description: 'Filter by maximum number of clan members (1 to 50).',
     }),
   ),
   minClanPoints: Schema.optionalKey(
-    Schema.Int.annotate({
+    Schema.Int.check(Schema.isGreaterThanOrEqualTo(0)).annotate({
       description: 'Filter by minimum clan points.',
     }),
   ),
   minClanLevel: Schema.optionalKey(
-    Schema.Int.annotate({
+    Schema.Int.check(Schema.isGreaterThanOrEqualTo(1)).annotate({
       description: 'Filter by minimum clan level.',
     }),
   ),
   labelIds: Schema.optionalKey(
     Schema.String.annotate({
-      description: 'Comma-separated list of label IDs to filter by.',
+      description: 'Comma-separated list of clan label IDs to filter by.',
     }),
   ),
 };
+
 export const Headers = Schema.StructWithRest(
   Schema.Struct({ 'cache-control': Schema.optionalKey(Schema.String) }),
   [Schema.Record(Schema.String, Schema.Unknown)],

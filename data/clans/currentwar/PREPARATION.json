@@ -735,7 +735,8 @@
           "opponentAttacks": 0
         }
       ]
-    }
+    },
+    "battleModifier": "none"
   },
   "headers": {
     "cache-control": "max-age=120",
