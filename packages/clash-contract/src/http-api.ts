@@ -509,12 +509,6 @@ export const Goldpass = G.make('goldpass')
 const API_DESCRIPTION = [
   'Community-maintained Clash of Clans API wire specification and mock server (not affiliated with Supercell).',
   '',
-  '### Live API notes',
-  '- **Base URL:** `https://api.clashofclans.com/v1` (Bearer JWT bound to your IP via [developer.clashofclans.com](https://developer.clashofclans.com)).',
-  '- **Tags:** URL-encode `#` as `%23` in paths and queries (e.g. `%232PP`).',
-  '- **Wire enums & nullability:** Enums reflect exact JSON wire strings (`camelCase` / lowercase, e.g. `walls`, `decoration`, `admin`, `home`), not Supercell Swagger `ALL_CAPS_SNAKE_CASE` names. Only 5 fields in the API ever emit literal JSON `null`; all other optional fields are omitted when absent.',
-  '- **Timestamps:** Most endpoints return compact UTC `YYYYMMDDTHHmmss.SSSZ` (not RFC 3339). `LeagueBattleLogEntry.creationTime` is the sole exception using standard ISO-8601 (`2026-10-17T09:24:48Z`).',
-  '',
   '### Using the mock server (`mock.clashk.ing`)',
   '- **Deterministic variants:** Use `#2PP` for the primary fixture, `#2PPP` for the second variant, and add trailing `P`s for additional variants (see individual endpoint descriptions). Unsupported tags return `400`.',
   '- **Simulate HTTP failures:** Pass header `x-clash-mock-response` with `maintenance`, `unavailable`, `rateLimited`, `notFound`, `forbidden`, `privateWarLog`, `invalidIp`, `invalidRequest`, `internalError`, or `notImplemented` to force that failure response on any route.',
