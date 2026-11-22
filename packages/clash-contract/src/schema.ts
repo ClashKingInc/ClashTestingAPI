@@ -1178,6 +1178,7 @@ export interface components {
             bestSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"];
             currentSeason: components["schemas"]["LegendLeagueTournamentSeasonResult"];
             legendTrophies: number;
+            previousBuilderBaseSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"];
             previousSeason?: components["schemas"]["LegendLeagueTournamentSeasonResult"];
         };
         /** LegendLeagueTournamentSeasonResult */

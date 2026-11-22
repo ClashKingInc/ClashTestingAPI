@@ -952,6 +952,9 @@ export const PlayerLegendStatistics = WireStruct({
   bestSeason: Schema.optionalKey(LegendLeagueTournamentSeasonResult),
   currentSeason: LegendLeagueTournamentSeasonResult,
   legendTrophies: Int,
+  previousBuilderBaseSeason: Schema.optionalKey(
+    LegendLeagueTournamentSeasonResult,
+  ),
   previousSeason: Schema.optionalKey(LegendLeagueTournamentSeasonResult),
 }).annotate({
   identifier: 'PlayerLegendStatistics',

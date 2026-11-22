@@ -2536,6 +2536,9 @@
           "legendTrophies": {
             "type": "integer"
           },
+          "previousBuilderBaseSeason": {
+            "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
+          },
           "previousSeason": {
             "$ref": "#/components/schemas/LegendLeagueTournamentSeasonResult"
           }
